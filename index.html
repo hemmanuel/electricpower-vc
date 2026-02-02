@@ -38,10 +38,10 @@
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
             <div>
                 <div class="text-lg md:text-xl font-bold text-gray-900 tracking-tight leading-tight">
-                    University of Houston Experiential Learning Program - Mercury Fund
+                    University of Houston Experiential Learning Program - Mercury Fund Electric Power Market Exploration
                 </div>
                 <div class="text-xs md:text-sm text-gray-500 mt-1">
-                    Started with list of companies displaying booth at 2026 Distributech Conference. Used AI assistance to narrow down list of ~800 companies to eliminate mature, publically traded, and vc-incompatible firms.  
+                    Used AI assistance to narrow down list of ~800 companies displaying a booth at 2026 Distributech Conference, eliminating mature, publically traded, and vc-incompatible firms
                 </div>
             </div>
             
@@ -110,7 +110,7 @@
                     <div class="flex gap-4">
                         <div class="w-8 h-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
                         <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-gray-200 shadow-sm max-w-[85%] text-sm text-gray-800">
-                            Hello! I am your Venture Analyst. I am trained on this dataset and am ready to answer any question you may have regarding venture capital and the electric power industry. Ask Away!
+                            Hello! I am your Venture Analyst. I have studied the entire database of <span x-text="allCompanies.length"></span> companies.
                         </div>
                     </div>
 
@@ -257,7 +257,7 @@
                         <div class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative z-0 hover:z-10">
                             
                             <button @click.stop="toggleFav(company.name)" 
-                                    class="absolute top-3 right-3 p-2 rounded-full z-50 hover:bg-gray-100 transition-colors focus:outline-none bg-white/80 backdrop-blur-sm"
+                                    class="md:hidden absolute top-3 right-3 p-2 rounded-full z-50 hover:bg-gray-100 transition-colors focus:outline-none bg-white/80 backdrop-blur-sm"
                                     :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                             </button>
@@ -265,14 +265,23 @@
                             <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer relative z-10">
                                 <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
                                 <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
-                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1 pr-8" x-text="company.name"></div>
+                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1 pr-8 md:pr-0" x-text="company.name"></div>
                                     <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5"><span>📍 <span x-text="company.hq"></span></span><span>&bull;</span><span x-text="company.l3"></span></div>
                                     <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
                                 </div>
                                 
-                                <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:justify-center md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
-                                    <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
-                                    <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
+                                <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
+                                    
+                                    <button @click.stop="toggleFav(company.name)" 
+                                            class="hidden md:block p-1 rounded-full hover:bg-gray-100 transition-colors focus:outline-none mb-2"
+                                            :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                    </button>
+
+                                    <div class="flex flex-col items-end">
+                                        <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
+                                        <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -408,20 +417,14 @@
                 modalOpen: false,
                 selectedCompany: null,
                 favorites: Alpine.$persist([]).as('venture-favorites'),
-                
-                // Search State
                 searchQuery: '',
                 searchDeep: false,
-
-                // Chat State
                 userQuery: '',
                 isChatting: false,
                 chatError: '',
                 chatHistory: [],
                 mdParser: window.markdownit(),
-                
                 categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
-                
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
 
                 init() { this.loadData(); },
@@ -445,7 +448,6 @@
                     this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        // "Diet" data payload
                         const dietData = this.allCompanies.map(c => ({
                             n: c.name, s: c.score, h: c.hq, stage: c.stage,
                             d: (c.desc || "").substring(0, 150),
@@ -504,14 +506,12 @@
                 isFav(name) { return this.favorites.includes(name); },
                 clearFavorites() { if(confirm("Are you sure you want to clear all favorite companies?")) { this.favorites = []; this.filters.showFavoritesOnly = false; } },
                 
-                // BATCH CSV
                 downloadBatchCSV() {
                     const favs = this.allCompanies.filter(c => this.favorites.includes(c.name));
                     if (favs.length === 0) return alert("No favorites to export!");
                     this.generateCSV(favs, "venture_favorites_batch.csv");
                 },
 
-                // SINGLE CSV
                 downloadSingleCSV(company) {
                     if(!company) return;
                     this.generateCSV([company], `venture_profile_${company.name.replace(/\s+/g, '_').toLowerCase()}.csv`);
@@ -545,8 +545,6 @@
                 
                 get filteredCompanies() {
                     let res = this.allCompanies;
-                    
-                    // 1. Search Logic
                     if (this.searchQuery.trim()) {
                         const q = this.searchQuery.toLowerCase();
                         if (this.searchDeep) {
@@ -560,8 +558,6 @@
                             res = res.filter(c => c.name.toLowerCase().includes(q));
                         }
                     }
-
-                    // 2. Filters
                     if (this.selectedCategory) res = res.filter(c => c.l1 === this.selectedCategory);
                     if (this.filters.sector && !this.selectedCategory) res = res.filter(c => c.l1 === this.filters.sector);
                     if (this.filters.subCat && this.selectedCategory) res = res.filter(c => c.l3 === this.filters.subCat);
@@ -570,7 +566,6 @@
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
                     
-                    // 3. Sorting
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         if (sortKey === 'score') return b.score - a.score;
@@ -603,5 +598,3 @@
     </script>
 </body>
 </html>
-
-
