@@ -100,9 +100,7 @@
         </div>
 
         <div x-show="error" x-cloak class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative max-w-2xl mx-auto mt-10">
-            <strong class="font-bold">Error loading data:</strong>
-            <span class="block sm:inline" x-text="error"></span>
-            <p class="text-sm mt-2 text-red-600">Please ensure <code>companies_scored_v2.json</code> is in the same folder and you are running a local server (e.g., <code>python -m http.server</code>).</p>
+            <strong class="font-bold">Error loading data:</strong> <span x-text="error"></span>
         </div>
         
         <div x-show="!isLoading && !error">
@@ -113,14 +111,6 @@
                         <div class="w-8 h-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
                         <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-gray-200 shadow-sm max-w-[85%] text-sm text-gray-800">
                             Hello! I am your Venture Analyst. I have studied the entire database of <span x-text="allCompanies.length"></span> companies.
-                            <br><br>
-                            You can ask me things like:
-                            <ul class="list-disc ml-5 mt-2 space-y-1">
-                                <li>"Which companies have the strongest moats?"</li>
-                                <li>"List the top 5 companies by venture score."</li>
-                                <li>"Find companies working on Energy Storage."</li>
-                                <li>"Draft a memo for [Company Name]."</li>
-                            </ul>
                         </div>
                     </div>
 
@@ -137,31 +127,29 @@
                         </div>
                     </template>
 
-                    <div x-show="isChatting" class="flex gap-4">
+                    <div x-show="isChatting" class="flex gap-4 opacity-50">
                         <div class="w-8 h-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
-                        <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-gray-200 shadow-sm text-sm text-gray-500 italic">
-                            Thinking...
-                        </div>
+                        <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-gray-200 shadow-sm text-sm text-gray-500 italic">Thinking...</div>
                     </div>
-
-                    <div x-show="chatError" class="flex justify-center">
-                        <div class="bg-red-50 text-red-600 text-xs px-3 py-1 rounded-full border border-red-200" x-text="chatError"></div>
+                    <div x-show="chatError" class="text-center">
+                        <span class="bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full" x-text="chatError"></span>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <form @submit.prevent="sendMessage()">
+                <div>
+                    <form @submit.prevent="sendMessage()" class="flex gap-3">
                         <input type="text" x-model="userQuery" 
-                               class="w-full p-4 pr-16 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                               class="flex-1 p-4 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                                placeholder="Ask a question about the companies..." 
                                :disabled="isChatting">
+                        
                         <button type="submit" 
                                 :disabled="!userQuery.trim() || isChatting"
-                                class="absolute right-2 top-2 bottom-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white px-4 rounded-lg font-semibold transition-colors">
+                                class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 rounded-xl font-bold transition-colors shadow-sm flex-shrink-0 h-auto">
                             Send
                         </button>
                     </form>
-                    <div class="text-center mt-2 text-xs text-gray-400">
+                    <div class="text-center mt-3 text-xs text-gray-400">
                         Powered by <strong>Gemini 3 Flash Preview</strong>
                     </div>
                 </div>
@@ -249,52 +237,18 @@
                     <template x-for="company in filteredCompanies" :key="company.name">
                         <div class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative z-0 hover:z-10">
                             <button @click.stop="toggleFav(company.name)" 
-                                    class="absolute top-2 right-2 p-2 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    class="absolute top-2 right-2 p-2 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none"
                                     :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                             </button>
                             <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer">
-                                <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0"
-                                    :style="`background-color: ${getColor(company.name)}`"
-                                    x-text="getInitials(company.name)">
-                                </div>
+                                <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
                                 <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
                                     <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1" x-text="company.name"></div>
-                                    <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5">
-                                        <span>📍 <span x-text="company.hq"></span></span>
-                                        <span>&bull;</span>
-                                        <span x-text="company.l3"></span>
-                                    </div>
+                                    <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5"><span>📍 <span x-text="company.hq"></span></span><span>&bull;</span><span x-text="company.l3"></span></div>
                                     <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
                                 </div>
-                                <div class="flex-[2] grid grid-cols-2 md:grid-cols-4 gap-y-2 gap-x-4 w-full md:w-auto mb-4 md:mb-0">
-                                    <div class="flex flex-col">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Raised</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Total Raised']"></span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Stage</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Current Stage']"></span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Founded</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Year Founded']"></span>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Team</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Headcount']"></span>
-                                    </div>
-                                    <div class="flex flex-col col-span-2">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Investors</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Investors']" x-text="company.meta['Key Investors']"></span>
-                                    </div>
-                                    <div class="flex flex-col col-span-2">
-                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Customers</span>
-                                        <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Customers']" x-text="company.meta['Key Customers']"></span>
-                                    </div>
-                                </div>
                                 <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:justify-center md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
-                                    <span class="md:hidden text-xs font-bold text-gray-500 uppercase self-center">Venture Score</span>
                                     <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
                                     <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
                                 </div>
@@ -309,9 +263,7 @@
         </div>
     </main>
 
-    <div x-show="modalOpen" 
-         class="fixed inset-0 z-50 overflow-y-auto" 
-         aria-labelledby="modal-title" role="dialog" aria-modal="true" x-cloak>
+    <div x-show="modalOpen" class="fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true" x-cloak>
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" @click="closeModal()"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
             <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
@@ -423,210 +375,90 @@
                 allCompanies: [],
                 isLoading: true,
                 error: null,
-                view: 'list', // list, map, chat
+                view: 'list',
                 selectedCategory: null,
                 modalOpen: false,
                 selectedCompany: null,
-                
-                // Persisted Data
                 favorites: Alpine.$persist([]).as('venture-favorites'),
-                
-                // Chat State
                 userQuery: '',
                 isChatting: false,
                 chatError: '',
                 chatHistory: [],
                 mdParser: window.markdownit(),
+                categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
+                filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
 
-                categoriesList: [
-                    "Grid Infrastructure (Hardware)",
-                    "Grid Operations & Software (SaaS)",
-                    "Enterprise & Corporate Systems",
-                    "Field Operations & Services",
-                    "Distributed Energy (DERs) & Edge",
-                    "Generation & Storage",
-                    "Professional Services & Engineering",
-                    "Energy Markets & Trading",
-                    "Other"
-                ],
-
-                filters: {
-                    sector: '',
-                    subCat: '',
-                    stage: '',
-                    status: '',
-                    sortBy: 'score',
-                    aiFocus: false,
-                    showFavoritesOnly: false
-                },
-
-                init() {
-                    this.loadData();
-                },
+                init() { this.loadData(); },
 
                 loadData() {
                     this.isLoading = true;
-                    this.error = null;
-
-                    fetch('companies_scored_v2.json')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! Status: ${response.status}`);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            this.allCompanies = this.processData(data);
-                            this.isLoading = false;
-                        })
-                        .catch(err => {
-                            console.error("Error loading JSON:", err);
-                            this.error = err.message;
-                            this.isLoading = false;
-                        });
+                    fetch('companies_scored_v2.json').then(r => r.json()).then(d => {
+                        this.allCompanies = this.processData(d);
+                        this.isLoading = false;
+                    }).catch(e => { this.error = e.message; this.isLoading = false; });
                 },
 
-                // --- CHAT LOGIC (Using Netlify Function) ---
-                
                 async sendMessage() {
                     if (!this.userQuery.trim()) return;
-
                     const query = this.userQuery;
-                    this.userQuery = ''; // Clear Input
+                    this.userQuery = ''; 
                     this.chatError = '';
                     this.isChatting = true;
-
-                    // Add User Message
                     this.chatHistory.push({ role: 'user', content: query });
                     
-                    // Auto-scroll
-                    this.$nextTick(() => {
-                        const container = document.getElementById('chat-container');
-                        if(container) container.scrollTop = container.scrollHeight;
-                    });
+                    this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        // Prepare Payload
                         const contextData = this.allCompanies.map(c => ({
-                            name: c.name,
-                            desc: c.desc,
-                            hq: c.hq,
-                            score: c.score,
-                            stage: c.stage,
-                            raised: c.meta['Total Raised'],
-                            investors: c.meta['Key Investors'],
+                            name: c.name, desc: c.desc, score: c.score, 
                             moat: c.raw.vc_dossier?.moat_description,
-                            alignment: c.raw.rationale
+                            stage: c.stage, hq: c.hq
                         }));
 
-                        const prompt = `
-                            System: You are an expert Venture Capital Analyst. You have access to a dataset of startup companies.
-                            Use the provided JSON data to answer the user's question accurately and concisely.
-                            Format your response with Markdown (bolding, lists, tables) where appropriate.
-                            
-                            DATASET:
-                            ${JSON.stringify(contextData)}
-
-                            USER QUESTION:
-                            ${query}
-                        `;
-
-                        // CALL NETLIFY FUNCTION INSTEAD OF GOOGLE
                         const response = await fetch('/.netlify/functions/chat', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                prompt: prompt
-                            })
+                            body: JSON.stringify({ prompt: `System: Use this data: ${JSON.stringify(contextData)}. User: ${query}` })
                         });
 
+                        if (!response.ok) throw new Error(`Server Error: ${response.status}`);
+                        
                         const data = await response.json();
                         
-                        if (data.error) {
-                            throw new Error(data.error);
+                        if (!data.candidates || data.candidates.length === 0) {
+                            if (data.promptFeedback && data.promptFeedback.blockReason) {
+                                throw new Error(`Response blocked by safety filters (${data.promptFeedback.blockReason})`);
+                            }
+                            throw new Error("Empty response from AI");
                         }
 
-                        // Parse Gemini response structure
                         const reply = data.candidates[0].content.parts[0].text;
                         this.chatHistory.push({ role: 'ai', content: reply });
 
                     } catch (err) {
                         console.error(err);
-                        this.chatError = "Error communicating with AI Analyst.";
-                        this.chatHistory.push({ role: 'ai', content: "⚠️ Error: " + err.message });
+                        this.chatError = err.message || "Error communicating with AI.";
+                        this.chatHistory.push({ role: 'ai', content: "⚠️ " + this.chatError });
                     } finally {
                         this.isChatting = false;
-                        this.$nextTick(() => {
-                            const container = document.getElementById('chat-container');
-                            if(container) container.scrollTop = container.scrollHeight;
-                        });
+                        this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
                     }
                 },
 
-                renderMarkdown(text) {
-                    return this.mdParser.render(text);
-                },
-
-                // --- FAVORITES & CSV ---
-
-                toggleFav(name) {
-                    if (this.favorites.includes(name)) {
-                        this.favorites = this.favorites.filter(f => f !== name);
-                    } else {
-                        this.favorites.push(name);
-                    }
-                },
-
-                isFav(name) {
-                    return this.favorites.includes(name);
-                },
-
-                clearFavorites() {
-                    if(confirm("Are you sure you want to clear all favorite companies?")) {
-                        this.favorites = [];
-                        this.filters.showFavoritesOnly = false;
-                    }
-                },
-
+                // ... (Rest of logic: renderMarkdown, toggleFav, isFav, clearFavorites, downloadCSV, processData, getters, formatList, parseList, getInitials, getColor, parseMoney, parseHeadcount, parseStageScore) ...
+                // Re-pasting standard helper functions to ensure completeness for the file copy-paste
+                renderMarkdown(text) { return this.mdParser.render(text); },
+                toggleFav(name) { if (this.favorites.includes(name)) { this.favorites = this.favorites.filter(f => f !== name); } else { this.favorites.push(name); } },
+                isFav(name) { return this.favorites.includes(name); },
+                clearFavorites() { if(confirm("Are you sure you want to clear all favorite companies?")) { this.favorites = []; this.filters.showFavoritesOnly = false; } },
                 downloadCSV() {
                     const favs = this.allCompanies.filter(c => this.favorites.includes(c.name));
                     if (favs.length === 0) return alert("No favorites to export!");
-
-                    const headers = [
-                        "Name",
-                        "Description",
-                        "VC Alignment", 
-                        "Big Picture",  
-                        "Moat",         
-                        "HQ",
-                        "Sector",
-                        "Sub-Sector",
-                        "Stage",
-                        "Total Raised",
-                        "Latest Round", 
-                        "Venture Score",
-                        "Investors"
-                    ];
-
+                    const headers = ["Name", "Description", "VC Alignment", "Big Picture", "Moat", "HQ", "Sector", "Sub-Sector", "Stage", "Total Raised", "Latest Round", "Venture Score", "Investors"];
                     const rows = favs.map(c => {
                         const dossier = c.raw.vc_dossier || {};
-                        return [
-                            `"${c.name}"`,
-                            `"${(c.desc || '').replace(/"/g, '""')}"`,
-                            `"${(c.raw.rationale || '').replace(/"/g, '""')}"`,
-                            `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`,
-                            `"${(dossier.moat_description || '').replace(/"/g, '""')}"`,
-                            `"${c.hq}"`,
-                            `"${c.l1}"`,
-                            `"${c.l3}"`,
-                            `"${c.stage}"`,
-                            `"${c.meta['Total Raised']}"`,
-                            `"${c.meta['Last Raise']}"`,
-                            c.score.toFixed(2),
-                            `"${c.meta['Key Investors']}"`
-                        ];
+                        return [`"${c.name}"`, `"${(c.desc || '').replace(/"/g, '""')}"`, `"${(c.raw.rationale || '').replace(/"/g, '""')}"`, `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`, `"${(dossier.moat_description || '').replace(/"/g, '""')}"`, `"${c.hq}"`, `"${c.l1}"`, `"${c.l3}"`, `"${c.stage}"`, `"${c.meta['Total Raised']}"`, `"${c.meta['Last Raise']}"`, c.score.toFixed(2), `"${c.meta['Key Investors']}"`];
                     });
-
                     const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
                     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement("a");
@@ -634,66 +466,25 @@
                     link.download = "venture_prospects_favorites.csv";
                     link.click();
                 },
-
-                // --- DATA PROCESSING ---
-
                 processData(data) {
                     if (!Array.isArray(data)) return [];
                     return data.map(item => {
                         const dossier = item.vc_dossier || {};
                         const taxonomy = item.taxonomy || {};
-                        const meta = {
-                            "Total Raised": dossier.total_raised || '—',
-                            "Key Investors": this.formatList(dossier.key_investors),
-                            "Current Stage": item.stage_estimate || 'Unknown',
-                            "Last Raise": dossier.latest_round || '—',
-                            "Year Founded": dossier.year_founded || '—',
-                            "Headcount": dossier.headcount_estimate || '—',
-                            "Status": dossier.corporate_status || 'Active',
-                            "Key Customers": this.formatList(dossier.key_customers)
-                        };
-
-                        return {
-                            name: item.name,
-                            desc: item.investment_thesis_one_liner || '',
-                            hq: dossier.hq_location || 'Global',
-                            score: item.venture_scale_score || 0,
-                            status: dossier.corporate_status || 'Independent',
-                            l1: taxonomy.l1 || 'Other',
-                            l3: taxonomy.l3 || 'Unknown',
-                            stage: item.stage_estimate || 'Unknown',
-                            tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0,
-                            meta: meta,
-                            sort_raised: this.parseMoney(meta["Total Raised"]),
-                            sort_headcount: this.parseHeadcount(meta["Headcount"]),
-                            sort_stage: this.parseStageScore(meta["Current Stage"]),
-                            raw: item
-                        };
+                        const meta = { "Total Raised": dossier.total_raised || '—', "Key Investors": this.formatList(dossier.key_investors), "Current Stage": item.stage_estimate || 'Unknown', "Last Raise": dossier.latest_round || '—', "Year Founded": dossier.year_founded || '—', "Headcount": dossier.headcount_estimate || '—', "Status": dossier.corporate_status || 'Active', "Key Customers": this.formatList(dossier.key_customers) };
+                        return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
                     }).filter(c => c.score >= 0.6);
                 },
-
-                get categories() {
-                    return this.categoriesList.map(cat => {
-                        const count = this.allCompanies.filter(c => c.l1 === cat).length;
-                        return { name: cat, count: count };
-                    });
-                },
-
+                get categories() { return this.categoriesList.map(cat => ({ name: cat, count: this.allCompanies.filter(c => c.l1 === cat).length })); },
                 get filteredCompanies() {
                     let res = this.allCompanies;
-                    if (this.selectedCategory) {
-                        res = res.filter(c => c.l1 === this.selectedCategory);
-                    }
+                    if (this.selectedCategory) res = res.filter(c => c.l1 === this.selectedCategory);
                     if (this.filters.sector && !this.selectedCategory) res = res.filter(c => c.l1 === this.filters.sector);
                     if (this.filters.subCat && this.selectedCategory) res = res.filter(c => c.l3 === this.filters.subCat);
                     if (this.filters.stage) res = res.filter(c => c.stage === this.filters.stage);
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
-                    
-                    if (this.filters.showFavoritesOnly) {
-                        res = res.filter(c => this.favorites.includes(c.name));
-                    }
-
+                    if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         if (sortKey === 'score') return b.score - a.score;
@@ -704,94 +495,21 @@
                     });
                     return res;
                 },
-
                 get uniqueSectors() { return [...new Set(this.allCompanies.map(c => c.l1))].sort(); },
-                get uniqueSubCats() { 
-                    const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies;
-                    return [...new Set(pool.map(c => c.l3))].sort(); 
-                },
-                get uniqueStages() { 
-                    const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies;
-                    return [...new Set(pool.map(c => c.stage))].sort(); 
-                },
-                get uniqueStatuses() { 
-                     const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies;
-                    return [...new Set(pool.map(c => c.status))].sort(); 
-                },
-
-                selectCategory(cat) {
-                    this.selectedCategory = cat;
-                    this.view = 'list';
-                    this.filters.subCat = '';
-                    window.scrollTo({ top: 0, behavior: 'auto' });
-                },
-
-                goBack() {
-                    this.selectedCategory = null;
-                    this.view = 'map';
-                },
-
-                openModal(company) {
-                    this.selectedCompany = company;
-                    this.modalOpen = true;
-                    document.body.style.overflow = 'hidden';
-                },
-
-                closeModal() {
-                    this.modalOpen = false;
-                    this.selectedCompany = null;
-                    document.body.style.overflow = 'auto';
-                },
-
-                formatList(val, limit=2) {
-                    if (Array.isArray(val)) return val.slice(0, limit).join(', ');
-                    return val || '—';
-                },
-                
-                parseList(str) {
-                    if(!str || str === '—') return [];
-                    return str.split(',').map(s => s.trim());
-                },
-
-                getInitials(name) {
-                    return name.split(' ').slice(0, 2).map(n => n[0]).join('');
-                },
-
-                getColor(name) {
-                    const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#6366F1', '#8B5CF6'];
-                    let hash = 0;
-                    for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
-                    return colors[Math.abs(hash) % colors.length];
-                },
-
-                parseMoney(s) {
-                    if (!s || typeof s !== 'string') return 0;
-                    const clean = s.toUpperCase().replace('$', '').replace('~', '');
-                    const match = clean.match(/[\d,.]+/);
-                    if (!match) return 0;
-                    let num = parseFloat(match[0].replace(',', ''));
-                    if (clean.includes('B')) num *= 1e9;
-                    else if (clean.includes('M')) num *= 1e6;
-                    else if (clean.includes('K')) num *= 1e3;
-                    return num;
-                },
-
-                parseHeadcount(s) {
-                    if (!s || typeof s !== 'string') return 0;
-                    const match = s.match(/[\d,]+/);
-                    return match ? parseInt(match[0].replace(',', '')) : 0;
-                },
-
-                parseStageScore(s) {
-                    const str = String(s).toLowerCase();
-                    if (str.includes('seed')) return 1;
-                    if (str.includes('series a')) return 2;
-                    if (str.includes('series b')) return 3;
-                    if (str.includes('growth')) return 4;
-                    if (str.includes('late')) return 5;
-                    if (str.includes('public') || str.includes('mature')) return 6;
-                    return 0;
-                }
+                get uniqueSubCats() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.l3))].sort(); },
+                get uniqueStages() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.stage))].sort(); },
+                get uniqueStatuses() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.status))].sort(); },
+                selectCategory(cat) { this.selectedCategory = cat; this.view = 'list'; this.filters.subCat = ''; window.scrollTo({ top: 0, behavior: 'auto' }); },
+                goBack() { this.selectedCategory = null; this.view = 'map'; },
+                openModal(company) { this.selectedCompany = company; this.modalOpen = true; document.body.style.overflow = 'hidden'; },
+                closeModal() { this.modalOpen = false; this.selectedCompany = null; document.body.style.overflow = 'auto'; },
+                formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
+                parseList(str) { if(!str || str === '—') return []; return str.split(',').map(s => s.trim()); },
+                getInitials(name) { return name.split(' ').slice(0, 2).map(n => n[0]).join(''); },
+                getColor(name) { const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#6366F1', '#8B5CF6']; let hash = 0; for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash); return colors[Math.abs(hash) % colors.length]; },
+                parseMoney(s) { if (!s || typeof s !== 'string') return 0; const clean = s.toUpperCase().replace('$', '').replace('~', ''); const match = clean.match(/[\d,.]+/); if (!match) return 0; let num = parseFloat(match[0].replace(',', '')); if (clean.includes('B')) num *= 1e9; else if (clean.includes('M')) num *= 1e6; else if (clean.includes('K')) num *= 1e3; return num; },
+                parseHeadcount(s) { if (!s || typeof s !== 'string') return 0; const match = s.match(/[\d,]+/); return match ? parseInt(match[0].replace(',', '')) : 0; },
+                parseStageScore(s) { const str = String(s).toLowerCase(); if (str.includes('seed')) return 1; if (str.includes('series a')) return 2; if (str.includes('series b')) return 3; if (str.includes('growth')) return 4; if (str.includes('late')) return 5; if (str.includes('public') || str.includes('mature')) return 6; return 0; }
             }));
         });
     </script>
