@@ -177,7 +177,25 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-4 items-end" :class="{'opacity-50 pointer-events-none': filters.showFavoritesOnly}">
+                    <div class="lg:hidden mb-4">
+                        <button @click="mobileFiltersOpen = !mobileFiltersOpen" 
+                                class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg text-sm font-semibold text-gray-700 shadow-sm active:bg-gray-50 transition-colors">
+                            <span class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
+                                Filter & Sort
+                            </span>
+                            <span class="text-blue-600" x-text="mobileFiltersOpen ? 'Hide' : 'Show'"></span>
+                        </button>
+                    </div>
+
+                    <div class="gap-4 mb-4 items-end" 
+                         :class="{
+                            'opacity-50 pointer-events-none': filters.showFavoritesOnly,
+                            'grid grid-cols-1 md:grid-cols-2': mobileFiltersOpen,  
+                            'hidden': !mobileFiltersOpen,                           
+                            'lg:grid lg:grid-cols-6': true                          
+                         }">
+                        
                         <div x-show="!selectedCategory" class="lg:col-span-2">
                             <label class="block text-xs font-semibold text-gray-500 mb-1">Industry</label>
                             <select x-model="filters.sector" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
@@ -329,7 +347,7 @@
                 selectedCategory: null,
                 modalOpen: false,
                 selectedCompany: null,
-                mobileFiltersOpen: false, // Default hidden on mobile
+                mobileFiltersOpen: false,
                 favorites: Alpine.$persist([]).as('venture-favorites'),
                 searchQuery: '',
                 searchDeep: false,
@@ -337,7 +355,7 @@
                 isChatting: false,
                 chatError: '',
                 chatHistory: [],
-                sortDesc: true, // NEW: Defaults to High to Low (Descending)
+                sortDesc: true, 
                 mdParser: window.markdownit(),
                 categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
@@ -363,40 +381,21 @@
                     this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        // NEW: RICH DATA PAYLOAD (Full Context)
                         const richData = this.allCompanies.map(c => {
                             const d = c.raw.vc_dossier || {};
                             return {
-                                n: c.name,
-                                s: c.score,
-                                h: c.hq,
-                                st: c.stage,
-                                d: c.desc, // Full description, no truncation
-                                rat: c.raw.rationale, // Full rationale
-                                ana: d.analogy,
-                                mac: d.macro_trend,
-                                hc: d.headcount_estimate,
-                                stat: d.corporate_status,
-                                $r: d.total_raised,
-                                rnd: d.latest_round,
-                                inv: d.key_investors,
-                                cust: d.key_customers,
-                                tech: d.tech_stack,
-                                biz: d.business_model,
-                                m: d.moat_description,
-                                tax: c.raw.taxonomy
+                                n: c.name, s: c.score, h: c.hq, st: c.stage,
+                                d: c.desc, rat: c.raw.rationale, ana: d.analogy, mac: d.macro_trend,
+                                hc: d.headcount_estimate, stat: d.corporate_status, $r: d.total_raised,
+                                rnd: d.latest_round, inv: d.key_investors, cust: d.key_customers,
+                                tech: d.tech_stack, biz: d.business_model, m: d.moat_description, tax: c.raw.taxonomy
                             };
                         });
 
                         const systemInstruction = `
                         System: You are an expert Venture Analyst, helping a VC firm begin to explore the electric power-related startup space. 
                         I am providing a dataset of companies (JSON). 
-                        Keys: 
-                        n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, 
-                        m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend,
-                        hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round,
-                        inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model,
-                        tax=Taxonomy.
+                        Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy.
                         
                         CRITICAL RULES:
                         1. Be thorough. Thoroughly review every attribute of each company to comprehensively answer the user's questions.
@@ -485,7 +484,6 @@
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
-                    
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         let valA, valB;
