@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
     <title>UH Mercury EL</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,13 +18,11 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1f2937; }
         [x-cloak] { display: none !important; }
         
-        /* Custom Scrollbar for Chat */
         .chat-scroll::-webkit-scrollbar { width: 6px; }
         .chat-scroll::-webkit-scrollbar-track { background: transparent; }
         .chat-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
         .chat-scroll::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
 
-        /* Markdown Styles */
         .prose p { margin-bottom: 1em; line-height: 1.7; font-size: 1rem; }
         .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
         .prose ol { list-style-type: decimal; padding-left: 1.5em; margin-bottom: 1em; }
@@ -36,7 +34,7 @@
         .prose h3 { font-size: 1.1em; }
     </style>
 </head>
-<body x-data="ventureApp" class="antialiased bg-white h-screen flex flex-col overflow-hidden">
+<body x-data="ventureApp" class="antialiased bg-white h-[100dvh] flex flex-col overflow-hidden">
 
     <header class="w-full bg-white border-b border-gray-100 z-40 px-4 py-3 md:px-6 md:py-4 flex-shrink-0">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-3">
@@ -92,7 +90,7 @@
 
         <div x-show="!isLoading" class="h-full w-full">
             
-            <div x-show="view === 'chat'" x-cloak class="h-full flex flex-col max-w-3xl mx-auto relative">
+            <div x-show="view === 'chat'" x-cloak class="h-full flex flex-col max-w-3xl mx-auto">
                 
                 <div class="flex-1 overflow-y-auto px-4 py-6 space-y-8 chat-scroll scroll-smooth" id="chat-container">
                     
@@ -123,12 +121,10 @@
                             <span>⚠️</span> <span x-text="chatError"></span>
                         </div>
                     </div>
-                    
-                    <div class="h-24"></div>
                 </div>
 
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent pt-10">
-                    <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100">
+                    <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200">
                         <form @submit.prevent="sendMessage()" class="flex items-end p-2">
                             <textarea x-model="userQuery" 
                                       class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 px-4 py-3 min-h-[52px] max-h-32 resize-none text-[15px]"
@@ -249,8 +245,15 @@
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
             <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl max-h-[90vh] overflow-y-auto">
                 <div class="absolute top-0 right-0 pt-4 pr-4 block z-50 flex gap-2">
-                     <button type="button" x-show="selectedCompany" @click="toggleFav(selectedCompany.name)" class="rounded-full p-2 bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500" :class="selectedCompany && isFav(selectedCompany.name) ? 'text-red-500' : 'text-gray-300'"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="selectedCompany && isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></button>
-                    <button type="button" @click="closeModal()" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"><span class="sr-only">Close</span><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                     <button type="button" x-show="selectedCompany" @click="toggleFav(selectedCompany.name)"
+                             class="rounded-full p-2 bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+                             :class="selectedCompany && isFav(selectedCompany.name) ? 'text-red-500' : 'text-gray-300'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="selectedCompany && isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    </button>
+                    <button type="button" @click="closeModal()" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
                 </div>
                 <template x-if="selectedCompany">
                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
