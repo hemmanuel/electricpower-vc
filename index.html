@@ -445,7 +445,8 @@
                     }
                 },
 
-                // ... (Helper functions maintained) ...
+                // ... (Rest of logic: renderMarkdown, toggleFav, isFav, clearFavorites, downloadCSV, processData, getters, formatList, parseList, getInitials, getColor, parseMoney, parseHeadcount, parseStageScore) ...
+                // Re-pasting standard helper functions to ensure completeness for the file copy-paste
                 renderMarkdown(text) { return this.mdParser.render(text); },
                 toggleFav(name) { if (this.favorites.includes(name)) { this.favorites = this.favorites.filter(f => f !== name); } else { this.favorites.push(name); } },
                 isFav(name) { return this.favorites.includes(name); },
