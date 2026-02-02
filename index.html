@@ -408,7 +408,7 @@
                     <button type="button" @click="downloadSingleCSV(selectedCompany)" 
                             class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        Download CSV
+                        Download CSV Dossier
                     </button>
                     
                     <button type="button" @click="closeModal()" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:w-auto">Close Profile</button>
@@ -459,24 +459,49 @@
                     this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        const dietData = this.allCompanies.map(c => ({
-                            n: c.name, s: c.score, h: c.hq, stage: c.stage,
-                            d: (c.desc || "").substring(0, 150),
-                            m: (c.raw.vc_dossier?.moat_description || "").substring(0, 100)
-                        }));
+                        // NEW: RICH DATA PAYLOAD (Full Context)
+                        const richData = this.allCompanies.map(c => {
+                            const d = c.raw.vc_dossier || {};
+                            return {
+                                n: c.name,
+                                s: c.score,
+                                h: c.hq,
+                                st: c.stage,
+                                d: c.desc, // Full description, no truncation
+                                rat: c.raw.rationale, // Full rationale
+                                ana: d.analogy,
+                                mac: d.macro_trend,
+                                hc: d.headcount_estimate,
+                                stat: d.corporate_status,
+                                $r: d.total_raised,
+                                rnd: d.latest_round,
+                                inv: d.key_investors,
+                                cust: d.key_customers,
+                                tech: d.tech_stack,
+                                biz: d.business_model,
+                                m: d.moat_description,
+                                tax: c.raw.taxonomy
+                            };
+                        });
 
                         const systemInstruction = `
-                        System: You are an expert Venture Analyst. 
+                        System: You are an expert Venture Analyst, helping a VC firm begin to explore the electric power-related startup space. 
                         I am providing a dataset of companies (JSON). 
-                        Keys: n=Name, s=Score, h=HQ, stage=Stage, d=Description, m=Moat.
+                        Keys: 
+                        n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, 
+                        m=Moat, rat=VC Rationale/Alignment, ana=Analogy, mac=Macro Trend,
+                        hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round,
+                        inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model,
+                        tax=Taxonomy (L1/L2/L3).
                         
                         CRITICAL RULES:
-                        1. Be concise. Netlify has a 10-second timeout.
-                        2. Do not output the entire dataset.
-                        3. If asked for lists, limit to top 5 unless specified.
+                        1. Be thorough. Thoroughly review every attribute of each company to comprehensively answer the user's questions.
+                        2. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
+                        3. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
+                        4. Prioritize companies with higher Venture Scores (s) unless instructed otherwise.
                         
                         DATASET:
-                        ${JSON.stringify(dietData)}
+                        ${JSON.stringify(richData)}
                         `;
 
                         const response = await fetch('/api/chat', {
@@ -486,7 +511,7 @@
                         });
 
                         if (!response.ok) {
-                             if (response.status === 502) throw new Error("Response timed out (Limit: 10s). Ask for a shorter summary.");
+                             if (response.status === 502) throw new Error("Response timed out. The analysis is too deep for the current connection.");
                              throw new Error(`Server Error: ${response.status}`);
                         }
                         
@@ -609,5 +634,3 @@
     </script>
 </body>
 </html>
-
-
