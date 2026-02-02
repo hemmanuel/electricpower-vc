@@ -254,33 +254,41 @@
 
                 <div class="space-y-2">
                     <template x-for="company in filteredCompanies" :key="company.name">
-                        <div class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative z-0 hover:z-10">
-                            
-                            <button @click.stop="toggleFav(company.name)" 
-                                    class="md:hidden absolute top-3 right-3 p-2 rounded-full z-50 hover:bg-gray-100 transition-colors focus:outline-none bg-white/80 backdrop-blur-sm"
-                                    :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                            </button>
-
-                            <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer relative z-10">
-                                <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
-                                <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
-                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1 pr-8 md:pr-0" x-text="company.name"></div>
-                                    <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5"><span>📍 <span x-text="company.hq"></span></span><span>&bull;</span><span x-text="company.l3"></span></div>
-                                    <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
-                                </div>
+                        <div class="group bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200">
+                            <div @click="openModal(company)" class="flex flex-col md:flex-row gap-4 cursor-pointer">
                                 
-                                <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
+                                <div class="flex-1 flex gap-4 min-w-0">
+                                    <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg" 
+                                         :style="`background-color: ${getColor(company.name)}`" 
+                                         x-text="getInitials(company.name)"></div>
                                     
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex justify-between items-start">
+                                            <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1" x-text="company.name"></div>
+                                            <button @click.stop="toggleFav(company.name)" 
+                                                    class="md:hidden p-2 -mt-2 -mr-2 rounded-full hover:bg-gray-100 transition-colors focus:outline-none flex-shrink-0"
+                                                    :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                            </button>
+                                        </div>
+                                        <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5">
+                                            <span>📍 <span x-text="company.hq"></span></span>
+                                            <span>&bull;</span>
+                                            <span x-text="company.l3"></span>
+                                        </div>
+                                        <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
+                                    </div>
+                                </div>
+
+                                <div class="flex md:flex-col justify-end md:justify-between items-center md:items-end border-t md:border-0 border-gray-100 pt-3 md:pt-0 md:pl-4 md:border-l md:border-gray-100 min-w-[100px]">
                                     <button @click.stop="toggleFav(company.name)" 
-                                            class="hidden md:block p-1 rounded-full hover:bg-gray-100 transition-colors focus:outline-none mb-2"
+                                            class="hidden md:block p-2 -mr-2 -mt-2 rounded-full hover:bg-gray-100 transition-colors focus:outline-none"
                                             :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                                     </button>
-
-                                    <div class="flex flex-col items-end">
+                                    <div class="text-right">
                                         <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
-                                        <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Venture Score</div>
                                     </div>
                                 </div>
                             </div>
