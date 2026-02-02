@@ -11,7 +11,7 @@ exports.handler = async function(event, context) {
             return { statusCode: 500, body: JSON.stringify({ error: "Server Error: API Key missing" }) };
         }
 
-        // Updated Endpoint for Gemini 3 Flash Preview
+        // UPDATED: Using the latest Gemini 3 Flash Preview model (Feb 2026 standard)
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${GEMINI_API_KEY}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -22,8 +22,12 @@ exports.handler = async function(event, context) {
 
         const data = await response.json();
 
-        if (data.error) {
-            return { statusCode: 500, body: JSON.stringify({ error: data.error.message }) };
+        // Safety Check: Ensure the model actually returned a candidate
+        if (!data.candidates || data.candidates.length === 0) {
+            return { 
+                statusCode: 500, 
+                body: JSON.stringify({ error: "No response from AI. It may have been blocked by safety settings." }) 
+            };
         }
 
         return {
@@ -32,6 +36,7 @@ exports.handler = async function(event, context) {
         };
 
     } catch (error) {
+        console.error("Backend Error:", error);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message })
