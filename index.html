@@ -22,18 +22,20 @@
         ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
     </style>
 </head>
-<body x-data="ventureApp()" x-init="initApp()" class="antialiased">
+<body x-data="ventureApp()" x-init="initApp()" class="antialiased bg-white">
 
-    <header class="fixed top-0 left-0 w-full h-20 bg-white border-b border-gray-200 z-40 flex flex-col justify-center px-6">
-        <div class="text-xl font-bold text-gray-900 tracking-tight leading-tight">
-            University of Houston Experiential Learning - Mercury Fund Venture Capital Prospects
-        </div>
-        <div class="text-sm text-gray-500 mt-1">
-            AI-assisted analytics for companies exhibiting booth at 2026 Distributech Conference. Excluded companies with low "Venture Score", an AI-generated score for whether a company is VC compatible
+    <header class="sticky top-0 w-full bg-white border-b border-gray-200 z-40 px-6 py-4 shadow-sm">
+        <div class="flex flex-col justify-center h-full">
+            <div class="text-lg md:text-xl font-bold text-gray-900 tracking-tight leading-tight">
+                University Experiential Learning - Venture Capital Prospects
+            </div>
+            <div class="text-xs md:text-sm text-gray-500 mt-1">
+                AI-assisted analytics for companies exhibiting booth at 2026 Distributech Conference
+            </div>
         </div>
     </header>
 
-    <main class="pt-24 pb-8 px-6 max-w-[100%] mx-auto">
+    <main class="py-8 px-6 max-w-[100%] mx-auto">
         
         <div x-show="view === 'map'" x-cloak>
             <button @click="view = 'list'" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-4">
@@ -213,10 +215,20 @@
                  x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
                 
+                <div class="absolute top-0 right-0 pt-4 pr-4 block z-50">
+                    <button type="button" 
+                            @click="closeModal()"
+                            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
                 <template x-if="selectedCompany">
                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                        <div class="mb-6">
-                            <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
+                        <div class="mb-6 mr-8"> <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
                             <div class="text-sm text-gray-500 mt-1">
                                 📍 <span x-text="selectedCompany.hq"></span> | <span x-text="selectedCompany.l1"></span>
                             </div>
@@ -441,9 +453,8 @@
                 },
 
                 goBack() {
-                    // Logic: Ensure this always goes to the Categories View (Map)
-                    this.selectedCategory = null; // Clear any existing filter
-                    this.view = 'map';            // Set view to Map
+                    this.selectedCategory = null;
+                    this.view = 'map';
                 },
 
                 openModal(company) {
