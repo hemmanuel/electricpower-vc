@@ -79,10 +79,10 @@
                         :class="filters.showFavoritesOnly ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-white text-blue-700 border-blue-200 hover:bg-blue-100'">
                     <span x-text="filters.showFavoritesOnly ? 'Show All Companies' : 'Show Favorites Only'"></span>
                 </button>
-                <button @click="downloadCSV()" 
+                <button @click="downloadBatchCSV()" 
                         class="px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 flex items-center gap-1">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Export CSV
+                    Export Favorites
                 </button>
                 <button @click="clearFavorites()" 
                         class="px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-red-600 border border-red-200 hover:bg-red-50">
@@ -142,7 +142,6 @@
                                class="flex-1 p-4 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                                placeholder="Ask a question about the companies..." 
                                :disabled="isChatting">
-                        
                         <button type="submit" 
                                 :disabled="!userQuery.trim() || isChatting"
                                 class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 rounded-xl font-bold transition-colors shadow-sm flex-shrink-0 h-auto">
@@ -175,12 +174,32 @@
             </div>
 
             <div x-show="view === 'list'">
-                <div class="flex flex-wrap items-end gap-4 mb-6">
-                    <div class="w-full md:w-auto">
+                
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+                    <div>
                         <button @click="goBack()" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-2">
                             <span x-text="selectedCategory ? '← Back to Categories' : 'Company Categories'"></span>
                         </button>
                         <h3 class="text-xl font-bold text-gray-900" x-text="selectedCategory || (filters.showFavoritesOnly ? 'Saved Companies' : 'All Companies')"></h3>
+                    </div>
+
+                    <div class="flex items-center gap-2 bg-gray-50 p-2 rounded-lg border border-gray-200 w-full lg:w-auto">
+                        <div class="relative flex-1">
+                            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+                            <input type="text" x-model="searchQuery" 
+                                   class="pl-9 pr-4 py-2 text-sm border-gray-300 rounded-md border focus:ring-blue-500 focus:border-blue-500 w-full lg:w-64"
+                                   :placeholder="searchDeep ? 'Search description, moats...' : 'Search company name...'">
+                        </div>
+                        <div class="flex items-center gap-2 px-2 border-l border-gray-300">
+                            <span class="text-[10px] font-bold text-gray-500 uppercase">Deep<br>Search</span>
+                            <button @click="searchDeep = !searchDeep" 
+                                    class="relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none"
+                                    :class="searchDeep ? 'bg-blue-600' : 'bg-gray-200'">
+                                <span class="sr-only">Toggle deep search</span>
+                                <span class="inline-block h-3 w-3 transform rounded-full bg-white transition-transform" 
+                                      :class="searchDeep ? 'translate-x-5' : 'translate-x-1'"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -236,18 +255,21 @@
                 <div class="space-y-2">
                     <template x-for="company in filteredCompanies" :key="company.name">
                         <div class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative z-0 hover:z-10">
+                            
                             <button @click.stop="toggleFav(company.name)" 
-                                    class="absolute top-2 right-2 p-2 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none"
+                                    class="absolute top-3 right-3 p-2 rounded-full z-50 hover:bg-gray-100 transition-colors focus:outline-none bg-white/80 backdrop-blur-sm"
                                     :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                             </button>
-                            <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer">
+
+                            <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer relative z-10">
                                 <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
                                 <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
-                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1" x-text="company.name"></div>
+                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1 pr-8" x-text="company.name"></div>
                                     <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5"><span>📍 <span x-text="company.hq"></span></span><span>&bull;</span><span x-text="company.l3"></span></div>
                                     <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
                                 </div>
+                                
                                 <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:justify-center md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
                                     <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
                                     <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
@@ -362,8 +384,14 @@
                         </div>
                     </div>
                 </template>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-200">
-                    <button type="button" @click="closeModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Close Profile</button>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+                    <button type="button" @click="downloadSingleCSV(selectedCompany)" 
+                            class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download CSV Dossier
+                    </button>
+                    
+                    <button type="button" @click="closeModal()" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:w-auto">Close Profile</button>
                 </div>
             </div>
         </div>
@@ -380,12 +408,20 @@
                 modalOpen: false,
                 selectedCompany: null,
                 favorites: Alpine.$persist([]).as('venture-favorites'),
+                
+                // Search State
+                searchQuery: '',
+                searchDeep: false,
+
+                // Chat State
                 userQuery: '',
                 isChatting: false,
                 chatError: '',
                 chatHistory: [],
                 mdParser: window.markdownit(),
+                
                 categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
+                
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
 
                 init() { this.loadData(); },
@@ -409,19 +445,37 @@
                     this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        const contextData = this.allCompanies.map(c => ({
-                            name: c.name, desc: c.desc, score: c.score, 
-                            moat: c.raw.vc_dossier?.moat_description,
-                            stage: c.stage, hq: c.hq
+                        // "Diet" data payload
+                        const dietData = this.allCompanies.map(c => ({
+                            n: c.name, s: c.score, h: c.hq, stage: c.stage,
+                            d: (c.desc || "").substring(0, 150),
+                            m: (c.raw.vc_dossier?.moat_description || "").substring(0, 100)
                         }));
+
+                        const systemInstruction = `
+                        System: You are an expert Venture Analyst. 
+                        I am providing a dataset of companies (JSON). 
+                        Keys: n=Name, s=Score, h=HQ, stage=Stage, d=Description, m=Moat.
+                        
+                        CRITICAL RULES:
+                        1. Be concise. Netlify has a 10-second timeout.
+                        2. Do not output the entire dataset.
+                        3. If asked for lists, limit to top 5 unless specified.
+                        
+                        DATASET:
+                        ${JSON.stringify(dietData)}
+                        `;
 
                         const response = await fetch('/api/chat', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ prompt: `System: Use this data: ${JSON.stringify(contextData)}. User: ${query}` })
+                            body: JSON.stringify({ prompt: `${systemInstruction}\n\nUSER QUESTION: ${query}` })
                         });
 
-                        if (!response.ok) throw new Error(`Server Error: ${response.status}`);
+                        if (!response.ok) {
+                             if (response.status === 502) throw new Error("Response timed out (Limit: 10s). Ask for a shorter summary.");
+                             throw new Error(`Server Error: ${response.status}`);
+                        }
                         
                         const data = await response.json();
                         
@@ -445,17 +499,27 @@
                     }
                 },
 
-                // ... (Rest of logic: renderMarkdown, toggleFav, isFav, clearFavorites, downloadCSV, processData, getters, formatList, parseList, getInitials, getColor, parseMoney, parseHeadcount, parseStageScore) ...
-                // Re-pasting standard helper functions to ensure completeness for the file copy-paste
                 renderMarkdown(text) { return this.mdParser.render(text); },
                 toggleFav(name) { if (this.favorites.includes(name)) { this.favorites = this.favorites.filter(f => f !== name); } else { this.favorites.push(name); } },
                 isFav(name) { return this.favorites.includes(name); },
                 clearFavorites() { if(confirm("Are you sure you want to clear all favorite companies?")) { this.favorites = []; this.filters.showFavoritesOnly = false; } },
-                downloadCSV() {
+                
+                // BATCH CSV
+                downloadBatchCSV() {
                     const favs = this.allCompanies.filter(c => this.favorites.includes(c.name));
                     if (favs.length === 0) return alert("No favorites to export!");
+                    this.generateCSV(favs, "venture_favorites_batch.csv");
+                },
+
+                // SINGLE CSV
+                downloadSingleCSV(company) {
+                    if(!company) return;
+                    this.generateCSV([company], `venture_profile_${company.name.replace(/\s+/g, '_').toLowerCase()}.csv`);
+                },
+
+                generateCSV(companies, filename) {
                     const headers = ["Name", "Description", "VC Alignment", "Big Picture", "Moat", "HQ", "Sector", "Sub-Sector", "Stage", "Total Raised", "Latest Round", "Venture Score", "Investors"];
-                    const rows = favs.map(c => {
+                    const rows = companies.map(c => {
                         const dossier = c.raw.vc_dossier || {};
                         return [`"${c.name}"`, `"${(c.desc || '').replace(/"/g, '""')}"`, `"${(c.raw.rationale || '').replace(/"/g, '""')}"`, `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`, `"${(dossier.moat_description || '').replace(/"/g, '""')}"`, `"${c.hq}"`, `"${c.l1}"`, `"${c.l3}"`, `"${c.stage}"`, `"${c.meta['Total Raised']}"`, `"${c.meta['Last Raise']}"`, c.score.toFixed(2), `"${c.meta['Key Investors']}"`];
                     });
@@ -463,9 +527,10 @@
                     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement("a");
                     link.href = URL.createObjectURL(blob);
-                    link.download = "venture_prospects_favorites.csv";
+                    link.download = filename;
                     link.click();
                 },
+
                 processData(data) {
                     if (!Array.isArray(data)) return [];
                     return data.map(item => {
@@ -475,9 +540,28 @@
                         return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
                     }).filter(c => c.score >= 0.6);
                 },
+
                 get categories() { return this.categoriesList.map(cat => ({ name: cat, count: this.allCompanies.filter(c => c.l1 === cat).length })); },
+                
                 get filteredCompanies() {
                     let res = this.allCompanies;
+                    
+                    // 1. Search Logic
+                    if (this.searchQuery.trim()) {
+                        const q = this.searchQuery.toLowerCase();
+                        if (this.searchDeep) {
+                             res = res.filter(c => 
+                                c.name.toLowerCase().includes(q) || 
+                                (c.desc || '').toLowerCase().includes(q) ||
+                                (c.raw.vc_dossier?.moat_description || '').toLowerCase().includes(q) ||
+                                (c.meta['Key Investors'] || '').toLowerCase().includes(q)
+                             );
+                        } else {
+                            res = res.filter(c => c.name.toLowerCase().includes(q));
+                        }
+                    }
+
+                    // 2. Filters
                     if (this.selectedCategory) res = res.filter(c => c.l1 === this.selectedCategory);
                     if (this.filters.sector && !this.selectedCategory) res = res.filter(c => c.l1 === this.filters.sector);
                     if (this.filters.subCat && this.selectedCategory) res = res.filter(c => c.l3 === this.filters.subCat);
@@ -485,6 +569,8 @@
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
+                    
+                    // 3. Sorting
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         if (sortKey === 'score') return b.score - a.score;
@@ -495,10 +581,12 @@
                     });
                     return res;
                 },
+                
                 get uniqueSectors() { return [...new Set(this.allCompanies.map(c => c.l1))].sort(); },
                 get uniqueSubCats() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.l3))].sort(); },
                 get uniqueStages() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.stage))].sort(); },
                 get uniqueStatuses() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.status))].sort(); },
+                
                 selectCategory(cat) { this.selectedCategory = cat; this.view = 'list'; this.filters.subCat = ''; window.scrollTo({ top: 0, behavior: 'auto' }); },
                 goBack() { this.selectedCategory = null; this.view = 'map'; },
                 openModal(company) { this.selectedCompany = company; this.modalOpen = true; document.body.style.overflow = 'hidden'; },
@@ -515,5 +603,3 @@
     </script>
 </body>
 </html>
-
-
