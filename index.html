@@ -7,6 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,178 +15,227 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1f2937; }
         [x-cloak] { display: none !important; }
-        
-        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
     </style>
 </head>
-<body x-data="ventureApp()" x-init="initApp()" class="antialiased bg-white">
+<body x-data="ventureApp" class="antialiased bg-white">
 
     <header class="sticky top-0 w-full bg-white border-b border-gray-200 z-40 px-6 py-4 shadow-sm">
-        <div class="flex flex-col justify-center h-full">
-            <div class="text-lg md:text-xl font-bold text-gray-900 tracking-tight leading-tight">
-                University Experiential Learning - Venture Capital Prospects
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div>
+                <div class="text-lg md:text-xl font-bold text-gray-900 tracking-tight leading-tight">
+                    University Experiential Learning - Venture Capital Prospects
+                </div>
+                <div class="text-xs md:text-sm text-gray-500 mt-1">
+                    AI-assisted analytics for companies exhibiting booth at 2026 Distributech Conference
+                </div>
             </div>
-            <div class="text-xs md:text-sm text-gray-500 mt-1">
-                AI-assisted analytics for companies exhibiting booth at 2026 Distributech Conference
+            <div class="text-xs font-mono text-gray-400 mt-2 md:mt-0" x-show="allCompanies.length > 0">
+                Data Loaded: <span x-text="allCompanies.length"></span> Records
             </div>
         </div>
     </header>
 
-    <main class="py-8 px-6 max-w-[100%] mx-auto">
-        
-        <div x-show="view === 'map'" x-cloak>
-            <button @click="view = 'list'" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-4">
-                ← Back to Dashboard
-            </button>
+    <div x-show="favorites.length > 0" x-cloak class="bg-blue-50 border-b border-blue-100 px-6 py-3">
+        <div class="max-w-[100%] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex items-center gap-2 text-blue-800 font-semibold text-sm">
+                <span class="text-lg">⭐</span>
+                You have <span x-text="favorites.length"></span> saved companies.
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-3">
+                <button @click="filters.showFavoritesOnly = !filters.showFavoritesOnly"
+                        class="px-3 py-1.5 rounded-md text-xs font-semibold border transition-all"
+                        :class="filters.showFavoritesOnly ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-white text-blue-700 border-blue-200 hover:bg-blue-100'">
+                    <span x-text="filters.showFavoritesOnly ? 'Show All Companies' : 'Show Favorites Only'"></span>
+                </button>
 
-            <h3 class="text-lg font-bold text-gray-900 mb-0">Company Categories</h3>
-            <p class="text-sm text-gray-500 mb-6">Select an industry sector to drill down into company details.</p>
+                <button @click="downloadCSV()" 
+                        class="px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 flex items-center gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Export CSV
+                </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <template x-for="cat in categories" :key="cat.name">
-                    <button 
-                        @click="selectCategory(cat.name)"
-                        class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center h-40 shadow-sm hover:shadow-lg hover:border-blue-500 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
-                        <div class="text-[15px] font-bold text-gray-900 mb-3 text-center group-hover:text-blue-600" x-text="cat.name"></div>
-                        <div class="text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full border border-gray-200" x-text="cat.count + ' Companies'"></div>
-                    </button>
-                </template>
+                <button @click="clearFavorites()" 
+                        class="px-3 py-1.5 rounded-md text-xs font-semibold bg-white text-red-600 border border-red-200 hover:bg-red-50">
+                    Clear Favorites
+                </button>
             </div>
         </div>
+    </div>
 
-        <div x-show="view === 'list'">
+    <main class="py-8 px-6 max-w-[100%] mx-auto min-h-screen">
+
+        <div x-show="isLoading" class="flex flex-col items-center justify-center pt-20">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+            <div class="text-gray-500 font-medium">Loading Database...</div>
+        </div>
+
+        <div x-show="error" x-cloak class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative max-w-2xl mx-auto mt-10">
+            <strong class="font-bold">Error loading data:</strong>
+            <span class="block sm:inline" x-text="error"></span>
+            <p class="text-sm mt-2 text-red-600">Please ensure <code>companies_scored_v2.json</code> is in the same folder and you are running a local server (e.g., <code>python -m http.server</code>).</p>
+        </div>
+        
+        <div x-show="!isLoading && !error">
             
-            <div class="flex flex-wrap items-end gap-4 mb-6">
-                <div class="w-full md:w-auto">
-                    <button @click="goBack()" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-2">
-                        <span x-text="selectedCategory ? '← Back to Categories' : 'Company Categories'"></span>
-                    </button>
-                    <h3 class="text-xl font-bold text-gray-900" x-text="selectedCategory || 'All Companies'"></h3>
+            <div x-show="view === 'map'" x-cloak>
+                <button @click="view = 'list'" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-4">
+                    ← Back to Dashboard
+                </button>
+
+                <h3 class="text-lg font-bold text-gray-900 mb-0">Company Categories</h3>
+                <p class="text-sm text-gray-500 mb-6">Select an industry sector to drill down into company details.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <template x-for="cat in categories" :key="cat.name">
+                        <button 
+                            @click="selectCategory(cat.name)"
+                            class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center h-40 shadow-sm hover:shadow-lg hover:border-blue-500 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
+                            <div class="text-[15px] font-bold text-gray-900 mb-3 text-center group-hover:text-blue-600" x-text="cat.name"></div>
+                            <div class="text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full border border-gray-200" x-text="cat.count + ' Companies'"></div>
+                        </button>
+                    </template>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-4 items-end">
-                <div x-show="!selectedCategory" class="lg:col-span-2">
-                    <label class="block text-xs font-semibold text-gray-500 mb-1">Industry</label>
-                    <select x-model="filters.sector" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All Industries</option>
-                        <template x-for="s in uniqueSectors" :key="s">
-                            <option :value="s" x-text="s"></option>
-                        </template>
-                    </select>
-                </div>
-
-                <div x-show="selectedCategory" class="lg:col-span-2">
-                    <label class="block text-xs font-semibold text-gray-500 mb-1">Sub-Category</label>
-                    <select x-model="filters.subCat" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All Sub-Categories</option>
-                        <template x-for="s in uniqueSubCats" :key="s">
-                            <option :value="s" x-text="s"></option>
-                        </template>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-500 mb-1">Stage</label>
-                    <select x-model="filters.stage" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All Stages</option>
-                        <template x-for="s in uniqueStages" :key="s">
-                            <option :value="s" x-text="s"></option>
-                        </template>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-500 mb-1">Status</label>
-                    <select x-model="filters.status" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All Statuses</option>
-                        <template x-for="s in uniqueStatuses" :key="s">
-                            <option :value="s" x-text="s"></option>
-                        </template>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-500 mb-1">Sort By</label>
-                    <select x-model="filters.sortBy" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="score">Venture Score</option>
-                        <option value="raised">Amount Raised</option>
-                        <option value="headcount">Headcount</option>
-                        <option value="stage">Stage Maturity</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center pb-2">
-                    <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" x-model="filters.aiFocus" class="sr-only peer">
-                        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                        <span class="ms-3 text-sm font-medium text-gray-700">AI-Focused</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="text-xs font-medium text-gray-500 mb-3" x-text="'Showing ' + filteredCompanies.length + ' companies'"></div>
-
-            <div class="space-y-2">
-                <template x-for="company in filteredCompanies" :key="company.name">
-                    <div @click="openModal(company)" class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 cursor-pointer relative z-0 hover:z-10">
-                        
-                        <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0"
-                             :style="`background-color: ${getColor(company.name)}`"
-                             x-text="getInitials(company.name)">
-                        </div>
-
-                        <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
-                            <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1" x-text="company.name"></div>
-                            <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5">
-                                <span>📍 <span x-text="company.hq"></span></span>
-                                <span>&bull;</span>
-                                <span x-text="company.l3"></span>
-                            </div>
-                            <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
-                        </div>
-
-                        <div class="flex-[2] grid grid-cols-2 md:grid-cols-4 gap-y-2 gap-x-4 w-full md:w-auto mb-4 md:mb-0">
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Raised</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Total Raised']"></span>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Stage</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Current Stage']"></span>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Founded</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Year Founded']"></span>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Team</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Headcount']"></span>
-                            </div>
-                            <div class="flex flex-col col-span-2">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Investors</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Investors']" x-text="company.meta['Key Investors']"></span>
-                            </div>
-                            <div class="flex flex-col col-span-2">
-                                <span class="text-[10px] font-semibold text-gray-500 uppercase">Customers</span>
-                                <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Customers']" x-text="company.meta['Key Customers']"></span>
-                            </div>
-                        </div>
-
-                        <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:justify-center md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
-                            <span class="md:hidden text-xs font-bold text-gray-500 uppercase self-center">Venture Score</span>
-                            <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
-                            <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
-                        </div>
-                    </div>
-                </template>
+            <div x-show="view === 'list'">
                 
-                <div x-show="filteredCompanies.length === 0" class="p-10 text-center text-gray-500 text-sm">
-                    No companies match current filters.
+                <div class="flex flex-wrap items-end gap-4 mb-6">
+                    <div class="w-full md:w-auto">
+                        <button @click="goBack()" class="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center mb-2">
+                            <span x-text="selectedCategory ? '← Back to Categories' : 'Company Categories'"></span>
+                        </button>
+                        <h3 class="text-xl font-bold text-gray-900" x-text="selectedCategory || (filters.showFavoritesOnly ? 'Saved Companies' : 'All Companies')"></h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-4 items-end" :class="{'opacity-50 pointer-events-none': filters.showFavoritesOnly}">
+                    
+                    <div x-show="!selectedCategory" class="lg:col-span-2">
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Industry</label>
+                        <select x-model="filters.sector" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">All Industries</option>
+                            <template x-for="s in uniqueSectors" :key="s"><option :value="s" x-text="s"></option></template>
+                        </select>
+                    </div>
+
+                    <div x-show="selectedCategory" class="lg:col-span-2">
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Sub-Category</label>
+                        <select x-model="filters.subCat" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">All Sub-Categories</option>
+                            <template x-for="s in uniqueSubCats" :key="s"><option :value="s" x-text="s"></option></template>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Stage</label>
+                        <select x-model="filters.stage" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">All Stages</option>
+                            <template x-for="s in uniqueStages" :key="s"><option :value="s" x-text="s"></option></template>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Status</label>
+                        <select x-model="filters.status" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">All Statuses</option>
+                            <template x-for="s in uniqueStatuses" :key="s"><option :value="s" x-text="s"></option></template>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 mb-1">Sort By</label>
+                        <select x-model="filters.sortBy" class="w-full text-sm border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="score">Venture Score</option>
+                            <option value="raised">Amount Raised</option>
+                            <option value="headcount">Headcount</option>
+                            <option value="stage">Stage Maturity</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center pb-2">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" x-model="filters.aiFocus" class="sr-only peer">
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-700">AI-Focused</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-xs font-medium text-gray-500 mb-3" x-text="'Showing ' + filteredCompanies.length + ' companies'"></div>
+
+                <div class="space-y-2">
+                    <template x-for="company in filteredCompanies" :key="company.name">
+                        <div class="group flex flex-col md:flex-row items-start md:items-center bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative z-0 hover:z-10">
+                            
+                            <button @click.stop="toggleFav(company.name)" 
+                                    class="absolute top-2 right-2 p-2 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </button>
+
+                            <div @click="openModal(company)" class="flex flex-col md:flex-row w-full cursor-pointer">
+                                
+                                <div class="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-white font-bold text-lg mr-4 mb-4 md:mb-0"
+                                    :style="`background-color: ${getColor(company.name)}`"
+                                    x-text="getInitials(company.name)">
+                                </div>
+
+                                <div class="flex-1 min-w-0 pr-4 md:border-r border-gray-100 mr-4 mb-4 md:mb-0 w-full md:w-auto">
+                                    <div class="text-[17px] font-bold text-gray-900 leading-tight mb-1" x-text="company.name"></div>
+                                    <div class="text-xs font-medium text-gray-500 mb-1.5 flex items-center gap-1.5">
+                                        <span>📍 <span x-text="company.hq"></span></span>
+                                        <span>&bull;</span>
+                                        <span x-text="company.l3"></span>
+                                    </div>
+                                    <div class="text-xs text-gray-600 line-clamp-2 leading-relaxed" x-text="company.desc"></div>
+                                </div>
+
+                                <div class="flex-[2] grid grid-cols-2 md:grid-cols-4 gap-y-2 gap-x-4 w-full md:w-auto mb-4 md:mb-0">
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Raised</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Total Raised']"></span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Stage</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Current Stage']"></span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Founded</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Year Founded']"></span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Team</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" x-text="company.meta['Headcount']"></span>
+                                    </div>
+                                    <div class="flex flex-col col-span-2">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Investors</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Investors']" x-text="company.meta['Key Investors']"></span>
+                                    </div>
+                                    <div class="flex flex-col col-span-2">
+                                        <span class="text-[10px] font-semibold text-gray-500 uppercase">Customers</span>
+                                        <span class="text-xs font-bold text-gray-900 truncate" :title="company.meta['Key Customers']" x-text="company.meta['Key Customers']"></span>
+                                    </div>
+                                </div>
+
+                                <div class="w-full md:w-[110px] md:pl-4 md:border-l border-gray-100 flex md:flex-col justify-between md:justify-center md:items-end mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-gray-100">
+                                    <span class="md:hidden text-xs font-bold text-gray-500 uppercase self-center">Venture Score</span>
+                                    <div class="text-[22px] font-bold text-gray-800 tracking-tight" x-text="company.score.toFixed(2)"></div>
+                                    <div class="hidden md:block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-1">Venture Score</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <div x-show="filteredCompanies.length === 0" class="p-10 text-center text-gray-500 text-sm">
+                        <span x-show="allCompanies.length > 0">No companies match current filters.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -215,12 +265,22 @@
                  x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
                 
-                <div class="absolute top-0 right-0 pt-4 pr-4 block z-50">
+                <div class="absolute top-0 right-0 pt-4 pr-4 block z-50 flex gap-2">
+                     <button type="button" 
+                             x-show="selectedCompany"
+                             @click="toggleFav(selectedCompany.name)"
+                             class="rounded-full p-2 bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+                             :class="selectedCompany && isFav(selectedCompany.name) ? 'text-red-500' : 'text-gray-300'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="selectedCompany && isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </button>
+
                     <button type="button" 
                             @click="closeModal()"
-                            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <span class="sr-only">Close</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -228,7 +288,8 @@
 
                 <template x-if="selectedCompany">
                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                        <div class="mb-6 mr-8"> <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
+                        <div class="mb-6 mr-20"> 
+                            <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
                             <div class="text-sm text-gray-500 mt-1">
                                 📍 <span x-text="selectedCompany.hq"></span> | <span x-text="selectedCompany.l1"></span>
                             </div>
@@ -327,14 +388,18 @@
     </div>
 
     <script>
-        function ventureApp() {
-            return {
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('ventureApp', () => ({
                 allCompanies: [],
-                view: 'list', // Default to list
+                isLoading: true,
+                error: null,
+                view: 'list',
                 selectedCategory: null,
                 modalOpen: false,
                 selectedCompany: null,
                 
+                favorites: Alpine.$persist([]).as('venture-favorites'),
+
                 categoriesList: [
                     "Grid Infrastructure (Hardware)",
                     "Grid Operations & Software (SaaS)",
@@ -353,19 +418,105 @@
                     stage: '',
                     status: '',
                     sortBy: 'score',
-                    aiFocus: false
+                    aiFocus: false,
+                    showFavoritesOnly: false
                 },
 
-                initApp() {
+                init() {
+                    this.loadData();
+                },
+
+                loadData() {
+                    this.isLoading = true;
+                    this.error = null;
+
                     fetch('companies_scored_v2.json')
-                        .then(res => res.json())
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! Status: ${response.status}`);
+                            }
+                            return response.json();
+                        })
                         .then(data => {
                             this.allCompanies = this.processData(data);
+                            this.isLoading = false;
                         })
-                        .catch(err => console.error("Error loading JSON:", err));
+                        .catch(err => {
+                            console.error("Error loading JSON:", err);
+                            this.error = err.message;
+                            this.isLoading = false;
+                        });
+                },
+
+                toggleFav(name) {
+                    if (this.favorites.includes(name)) {
+                        this.favorites = this.favorites.filter(f => f !== name);
+                    } else {
+                        this.favorites.push(name);
+                    }
+                },
+
+                isFav(name) {
+                    return this.favorites.includes(name);
+                },
+
+                clearFavorites() {
+                    if(confirm("Are you sure you want to clear all favorite companies?")) {
+                        this.favorites = [];
+                        this.filters.showFavoritesOnly = false;
+                    }
+                },
+
+                downloadCSV() {
+                    const favs = this.allCompanies.filter(c => this.favorites.includes(c.name));
+                    if (favs.length === 0) return alert("No favorites to export!");
+
+                    // UPDATED CSV HEADERS & MAPPING
+                    const headers = [
+                        "Name",
+                        "Description",
+                        "VC Alignment", 
+                        "Big Picture",  
+                        "Moat",         
+                        "HQ",
+                        "Sector",
+                        "Sub-Sector",
+                        "Stage",
+                        "Total Raised",
+                        "Latest Round", 
+                        "Venture Score",
+                        "Investors"
+                    ];
+
+                    const rows = favs.map(c => {
+                        const dossier = c.raw.vc_dossier || {};
+                        return [
+                            `"${c.name}"`,
+                            `"${(c.desc || '').replace(/"/g, '""')}"`,
+                            `"${(c.raw.rationale || '').replace(/"/g, '""')}"`,           // VC Alignment
+                            `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`,        // Big Picture
+                            `"${(dossier.moat_description || '').replace(/"/g, '""')}"`,   // Moat
+                            `"${c.hq}"`,
+                            `"${c.l1}"`,
+                            `"${c.l3}"`,
+                            `"${c.stage}"`,
+                            `"${c.meta['Total Raised']}"`,
+                            `"${c.meta['Last Raise']}"`,                                   // Latest Round
+                            c.score.toFixed(2),
+                            `"${c.meta['Key Investors']}"`
+                        ];
+                    });
+
+                    const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(blob);
+                    link.download = "venture_prospects_favorites.csv";
+                    link.click();
                 },
 
                 processData(data) {
+                    if (!Array.isArray(data)) return [];
                     return data.map(item => {
                         const dossier = item.vc_dossier || {};
                         const taxonomy = item.taxonomy || {};
@@ -418,6 +569,10 @@
                     if (this.filters.stage) res = res.filter(c => c.stage === this.filters.stage);
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
+                    
+                    if (this.filters.showFavoritesOnly) {
+                        res = res.filter(c => this.favorites.includes(c.name));
+                    }
 
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
@@ -518,8 +673,8 @@
                     if (str.includes('public') || str.includes('mature')) return 6;
                     return 0;
                 }
-            }
-        }
+            }));
+        });
     </script>
 </body>
 </html>
