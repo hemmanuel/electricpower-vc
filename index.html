@@ -104,7 +104,7 @@
                     <div class="flex gap-4 fade-in">
                         <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm">AI</div>
                         <div class="text-gray-800 text-[15px] leading-relaxed max-w-[90%] pt-1">
-                            Hello. I am your Venture Analyst, trained on the electric power market and the specific companies on this site. I can identify trends, analyze moats, or screen specific companies for you. How can I help?
+                            Hello, I am your Venture Analyst! I'm an expert in startups in the electric power industry, and have analyzed the companies on this site. I can identify trends, analyze business models, or screen specific companies for you. How can I help?
                         </div>
                     </div>
                     <template x-for="(msg, index) in chatHistory" :key="index">
@@ -461,14 +461,15 @@
 
                         const systemInstruction = `
                         System: You are an expert Venture Analyst, helping a VC firm begin to explore the electric power-related startup space. 
-                        I am providing a dataset of companies (JSON). 
+                        I am providing a JSON dataset of companies who were exhibitors at 2026 Distribibutech conference and earned a high Venture score in our ai-assisted analysis..
                         Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy.
                         
                         CRITICAL RULES:
-                        1. Be thorough. Thoroughly review every attribute of each company to comprehensively answer the user's questions.
-                        2. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
-                        3. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
-                        4. Prioritize companies with higher Venture Scores (s) unless instructed otherwise.
+                        1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
+                        2. When asked about companies, frame the question through the perspective of the VC Mercury Fund. Look for early-stage, (seed and series A), middle-America, non-coastal, ai-focused, heavy moat, incredibly scalable companies that a VC like Mercury would be interested in. Do not exclude coastal options, they are still candidates, but prioritize displaying opportunities in the interior US when you see them.
+                        3. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
+                        4. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
+                        5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise..
                         
                         DATASET:
                         ${JSON.stringify(richData)}
@@ -582,3 +583,4 @@
     </script>
 </body>
 </html>
+
