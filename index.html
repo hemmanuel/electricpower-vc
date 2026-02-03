@@ -401,7 +401,7 @@
                 modalOpen: false,
                 selectedCompany: null,
                 mobileFiltersOpen: false,
-                viewMode: 'vc', // CHANGED: Default is now string 'vc' (safer than boolean)
+                viewMode: 'vc', 
                 favorites: Alpine.$persist([]).as('venture-favorites'),
                 searchQuery: '',
                 searchDeep: false,
@@ -524,7 +524,11 @@
                         return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
                     });
                 },
-                get categories() { return this.categoriesList.map(cat => ({ name: cat, count: this.allCompanies.filter(c => c.l1 === cat).length })); },
+                get categories() { 
+                    // FIXED: Now uses the same filtering logic as the list view
+                    const pool = this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6);
+                    return this.categoriesList.map(cat => ({ name: cat, count: pool.filter(c => c.l1 === cat).length })); 
+                },
                 get filteredCompanies() {
                     // FIXED: Now checks string 'all' explicitly
                     let res = this.viewMode === 'all' ? [...this.allCompanies] : this.allCompanies.filter(c => c.score >= 0.6);
