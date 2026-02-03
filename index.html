@@ -470,6 +470,9 @@
                         3. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
                         4. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
                         5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise..
+
+                        OPERATING INSTRUCTION
+                        Everything that was written up until now was background knowledge for you to keep in mind as you answer the question. Below this block will be the dataset, then the user will ask their question. Treat their question as the beginning of the prompt. Do not address anything that was said up until now. Do not address "middle-america", "asymmetric upside" or any of the instruction provided above. Those are internal instructions. The real prompt comes after this.
                         
                         DATASET:
                         ${JSON.stringify(richData)}
@@ -583,5 +586,6 @@
     </script>
 </body>
 </html>
+
 
 
