@@ -75,6 +75,11 @@
                 <span>⭐</span> <span x-text="favorites.length"></span> saved
             </div>
             <div class="flex gap-2">
+                <button @click="filters.showFavoritesOnly = !filters.showFavoritesOnly" 
+                        class="px-3 py-1 text-xs font-semibold border rounded transition-colors"
+                        :class="filters.showFavoritesOnly ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'">
+                    <span x-text="filters.showFavoritesOnly ? 'Show All' : 'View Favorites'"></span>
+                </button>
                 <button @click="clearFavorites()" class="px-3 py-1 text-xs font-semibold bg-white text-red-600 border border-red-200 rounded hover:bg-red-50">
                     Clear Favorites
                 </button>
@@ -516,4 +521,3 @@
     </script>
 </body>
 </html>
-
