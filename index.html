@@ -126,7 +126,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100">
+                
+                <div class="flex-shrink-0 p-2 bg-white border-t border-gray-100">
                     <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200">
                         <form @submit.prevent="sendMessage()" class="flex items-end p-2">
                             <textarea x-model="userQuery" 
@@ -140,9 +141,6 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-0.5"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
                             </button>
                         </form>
-                    </div>
-                    <div class="text-center mt-2">
-                        <span class="text-[10px] text-gray-400 font-medium">Powered by Gemini 3 Flash Preview</span>
                     </div>
                 </div>
             </div>
@@ -524,15 +522,9 @@
                         return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
                     });
                 },
-                get categories() { 
-                    // FIXED: Now uses the same filtering logic as the list view
-                    const pool = this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6);
-                    return this.categoriesList.map(cat => ({ name: cat, count: pool.filter(c => c.l1 === cat).length })); 
-                },
+                get categories() { return this.categoriesList.map(cat => ({ name: cat, count: (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length })); },
                 get filteredCompanies() {
-                    // FIXED: Now checks string 'all' explicitly
                     let res = this.viewMode === 'all' ? [...this.allCompanies] : this.allCompanies.filter(c => c.score >= 0.6);
-
                     if (this.searchQuery.trim()) {
                         const q = this.searchQuery.toLowerCase();
                         if (this.searchDeep) {
@@ -546,7 +538,6 @@
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
-                    
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         let valA, valB;
@@ -554,7 +545,6 @@
                         else if (sortKey === 'raised') { valA = a.sort_raised; valB = b.sort_raised; }
                         else if (sortKey === 'headcount') { valA = a.sort_headcount; valB = b.sort_headcount; }
                         else if (sortKey === 'stage') { valA = a.sort_stage; valB = b.sort_stage; }
-                        
                         return this.sortDesc ? valB - valA : valA - valB;
                     });
                     return res;
