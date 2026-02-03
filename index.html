@@ -47,20 +47,9 @@
                 </div>
             </div>
             
-            <div class="flex items-center gap-4 md:gap-6 self-end md:self-auto">
-                <div class="flex items-center gap-2" x-show="view === 'list'">
-                    <span class="text-xs font-semibold" :class="!showAll ? 'text-blue-600' : 'text-gray-400'">VC Candidates</span>
-                    <button @click="showAll = !showAll" 
-                            class="relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none" 
-                            :class="showAll ? 'bg-blue-600' : 'bg-gray-200'">
-                        <span class="inline-block h-3 w-3 transform rounded-full bg-white transition-transform" 
-                              :class="showAll ? 'translate-x-5' : 'translate-x-1'"></span>
-                    </button>
-                    <span class="text-xs font-semibold" :class="showAll ? 'text-blue-600' : 'text-gray-400'">All Companies</span>
-                </div>
-
+            <div class="flex items-center gap-2 md:gap-3 self-end md:self-auto">
                 <div class="text-xs font-mono text-gray-400 hidden lg:block" x-show="allCompanies.length > 0">
-                    <span x-text="filteredCompanies.length"></span> / <span x-text="allCompanies.length"></span> Records
+                    <span x-text="allCompanies.length"></span> Records
                 </div>
 
                 <div class="bg-gray-100 p-1 rounded-lg flex items-center">
@@ -270,33 +259,14 @@
                                             <div class="text-sm text-gray-600 leading-relaxed line-clamp-2 lg:line-clamp-3" x-text="company.desc"></div>
                                         </div>
                                     </div>
-                                    
                                     <div class="lg:w-[60%] border-t lg:border-t-0 lg:border-l border-gray-100 pt-4 lg:pt-0 lg:pl-6">
-                                        
-                                        <template x-if="company.raw.vc_dossier">
-                                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-4">
-                                                <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Total Raised</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Total Raised']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Founded</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Year Founded']"></div></div></div>
-                                                <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Key Investors</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Key Investors']" :title="company.meta['Key Investors']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Headcount</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Headcount']"></div></div></div>
-                                                <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Stage</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.stage"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Status</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.status"></div></div></div>
-                                                <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Last Raise</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Last Raise']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Customers</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Key Customers']" :title="company.meta['Key Customers']"></div></div></div>
-                                            </div>
-                                        </template>
-
-                                        <template x-if="!company.raw.vc_dossier">
-                                            <div class="grid grid-cols-2 gap-y-4 gap-x-4">
-                                                <div class="space-y-3">
-                                                    <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Stage</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.stage"></div></div>
-                                                    <div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Status</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.status"></div></div>
-                                                </div>
-                                                <div class="col-span-1">
-                                                    <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Reason for Exclusion</div>
-                                                    <div class="text-xs font-medium text-orange-700 bg-orange-50 px-2 py-1.5 rounded border border-orange-100 leading-snug" x-text="company.raw.rationale"></div>
-                                                </div>
-                                            </div>
-                                        </template>
-
+                                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-4">
+                                            <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Total Raised</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Total Raised']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Founded</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Year Founded']"></div></div></div>
+                                            <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Key Investors</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Key Investors']" :title="company.meta['Key Investors']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Headcount</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Headcount']"></div></div></div>
+                                            <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Stage</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.stage"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Status</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.status"></div></div></div>
+                                            <div class="space-y-3"><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Last Raise</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Last Raise']"></div></div><div><div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Customers</div><div class="text-xs font-semibold text-gray-900 mt-0.5 truncate" x-text="company.meta['Key Customers']" :title="company.meta['Key Customers']"></div></div></div>
+                                        </div>
                                     </div>
-
                                     <div class="hidden lg:flex flex-col items-end justify-start min-w-[80px] pl-4 border-l border-gray-100">
                                          <button @click.stop="toggleFav(company.name)" class="p-2 -mr-2 -mt-2 rounded-full hover:bg-gray-100 transition-colors focus:outline-none mb-2" :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></button>
                                         <div class="text-3xl font-bold text-gray-900 tracking-tight" x-text="company.score.toFixed(2)"></div>
@@ -331,12 +301,10 @@
                             <div>
                                 <h4 class="font-bold text-gray-900 mb-2">Executive Summary</h4>
                                 <p class="text-[15px] text-gray-700 leading-relaxed mb-6" x-text="selectedCompany.desc"></p>
-                                
-                                <div class="bg-gray-50 border border-gray-200 rounded p-5 mb-6 border-l-4" :class="selectedCompany.raw.vc_dossier ? 'border-l-blue-500' : 'border-l-orange-500'">
-                                    <div class="text-[13px] font-bold text-gray-800 uppercase tracking-wide mb-2" x-text="selectedCompany.raw.vc_dossier ? 'VC Alignment' : 'Reason for Exclusion'"></div>
+                                <div class="bg-gray-50 border border-gray-200 rounded p-5 mb-6 border-l-4 border-l-blue-500">
+                                    <div class="text-[13px] font-bold text-gray-800 uppercase tracking-wide mb-2">VC Alignment</div>
                                     <div class="text-[15px] text-gray-700 leading-relaxed" x-text="selectedCompany.raw.rationale"></div>
                                 </div>
-
                                 <template x-if="selectedCompany.raw.vc_dossier">
                                     <div>
                                         <h4 class="font-bold text-gray-900 mb-4">Strategic DNA</h4>
@@ -345,41 +313,23 @@
                                         <template x-if="selectedCompany.raw.vc_dossier.moat_description"><div class="mb-4"><div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1">Competitive Moat</div><div class="text-[15px] text-gray-900" x-text="selectedCompany.raw.vc_dossier.moat_description"></div></div></template>
                                     </div>
                                 </template>
-                                
-                                <template x-if="selectedCompany.raw.investment_thesis_one_liner && !selectedCompany.raw.vc_dossier">
-                                     <div class="mt-4">
-                                        <h4 class="font-bold text-gray-900 mb-2">Investment Thesis</h4>
-                                        <p class="text-[15px] text-gray-700" x-text="selectedCompany.raw.investment_thesis_one_liner"></p>
-                                     </div>
-                                </template>
                             </div>
                             <div>
                                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center mb-6">
                                     <div class="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2">AI Venture Score</div>
                                     <div class="text-5xl font-extrabold leading-none" :class="{'text-emerald-500': selectedCompany.score >= 0.7, 'text-amber-500': selectedCompany.score >= 0.5 && selectedCompany.score < 0.7, 'text-red-500': selectedCompany.score < 0.5}" x-text="selectedCompany.score.toFixed(2)"></div>
                                 </div>
-                                
                                 <div class="grid grid-cols-2 gap-y-4 gap-x-4 mb-6">
                                     <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Stage</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.stage"></div></div>
+                                    <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Founded</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Year Founded']"></div></div>
+                                    <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Raised</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Total Raised']"></div></div>
+                                    <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Team</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Headcount']"></div></div>
+                                    <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Last Raise</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Last Raise']"></div></div>
                                     <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Status</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Status']"></div></div>
-                                    
-                                    <template x-if="selectedCompany.raw.vc_dossier">
-                                        <div class="col-span-2 grid grid-cols-2 gap-y-4 gap-x-4">
-                                            <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Founded</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Year Founded']"></div></div>
-                                            <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Raised</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Total Raised']"></div></div>
-                                            <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Team</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Headcount']"></div></div>
-                                            <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-1">Last Raise</div><div class="text-sm font-bold text-gray-900" x-text="selectedCompany.meta['Last Raise']"></div></div>
-                                        </div>
-                                    </template>
                                 </div>
-
-                                <template x-if="selectedCompany.raw.vc_dossier">
-                                    <div>
-                                        <hr class="border-gray-200 mb-6">
-                                        <div class="mb-4"><div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Key Investors</div><div class="flex flex-wrap gap-2"><template x-for="inv in parseList(selectedCompany.meta['Key Investors'])"><span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-[11px] font-semibold border border-gray-200" x-text="inv"></span></template><span x-show="parseList(selectedCompany.meta['Key Investors']).length === 0" class="text-sm text-gray-400">—</span></div></div>
-                                        <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Key Customers</div><div class="flex flex-wrap gap-2"><template x-for="cust in parseList(selectedCompany.meta['Key Customers'])"><span class="inline-block bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-[11px] font-semibold border border-emerald-200" x-text="cust"></span></template><span x-show="parseList(selectedCompany.meta['Key Customers']).length === 0" class="text-sm text-gray-400">—</span></div></div>
-                                    </div>
-                                </template>
+                                <hr class="border-gray-200 mb-6">
+                                <div class="mb-4"><div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Key Investors</div><div class="flex flex-wrap gap-2"><template x-for="inv in parseList(selectedCompany.meta['Key Investors'])"><span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-[11px] font-semibold border border-gray-200" x-text="inv"></span></template><span x-show="parseList(selectedCompany.meta['Key Investors']).length === 0" class="text-sm text-gray-400">—</span></div></div>
+                                <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Key Customers</div><div class="flex flex-wrap gap-2"><template x-for="cust in parseList(selectedCompany.meta['Key Customers'])"><span class="inline-block bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-[11px] font-semibold border border-emerald-200" x-text="cust"></span></template><span x-show="parseList(selectedCompany.meta['Key Customers']).length === 0" class="text-sm text-gray-400">—</span></div></div>
                             </div>
                         </div>
                     </div>
@@ -403,7 +353,6 @@
                 modalOpen: false,
                 selectedCompany: null,
                 mobileFiltersOpen: false,
-                showAll: false, // NEW: Toggle state for showing all companies
                 favorites: Alpine.$persist([]).as('venture-favorites'),
                 searchQuery: '',
                 searchDeep: false,
@@ -437,11 +386,7 @@
                     this.$nextTick(() => { const c = document.getElementById('chat-container'); if(c) c.scrollTop = c.scrollHeight; });
 
                     try {
-                        // AI SAFETY FILTER: Only send companies with dossiers (score >= 0.6)
-                        // Even if user sees "All Companies", AI only sees the good ones.
-                        const aiSafeData = this.allCompanies.filter(c => c.raw.vc_dossier);
-
-                        const richData = aiSafeData.map(c => {
+                        const richData = this.allCompanies.map(c => {
                             const d = c.raw.vc_dossier || {};
                             return {
                                 n: c.name, s: c.score, h: c.hq, st: c.stage,
@@ -526,23 +471,17 @@
                         const taxonomy = item.taxonomy || {};
                         const meta = { "Total Raised": dossier.total_raised || '—', "Key Investors": this.formatList(dossier.key_investors), "Current Stage": item.stage_estimate || 'Unknown', "Last Raise": dossier.latest_round || '—', "Year Founded": dossier.year_founded || '—', "Headcount": dossier.headcount_estimate || '—', "Status": dossier.corporate_status || 'Active', "Key Customers": this.formatList(dossier.key_customers) };
                         return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
-                    });
-                    // REMOVED FILTER: Now returns all companies, not just high scores
+                    }).filter(c => c.score >= 0.6);
                 },
                 get categories() { return this.categoriesList.map(cat => ({ name: cat, count: this.allCompanies.filter(c => c.l1 === cat).length })); },
                 get filteredCompanies() {
-                    // FILTER 1: Show All vs Only Candidates
-                    let res = this.showAll ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6);
-
-                    // FILTER 2: Search
+                    let res = this.allCompanies;
                     if (this.searchQuery.trim()) {
                         const q = this.searchQuery.toLowerCase();
                         if (this.searchDeep) {
                              res = res.filter(c => c.name.toLowerCase().includes(q) || (c.desc || '').toLowerCase().includes(q) || (c.raw.vc_dossier?.moat_description || '').toLowerCase().includes(q) || (c.meta['Key Investors'] || '').toLowerCase().includes(q));
                         } else { res = res.filter(c => c.name.toLowerCase().includes(q)); }
                     }
-                    
-                    // FILTER 3: Dropdowns
                     if (this.selectedCategory) res = res.filter(c => c.l1 === this.selectedCategory);
                     if (this.filters.sector && !this.selectedCategory) res = res.filter(c => c.l1 === this.filters.sector);
                     if (this.filters.subCat && this.selectedCategory) res = res.filter(c => c.l3 === this.filters.subCat);
@@ -550,7 +489,6 @@
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
-                    
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         let valA, valB;
