@@ -293,7 +293,7 @@
                                                 </div>
                                                 <div class="col-span-1">
                                                     <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Reason for Exclusion</div>
-                                                    <div class="text-xs font-medium text-orange-700 bg-orange-50 px-2 py-1.5 rounded border border-orange-100 leading-snug" x-text="company.raw.rationale"></div>
+                                                    <div class="text-xs font-medium text-gray-600 bg-gray-50 px-2 py-1.5 rounded border border-gray-200 leading-snug" x-text="company.raw.rationale"></div>
                                                 </div>
                                             </div>
                                         </template>
@@ -333,10 +333,12 @@
                             <div>
                                 <h4 class="font-bold text-gray-900 mb-2">Executive Summary</h4>
                                 <p class="text-[15px] text-gray-700 leading-relaxed mb-6" x-text="selectedCompany.desc"></p>
-                                <div class="bg-gray-50 border border-gray-200 rounded p-5 mb-6 border-l-4" :class="selectedCompany.raw.vc_dossier ? 'border-l-blue-500' : 'border-l-orange-500'">
+                                
+                                <div class="bg-gray-50 border border-gray-200 rounded p-5 mb-6 border-l-4" :class="selectedCompany.raw.vc_dossier ? 'border-l-blue-500' : 'border-l-gray-400'">
                                     <div class="text-[13px] font-bold text-gray-800 uppercase tracking-wide mb-2" x-text="selectedCompany.raw.vc_dossier ? 'VC Alignment' : 'Reason for Exclusion'"></div>
                                     <div class="text-[15px] text-gray-700 leading-relaxed" x-text="selectedCompany.raw.rationale"></div>
                                 </div>
+
                                 <template x-if="selectedCompany.raw.vc_dossier">
                                     <div>
                                         <h4 class="font-bold text-gray-900 mb-4">Strategic DNA</h4>
@@ -524,7 +526,9 @@
                 },
                 get categories() { return this.categoriesList.map(cat => ({ name: cat, count: this.allCompanies.filter(c => c.l1 === cat).length })); },
                 get filteredCompanies() {
-                    let res = this.showAll ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6);
+                    // FIXED: Ensure array reactivity by creating a new filtered list every time
+                    let res = this.showAll ? [...this.allCompanies] : this.allCompanies.filter(c => c.score >= 0.6);
+
                     if (this.searchQuery.trim()) {
                         const q = this.searchQuery.toLowerCase();
                         if (this.searchDeep) {
@@ -538,6 +542,7 @@
                     if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
                     if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
                     if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
+                    
                     const sortKey = this.filters.sortBy;
                     res = res.sort((a, b) => {
                         let valA, valB;
@@ -545,6 +550,7 @@
                         else if (sortKey === 'raised') { valA = a.sort_raised; valB = b.sort_raised; }
                         else if (sortKey === 'headcount') { valA = a.sort_headcount; valB = b.sort_headcount; }
                         else if (sortKey === 'stage') { valA = a.sort_stage; valB = b.sort_stage; }
+                        
                         return this.sortDesc ? valB - valA : valA - valB;
                     });
                     return res;
