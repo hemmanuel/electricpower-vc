@@ -99,47 +99,138 @@
 
         <div x-show="!isLoading" class="h-full w-full">
             
-            <div x-show="view === 'chat'" x-cloak class="h-full flex flex-col max-w-3xl mx-auto">
-                <div class="flex-1 overflow-y-auto px-4 py-6 space-y-8 chat-scroll scroll-smooth" id="chat-container">
-                    <div class="flex gap-4 fade-in">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm">AI</div>
-                        <div class="text-gray-800 text-[15px] leading-relaxed max-w-[90%] pt-1">
-                            Hello, I am your Venture Analyst! I'm an expert in startups in the electric power industry, and have analyzed the companies on this site. I can identify trends, analyze business models, or screen specific companies for you. How can I help?
-                        </div>
-                    </div>
-                    <template x-for="(msg, index) in chatHistory" :key="index">
-                        <div class="flex gap-4 w-full" :class="msg.role === 'user' ? 'justify-end' : 'justify-start'">
-                            <div x-show="msg.role === 'ai'" class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm mt-1">AI</div>
-                            <div class="max-w-[85%] md:max-w-[80%] text-[15px] leading-relaxed overflow-hidden"
-                                 :class="msg.role === 'user' ? 'bg-[#f0f4f9] text-[#1f1f1f] px-5 py-3 rounded-[20px] rounded-tr-sm' : 'text-gray-800 pt-1 prose'">
-                                <div x-html="renderMarkdown(msg.content)"></div>
+            <div x-show="view === 'chat'" x-cloak class="h-full flex w-full">
+                
+                <div class="w-1/3 flex flex-col border-r border-gray-200 h-full bg-gray-50/50 flex-shrink-0">
+                    <div class="p-4 bg-white border-b border-gray-200 shadow-sm z-10 space-y-3" x-data="{ sidebarFiltersOpen: false }">
+                        <div class="space-y-3">
+                            <select x-model="viewMode" class="w-full text-xs border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-bold text-blue-800">
+                                <option value="vc">VC Candidates Only</option>
+                                <option value="all">Show All Companies</option>
+                            </select>
+                            
+                            <div class="relative w-full">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <input type="text" x-model="searchQuery" 
+                                       class="block w-full pl-9 pr-9 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm shadow-sm" 
+                                       :placeholder="searchDeep ? 'Deep search...' : 'Search companies...'">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                                     <button @click="searchDeep = !searchDeep" class="text-[10px] font-bold uppercase tracking-wider transition-colors hover:text-blue-600 p-1" :class="searchDeep ? 'text-blue-600' : 'text-gray-400'" title="Toggle Deep Search">Deep</button>
+                                </div>
                             </div>
                         </div>
-                    </template>
-                    <div x-show="isChatting" class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm animate-pulse">...</div>
-                        <div class="text-gray-400 text-sm pt-2 italic">Analyzing data...</div>
-                    </div>
-                    <div x-show="chatError" class="flex justify-center">
-                        <div class="bg-red-50 text-red-600 text-xs px-4 py-2 rounded-full border border-red-100 flex items-center gap-2">
-                            <span>⚠️</span> <span x-text="chatError"></span>
+
+                        <button @click="sidebarFiltersOpen = !sidebarFiltersOpen" 
+                                class="w-full flex items-center justify-between px-3 py-2 bg-gray-50 border border-gray-200 rounded text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
+                            <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg> Filters & Sort</span>
+                            <span x-text="sidebarFiltersOpen ? 'Hide' : 'Show'" class="text-blue-600"></span>
+                        </button>
+
+                        <div x-show="sidebarFiltersOpen" class="grid grid-cols-2 gap-2 pt-1 border-t border-gray-100 mt-2">
+                             <div class="col-span-2">
+                                <label class="block text-[10px] font-semibold text-gray-500 mb-1">Industry</label>
+                                <select x-model="filters.sector" class="w-full text-[11px] border-gray-300 rounded shadow-sm p-1.5 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">All Industries</option>
+                                    <template x-for="s in uniqueSectors" :key="s"><option :value="s" x-text="s"></option></template>
+                                </select>
+                             </div>
+                             <div class="col-span-2">
+                                <label class="block text-[10px] font-semibold text-gray-500 mb-1">Sort By</label>
+                                <div class="flex">
+                                     <select x-model="filters.sortBy" class="flex-1 text-[11px] border-gray-300 rounded-l shadow-sm p-1.5 border-r-0 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="score">Venture Score</option>
+                                        <option value="raised">Amount Raised</option>
+                                        <option value="headcount">Headcount</option>
+                                        <option value="stage">Stage Maturity</option>
+                                     </select>
+                                     <button @click="sortDesc = !sortDesc" class="px-2 bg-white border border-gray-300 rounded-r shadow-sm text-gray-600 font-bold text-xs hover:bg-gray-50" x-text="sortDesc ? '↓' : '↑'"></button>
+                                </div>
+                             </div>
+                             <label class="col-span-2 flex items-center gap-2 text-[11px] font-medium text-gray-700 cursor-pointer bg-blue-50/50 p-2 rounded border border-blue-100 hover:bg-blue-50">
+                                <input type="checkbox" x-model="filters.aiFocus" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 h-3 w-3">
+                                <span>AI-Focused Companies Only</span>
+                             </label>
                         </div>
                     </div>
+
+                    <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50">
+                         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center" x-text="filteredCompanies.length + ' Companies'"></div>
+                         <template x-for="company in filteredCompanies" :key="company.name">
+                            <div class="group bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative cursor-pointer" @click="openModal(company)">
+                                <button @click.stop="toggleFav(company.name)" class="absolute top-3 right-3 p-1.5 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none" :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                </button>
+                                
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex gap-3 items-start">
+                                        <div class="w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
+                                        <div class="flex-1 min-w-0 pr-6">
+                                            <div class="text-sm font-bold text-gray-900 leading-tight mb-1 truncate" x-text="company.name"></div>
+                                            <div class="text-[10px] font-medium text-gray-500 flex items-center gap-1"><span>📍 <span x-text="company.hq"></span></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="company.desc"></div>
+                                    
+                                    <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                                        <div class="flex flex-col">
+                                            <span class="text-[9px] font-bold text-gray-400 uppercase">Score</span>
+                                            <span class="text-lg font-bold text-gray-900 leading-none" x-text="company.score.toFixed(2)"></span>
+                                        </div>
+                                        <div class="flex flex-col items-end">
+                                            <span class="text-[9px] font-bold text-gray-400 uppercase">Stage</span>
+                                            <span class="text-xs font-semibold text-gray-800" x-text="company.stage"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
                 </div>
-                <div class="flex-shrink-0 p-2 bg-white border-t border-gray-100">
-                    <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200">
-                        <form @submit.prevent="sendMessage()" class="flex items-end p-2">
-                            <textarea x-model="userQuery" 
-                                      class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 px-4 py-3 min-h-[52px] max-h-32 resize-none text-[15px]"
-                                      placeholder="Ask a question..." 
-                                      :disabled="isChatting"
-                                      rows="1"
-                                      @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px'"
-                                      @keydown.enter.prevent="if(!$event.shiftKey) sendMessage()"></textarea>
-                            <button type="submit" :disabled="!userQuery.trim() || isChatting" class="mb-1 mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-0.5"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
-                            </button>
-                        </form>
+
+                <div class="w-2/3 flex flex-col h-full bg-white relative">
+                    <div class="flex-1 overflow-y-auto px-6 py-8 space-y-8 chat-scroll scroll-smooth" id="chat-container">
+                        <div class="flex gap-4 fade-in">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm">AI</div>
+                            <div class="text-gray-800 text-[15px] leading-relaxed max-w-[90%] pt-1">
+                                Hello, I am your Venture Analyst! I'm an expert in startups in the electric power industry, and have analyzed the companies on this site. I can identify trends, analyze business models, or screen specific companies for you. How can I help?
+                            </div>
+                        </div>
+                        <template x-for="(msg, index) in chatHistory" :key="index">
+                            <div class="flex gap-4 w-full" :class="msg.role === 'user' ? 'justify-end' : 'justify-start'">
+                                <div x-show="msg.role === 'ai'" class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm mt-1">AI</div>
+                                <div class="max-w-[85%] md:max-w-[80%] text-[15px] leading-relaxed overflow-hidden"
+                                     :class="msg.role === 'user' ? 'bg-[#f0f4f9] text-[#1f1f1f] px-5 py-3 rounded-[20px] rounded-tr-sm' : 'text-gray-800 pt-1 prose'">
+                                    <div x-html="renderMarkdown(msg.content)"></div>
+                                </div>
+                            </div>
+                        </template>
+                        <div x-show="isChatting" class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm animate-pulse">...</div>
+                            <div class="text-gray-400 text-sm pt-2 italic">Analyzing data...</div>
+                        </div>
+                        <div x-show="chatError" class="flex justify-center">
+                            <div class="bg-red-50 text-red-600 text-xs px-4 py-2 rounded-full border border-red-100 flex items-center gap-2">
+                                <span>⚠️</span> <span x-text="chatError"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100">
+                        <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200 max-w-4xl mx-auto">
+                            <form @submit.prevent="sendMessage()" class="flex items-end p-2">
+                                <textarea x-model="userQuery" 
+                                          class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 px-4 py-3 min-h-[52px] max-h-32 resize-none text-[15px]"
+                                          placeholder="Ask a question..." 
+                                          :disabled="isChatting"
+                                          rows="1"
+                                          @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px'"
+                                          @keydown.enter.prevent="if(!$event.shiftKey) sendMessage()"></textarea>
+                                <button type="submit" :disabled="!userQuery.trim() || isChatting" class="mb-1 mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-0.5"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -324,9 +415,6 @@
             <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl max-h-[90vh] overflow-y-auto">
                 
                 <div class="sticky top-0 z-50 flex justify-end pt-4 pr-4 pointer-events-none">
-                     <button type="button" x-show="selectedCompany" @click="toggleFav(selectedCompany.name)" class="pointer-events-auto rounded-full p-2 bg-transparent text-gray-400 hover:text-red-500 hover:bg-gray-100 transition-all focus:outline-none mr-2 group" :class="selectedCompany && isFav(selectedCompany.name) ? 'text-red-500' : ''">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="selectedCompany && isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                     </button>
                      <button type="button" @click="closeModal()" class="pointer-events-auto rounded-full p-2 bg-transparent text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all focus:outline-none">
                         <span class="sr-only">Close</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -336,8 +424,15 @@
                 <template x-if="selectedCompany">
                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                         <div class="mb-6"> 
-                            <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
-                            <div class="text-sm text-gray-500 mt-1">📍 <span x-text="selectedCompany.hq"></span> | <span x-text="selectedCompany.l1"></span></div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-gray-900" x-text="selectedCompany.name"></h2>
+                                    <div class="text-sm text-gray-500 mt-1">📍 <span x-text="selectedCompany.hq"></span> | <span x-text="selectedCompany.l1"></span></div>
+                                </div>
+                                <button type="button" x-show="selectedCompany" @click="toggleFav(selectedCompany.name)" class="rounded-full p-2 bg-transparent text-gray-400 hover:text-red-500 hover:bg-gray-100 transition-all focus:outline-none mr-8 sm:mr-0 group flex-shrink-0" :class="selectedCompany && isFav(selectedCompany.name) ? 'text-red-500' : ''">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :fill="selectedCompany && isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                </button>
+                            </div>
                             <hr class="mt-4 border-gray-200">
                         </div>
                         <div class="grid grid-cols-1 lg:grid-cols-[2fr_1.2fr] gap-8">
@@ -466,7 +561,7 @@
                         
                         CRITICAL RULES:
                         1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
-                        2. When asked about companies, frame the question through the perspective of a VA that looks for early-stage, (seed and series A), middle-America, non-coastal, ai-focused, heavy moat, incredibly scalable companies. Do not exclude coastal options, they are still candidates, but prioritize displaying opportunities in the interior US when you see them.
+                        2. When asked about companies, frame the question through the perspective of a venture capital firm that looks for early-stage, (seed and series A), middle-America, non-coastal, ai-focused, defendable moat, incredibly scalable companies. Show all options including coastal US and international companies, but prioritize displaying opportunities in the interior US when you see them.
                         3. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
                         4. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
                         5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise..
@@ -586,6 +681,3 @@
     </script>
 </body>
 </html>
-
-
-
