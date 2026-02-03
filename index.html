@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="bg-gray-100 p-1 rounded-lg flex items-center">
-                    <button @click="view = 'list'" 
+                    <button @click="view = 'list'; chatProfileOpen = false;" 
                             class="px-3 py-1.5 text-xs font-semibold rounded-md transition-all"
                             :class="view !== 'chat' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'">
                         List of Companies
@@ -104,87 +104,178 @@
                 <div class="hidden md:flex flex-col h-full bg-gray-50/50 flex-shrink-0 transition-all duration-300 ease-in-out overflow-hidden"
                      :class="sidebarOpen ? 'w-1/3 border-r border-gray-200' : 'w-0 border-none'">
                     
-                    <div class="p-4 bg-white border-b border-gray-200 shadow-sm z-10 space-y-3 min-w-[300px]" x-data="{ sidebarFiltersOpen: false }">
-                        <div class="space-y-3">
-                            <select x-model="viewMode" class="w-full text-xs border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-bold text-blue-800">
-                                <option value="vc">VC Candidates Only</option>
-                                <option value="all">Show All Companies</option>
-                            </select>
-                            
-                            <div class="relative w-full">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <div x-show="!chatProfileOpen" class="flex flex-col h-full w-full">
+                        <div class="p-4 bg-white border-b border-gray-200 shadow-sm z-10 space-y-3 min-w-[300px]" x-data="{ sidebarFiltersOpen: false }">
+                            <div class="space-y-3">
+                                <select x-model="viewMode" class="w-full text-xs border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-bold text-blue-800">
+                                    <option value="vc">VC Candidates Only</option>
+                                    <option value="all">Show All Companies</option>
+                                </select>
+                                
+                                <div class="relative w-full">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                    </div>
+                                    <input type="text" x-model="searchQuery" 
+                                           class="block w-full pl-9 pr-9 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm shadow-sm" 
+                                           :placeholder="searchDeep ? 'Deep search...' : 'Search companies...'">
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                                         <button @click="searchDeep = !searchDeep" class="text-[10px] font-bold uppercase tracking-wider transition-colors hover:text-blue-600 p-1" :class="searchDeep ? 'text-blue-600' : 'text-gray-400'" title="Toggle Deep Search">Deep</button>
+                                    </div>
                                 </div>
-                                <input type="text" x-model="searchQuery" 
-                                       class="block w-full pl-9 pr-9 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm shadow-sm" 
-                                       :placeholder="searchDeep ? 'Deep search...' : 'Search companies...'">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-2">
-                                     <button @click="searchDeep = !searchDeep" class="text-[10px] font-bold uppercase tracking-wider transition-colors hover:text-blue-600 p-1" :class="searchDeep ? 'text-blue-600' : 'text-gray-400'" title="Toggle Deep Search">Deep</button>
-                                </div>
+                            </div>
+
+                            <button @click="sidebarFiltersOpen = !sidebarFiltersOpen" 
+                                    class="w-full flex items-center justify-between px-3 py-2 bg-gray-50 border border-gray-200 rounded text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
+                                <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg> Filters & Sort</span>
+                                <span x-text="sidebarFiltersOpen ? 'Hide' : 'Show'" class="text-blue-600"></span>
+                            </button>
+
+                            <div x-show="sidebarFiltersOpen" class="grid grid-cols-2 gap-2 pt-1 border-t border-gray-100 mt-2">
+                                 <div class="col-span-2">
+                                    <label class="block text-[10px] font-semibold text-gray-500 mb-1">Industry</label>
+                                    <select x-model="filters.sector" class="w-full text-[11px] border-gray-300 rounded shadow-sm p-1.5 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">All Industries</option>
+                                        <template x-for="s in uniqueSectors" :key="s"><option :value="s" x-text="s"></option></template>
+                                    </select>
+                                 </div>
+                                 <div class="col-span-2">
+                                    <label class="block text-[10px] font-semibold text-gray-500 mb-1">Sort By</label>
+                                    <div class="flex">
+                                         <select x-model="filters.sortBy" class="flex-1 text-[11px] border-gray-300 rounded-l shadow-sm p-1.5 border-r-0 focus:ring-blue-500 focus:border-blue-500">
+                                            <option value="score">Venture Score</option>
+                                            <option value="raised">Amount Raised</option>
+                                            <option value="headcount">Headcount</option>
+                                            <option value="stage">Stage Maturity</option>
+                                         </select>
+                                         <button @click="sortDesc = !sortDesc" class="px-2 bg-white border border-gray-300 rounded-r shadow-sm text-gray-600 font-bold text-xs hover:bg-gray-50" x-text="sortDesc ? '↓' : '↑'"></button>
+                                    </div>
+                                 </div>
+                                 <label class="col-span-2 flex items-center gap-2 text-[11px] font-medium text-gray-700 cursor-pointer bg-blue-50/50 p-2 rounded border border-blue-100 hover:bg-blue-50">
+                                    <input type="checkbox" x-model="filters.aiFocus" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 h-3 w-3">
+                                    <span>AI-Focused Companies Only</span>
+                                 </label>
                             </div>
                         </div>
 
-                        <button @click="sidebarFiltersOpen = !sidebarFiltersOpen" 
-                                class="w-full flex items-center justify-between px-3 py-2 bg-gray-50 border border-gray-200 rounded text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
-                            <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg> Filters & Sort</span>
-                            <span x-text="sidebarFiltersOpen ? 'Hide' : 'Show'" class="text-blue-600"></span>
-                        </button>
-
-                        <div x-show="sidebarFiltersOpen" class="grid grid-cols-2 gap-2 pt-1 border-t border-gray-100 mt-2">
-                             <div class="col-span-2">
-                                <label class="block text-[10px] font-semibold text-gray-500 mb-1">Industry</label>
-                                <select x-model="filters.sector" class="w-full text-[11px] border-gray-300 rounded shadow-sm p-1.5 focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="">All Industries</option>
-                                    <template x-for="s in uniqueSectors" :key="s"><option :value="s" x-text="s"></option></template>
-                                </select>
-                             </div>
-                             <div class="col-span-2">
-                                <label class="block text-[10px] font-semibold text-gray-500 mb-1">Sort By</label>
-                                <div class="flex">
-                                     <select x-model="filters.sortBy" class="flex-1 text-[11px] border-gray-300 rounded-l shadow-sm p-1.5 border-r-0 focus:ring-blue-500 focus:border-blue-500">
-                                        <option value="score">Venture Score</option>
-                                        <option value="raised">Amount Raised</option>
-                                        <option value="headcount">Headcount</option>
-                                        <option value="stage">Stage Maturity</option>
-                                     </select>
-                                     <button @click="sortDesc = !sortDesc" class="px-2 bg-white border border-gray-300 rounded-r shadow-sm text-gray-600 font-bold text-xs hover:bg-gray-50" x-text="sortDesc ? '↓' : '↑'"></button>
+                        <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50 min-w-[300px]">
+                             <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center" x-text="filteredCompanies.length + ' Companies'"></div>
+                             <template x-for="company in filteredCompanies" :key="company.name">
+                                <div class="group bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative cursor-pointer" @click="openModal(company)">
+                                    <button @click.stop="toggleFav(company.name)" class="absolute top-3 right-3 p-1.5 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none" :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                    </button>
+                                    
+                                    <div class="flex flex-col gap-3">
+                                        <div class="flex gap-3 items-start">
+                                            <div class="w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
+                                            <div class="flex-1 min-w-0 pr-6">
+                                                <div class="text-sm font-bold text-gray-900 leading-tight mb-1 truncate" x-text="company.name"></div>
+                                                <div class="text-[10px] font-medium text-gray-500 flex items-center gap-1"><span>📍 <span x-text="company.hq"></span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="company.desc"></div>
+                                        
+                                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                                            <div class="flex flex-col">
+                                                <span class="text-[9px] font-bold text-gray-400 uppercase">Score</span>
+                                                <span class="text-lg font-bold text-gray-900 leading-none" x-text="company.score.toFixed(2)"></span>
+                                            </div>
+                                            <div class="flex flex-col items-end">
+                                                <span class="text-[9px] font-bold text-gray-400 uppercase">Stage</span>
+                                                <span class="text-xs font-semibold text-gray-800" x-text="company.stage"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                             <label class="col-span-2 flex items-center gap-2 text-[11px] font-medium text-gray-700 cursor-pointer bg-blue-50/50 p-2 rounded border border-blue-100 hover:bg-blue-50">
-                                <input type="checkbox" x-model="filters.aiFocus" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 h-3 w-3">
-                                <span>AI-Focused Companies Only</span>
-                             </label>
+                            </template>
                         </div>
                     </div>
 
-                    <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50 min-w-[300px]">
-                         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center" x-text="filteredCompanies.length + ' Companies'"></div>
-                         <template x-for="company in filteredCompanies" :key="company.name">
-                            <div class="group bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative cursor-pointer" @click="openModal(company)">
-                                <button @click.stop="toggleFav(company.name)" class="absolute top-3 right-3 p-1.5 rounded-full z-20 hover:bg-gray-100 transition-colors focus:outline-none" :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                                </button>
+                    <div x-show="chatProfileOpen && selectedCompany" class="flex flex-col h-full w-full bg-white overflow-y-auto">
+                        <div class="sticky top-0 bg-white/95 backdrop-blur z-20 border-b border-gray-200 px-4 py-3 flex items-center gap-2">
+                            <button @click="closeModal()" class="flex items-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                                Back to List
+                            </button>
+                        </div>
+                        
+                        <template x-if="selectedCompany">
+                            <div class="p-5 space-y-6">
+                                <div>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h2 class="text-xl font-bold text-gray-900 leading-tight" x-text="selectedCompany.name"></h2>
+                                        <button type="button" @click="toggleFav(selectedCompany.name)" class="rounded-full p-1.5 bg-transparent text-gray-400 hover:text-red-500 hover:bg-gray-50 transition-all focus:outline-none flex-shrink-0" :class="isFav(selectedCompany.name) ? 'text-red-500' : ''">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(selectedCompany.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                        </button>
+                                    </div>
+                                    <div class="text-xs text-gray-500">📍 <span x-text="selectedCompany.hq"></span></div>
+                                    <div class="text-xs text-gray-500 mt-1" x-text="selectedCompany.l1"></div>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-xl border border-gray-200 p-4 text-center">
+                                    <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">AI Venture Score</div>
+                                    <div class="text-4xl font-extrabold leading-none" :class="{'text-emerald-500': selectedCompany.score >= 0.7, 'text-amber-500': selectedCompany.score >= 0.5 && selectedCompany.score < 0.7, 'text-red-500': selectedCompany.score < 0.5}" x-text="selectedCompany.score.toFixed(2)"></div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 mb-2">Executive Summary</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed" x-text="selectedCompany.desc"></p>
+                                </div>
+
+                                <div class="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                                    <div class="text-[10px] font-bold text-blue-800 uppercase tracking-wide mb-1" x-text="selectedCompany.raw.vc_dossier ? 'VC Alignment' : 'Reason for Exclusion'"></div>
+                                    <div class="text-xs text-blue-900 leading-relaxed" x-text="selectedCompany.raw.rationale"></div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div><span class="block font-bold text-gray-500 text-[10px] uppercase">Stage</span><span class="font-semibold text-gray-900" x-text="selectedCompany.stage"></span></div>
+                                    <div><span class="block font-bold text-gray-500 text-[10px] uppercase">Status</span><span class="font-semibold text-gray-900" x-text="selectedCompany.meta['Status']"></span></div>
+                                    <template x-if="selectedCompany.raw.vc_dossier">
+                                        <div class="contents">
+                                            <div><span class="block font-bold text-gray-500 text-[10px] uppercase">Raised</span><span class="font-semibold text-gray-900" x-text="selectedCompany.meta['Total Raised']"></span></div>
+                                            <div><span class="block font-bold text-gray-500 text-[10px] uppercase">Team</span><span class="font-semibold text-gray-900" x-text="selectedCompany.meta['Headcount']"></span></div>
+                                        </div>
+                                    </template>
+                                </div>
+
+                                <template x-if="selectedCompany.raw.vc_dossier">
+                                    <div class="space-y-4">
+                                        <hr class="border-gray-100">
+                                        <div>
+                                            <h4 class="text-xs font-bold text-gray-900 mb-2 uppercase">Strategic DNA</h4>
+                                            <template x-if="selectedCompany.raw.vc_dossier.macro_trend">
+                                                <div class="mb-3">
+                                                    <div class="text-[10px] font-bold text-gray-500 mb-0.5">Big Picture</div>
+                                                    <div class="text-xs text-gray-700" x-text="selectedCompany.raw.vc_dossier.macro_trend"></div>
+                                                </div>
+                                            </template>
+                                            <template x-if="selectedCompany.raw.vc_dossier.moat_description">
+                                                <div>
+                                                    <div class="text-[10px] font-bold text-gray-500 mb-0.5">Moat</div>
+                                                    <div class="text-xs text-gray-700" x-text="selectedCompany.raw.vc_dossier.moat_description"></div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        
+                                        <hr class="border-gray-100">
+                                        
+                                        <div>
+                                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-2">Key Investors</div>
+                                            <div class="flex flex-wrap gap-1.5">
+                                                <template x-for="inv in parseList(selectedCompany.meta['Key Investors'])">
+                                                    <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-[10px] font-medium border border-gray-200" x-text="inv"></span>
+                                                </template>
+                                                <span x-show="parseList(selectedCompany.meta['Key Investors']).length === 0" class="text-xs text-gray-400 italic">None listed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
                                 
-                                <div class="flex flex-col gap-3">
-                                    <div class="flex gap-3 items-start">
-                                        <div class="w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm" :style="`background-color: ${getColor(company.name)}`" x-text="getInitials(company.name)"></div>
-                                        <div class="flex-1 min-w-0 pr-6">
-                                            <div class="text-sm font-bold text-gray-900 leading-tight mb-1 truncate" x-text="company.name"></div>
-                                            <div class="text-[10px] font-medium text-gray-500 flex items-center gap-1"><span>📍 <span x-text="company.hq"></span></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="company.desc"></div>
-                                    
-                                    <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-                                        <div class="flex flex-col">
-                                            <span class="text-[9px] font-bold text-gray-400 uppercase">Score</span>
-                                            <span class="text-lg font-bold text-gray-900 leading-none" x-text="company.score.toFixed(2)"></span>
-                                        </div>
-                                        <div class="flex flex-col items-end">
-                                            <span class="text-[9px] font-bold text-gray-400 uppercase">Stage</span>
-                                            <span class="text-xs font-semibold text-gray-800" x-text="company.stage"></span>
-                                        </div>
-                                    </div>
+                                <div class="pt-4 pb-2">
+                                    <button @click="downloadSingleCSV(selectedCompany)" class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+                                        Download CSV Profile
+                                    </button>
                                 </div>
                             </div>
                         </template>
@@ -527,7 +618,8 @@
                 chatError: '',
                 chatHistory: [],
                 sortDesc: true, 
-                sidebarOpen: true, // Added for collapsible sidebar
+                sidebarOpen: true, 
+                chatProfileOpen: false, // New state for sidebar profile view
                 mdParser: window.markdownit(),
                 categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
@@ -679,8 +771,30 @@
                 get uniqueStatuses() { const pool = this.selectedCategory ? this.allCompanies.filter(c => c.l1 === this.selectedCategory) : this.allCompanies; return [...new Set(pool.map(c => c.status))].sort(); },
                 selectCategory(cat) { this.selectedCategory = cat; this.view = 'list'; this.filters.subCat = ''; window.scrollTo({ top: 0, behavior: 'auto' }); },
                 goBack() { this.selectedCategory = null; this.view = 'map'; },
-                openModal(company) { this.selectedCompany = company; this.modalOpen = true; document.body.style.overflow = 'hidden'; },
-                closeModal() { this.modalOpen = false; this.selectedCompany = null; document.body.style.overflow = 'auto'; },
+                
+                // --- UPDATED OPEN MODAL LOGIC ---
+                openModal(company) { 
+                    this.selectedCompany = company; 
+                    if (this.view === 'chat') {
+                        // Open profile in sidebar
+                        this.chatProfileOpen = true;
+                        // Ensure sidebar is visible if it was collapsed
+                        this.sidebarOpen = true;
+                    } else {
+                        // Open standard modal
+                        this.modalOpen = true; 
+                        document.body.style.overflow = 'hidden'; 
+                    }
+                },
+                
+                // --- UPDATED CLOSE MODAL LOGIC ---
+                closeModal() { 
+                    this.modalOpen = false; 
+                    this.chatProfileOpen = false; // Close sidebar profile view
+                    this.selectedCompany = null; 
+                    document.body.style.overflow = 'auto'; 
+                },
+                
                 formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
                 parseList(str) { if(!str || str === '—') return []; return str.split(',').map(s => s.trim()); },
                 getInitials(name) { return name.split(' ').slice(0, 2).map(n => n[0]).join(''); },
