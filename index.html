@@ -101,8 +101,10 @@
             
             <div x-show="view === 'chat'" x-cloak class="h-full flex w-full">
                 
-                <div class="w-1/3 flex flex-col border-r border-gray-200 h-full bg-gray-50/50 flex-shrink-0">
-                    <div class="p-4 bg-white border-b border-gray-200 shadow-sm z-10 space-y-3" x-data="{ sidebarFiltersOpen: false }">
+                <div class="hidden md:flex flex-col h-full bg-gray-50/50 flex-shrink-0 transition-all duration-300 ease-in-out overflow-hidden"
+                     :class="sidebarOpen ? 'w-1/3 border-r border-gray-200' : 'w-0 border-none'">
+                    
+                    <div class="p-4 bg-white border-b border-gray-200 shadow-sm z-10 space-y-3 min-w-[300px]" x-data="{ sidebarFiltersOpen: false }">
                         <div class="space-y-3">
                             <select x-model="viewMode" class="w-full text-xs border-gray-300 rounded-md shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-bold text-blue-800">
                                 <option value="vc">VC Candidates Only</option>
@@ -155,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50">
+                    <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50 min-w-[300px]">
                          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center" x-text="filteredCompanies.length + ' Companies'"></div>
                          <template x-for="company in filteredCompanies" :key="company.name">
                             <div class="group bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 relative cursor-pointer" @click="openModal(company)">
@@ -189,7 +191,16 @@
                     </div>
                 </div>
 
-                <div class="w-2/3 flex flex-col h-full bg-white relative">
+                <div class="flex-1 flex flex-col h-full bg-white relative transition-all duration-300 ease-in-out">
+                    
+                    <button @click="sidebarOpen = !sidebarOpen" 
+                            class="hidden md:flex absolute top-4 left-4 z-20 p-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-500 hover:text-gray-700 hover:bg-gray-50 transition-colors"
+                            :title="sidebarOpen ? 'Close Sidebar' : 'Open Sidebar'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
                     <div class="flex-1 overflow-y-auto px-6 py-8 space-y-8 chat-scroll scroll-smooth" id="chat-container">
                         <div class="flex gap-4 fade-in">
                             <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm">AI</div>
@@ -516,6 +527,7 @@
                 chatError: '',
                 chatHistory: [],
                 sortDesc: true, 
+                sidebarOpen: true, // Added for collapsible sidebar
                 mdParser: window.markdownit(),
                 categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
@@ -561,7 +573,7 @@
                         
                         CRITICAL RULES:
                         1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
-                        2. When asked about companies, frame the question through the perspective of a venture capital firm that looks for early-stage, (seed and series A), middle-America, non-coastal, ai-focused, defendable moat, incredibly scalable companies. Show all options including coastal US and international companies, but prioritize displaying opportunities in the interior US when you see them.
+                        2. When asked about companies, frame the question through the perspective of a venture capital firm that looks for early-stage, (seed and series A), middle-America, ai-focused, defendable moat, incredibly scalable companies. Show all options including coastal US and international companies, but prioritize displaying opportunities in the interior US when you see them.
                         3. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, insights and asymmetric upside.
                         4. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
                         5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise..
