@@ -158,6 +158,22 @@
                             </div>
                         </div>
 
+                        <div x-show="favorites.length > 0" class="px-4 py-2 bg-blue-50 border-b border-blue-100 flex flex-col gap-2 shrink-0">
+                            <div class="flex items-center justify-between">
+                                <div class="text-xs text-blue-800 font-semibold flex items-center gap-1">
+                                    <span>⭐</span> <span x-text="favorites.length"></span> saved
+                                </div>
+                                <div class="flex gap-1">
+                                     <button @click="filters.showFavoritesOnly = !filters.showFavoritesOnly" 
+                                             class="px-2 py-1 text-[10px] font-semibold border rounded transition-colors"
+                                             :class="filters.showFavoritesOnly ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'">
+                                        <span x-text="filters.showFavoritesOnly ? 'All' : 'View Favs'"></span>
+                                     </button>
+                                     <button @click="clearFavorites()" class="px-2 py-1 text-[10px] font-semibold bg-white text-red-600 border border-red-200 rounded hover:bg-red-50">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50 min-w-[300px]">
                              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center" x-text="filteredCompanies.length + ' Companies'"></div>
                              <template x-for="company in filteredCompanies" :key="company.name">
@@ -193,10 +209,10 @@
                     </div>
 
                     <div x-show="chatProfileOpen && selectedCompany" class="flex flex-col h-full w-full bg-white overflow-y-auto">
-                        <div class="sticky top-0 bg-white/95 backdrop-blur z-20 border-b border-gray-200 px-4 py-3 flex items-center gap-2">
-                            <button @click="closeModal()" class="flex items-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                                Back to List
+                        <div class="sticky top-0 bg-white/95 backdrop-blur z-20 border-b border-gray-200 px-4 py-3 flex justify-end items-center">
+                            <button @click="closeModal()" class="pointer-events-auto rounded-full p-2 bg-transparent text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all focus:outline-none">
+                                <span class="sr-only">Close</span>
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
                         </div>
                         
