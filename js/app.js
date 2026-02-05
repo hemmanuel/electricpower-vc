@@ -140,14 +140,22 @@ document.addEventListener('alpine:init', () => {
                 return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), founders: item.founders || [], company_twitter_url: item.company_twitter_url || null, raw: item };
             });
         },
-                        get visibleFounders() {
+        get visibleFounders() {
+            if (!this.filteredCompanies) return [];
             return this.filteredCompanies.flatMap(c => {
-                return (c.founders || []).map(f => ({
+                // Safety check for companies without founders array
+                if (!c.founders || !Array.isArray(c.founders)) return [];
+
+                return c.founders.map(f => ({
                     ...f,
-                    _company_name: c.name,
+                    // Fallback for missing founder names to prevent crash
+                    name: f.name || 'Unknown Founder', 
+                    role: f.role || '',
+                    _company_name: c.name || 'Unknown Company',
                     _company_score: c.score,
                     _company_hq: c.hq,
-                    _company_color: this.getColor(c.name),
+                    // Safety check for color generation
+                    _company_color: this.getColor(c.name || 'Unknown'),
                     _company_ref: c
                 }));
             });
@@ -246,7 +254,10 @@ document.addEventListener('alpine:init', () => {
         
         formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
         parseList(str) { if(!str || str === '—') return []; return str.split(',').map(s => s.trim()); },
-        getInitials(name) { return name.split(' ').slice(0, 2).map(n => n[0]).join(''); },
+        getInitials(name) { 
+            if (!name || typeof name !== 'string') return '?';
+            return name.split(' ').slice(0, 2).map(n => n[0]).join(''); 
+        },
         getColor(name) { const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#6366F1', '#8B5CF6']; let hash = 0; for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash); return colors[Math.abs(hash) % colors.length]; },
         parseMoney(s) { if (!s || typeof s !== 'string') return 0; const clean = s.toUpperCase().replace('$', '').replace('~', ''); const match = clean.match(/[\d,.]+/); if (!match) return 0; let num = parseFloat(match[0].replace(',', '')); if (clean.includes('B')) num *= 1e9; else if (clean.includes('M')) num *= 1e6; else if (clean.includes('K')) num *= 1e3; return num; },
         parseHeadcount(s) { if (!s || typeof s !== 'string') return 0; const match = s.match(/[\d,]+/); return match ? parseInt(match[0].replace(',', '')) : 0; },
