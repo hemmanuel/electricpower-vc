@@ -61,22 +61,22 @@
     </header>
 
     <!-- Mobile Bottom Navigation -->
-    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around py-1 pb-safe z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
-        <button @click="view = 'list'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="(view === 'list' || view === 'map') ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
-            <span class="text-xl">🏢</span>
-            <span class="text-[10px] font-medium">Companies</span>
+    <div class="md:hidden fixed bottom-0 w-full h-14 bg-white border-t border-gray-200 flex justify-around items-center z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
+        <button @click="view = 'list'; chatProfileOpen = false;" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="(view === 'list' || view === 'map') ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+            <span class="text-xl leading-none">🏢</span>
+            <span class="text-[10px] font-medium leading-none">Companies</span>
         </button>
-        <button @click="view = 'investors'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'investors' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
-            <span class="text-xl">💰</span>
-            <span class="text-[10px] font-medium">Investors</span>
+        <button @click="view = 'investors'; chatProfileOpen = false;" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="view === 'investors' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+            <span class="text-xl leading-none">💰</span>
+            <span class="text-[10px] font-medium leading-none">Investors</span>
         </button>
-        <button @click="view = 'founders'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'founders' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
-            <span class="text-xl">👥</span>
-            <span class="text-[10px] font-medium">Founders</span>
+        <button @click="view = 'founders'; chatProfileOpen = false;" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="view === 'founders' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+            <span class="text-xl leading-none">👥</span>
+            <span class="text-[10px] font-medium leading-none">Founders</span>
         </button>
-        <button @click="view = 'chat'" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'chat' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
-            <span class="text-xl">✨</span>
-            <span class="text-[10px] font-medium">Analyst</span>
+        <button @click="view = 'chat'" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="view === 'chat' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+            <span class="text-xl leading-none">✨</span>
+            <span class="text-[10px] font-medium leading-none">Analyst</span>
         </button>
     </div>
 
@@ -319,7 +319,7 @@
                         </svg>
                     </button>
 
-                    <div class="flex-1 overflow-y-auto px-6 py-8 space-y-8 chat-scroll scroll-smooth" id="chat-container">
+                    <div class="flex-1 overflow-y-auto px-6 py-8 pb-32 space-y-8 chat-scroll scroll-smooth" id="chat-container">
                         <div class="flex gap-4 fade-in">
                             <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm">AI</div>
                             <div class="text-gray-800 text-[15px] leading-relaxed max-w-[90%] pt-1">
@@ -345,7 +345,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100">
+                    <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100 md:mb-0 mb-14">
                         <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200 max-w-4xl mx-auto">
                             <form @submit.prevent="sendMessage()" class="flex items-end p-2">
                                 <textarea x-model="userQuery" 
