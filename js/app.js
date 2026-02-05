@@ -148,13 +148,18 @@ document.addEventListener('alpine:init', () => {
 
                 return c.founders.map(f => ({
                     ...f,
-                    // Fallback for missing founder names to prevent crash
-                    name: f.name || 'Unknown Founder', 
+                    // Sanitize Strings
+                    name: f.name || 'Unknown Founder',
                     role: f.role || '',
+                    // Sanitize Arrays (Critical for Filters)
+                    tags: Array.isArray(f.tags) ? f.tags : [],
+                    previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
+                    education: Array.isArray(f.education) ? f.education : [],
+                    
+                    // Company Ref Data
                     _company_name: c.name || 'Unknown Company',
                     _company_score: c.score,
                     _company_hq: c.hq,
-                    // Safety check for color generation
                     _company_color: this.getColor(c.name || 'Unknown'),
                     _company_ref: c
                 }));
