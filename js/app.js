@@ -22,7 +22,9 @@ document.addEventListener('alpine:init', () => {
         mdParser: window.markdownit(),
         categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
-        founderFilter: { tag: '', alumni: '' },
+                founderFilter: { tag: '', alumni: '' },
+        selectedFounder: null,
+        founderModalOpen: false,
 
         init() { this.loadData(); },
 
@@ -228,6 +230,18 @@ document.addEventListener('alpine:init', () => {
             this.chatProfileOpen = false; // Close sidebar profile view
             this.selectedCompany = null; 
             document.body.style.overflow = 'auto'; 
+        },
+
+        openFounderModal(founder) {
+            this.selectedFounder = founder;
+            this.founderModalOpen = true;
+            document.body.style.overflow = 'hidden';
+        },
+
+        closeFounderModal() {
+            this.founderModalOpen = false;
+            this.selectedFounder = null;
+            document.body.style.overflow = 'auto';
         },
         
         formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
