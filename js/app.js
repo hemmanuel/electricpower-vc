@@ -149,35 +149,42 @@ document.addEventListener('alpine:init', () => {
         // --- ROBUST FOUNDER LOGIC START ---
         
         get visibleFounders() {
-            // Safety: Ensure filteredCompanies exists and is an array
-            if (!this.filteredCompanies || !Array.isArray(this.filteredCompanies)) return [];
-            
-            return this.filteredCompanies.flatMap(c => {
-                // Safety: Ensure founders exists and is an array
-                if (!c.founders || !Array.isArray(c.founders)) return [];
+            if (this.view !== 'founders') return [];
+            try {
+                // Safety: Ensure filteredCompanies exists and is an array
+                if (!this.filteredCompanies || !Array.isArray(this.filteredCompanies)) return [];
+                
+                return this.filteredCompanies.flatMap(c => {
+                    // Safety: Ensure founders exists and is an array
+                    if (!c.founders || !Array.isArray(c.founders)) return [];
 
-                // CRITICAL FIX: Filter out null/undefined founders first to prevent "read properties of null" error
-                return c.founders
-                    .filter(f => f && typeof f === 'object') // Remove nulls and non-objects
-                    .map(f => ({
-                        ...f,
-                        // Safety: Fallback for missing strings
-                        name: f.name || 'Unknown Founder',
-                        role: f.role || 'Role Not Listed',
-                        
-                        // Safety: FORCE these to be arrays.
-                        tags: Array.isArray(f.tags) ? f.tags : [],
-                        previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
-                        education: Array.isArray(f.education) ? f.education : [],
-                        
-                        // Add Parent Company Context
-                        _company_name: c.name || 'Unknown Company',
-                        _company_score: c.score || 0,
-                        _company_hq: c.hq || 'Unknown',
-                        _company_color: this.getColor(c.name || 'Unknown'),
-                        // _company_ref REMOVED to prevent circular reference crash
-                    }));
-            });
+                    // CRITICAL FIX: Filter out null/undefined founders first to prevent "read properties of null" error
+                    return c.founders
+                        .filter(f => f && typeof f === 'object') // Remove nulls and non-objects
+                        .map(f => ({
+                            name: f.name || 'Unknown Founder',
+                            role: f.role || 'Role Not Listed',
+                            bio: f.bio || '',
+                            linkedin_url: f.linkedin_url || '',
+                            twitter_url: f.twitter_url || '',
+                            founder_market_fit: f.founder_market_fit || '',
+                            
+                            // Safety: FORCE these to be arrays.
+                            tags: Array.isArray(f.tags) ? f.tags : [],
+                            previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
+                            education: Array.isArray(f.education) ? f.education : [],
+                            
+                            // Add Parent Company Context
+                            _company_name: c.name || 'Unknown Company',
+                            _company_score: c.score || 0,
+                            _company_hq: c.hq || 'Unknown',
+                            _company_color: this.getColor(c.name || 'Unknown'),
+                        }));
+                });
+            } catch (e) {
+                console.error("Error calculating visibleFounders:", e);
+                return [];
+            }
         },
 
         get filteredFounders() {
