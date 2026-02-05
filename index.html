@@ -347,16 +347,16 @@
                     </div>
                     <div class="flex-shrink-0 p-4 bg-white border-t border-gray-100 md:mb-0 mb-14">
                         <div class="relative bg-gray-100/80 backdrop-blur-sm border border-gray-200 rounded-[28px] shadow-sm focus-within:shadow-md transition-shadow duration-200 max-w-4xl mx-auto">
-                            <form @submit.prevent="sendMessage()" class="flex items-end p-2">
+                            <form @submit.prevent="sendMessage()" class="flex items-end p-1">
                                 <textarea x-model="userQuery" 
-                                          class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 px-4 py-2 max-h-32 resize-none text-[15px]"
+                                          class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 px-4 py-1 max-h-32 resize-none text-[15px]"
                                           placeholder="Ask a question..." 
                                           :disabled="isChatting"
                                           rows="1"
                                           @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px'"
                                           @keydown.enter.prevent="if(!$event.shiftKey) sendMessage()"></textarea>
-                                <button type="submit" :disabled="!userQuery.trim() || isChatting" class="mb-1 mr-1 w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-0.5"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
+                                <button type="submit" :disabled="!userQuery.trim() || isChatting" class="mb-0.5 mr-0.5 w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
                                 </button>
                             </form>
                         </div>
