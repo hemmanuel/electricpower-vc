@@ -26,7 +26,13 @@ document.addEventListener('alpine:init', () => {
         selectedFounder: null,
         founderModalOpen: false,
 
-        init() { this.loadData(); },
+        init() { 
+            // Safety: Clear corrupted favorites from local storage
+            if (!this.favorites || !Array.isArray(this.favorites)) {
+                this.favorites = [];
+            }
+            this.loadData(); 
+        },
 
         loadData() {
             this.isLoading = true;
@@ -114,7 +120,7 @@ document.addEventListener('alpine:init', () => {
 
         renderMarkdown(text) { return this.mdParser.render(text); },
         toggleFav(name) { if (this.favorites.includes(name)) { this.favorites = this.favorites.filter(f => f !== name); } else { this.favorites.push(name); } },
-        isFav(name) { return this.favorites.includes(name); },
+        isFav(name) { return Array.isArray(this.favorites) && this.favorites.includes(name); },
         clearFavorites() { if(confirm("Are you sure you want to clear all favorite companies?")) { this.favorites = []; this.filters.showFavoritesOnly = false; } },
         downloadBatchCSV() { const favs = this.allCompanies.filter(c => this.favorites.includes(c.name)); if (favs.length === 0) return alert("No favorites to export!"); this.generateCSV(favs, "venture_favorites_batch.csv"); },
         downloadSingleCSV(company) { if(!company) return; this.generateCSV([company], `venture_profile_${company.name.replace(/\s+/g, '_').toLowerCase()}.csv`); },
@@ -245,7 +251,9 @@ document.addEventListener('alpine:init', () => {
             if (this.filters.stage) res = res.filter(c => c.stage === this.filters.stage);
             if (this.filters.status) res = res.filter(c => c.status === this.filters.status);
             if (this.filters.aiFocus) res = res.filter(c => c.tech_leverage >= 0.8);
-            if (this.filters.showFavoritesOnly) res = res.filter(c => this.favorites.includes(c.name));
+            if (this.filters.showFavoritesOnly) {
+                res = res.filter(c => Array.isArray(this.favorites) && this.favorites.includes(c.name));
+            }
             const sortKey = this.filters.sortBy;
             res = res.sort((a, b) => {
                 let valA, valB;
