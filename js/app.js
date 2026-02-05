@@ -175,7 +175,7 @@ document.addEventListener('alpine:init', () => {
                         _company_score: c.score || 0,
                         _company_hq: c.hq || 'Unknown',
                         _company_color: this.getColor(c.name || 'Unknown'),
-                        _company_ref: c
+                        // _company_ref REMOVED to prevent circular reference crash
                     }));
             });
         },
@@ -273,7 +273,16 @@ document.addEventListener('alpine:init', () => {
         goBack() { this.selectedCategory = null; this.view = 'map'; },
         
         // --- UPDATED OPEN MODAL LOGIC ---
-        openModal(company) { 
+        openModal(companyOrName) { 
+            let company = companyOrName;
+            if (typeof companyOrName === 'string') {
+                company = this.allCompanies.find(c => c.name === companyOrName);
+            }
+            if (!company) {
+                 console.warn("Could not find company:", companyOrName);
+                 return;
+            }
+
             this.selectedCompany = company; 
             if (this.view === 'chat') {
                 // Open profile in sidebar
