@@ -326,6 +326,14 @@ document.addEventListener('alpine:init', () => {
             this.selectedFounder = null;
             document.body.style.overflow = 'auto';
         },
+
+        openCompanyFromFounder(companyName) {
+            this.closeFounderModal();
+            // Small delay to ensure modal close animation/logic doesn't interfere, 
+            // though synchronous call is usually fine. 
+            // We pass the name captured *before* selectedFounder became null.
+            this.openModal(companyName);
+        },
         
         formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
         parseList(str) { if(!str || str === '—') return []; return str.split(',').map(s => s.trim()); },
