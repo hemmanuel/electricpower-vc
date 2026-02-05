@@ -684,23 +684,26 @@
                                         <div><div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Key Customers</div><div class="flex flex-wrap gap-2"><template x-for="cust in parseList(selectedCompany.meta['Key Customers'])"><span class="inline-block bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-[11px] font-semibold border border-emerald-200" x-text="cust"></span></template><span x-show="parseList(selectedCompany.meta['Key Customers']).length === 0" class="text-sm text-gray-400">—</span></div></div>
                                     </div>
                                     
-                                    <template x-if="selectedCompany.founders && selectedCompany.founders.length > 0">
-                                        <div class="mt-4 pt-4 border-t border-gray-100">
-                                            <div class="text-[11px] font-bold text-gray-500 uppercase mb-2">Founding Team</div>
-                                            <div class="flex flex-col gap-2">
-                                                <template x-for="founder in selectedCompany.founders" :key="founder.name">
-                                                    <div @click="openFounderModal({...founder, _company_name: selectedCompany.name, _company_color: getColor(selectedCompany.name)})" class="group flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1.5 -mx-1.5 rounded transition-colors">
-                                                        <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-600 group-hover:bg-blue-100 group-hover:text-blue-600" x-text="getInitials(founder.name)"></div>
-                                                        <div class="flex-1 min-w-0">
-                                                            <div class="text-sm font-semibold text-gray-900 group-hover:text-blue-700 truncate" x-text="founder.name"></div>
-                                                            <div class="text-[10px] text-gray-500 truncate" x-text="founder.role"></div>
-                                                        </div>
-                                                        <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                </template>
+
+                                <template x-if="selectedCompany.founders && selectedCompany.founders.length > 0">
+                                    <div class="mt-6 pt-4 border-t border-gray-100">
+                                        <div class="text-[11px] font-bold text-gray-500 uppercase mb-3">Founding Team</div>
+                                        <div class="flex flex-col gap-2">
+                                            <template x-for="founder in selectedCompany.founders" :key="founder.name">
+                                                <div @click="openFounderModal({...founder, _company_name: selectedCompany.name, _company_color: getColor(selectedCompany.name)})" 
+                                                     class="group flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 -mx-2 rounded-lg transition-colors border border-transparent hover:border-gray-200">
+                                                    <div class="w-8 h-8 flex-shrink-0 rounded-full bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-600 group-hover:bg-blue-100 group-hover:text-blue-600 shadow-sm border border-gray-200" 
+                                                         x-text="getInitials(founder.name)"></div>
+                                                    <div class="flex-1 min-w-0">
+                                                        <div class="text-xs font-bold text-gray-900 group-hover:text-blue-700 truncate" x-text="founder.name"></div>
+                                                        <div class="text-[10px] text-gray-500 truncate" x-text="founder.role"></div>
                                                     </div>
-                                                </template>
-                                            </div>
+                                                    <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                                </div>
+                                            </template>
                                         </div>
-                                    </template>
+                                    </div>
                                 </template>
                             </div>
                         </div>
