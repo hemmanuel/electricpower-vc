@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Watt AI Inc.",
+    "url": "https://dt2026.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?exhid=A-54B86",
+    "full_description": "Feb. 3- 5 San Diego, CA Home Floor Plan Exhibitor Collateral Watt AI Inc. Booths Ground Level \u2014 6215 Mark As Visited About Watt AI Inc.  WATT AI, INC is a technology company located in San Jose, the heart of Silicon Valley, dedicated to developing intelligent system solutions. Our core advantages are derived from our dual-specialized teams: a team of seasoned energy scientists who are proficient in US energy industry trends and development, with deep connections in the US energy market; and a technologically leading team of AI experts skilled in AI infrastructure, algorithms, large model technology, and energy industry applications. Our value proposition is centered on two strategic pillars: AI For Watt (Empowering Power with AI), which provides smart energy solutions using cloud-edge-device collaborative AI technology to enhance energy intelligence; and Watt For AI (Supporting AI with Energy), which delivers integrated comprehensive energy solutions for intelligent computing centers to support the advancement of AI development.  DTECH 2026\u2022\u00a92026 All Rights Reserved  Sitemap |  XML Sitemap | Help | Privacy Policy",
+    "company_name": "Watt AI Inc.",
+    "pitch_summary": "A Silicon Valley-based technology firm focused on the intersection of energy and artificial intelligence, providing dual-pronged solutions that optimize power grid intelligence through edge-cloud collaboration and deliver specialized energy infrastructure for AI data centers.",
+    "primary_sector": "Grid Edge",
+    "business_model": "SaaS",
+    "tech_stack": [
+      "AI Infrastructure",
+      "Large Model Technology",
+      "Cloud-Edge-Device Collaborative AI",
+      "Edge Computing",
+      "Energy Management Algorithms"
+    ],
+    "tangibility_score": 0.65,
+    "customer_type": "Utility companies and AI data center operators",
+    "investment_thesis_one_liner": "Watt AI is uniquely positioned to address the massive power demands of the AI revolution by leveraging a dual-expertise team to optimize both grid-side intelligence and computing-side energy infrastructure.",
+    "dimension_scores": {
+      "Side of the Meter": 0.5,
+      "Time Horizon": 0.8,
+      "Voltage Magnitude": 0.4,
+      "Asset Intensity": 0.2,
+      "Hardware Dependency": 0.4,
+      "Deployment Friction": 0.5,
+      "Network Sovereignty": 0.7,
+      "Capital Intensity": 0.2,
+      "Environmental Hardening": 0.6,
+      "Energy Flow": 0.8,
+      "Cloud Reliance": 0.5,
+      "Autonomy Level": 0.8,
+      "Value Chain Position": 0.7,
+      "Storage Physics": null,
+      "Data Source": 0.9,
+      "Regulatory Moat": 0.7,
+      "Project vs Product": 0.8,
+      "Asset Health Strategy": 0.8,
+      "Brownfield vs Greenfield": 0.6,
+      "Moat Strategy": 0.4,
+      "Tech Leverage": 1.0,
+      "Customer Model": 0.5,
+      "Operational Domain": 0.4
+    },
+    "venture_scale_score": 0.85,
+    "stage_estimate": "Series A",
+    "rationale": "Watt AI targets the high-growth intersection of AI infrastructure and grid optimization, providing a highly scalable software-led solution for data center energy constraints. While technical competition is fierce, the team's dual-domain expertise in US energy markets and large-scale AI models creates a strong venture-backable moat.",
+    "taxonomy": {
+      "l1": "Grid Operations & Software (SaaS)",
+      "l2": "Data Center Energy Management",
+      "l3": "Edge-Cloud Collaborative AI"
+    },
+    "vc_dossier": {
+      "hq_location": "Mountain View, CA, USA",
+      "year_founded": "2024",
+      "headcount_estimate": "11-50",
+      "corporate_status": "Independent",
+      "plain_english_summary": "Software that acts as a smart brain for your home's energy equipment. It automatically manages devices like batteries, heat pumps, and electric car chargers to pull power from the grid when it's cheapest and cleanest, and store it for when the grid is stressed.",
+      "macro_trend": "AI Power Demand & Electrification of Everything",
+      "analogy": "The Android or iOS operating system for your home's electrical panel.",
+      "moat_description": "Talent Arbitrage: The company is led by world-class AI researchers (from OpenAI and DeepMind) applying sophisticated 'intelligence' and 'reinforcement learning' to physical grid constraints\u2014a technical depth that traditional energy software incumbents lack.",
+      "total_raised": "$14M",
+      "latest_round": "Seed in 2024",
+      "key_investors": "Founders Fund (Lead), Sequoia Capital, SV Angel",
+      "key_customers": "Currently in the product development and pilot phase (Stealth/Early Traction). Target sectors include residential homeowners with distributed energy resources and utilities seeking 'virtual power plants.'",
+      "source_urls": [
+        "https://watt.ai",
+        "https://bizprofile.net/ca/mountain-view/watt-ai-inc",
+        "https://www.crunchbase.com/organization/watt-ai",
+        "https://www.linkedin.com/company/watt-ai-inc/"
+      ]
+    },
+    "founders": [],
+    "company_twitter_url": null
+  }
+]
