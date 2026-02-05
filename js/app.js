@@ -190,7 +190,9 @@ document.addEventListener('alpine:init', () => {
             if (this.founderFilter.alumni) {
                 founders = founders.filter(f => f.previous_companies && f.previous_companies.includes(this.founderFilter.alumni));
             }
-            return founders;
+            
+            // PERFORMANCE FIX: Limit to 100 to prevent rendering crash
+            return founders.slice(0, 100); 
         },
 
         get uniqueFounderTags() {
