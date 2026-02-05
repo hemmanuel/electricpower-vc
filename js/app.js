@@ -140,63 +140,93 @@ document.addEventListener('alpine:init', () => {
                 return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), founders: item.founders || [], company_twitter_url: item.company_twitter_url || null, raw: item };
             });
         },
+        // --- ROBUST FOUNDER LOGIC START ---
+        
         get visibleFounders() {
-            // Safety check: ensure filteredCompanies exists
-            if (!this.filteredCompanies) return [];
+            // Safety: Ensure filteredCompanies exists and is an array
+            if (!this.filteredCompanies || !Array.isArray(this.filteredCompanies)) return [];
             
             return this.filteredCompanies.flatMap(c => {
-                // Safety check: ensure founders exists and is an array
+                // Safety: Ensure founders exists and is an array
                 if (!c.founders || !Array.isArray(c.founders)) return [];
 
                 return c.founders.map(f => ({
                     ...f,
-                    // 1. Sanitize Strings (Prevent null name crash)
+                    // Safety: Fallback for missing strings
                     name: f.name || 'Unknown Founder',
-                    role: f.role || '',
+                    role: f.role || 'Role Not Listed',
                     
-                    // 2. Sanitize Arrays (CRITICAL: This prevents the filters from crashing)
+                    // Safety: FORCE these to be arrays. This is what was crashing the filters.
                     tags: Array.isArray(f.tags) ? f.tags : [],
                     previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
                     education: Array.isArray(f.education) ? f.education : [],
                     
-                    // 3. Add Company Reference Data
+                    // Add Parent Company Context
                     _company_name: c.name || 'Unknown Company',
-                    _company_score: c.score,
-                    _company_hq: c.hq,
+                    _company_score: c.score || 0,
+                    _company_hq: c.hq || 'Unknown',
                     _company_color: this.getColor(c.name || 'Unknown'),
                     _company_ref: c
                 }));
             });
         },
+
         get filteredFounders() {
-            let founders = this.visibleFounders;
+            // Safety: Handle visibleFounders failing
+            let founders = this.visibleFounders || [];
+            
             if (this.founderFilter.tag) {
-                founders = founders.filter(f => (f.tags || []).includes(this.founderFilter.tag));
+                founders = founders.filter(f => f.tags && f.tags.includes(this.founderFilter.tag));
             }
             if (this.founderFilter.alumni) {
-                founders = founders.filter(f => (f.previous_companies || []).includes(this.founderFilter.alumni));
+                founders = founders.filter(f => f.previous_companies && f.previous_companies.includes(this.founderFilter.alumni));
             }
             return founders;
         },
+
         get uniqueFounderTags() {
-            // Added try-catch safety
             try {
-                const tags = this.visibleFounders.flatMap(f => f.tags || []);
-                return [...new Set(tags)].sort();
-            } catch (e) { console.error('Tag error', e); return []; }
+                // Safety: Use visibleFounders directly and flatMap safely
+                const allTags = (this.visibleFounders || []).flatMap(f => f.tags || []);
+                return [...new Set(allTags)].sort();
+            } catch (e) {
+                console.warn("Error calculating unique tags:", e);
+                return [];
+            }
         },
+
         get uniqueFounderAlumni() {
-            // Added try-catch safety
             try {
-                const allAlumni = this.visibleFounders.flatMap(f => f.previous_companies || []);
-                const counts = allAlumni.reduce((acc, c) => { acc[c] = (acc[c] || 0) + 1; return acc; }, {});
+                // Safety: Use visibleFounders directly and flatMap safely
+                const allAlumni = (this.visibleFounders || []).flatMap(f => f.previous_companies || []);
+                
+                // Count occurrences
+                const counts = allAlumni.reduce((acc, company) => { 
+                    if(company) { // Only count valid strings
+                        acc[company] = (acc[company] || 0) + 1; 
+                    }
+                    return acc; 
+                }, {});
+
+                // Sort by frequency
                 return Object.entries(counts)
-                    .sort((a, b) => b[1] - a[1])
-                    .slice(0, 20)
+                    .sort((a, b) => b[1] - a[1]) // Descending count
+                    .slice(0, 20) // Top 20
                     .map(entry => entry[0])
                     .sort();
-            } catch (e) { console.error('Alumni error', e); return []; }
+            } catch (e) {
+                console.warn("Error calculating alumni:", e);
+                return [];
+            }
         },
+
+        getInitials(name) { 
+            // Safety: Handle non-string names
+            if (!name || typeof name !== 'string') return '?';
+            return name.split(' ').slice(0, 2).map(n => n[0]).join(''); 
+        },
+
+        // --- ROBUST FOUNDER LOGIC END ---
         get categories() { return this.categoriesList.map(cat => ({ name: cat, count: (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length })); },
         get filteredCompanies() {
             let res = this.viewMode === 'all' ? [...this.allCompanies] : this.allCompanies.filter(c => c.score >= 0.6);
@@ -268,10 +298,6 @@ document.addEventListener('alpine:init', () => {
         
         formatList(val, limit=2) { if (Array.isArray(val)) return val.slice(0, limit).join(', '); return val || '—'; },
         parseList(str) { if(!str || str === '—') return []; return str.split(',').map(s => s.trim()); },
-        getInitials(name) { 
-            if (!name || typeof name !== 'string') return '?';
-            return name.split(' ').slice(0, 2).map(n => n[0]).join(''); 
-        },
         getColor(name) { const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#6366F1', '#8B5CF6']; let hash = 0; for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash); return colors[Math.abs(hash) % colors.length]; },
         parseMoney(s) { if (!s || typeof s !== 'string') return 0; const clean = s.toUpperCase().replace('$', '').replace('~', ''); const match = clean.match(/[\d,.]+/); if (!match) return 0; let num = parseFloat(match[0].replace(',', '')); if (clean.includes('B')) num *= 1e9; else if (clean.includes('M')) num *= 1e6; else if (clean.includes('K')) num *= 1e3; return num; },
         parseHeadcount(s) { if (!s || typeof s !== 'string') return 0; const match = s.match(/[\d,]+/); return match ? parseInt(match[0].replace(',', '')) : 0; },
