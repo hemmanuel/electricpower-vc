@@ -199,7 +199,8 @@ document.addEventListener('alpine:init', () => {
             }
             
             // PERFORMANCE FIX: Limit to 100 to prevent rendering crash
-            return founders.slice(0, 100); 
+            // return founders.slice(0, 100); 
+            return founders; 
         },
 
         get uniqueFounderTags() {
