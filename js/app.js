@@ -62,14 +62,27 @@ document.addEventListener('alpine:init', () => {
                         d: c.desc, rat: c.raw.rationale, ana: d.analogy, mac: d.macro_trend,
                         hc: d.headcount_estimate, stat: d.corporate_status, $r: d.total_raised,
                         rnd: d.latest_round, inv: d.key_investors, cust: d.key_customers,
-                        tech: d.tech_stack, biz: d.business_model, m: d.moat_description, tax: c.raw.taxonomy
+                        tech: d.tech_stack, biz: d.business_model, m: d.moat_description, tax: c.raw.taxonomy,
+                        found: (c.founders || []).map(f => ({
+                            n: f.name,
+                            r: f.role,
+                            b: f.bio,
+                            fmf: f.founder_market_fit,
+                            ht: f.hometown,
+                            edu: f.education,
+                            prev: f.previous_companies,
+                            tags: f.tags,
+                            li: f.linkedin_url,
+                            tw: f.twitter_url,
+                            tech: f.is_technical
+                        }))
                     };
                 });
 
                 const systemInstruction = `
                 System: You are an expert Venture Analyst, helping a VC firm begin to explore the electric power-related startup space. 
                 I am providing a JSON dataset of companies who were exhibitors at 2026 Distribibutech conference and earned a high Venture score in our ai-assisted analysis..
-                Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy.
+                Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy, found=Founders (n=Name, r=Role, b=Bio, fmf=Founder-Market Fit, ht=Hometown, edu=Education, prev=Previous Companies, tags=Tags, li=LinkedIn, tw=Twitter, tech=Is Technical).
                 
                 CRITICAL RULES:
                 1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
