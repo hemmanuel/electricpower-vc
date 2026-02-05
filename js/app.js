@@ -188,26 +188,6 @@ document.addEventListener('alpine:init', () => {
         },
 
         get filteredFounders() {
-            // HELLO WORLD TEST: Bypass all logic and return static dummy data
-            return [
-                {
-                    name: 'Test Founder',
-                    role: 'CEO',
-                    bio: 'This is a test bio.',
-                    linkedin_url: '',
-                    twitter_url: '',
-                    founder_market_fit: 'Excellent',
-                    tags: ['Test Tag'],
-                    previous_companies: ['Test Co'],
-                    education: ['Test University'],
-                    _company_name: 'Test Company',
-                    _company_score: 1.0,
-                    _company_hq: 'Test HQ',
-                    _company_color: '#EF4444'
-                }
-            ];
-            
-            /*
             // Safety: Handle visibleFounders failing
             let founders = this.visibleFounders || [];
             
@@ -220,7 +200,6 @@ document.addEventListener('alpine:init', () => {
             
             // PERFORMANCE FIX: Limit to 100 to prevent rendering crash
             return founders.slice(0, 100); 
-            */
         },
 
         get uniqueFounderTags() {
