@@ -21,13 +21,14 @@ document.addEventListener('alpine:init', () => {
         chatProfileOpen: false, // New state for sidebar profile view
         mdParser: window.markdownit(),
         categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
-        filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
+                filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
+        founderFilter: { tag: '', alumni: '' },
 
         init() { this.loadData(); },
 
         loadData() {
             this.isLoading = true;
-            fetch('companies_scored_v2.json').then(r => r.json()).then(d => {
+            fetch('companies_scored_v3.json').then(r => r.json()).then(d => {
                 this.allCompanies = this.processData(d);
                 this.isLoading = false;
             }).catch(e => { this.error = e.message; this.isLoading = false; });
@@ -134,8 +135,43 @@ document.addEventListener('alpine:init', () => {
                 const dossier = item.vc_dossier || {};
                 const taxonomy = item.taxonomy || {};
                 const meta = { "Total Raised": dossier.total_raised || '—', "Key Investors": this.formatList(dossier.key_investors), "Current Stage": item.stage_estimate || 'Unknown', "Last Raise": dossier.latest_round || '—', "Year Founded": dossier.year_founded || '—', "Headcount": dossier.headcount_estimate || '—', "Status": dossier.corporate_status || 'Active', "Key Customers": this.formatList(dossier.key_customers) };
-                return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), raw: item };
+                return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), founders: item.founders || [], company_twitter_url: item.company_twitter_url || null, raw: item };
             });
+        },
+                        get visibleFounders() {
+            return this.filteredCompanies.flatMap(c => {
+                return (c.founders || []).map(f => ({
+                    ...f,
+                    _company_name: c.name,
+                    _company_score: c.score,
+                    _company_hq: c.hq,
+                    _company_color: this.getColor(c.name),
+                    _company_ref: c
+                }));
+            });
+        },
+        get filteredFounders() {
+            let founders = this.visibleFounders;
+            if (this.founderFilter.tag) {
+                founders = founders.filter(f => (f.tags || []).includes(this.founderFilter.tag));
+            }
+            if (this.founderFilter.alumni) {
+                founders = founders.filter(f => (f.previous_companies || []).includes(this.founderFilter.alumni));
+            }
+            return founders;
+        },
+        get uniqueFounderTags() {
+            const tags = this.visibleFounders.flatMap(f => f.tags || []);
+            return [...new Set(tags)].sort();
+        },
+        get uniqueFounderAlumni() {
+            const allAlumni = this.visibleFounders.flatMap(f => f.previous_companies || []);
+            const counts = allAlumni.reduce((acc, c) => { acc[c] = (acc[c] || 0) + 1; return acc; }, {});
+            return Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 20)
+                .map(entry => entry[0])
+                .sort();
         },
         get categories() { return this.categoriesList.map(cat => ({ name: cat, count: (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length })); },
         get filteredCompanies() {
