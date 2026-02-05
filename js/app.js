@@ -150,24 +150,27 @@ document.addEventListener('alpine:init', () => {
                 // Safety: Ensure founders exists and is an array
                 if (!c.founders || !Array.isArray(c.founders)) return [];
 
-                return c.founders.map(f => ({
-                    ...f,
-                    // Safety: Fallback for missing strings
-                    name: f.name || 'Unknown Founder',
-                    role: f.role || 'Role Not Listed',
-                    
-                    // Safety: FORCE these to be arrays. This is what was crashing the filters.
-                    tags: Array.isArray(f.tags) ? f.tags : [],
-                    previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
-                    education: Array.isArray(f.education) ? f.education : [],
-                    
-                    // Add Parent Company Context
-                    _company_name: c.name || 'Unknown Company',
-                    _company_score: c.score || 0,
-                    _company_hq: c.hq || 'Unknown',
-                    _company_color: this.getColor(c.name || 'Unknown'),
-                    _company_ref: c
-                }));
+                // CRITICAL FIX: Filter out null/undefined founders first to prevent "read properties of null" error
+                return c.founders
+                    .filter(f => f && typeof f === 'object') // Remove nulls and non-objects
+                    .map(f => ({
+                        ...f,
+                        // Safety: Fallback for missing strings
+                        name: f.name || 'Unknown Founder',
+                        role: f.role || 'Role Not Listed',
+                        
+                        // Safety: FORCE these to be arrays.
+                        tags: Array.isArray(f.tags) ? f.tags : [],
+                        previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
+                        education: Array.isArray(f.education) ? f.education : [],
+                        
+                        // Add Parent Company Context
+                        _company_name: c.name || 'Unknown Company',
+                        _company_score: c.score || 0,
+                        _company_hq: c.hq || 'Unknown',
+                        _company_color: this.getColor(c.name || 'Unknown'),
+                        _company_ref: c
+                    }));
             });
         },
 
