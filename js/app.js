@@ -141,22 +141,25 @@ document.addEventListener('alpine:init', () => {
             });
         },
         get visibleFounders() {
+            // Safety check: ensure filteredCompanies exists
             if (!this.filteredCompanies) return [];
+            
             return this.filteredCompanies.flatMap(c => {
-                // Safety check for companies without founders array
+                // Safety check: ensure founders exists and is an array
                 if (!c.founders || !Array.isArray(c.founders)) return [];
 
                 return c.founders.map(f => ({
                     ...f,
-                    // Sanitize Strings
+                    // 1. Sanitize Strings (Prevent null name crash)
                     name: f.name || 'Unknown Founder',
                     role: f.role || '',
-                    // Sanitize Arrays (Critical for Filters)
+                    
+                    // 2. Sanitize Arrays (CRITICAL: This prevents the filters from crashing)
                     tags: Array.isArray(f.tags) ? f.tags : [],
                     previous_companies: Array.isArray(f.previous_companies) ? f.previous_companies : [],
                     education: Array.isArray(f.education) ? f.education : [],
                     
-                    // Company Ref Data
+                    // 3. Add Company Reference Data
                     _company_name: c.name || 'Unknown Company',
                     _company_score: c.score,
                     _company_hq: c.hq,
@@ -176,17 +179,23 @@ document.addEventListener('alpine:init', () => {
             return founders;
         },
         get uniqueFounderTags() {
-            const tags = this.visibleFounders.flatMap(f => f.tags || []);
-            return [...new Set(tags)].sort();
+            // Added try-catch safety
+            try {
+                const tags = this.visibleFounders.flatMap(f => f.tags || []);
+                return [...new Set(tags)].sort();
+            } catch (e) { console.error('Tag error', e); return []; }
         },
         get uniqueFounderAlumni() {
-            const allAlumni = this.visibleFounders.flatMap(f => f.previous_companies || []);
-            const counts = allAlumni.reduce((acc, c) => { acc[c] = (acc[c] || 0) + 1; return acc; }, {});
-            return Object.entries(counts)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 20)
-                .map(entry => entry[0])
-                .sort();
+            // Added try-catch safety
+            try {
+                const allAlumni = this.visibleFounders.flatMap(f => f.previous_companies || []);
+                const counts = allAlumni.reduce((acc, c) => { acc[c] = (acc[c] || 0) + 1; return acc; }, {});
+                return Object.entries(counts)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 20)
+                    .map(entry => entry[0])
+                    .sort();
+            } catch (e) { console.error('Alumni error', e); return []; }
         },
         get categories() { return this.categoriesList.map(cat => ({ name: cat, count: (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length })); },
         get filteredCompanies() {
