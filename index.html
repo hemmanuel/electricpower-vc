@@ -549,6 +549,7 @@
                         <p class="text-xs text-gray-500" x-text="'Tracking ' + filteredFounders.length + ' founders across visible companies'"></p>
                     </div>
                     <div class="flex-1"></div>
+                    <!--
                     <select x-model="founderFilter.tag" class="text-xs border-gray-300 rounded-md shadow-sm border p-1.5 focus:ring-blue-500 focus:border-blue-500 bg-white max-w-[150px]">
                         <option value="">Filter by Tag</option>
                         <template x-for="tag in uniqueFounderTags" :key="tag"><option :value="tag" x-text="tag"></option></template>
@@ -558,6 +559,7 @@
                         <template x-for="alum in uniqueFounderAlumni" :key="alum"><option :value="alum" x-text="alum"></option></template>
                     </select>
                     <button x-show="founderFilter.tag || founderFilter.alumni" @click="founderFilter.tag = ''; founderFilter.alumni = ''" class="text-xs text-red-500 font-semibold hover:text-red-700">Clear</button>
+                    -->
                 </div>
 
                 <div class="flex-1 overflow-y-auto p-6 bg-gray-50">
