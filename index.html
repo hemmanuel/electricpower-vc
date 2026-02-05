@@ -61,20 +61,20 @@
     </header>
 
     <!-- Mobile Bottom Navigation -->
-    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around py-2 pb-safe z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
-        <button @click="view = 'list'; chatProfileOpen = false;" class="flex flex-col items-center gap-1 p-2 w-full" :class="(view === 'list' || view === 'map') ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around py-1 pb-safe z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
+        <button @click="view = 'list'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="(view === 'list' || view === 'map') ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
             <span class="text-xl">🏢</span>
             <span class="text-[10px] font-medium">Companies</span>
         </button>
-        <button @click="view = 'investors'; chatProfileOpen = false;" class="flex flex-col items-center gap-1 p-2 w-full" :class="view === 'investors' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+        <button @click="view = 'investors'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'investors' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
             <span class="text-xl">💰</span>
             <span class="text-[10px] font-medium">Investors</span>
         </button>
-        <button @click="view = 'founders'; chatProfileOpen = false;" class="flex flex-col items-center gap-1 p-2 w-full" :class="view === 'founders' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+        <button @click="view = 'founders'; chatProfileOpen = false;" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'founders' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
             <span class="text-xl">👥</span>
             <span class="text-[10px] font-medium">Founders</span>
         </button>
-        <button @click="view = 'chat'" class="flex flex-col items-center gap-1 p-2 w-full" :class="view === 'chat' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+        <button @click="view = 'chat'" class="flex flex-col items-center gap-0.5 p-1 w-full" :class="view === 'chat' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
             <span class="text-xl">✨</span>
             <span class="text-[10px] font-medium">Analyst</span>
         </button>
