@@ -168,6 +168,7 @@ document.addEventListener('alpine:init', () => {
                             linkedin_url: f.linkedin_url || '',
                             twitter_url: f.twitter_url || '',
                             founder_market_fit: f.founder_market_fit || '',
+                            hometown: f.hometown || '',
                             
                             // Safety: FORCE these to be arrays.
                             tags: Array.isArray(f.tags) ? f.tags : [],
