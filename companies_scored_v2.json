@@ -1153,7 +1153,8 @@
         "https://www.businesswire.com/news/home/20210914005367/en/Bidgely-Secures-26M-in-Financing-to-Accelerate-Utilities%E2%80%99-Leading-Role-in-the-Clean-Energy-Future",
         "https://growjo.com/company/Bidgely"
       ]
-    }
+    },
+    "founders": []
   },
   {
     "name": "Boston Dynamics",
@@ -2367,7 +2368,54 @@
         "https://ecapital.vc/news/e-on-acquires-majority-stake-in-envelio-another-successful-ecapital-climate-tech-exit/",
         "https://www.globenewswire.com/news-release/2024/12/10/2994500/0/en/envelio-expands-Intelligent-Grid-Platform-IGP-with-the-Grid-Connection-Navigator.html"
       ]
-    }
+    },
+    "founders": [
+      {
+        "name": "Philipp Erlinghagen",
+        "role": "Founder",
+        "bio": "Philipp Erlinghagen is a founder of envelio Inc., a company established in 2017 in Cologne, Germany. Envelio specializes in AI-driven grid management software solutions. The company secured $7.82M in funding from eCAPITAL and other investors. Envelio was later acquired by E.ON on December 17, 2021.",
+        "linkedin_url": null,
+        "twitter_url": null,
+        "is_technical": true,
+        "tags": []
+      },
+      {
+        "name": "Simon Koopmann",
+        "role": "Founder",
+        "bio": "I am unable to find enough reliable information to create a detailed biography focusing on Simon Koopmann's pre-founding experience at envelio Inc. based on the available search results. More specific search queries might be needed to fulfill this request.",
+        "linkedin_url": null,
+        "twitter_url": null,
+        "is_technical": false,
+        "tags": []
+      },
+      {
+        "name": "Fabian Potratz",
+        "role": "Co-Founder",
+        "bio": "Founder of envelio Inc..",
+        "linkedin_url": null,
+        "twitter_url": null,
+        "is_technical": false,
+        "tags": []
+      },
+      {
+        "name": "Philipp Goergens",
+        "role": "Co-Founder",
+        "bio": "Founder of envelio Inc..",
+        "linkedin_url": null,
+        "twitter_url": null,
+        "is_technical": false,
+        "tags": []
+      },
+      {
+        "name": "Moritz Cramer",
+        "role": "Vice President of Customer Success",
+        "bio": "Moritz Cramer co-founded envelio in 2017 and is currently the Vice President of Customer Success. Prior to founding envelio, he worked as a Research Assistant at RWTH Aachen University from 2012 to 2017. Earlier, Moritz gained internship experience at Siemens Energy in 2011 and at Eskom in 2010. He studied Engineering/Industrial Management at RWTH Aachen University, completing his studies in 2012 with a Dipl. -Wirt. -Ing degree.",
+        "linkedin_url": null,
+        "twitter_url": null,
+        "is_technical": true,
+        "tags": []
+      }
+    ]
   },
   {
     "name": "Ernst & Young LLP",
@@ -2710,7 +2758,25 @@
         "https://www.crunchbase.com/organization/fischer-block",
         "https://pitchbook.com/profiles/company/120668-38"
       ]
-    }
+    },
+    "founders": [
+      {
+        "name": "Greg Wolfe",
+        "role": "Co-Founder & CEO",
+        "bio": "Greg Wolfe is the Co-Founder and CEO of Fischer Block. He is driving Fischer Block to the leading edge of applying AI and deep learning techniques to energy and power system assets, offering predictive analytics and insights into the causes of observed conditions, recommending proven solutions. Wolfe pointed to cybersecurity as a key reason for the company's traction with clients like Exelon (PECO's parent company) and Dow Chemical. Prior to founding Fischer Block, Wolfe appears to have a background in scaling technology companies in the electric power industry.",
+        "linkedin_url": null,
+        "is_technical": true,
+        "tags": []
+      },
+      {
+        "name": "Margaret Paietta",
+        "role": "CMO",
+        "bio": "Margaret Paietta is the CMO of Fischer Block. Fischer Block, founded in 2013, operates as a developer of power system management and sensor data analytics for the smart grid. Prior to Fischer Block, Paietta's background and experience are not detailed in the provided search results.",
+        "linkedin_url": null,
+        "is_technical": false,
+        "tags": []
+      }
+    ]
   },
   {
     "name": "FlexEnergi",

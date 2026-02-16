@@ -1,0 +1,20 @@
+# --- Security (Crucial) ---
+.env
+.env.local
+scripts/.env
+scripts/.env.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- OS Junk ---
+.DS_Store
+Thumbs.db
+
+# --- IDE Settings (Optional but good) ---
+.idea/
+.vscode/
