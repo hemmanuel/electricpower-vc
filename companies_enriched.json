@@ -882,16 +882,16 @@
     ],
     "company_twitter_url": "https://twitter.com/AmericanTransCo",
     "strategic_analysis": {
-      "market_depth_score": 5,
+      "market_depth_score": 8,
       "market_narrative": "Addressing the Transmission market with a focus on Data center and AI infrastructure operators.",
-      "competitive_noise_level": "Medium",
+      "competitive_noise_level": "Low",
       "unit_economics_inference": {
-        "acv_proxy": "Medium",
-        "retention_quality": "Medium",
-        "distribution_friction": "Medium"
+        "acv_proxy": "High",
+        "retention_quality": "High",
+        "distribution_friction": "High"
       },
-      "ai_survival_score": 0.37,
-      "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+      "ai_survival_score": 0.92,
+      "ai_force_multiplier_thesis": "AI optimizes the complex logistics of rail-based energy distribution, but the core moat is the physical rail network and battery hardware, making it highly defensible against software-only competitors."
     },
     "metric_rationales": {
       "market_scale_rationale": "Massive potential in data center power, but highly capital intensive.",
@@ -899,7 +899,7 @@
       "contract_size_rationale": "Huge infrastructure deals (>$10M).",
       "stickiness_rationale": "High; physical infrastructure lock-in.",
       "sales_difficulty_rationale": "Extremely High; requires regulatory approval and massive capital.",
-      "ai_defensibility_rationale": "Low; defensibility is in logistics and hardware, not AI."
+      "ai_defensibility_rationale": "High; relies on physical rail infrastructure and heavy hardware, impossible for GenAI to replicate."
     }
   },
   {
