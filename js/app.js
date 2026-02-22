@@ -36,7 +36,7 @@ document.addEventListener('alpine:init', () => {
 
         loadData() {
             this.isLoading = true;
-            fetch('companies_scored_v3.json').then(r => r.json()).then(d => {
+            fetch('companies_enriched.json').then(r => r.json()).then(d => {
                 this.allCompanies = this.processData(d);
                 this.isLoading = false;
             }).catch(e => { this.error = e.message; this.isLoading = false; });
@@ -138,10 +138,11 @@ document.addEventListener('alpine:init', () => {
         downloadBatchCSV() { const favs = this.allCompanies.filter(c => this.favorites.includes(c.name)); if (favs.length === 0) return alert("No favorites to export!"); this.generateCSV(favs, "venture_favorites_batch.csv"); },
         downloadSingleCSV(company) { if(!company) return; this.generateCSV([company], `venture_profile_${company.name.replace(/\s+/g, '_').toLowerCase()}.csv`); },
         generateCSV(companies, filename) {
-            const headers = ["Name", "Description", "VC Alignment", "Big Picture", "Moat", "HQ", "Sector", "Sub-Sector", "Stage", "Total Raised", "Latest Round", "Venture Score", "Investors"];
+            const headers = ["Name", "Description", "VC Alignment", "Big Picture", "Moat", "HQ", "Sector", "Sub-Sector", "Stage", "Total Raised", "Latest Round", "Venture Score", "Investors", "AI Survival Score", "Market Depth", "Market Narrative", "Competitive Noise", "Force Multiplier Thesis"];
             const rows = companies.map(c => {
                 const dossier = c.raw.vc_dossier || {};
-                return [`"${c.name}"`, `"${(c.desc || '').replace(/"/g, '""')}"`, `"${(c.raw.rationale || '').replace(/"/g, '""')}"`, `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`, `"${(dossier.moat_description || '').replace(/"/g, '""')}"`, `"${c.hq}"`, `"${c.l1}"`, `"${c.l3}"`, `"${c.stage}"`, `"${c.meta['Total Raised']}"`, `"${c.meta['Last Raise']}"`, c.score.toFixed(2), `"${c.meta['Key Investors']}"`];
+                const strat = c.strategic_analysis || {};
+                return [`"${c.name}"`, `"${(c.desc || '').replace(/"/g, '""')}"`, `"${(c.raw.rationale || '').replace(/"/g, '""')}"`, `"${(dossier.macro_trend || '').replace(/"/g, '""')}"`, `"${(dossier.moat_description || '').replace(/"/g, '""')}"`, `"${c.hq}"`, `"${c.l1}"`, `"${c.l3}"`, `"${c.stage}"`, `"${c.meta['Total Raised']}"`, `"${c.meta['Last Raise']}"`, c.score.toFixed(2), `"${c.meta['Key Investors']}"`, (strat.ai_survival_score || 0).toFixed(2), strat.market_depth_score || 0, `"${(strat.market_narrative || '').replace(/"/g, '""')}"`, `"${strat.competitive_noise_level || ''}"`, `"${(strat.ai_force_multiplier_thesis || '').replace(/"/g, '""')}"`];
             });
             const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -156,7 +157,7 @@ document.addEventListener('alpine:init', () => {
                 const dossier = item.vc_dossier || {};
                 const taxonomy = item.taxonomy || {};
                 const meta = { "Total Raised": dossier.total_raised || '—', "Key Investors": this.formatList(dossier.key_investors), "Current Stage": item.stage_estimate || 'Unknown', "Last Raise": dossier.latest_round || '—', "Year Founded": dossier.year_founded || '—', "Headcount": dossier.headcount_estimate || '—', "Status": dossier.corporate_status || 'Active', "Key Customers": this.formatList(dossier.key_customers) };
-                return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), founders: item.founders || [], company_twitter_url: item.company_twitter_url || null, raw: item };
+                return { name: item.name, desc: item.investment_thesis_one_liner || '', hq: dossier.hq_location || 'Global', score: item.venture_scale_score || 0, status: dossier.corporate_status || 'Independent', l1: taxonomy.l1 || 'Other', l3: taxonomy.l3 || 'Unknown', stage: item.stage_estimate || 'Unknown', tech_leverage: item.dimension_scores?.['Tech Leverage'] || 0, meta: meta, sort_raised: this.parseMoney(meta["Total Raised"]), sort_headcount: this.parseHeadcount(meta["Headcount"]), sort_stage: this.parseStageScore(meta["Current Stage"]), founders: item.founders || [], company_twitter_url: item.company_twitter_url || null, raw: item, strategic_analysis: item.strategic_analysis || {} };
             });
         },
         // --- ROBUST FOUNDER LOGIC START ---
