@@ -64,6 +64,14 @@
       },
       "ai_survival_score": 0.45,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Limited to consulting and integration services for grid OT, scaling linearly with headcount rather than software.",
+      "competition_rationale": "High competition from established systems integrators and boutique utility consultancies.",
+      "contract_size_rationale": "Large enterprise contracts >$500k due to complex integration scope.",
+      "stickiness_rationale": "Medium stickiness driven by relationship and project continuity, but lacks recurring software lock-in.",
+      "sales_difficulty_rationale": "High friction sales requiring deep utility relationships and long RFP processes.",
+      "ai_defensibility_rationale": "Low defensibility as they integrate third-party AI tools rather than developing proprietary models."
     }
   },
   {
@@ -197,6 +205,14 @@
       },
       "ai_survival_score": 0.88,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Niche but critical segment of waveform analytics, limited by hardware deployment speed.",
+      "competition_rationale": "Medium competition; few players have this depth of waveform fidelity.",
+      "contract_size_rationale": "Medium deal sizes ($50k-$200k) combining hardware pilots and SaaS.",
+      "stickiness_rationale": "High stickiness due to proprietary hardware sensors installed on the grid.",
+      "sales_difficulty_rationale": "High difficulty due to physical hardware installation requirements on utility assets.",
+      "ai_defensibility_rationale": "High defensibility based on unique, proprietary high-frequency waveform datasets."
     }
   },
   {
@@ -262,6 +278,14 @@
       },
       "ai_survival_score": 0.88,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Large industrial market for transformers, but capped by manufacturing capacity.",
+      "competition_rationale": "High competition from global giants like Hitachi, Siemens, and GE.",
+      "contract_size_rationale": "High contract value (>$1M) for bulk hardware orders.",
+      "stickiness_rationale": "Low stickiness; hardware is a commodity purchase.",
+      "sales_difficulty_rationale": "Medium difficulty; driven by supply chain availability and price.",
+      "ai_defensibility_rationale": "None; purely a manufacturing and hardware business."
     }
   },
   {
@@ -329,6 +353,14 @@
       },
       "ai_survival_score": 0.21,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Regional service market for signal maintenance, non-scalable.",
+      "competition_rationale": "Medium competition from local service providers.",
+      "contract_size_rationale": "Small to medium service contracts.",
+      "stickiness_rationale": "Medium stickiness based on service reliability and relationships.",
+      "sales_difficulty_rationale": "Medium difficulty; relationship-driven sales.",
+      "ai_defensibility_rationale": "None; service-based business model."
     }
   },
   {
@@ -395,6 +427,14 @@
       },
       "ai_survival_score": 0.25,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Linear service business model limited to physical line maintenance.",
+      "competition_rationale": "High competition from other line contractor firms.",
+      "contract_size_rationale": "Medium service contracts for maintenance and storm response.",
+      "stickiness_rationale": "Low; utilities can switch contractors relatively easily.",
+      "sales_difficulty_rationale": "Medium; based on labor availability and safety record.",
+      "ai_defensibility_rationale": "None; labor-intensive business."
     }
   },
   {
@@ -461,6 +501,14 @@
       },
       "ai_survival_score": 0.37,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Niche add-on to ADMS, limited by the installed base of specific legacy systems.",
+      "competition_rationale": "High competition from native mobile apps of ADMS vendors (Oracle, GE).",
+      "contract_size_rationale": "Medium enterprise software licenses ($50k-$150k).",
+      "stickiness_rationale": "Medium; deeply integrated into operational workflows but replaceable by platform upgrades.",
+      "sales_difficulty_rationale": "High; requires selling to conservative control room operations teams.",
+      "ai_defensibility_rationale": "Low; relies on workflow logic rather than proprietary AI models."
     }
   },
   {
@@ -577,6 +625,14 @@
       },
       "ai_survival_score": 0.27,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Scalable platform for distribution planning, applicable to all DSOs globally.",
+      "competition_rationale": "Medium; emerging space with players like Plexigrid and older tools like Synergi.",
+      "contract_size_rationale": "High enterprise SaaS contracts (>$200k) for system-wide planning.",
+      "stickiness_rationale": "High; becomes the system of record for grid planning and simulation.",
+      "sales_difficulty_rationale": "High; long sales cycles for core engineering software.",
+      "ai_defensibility_rationale": "High; 'agentic' planning implies complex proprietary decision logic."
     }
   },
   {
@@ -719,6 +775,14 @@
       },
       "ai_survival_score": 0.34,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Large market for DERMS and microgrid control as renewables grow.",
+      "competition_rationale": "High; crowded market with incumbents (Schneider) and startups (Camus).",
+      "contract_size_rationale": "Medium to High SaaS contracts depending on grid size.",
+      "stickiness_rationale": "High; controls real-time physical assets.",
+      "sales_difficulty_rationale": "High; critical control software requires rigorous testing.",
+      "ai_defensibility_rationale": "Medium; defensibility depends on the uniqueness of optimization algorithms."
     }
   },
   {
@@ -828,6 +892,14 @@
       },
       "ai_survival_score": 0.37,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Massive potential in data center power, but highly capital intensive.",
+      "competition_rationale": "Low; novel 'energy-by-rail' approach has few direct competitors.",
+      "contract_size_rationale": "Huge infrastructure deals (>$10M).",
+      "stickiness_rationale": "High; physical infrastructure lock-in.",
+      "sales_difficulty_rationale": "Extremely High; requires regulatory approval and massive capital.",
+      "ai_defensibility_rationale": "Low; defensibility is in logistics and hardware, not AI."
     }
   },
   {
@@ -1018,6 +1090,14 @@
       },
       "ai_survival_score": 0.39,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Scalable software platform for asset inspection across all utilities.",
+      "competition_rationale": "Medium; competes with manual inspection and other AI vision firms.",
+      "contract_size_rationale": "Medium SaaS contracts based on line-miles analyzed.",
+      "stickiness_rationale": "High; historical data accumulation creates a moat.",
+      "sales_difficulty_rationale": "Medium; utilities are actively seeking inspection automation.",
+      "ai_defensibility_rationale": "High; proprietary 'Human-in-the-Loop' trained datasets."
     }
   },
   {
@@ -1084,6 +1164,14 @@
       },
       "ai_survival_score": 0.83,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Niche vertical of transmission construction tracking, limited by physical service area.",
+      "competition_rationale": "Medium; competes with general asset tracking solutions but specializes in rugged utility environments.",
+      "contract_size_rationale": "Medium; hardware-enabled service contracts.",
+      "stickiness_rationale": "Medium; hardware installation creates some lock-in but switching costs are moderate.",
+      "sales_difficulty_rationale": "Medium; sales to contractors and utilities are relationship-driven.",
+      "ai_defensibility_rationale": "Low; standard tracking and geofencing tech with little proprietary AI."
     }
   },
   {
@@ -1242,6 +1330,14 @@
       },
       "ai_survival_score": 0.29,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Huge market demand for transformers due to grid modernization and electrification.",
+      "competition_rationale": "High; global manufacturing competition from established giants.",
+      "contract_size_rationale": "High; bulk hardware purchase orders >$1M.",
+      "stickiness_rationale": "Low; hardware is interchangeable once standards are met.",
+      "sales_difficulty_rationale": "Medium; demand currently outstrips supply, making sales easier.",
+      "ai_defensibility_rationale": "None; purely a manufacturing business."
     }
   },
   {
@@ -1368,6 +1464,14 @@
       },
       "ai_survival_score": 0.22,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Growing market for OT cybersecurity in critical infrastructure driven by regulation.",
+      "competition_rationale": "High; entrenched incumbents like Dragos and Nozomi Networks.",
+      "contract_size_rationale": "High; enterprise security licenses >$100k.",
+      "stickiness_rationale": "High; deeply embedded in security operations centers and compliance workflows.",
+      "sales_difficulty_rationale": "High; requires CISO approval and rigorous testing.",
+      "ai_defensibility_rationale": "Medium; threat intelligence data network effects provide some defense."
     }
   },
   {
@@ -1432,6 +1536,14 @@
       },
       "ai_survival_score": 0.2,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Generic data services with unclear market fit or differentiation.",
+      "competition_rationale": "High; commoditized data services market.",
+      "contract_size_rationale": "Low; likely small consulting or data feed deals.",
+      "stickiness_rationale": "Low; easy to switch providers for generic data.",
+      "sales_difficulty_rationale": "Medium; lacks clear differentiation to drive enterprise sales.",
+      "ai_defensibility_rationale": "Low; no clear proprietary IP or models."
     }
   },
   {
@@ -1567,6 +1679,14 @@
       },
       "ai_survival_score": 0.78,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Scalable geospatial analytics for utilities and mining, a large recurring opex category.",
+      "competition_rationale": "High; crowded geospatial AI market with many startups.",
+      "contract_size_rationale": "High; enterprise-wide monitoring contracts.",
+      "stickiness_rationale": "High; historical change detection builds a data moat over time.",
+      "sales_difficulty_rationale": "Medium; clear ROI in vegetation management helps sales.",
+      "ai_defensibility_rationale": "Medium; relies on standard computer vision models but proprietary training data helps."
     }
   },
   {
@@ -1632,6 +1752,14 @@
       },
       "ai_survival_score": 0.55,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Non-scalable exhibition service limited to physical event space.",
+      "competition_rationale": "N/A; functions as an event space.",
+      "contract_size_rationale": "Low; booth rental fees.",
+      "stickiness_rationale": "Low; annual event based participation.",
+      "sales_difficulty_rationale": "Low; event sales are transactional.",
+      "ai_defensibility_rationale": "None; service business."
     }
   },
   {
@@ -1698,6 +1826,14 @@
       },
       "ai_survival_score": 0.26,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Vertical SaaS for utility field ops, a large but specific market.",
+      "competition_rationale": "Medium; competes with legacy ERP and field service tools.",
+      "contract_size_rationale": "Medium; per-user SaaS pricing.",
+      "stickiness_rationale": "High; ERP replacement is painful and rare.",
+      "sales_difficulty_rationale": "Medium; modernizing legacy workflows is always a challenge.",
+      "ai_defensibility_rationale": "Low; standard optimization algorithms."
     }
   },
   {
@@ -1808,6 +1944,14 @@
       },
       "ai_survival_score": 0.88,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Critical wildfire mitigation market driven by liability and regulation.",
+      "competition_rationale": "Medium; specialized sensor/AI niche with few proven players.",
+      "contract_size_rationale": "Medium; hardware deployment plus monitoring fees.",
+      "stickiness_rationale": "High; physical sensor network installed on assets is hard to rip out.",
+      "sales_difficulty_rationale": "High; utility hardware pilots take years to validate.",
+      "ai_defensibility_rationale": "Medium; real-time visual AI at the edge offers some defense."
     }
   },
   {
@@ -1941,6 +2085,14 @@
       },
       "ai_survival_score": 0.84,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Large AMI market, but saturated and moving to replacement cycle.",
+      "competition_rationale": "Very High; Landis+Gyr, Itron dominate the space.",
+      "contract_size_rationale": "High; infrastructure rollouts are multi-million dollar deals.",
+      "stickiness_rationale": "High; 15-year asset life for meters.",
+      "sales_difficulty_rationale": "Very High; displacing incumbents is near impossible for a startup.",
+      "ai_defensibility_rationale": "Low; standard metering tech."
     }
   },
   {
@@ -2059,6 +2211,14 @@
       },
       "ai_survival_score": 0.29,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "High-value data orchestration for DERs, essential for modern grids.",
+      "competition_rationale": "Medium; complex data niche with high barriers to entry.",
+      "contract_size_rationale": "High; enterprise analytics platform.",
+      "stickiness_rationale": "High; central data hub for operations is very sticky.",
+      "sales_difficulty_rationale": "High; complex integration sales require technical buy-in.",
+      "ai_defensibility_rationale": "High; causal inference and econometrics IP is hard to replicate."
     }
   },
   {
@@ -2175,6 +2335,14 @@
       },
       "ai_survival_score": 0.89,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Substation automation is a massive retrofit market globally.",
+      "competition_rationale": "High; major OEMs and startups competing for modernization budget.",
+      "contract_size_rationale": "High; critical infrastructure hardware/software deals.",
+      "stickiness_rationale": "High; embedded in substation control systems.",
+      "sales_difficulty_rationale": "High; safety-critical sales cycle is very slow.",
+      "ai_defensibility_rationale": "Medium; predictive maintenance models offer some differentiation."
     }
   },
   {
@@ -2306,6 +2474,14 @@
       },
       "ai_survival_score": 0.39,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "DERMS and edge compute for grid modernization is a growing sector.",
+      "competition_rationale": "High; crowded DERMS landscape with many players.",
+      "contract_size_rationale": "Medium; software licensing fees.",
+      "stickiness_rationale": "Medium; control layer stickiness is good but standards are evolving.",
+      "sales_difficulty_rationale": "High; utility acceptance of edge control is slow.",
+      "ai_defensibility_rationale": "Medium; optimization logic is defensible but not unique."
     }
   },
   {
@@ -2418,6 +2594,14 @@
       },
       "ai_survival_score": 0.22,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Distribution grid stability market is niche but growing with solar penetration.",
+      "competition_rationale": "Medium; niche edge optimization players.",
+      "contract_size_rationale": "Medium; hardware/software pilots.",
+      "stickiness_rationale": "High; physical edge devices are sticky.",
+      "sales_difficulty_rationale": "High; hardware deployment friction on utility assets.",
+      "ai_defensibility_rationale": "Medium; edge control algorithms provide value."
     }
   },
   {
@@ -2554,6 +2738,14 @@
       },
       "ai_survival_score": 0.33,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "DER interoperability gateway is scalable across many device types.",
+      "competition_rationale": "Medium; emerging standards vs proprietary gateways.",
+      "contract_size_rationale": "Low-Medium; per-device/site pricing.",
+      "stickiness_rationale": "High; gateway to market participation is a choke point.",
+      "sales_difficulty_rationale": "Medium; B2B sales to developers are faster than utility sales.",
+      "ai_defensibility_rationale": "Medium; edge intelligence models."
     }
   },
   {
@@ -2705,6 +2897,14 @@
       },
       "ai_survival_score": 0.29,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Asset health analytics for utilities is a high value, non-discretionary spend.",
+      "competition_rationale": "Medium; specialized asset APM players.",
+      "contract_size_rationale": "High; enterprise SaaS contracts.",
+      "stickiness_rationale": "High; strategic planning tool becomes embedded in CapEx planning.",
+      "sales_difficulty_rationale": "High; selling to utility engineering requires deep technical proof.",
+      "ai_defensibility_rationale": "High; proprietary asset failure models are hard to build."
     }
   },
   {
@@ -2818,6 +3018,14 @@
       },
       "ai_survival_score": 0.53,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Data center power electronics is a booming market due to AI demand.",
+      "competition_rationale": "Low; solid-state transformers are cutting edge with few suppliers.",
+      "contract_size_rationale": "High; hardware infrastructure deals.",
+      "stickiness_rationale": "High; hardware lock-in and spec-in.",
+      "sales_difficulty_rationale": "High; new tech adoption risk is a barrier.",
+      "ai_defensibility_rationale": "Low; hardware IP defensibility, not AI."
     }
   },
   {
@@ -2955,6 +3163,14 @@
       },
       "ai_survival_score": 0.27,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Wildfire analytics SaaS is a critical need for western utilities.",
+      "competition_rationale": "High; Technosylva and others are established.",
+      "contract_size_rationale": "Medium; annual SaaS subscriptions.",
+      "stickiness_rationale": "Medium; replaceable by better models if accuracy lags.",
+      "sales_difficulty_rationale": "Medium; urgent utility need helps shorten cycles.",
+      "ai_defensibility_rationale": "Medium; model accuracy is key differentiator."
     }
   },
   {
@@ -3088,6 +3304,14 @@
       },
       "ai_survival_score": 0.24,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Drone fleet management is horizontal but useful for utility scale.",
+      "competition_rationale": "High; many drone software platforms exist.",
+      "contract_size_rationale": "Low-Medium; SaaS per pilot/drone.",
+      "stickiness_rationale": "Medium; workflow integration helps retention.",
+      "sales_difficulty_rationale": "Medium; operational tool sales are straightforward.",
+      "ai_defensibility_rationale": "Low; compliance focus rather than AI."
     }
   },
   {
@@ -3237,6 +3461,14 @@
       },
       "ai_survival_score": 0.31,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "GIS and mapping for utilities is a standard operational need.",
+      "competition_rationale": "High; Esri ecosystem and many startups.",
+      "contract_size_rationale": "Medium; project or SaaS based.",
+      "stickiness_rationale": "Medium; data integration creates some stickiness.",
+      "sales_difficulty_rationale": "Medium; standard utility need but crowded.",
+      "ai_defensibility_rationale": "Medium; computer vision for mapping automation."
     }
   },
   {
@@ -3374,6 +3606,14 @@
       },
       "ai_survival_score": 0.22,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Sovereign edge compute is a niche but high value segment.",
+      "competition_rationale": "Medium; specialized infra players.",
+      "contract_size_rationale": "High; infrastructure hardware deals.",
+      "stickiness_rationale": "High; physical data center assets are permanent.",
+      "sales_difficulty_rationale": "High; complex B2G/B2B sales cycles.",
+      "ai_defensibility_rationale": "Low; infrastructure focus."
     }
   },
   {
@@ -3515,6 +3755,14 @@
       },
       "ai_survival_score": 0.84,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Grid monitoring sensors represent a massive retrofit market.",
+      "competition_rationale": "High; Sentient Energy and others are strong.",
+      "contract_size_rationale": "High; hardware fleet deployment.",
+      "stickiness_rationale": "High; installed sensor base is very sticky.",
+      "sales_difficulty_rationale": "High; utility hardware cycle is slow.",
+      "ai_defensibility_rationale": "Medium; fault detection algorithms."
     }
   },
   {
@@ -3655,6 +3903,14 @@
       },
       "ai_survival_score": 0.43,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Agentic AI for DER monetization is scalable software.",
+      "competition_rationale": "High; VPPs and DERMS are a crowded space.",
+      "contract_size_rationale": "Medium; shared revenue or SaaS models.",
+      "stickiness_rationale": "Medium; performance based retention.",
+      "sales_difficulty_rationale": "Medium; competitive market makes sales harder.",
+      "ai_defensibility_rationale": "High; agentic AI complexity is a moat."
     }
   },
   {
@@ -3796,6 +4052,14 @@
       },
       "ai_survival_score": 0.36,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Probabilistic forecasting is high value software for trading/ops.",
+      "competition_rationale": "Medium; specialized analytics firms.",
+      "contract_size_rationale": "Medium; SaaS license.",
+      "stickiness_rationale": "Medium; data integration creates stickiness.",
+      "sales_difficulty_rationale": "Medium; technical sales to experts.",
+      "ai_defensibility_rationale": "High; forecasting IP is defensible."
     }
   },
   {
@@ -3909,6 +4173,14 @@
       },
       "ai_survival_score": 0.35,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Interconnection automation addresses a critical industry bottleneck.",
+      "competition_rationale": "Medium; emerging niche with few specialized tools.",
+      "contract_size_rationale": "Medium; SaaS subscription.",
+      "stickiness_rationale": "High; workflow automation becomes essential.",
+      "sales_difficulty_rationale": "Medium; selling to utility engineering teams.",
+      "ai_defensibility_rationale": "Medium; simulation models."
     }
   },
   {
@@ -4042,6 +4314,14 @@
       },
       "ai_survival_score": 0.22,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Physical grid hardening is a massive market due to climate change.",
+      "competition_rationale": "Low; novel material tech has few direct rivals.",
+      "contract_size_rationale": "High; material supply contracts.",
+      "stickiness_rationale": "High; physical installation is permanent.",
+      "sales_difficulty_rationale": "High; hardware validation takes time.",
+      "ai_defensibility_rationale": "Low; material science, not AI."
     }
   },
   {
@@ -4177,6 +4457,14 @@
       },
       "ai_survival_score": 0.2,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Utility data lakehouse is enterprise IT infrastructure.",
+      "competition_rationale": "High; Oracle, C3.ai, and cloud providers.",
+      "contract_size_rationale": "High; enterprise software deals.",
+      "stickiness_rationale": "High; core data infrastructure is hard to replace.",
+      "sales_difficulty_rationale": "High; CIO-level sales are complex.",
+      "ai_defensibility_rationale": "Medium; data structure IP."
     }
   },
   {
@@ -4241,6 +4529,14 @@
       },
       "ai_survival_score": 0.4,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Exhibition space is non-scalable.",
+      "competition_rationale": "N/A.",
+      "contract_size_rationale": "Low.",
+      "stickiness_rationale": "Low.",
+      "sales_difficulty_rationale": "Low.",
+      "ai_defensibility_rationale": "None."
     }
   },
   {
@@ -4400,6 +4696,14 @@
       },
       "ai_survival_score": 0.29,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Vegetation management analytics is a standard SaaS need.",
+      "competition_rationale": "High; crowded space with many vendors.",
+      "contract_size_rationale": "Medium; SaaS based on miles managed.",
+      "stickiness_rationale": "Medium; replaceable if competitors offer better price/performance.",
+      "sales_difficulty_rationale": "Medium; standard need but competitive.",
+      "ai_defensibility_rationale": "Medium; LiDAR processing pipelines."
     }
   },
   {
@@ -4511,6 +4815,14 @@
       },
       "ai_survival_score": 0.52,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Building energy assessment is a large real estate market.",
+      "competition_rationale": "Medium; manual audits vs tech solutions.",
+      "contract_size_rationale": "Medium; per-building fees.",
+      "stickiness_rationale": "Low; one-off audits often lack recurring value.",
+      "sales_difficulty_rationale": "Medium; cost saving pitch is effective.",
+      "ai_defensibility_rationale": "Medium; drone/thermal analysis."
     }
   },
   {
@@ -4575,6 +4887,14 @@
       },
       "ai_survival_score": 0.3,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Regulatory intelligence is a niche consulting/data market.",
+      "competition_rationale": "Low; specialized consulting/data firms.",
+      "contract_size_rationale": "Low-Medium; subscription data.",
+      "stickiness_rationale": "Medium; information workflow integration.",
+      "sales_difficulty_rationale": "Medium; niche buyer universe.",
+      "ai_defensibility_rationale": "Low; data aggregation."
     }
   },
   {
@@ -4766,6 +5086,14 @@
       },
       "ai_survival_score": 0.24,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Drone payloads for contact work is a niche hardware segment.",
+      "competition_rationale": "Low; unique contact capability.",
+      "contract_size_rationale": "Medium; hardware sales.",
+      "stickiness_rationale": "Medium; hardware adoption creates lock-in.",
+      "sales_difficulty_rationale": "High; safety regulation hurdles.",
+      "ai_defensibility_rationale": "Low; robotics hardware focus."
     }
   },
   {
@@ -4903,6 +5231,14 @@
       },
       "ai_survival_score": 0.56,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Digital twin creation applies to broad infrastructure market.",
+      "competition_rationale": "High; Matterport, and other twin platforms.",
+      "contract_size_rationale": "Medium; hardware + SaaS.",
+      "stickiness_rationale": "Medium; project based data capture.",
+      "sales_difficulty_rationale": "Medium; engineering tool sales.",
+      "ai_defensibility_rationale": "High; proprietary vision pipeline."
     }
   },
   {
@@ -5059,6 +5395,14 @@
       },
       "ai_survival_score": 0.37,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Data center load flexibility is a high growth sector.",
+      "competition_rationale": "Medium; emerging sector with few proven players.",
+      "contract_size_rationale": "High; enterprise deals with data centers.",
+      "stickiness_rationale": "High; critical ops integration.",
+      "sales_difficulty_rationale": "High; mission critical reliability requirements.",
+      "ai_defensibility_rationale": "Medium; orchestration logic."
     }
   },
   {
@@ -5249,6 +5593,14 @@
       },
       "ai_survival_score": 0.87,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Wireless charging/magnetic materials is niche but growing.",
+      "competition_rationale": "Low; unique material IP.",
+      "contract_size_rationale": "High; infrastructure/material supply.",
+      "stickiness_rationale": "High; physical build integration.",
+      "sales_difficulty_rationale": "High; new tech adoption is slow.",
+      "ai_defensibility_rationale": "Low; material science."
     }
   },
   {
@@ -5396,6 +5748,14 @@
       },
       "ai_survival_score": 0.38,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Backup power capacitors is an industrial niche.",
+      "competition_rationale": "High; batteries vs capacitors trade-off.",
+      "contract_size_rationale": "Medium; hardware sales.",
+      "stickiness_rationale": "Low; hardware commodity.",
+      "sales_difficulty_rationale": "Medium; technical sales.",
+      "ai_defensibility_rationale": "Low; power electronics."
     }
   },
   {
@@ -5577,6 +5937,14 @@
       },
       "ai_survival_score": 0.77,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "DER orchestration OS is scalable software infrastructure.",
+      "competition_rationale": "Medium; specialized edge OS players.",
+      "contract_size_rationale": "Medium; software license.",
+      "stickiness_rationale": "High; OS layer lock-in is strong.",
+      "sales_difficulty_rationale": "High; developer adoption is key.",
+      "ai_defensibility_rationale": "Medium; edge logic."
     }
   },
   {
@@ -5690,6 +6058,14 @@
       },
       "ai_survival_score": 0.28,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "IoT for utilities has broad application but high friction.",
+      "competition_rationale": "High; generic IoT platforms.",
+      "contract_size_rationale": "Medium; SaaS + hardware.",
+      "stickiness_rationale": "Medium; sensor network installation.",
+      "sales_difficulty_rationale": "Medium; utility sales.",
+      "ai_defensibility_rationale": "Medium; predictive analytics."
     }
   },
   {
@@ -5851,6 +6227,14 @@
       },
       "ai_survival_score": 0.4,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Next-gen AMI is a massive replacement market.",
+      "competition_rationale": "Very High; incumbents dominate.",
+      "contract_size_rationale": "High; infrastructure deals.",
+      "stickiness_rationale": "High; 15-year cycle.",
+      "sales_difficulty_rationale": "Very High; rip and replace is hard.",
+      "ai_defensibility_rationale": "Low; metering tech."
     }
   },
   {
@@ -5988,6 +6372,14 @@
       },
       "ai_survival_score": 0.47,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Smart building interoperability is a large market.",
+      "competition_rationale": "High; crowded proptech space.",
+      "contract_size_rationale": "Medium; SaaS.",
+      "stickiness_rationale": "Medium; integration layer.",
+      "sales_difficulty_rationale": "Medium; fragmented real estate market.",
+      "ai_defensibility_rationale": "Medium; AI optimization."
     }
   },
   {
@@ -6052,6 +6444,14 @@
       },
       "ai_survival_score": 0.25,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Voltage regulation hardware is a utility niche.",
+      "competition_rationale": "Medium; hardware incumbents.",
+      "contract_size_rationale": "Medium; hardware sales.",
+      "stickiness_rationale": "Low; hardware is replaceable.",
+      "sales_difficulty_rationale": "Medium; utility procurement.",
+      "ai_defensibility_rationale": "None; hardware."
     }
   },
   {
@@ -6195,6 +6595,14 @@
       },
       "ai_survival_score": 0.33,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Utility billing add-on is scalable fintech.",
+      "competition_rationale": "High; payment processors.",
+      "contract_size_rationale": "Medium; transaction fees.",
+      "stickiness_rationale": "High; financial integration.",
+      "sales_difficulty_rationale": "Medium; CFO sales.",
+      "ai_defensibility_rationale": "Low; fintech."
     }
   },
   {
@@ -6327,6 +6735,14 @@
       },
       "ai_survival_score": 0.84,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Residential circuit control is a large consumer market.",
+      "competition_rationale": "High; Span, Schneider.",
+      "contract_size_rationale": "Low; hardware unit sales.",
+      "stickiness_rationale": "High; installed hardware.",
+      "sales_difficulty_rationale": "Medium; prosumer sales.",
+      "ai_defensibility_rationale": "Medium; load disaggregation."
     }
   },
   {
@@ -6514,6 +6930,14 @@
       },
       "ai_survival_score": 0.21,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Grid intelligence software is high value.",
+      "competition_rationale": "Medium; AI startups.",
+      "contract_size_rationale": "High; enterprise SaaS.",
+      "stickiness_rationale": "High; core ops decisioning.",
+      "sales_difficulty_rationale": "High; trust in AI required.",
+      "ai_defensibility_rationale": "High; proprietary ML models."
     }
   },
   {
@@ -6708,6 +7132,14 @@
       },
       "ai_survival_score": 0.85,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Drone data validation is a niche workflow.",
+      "competition_rationale": "Medium; drone software.",
+      "contract_size_rationale": "Medium; SaaS.",
+      "stickiness_rationale": "Medium; workflow tool.",
+      "sales_difficulty_rationale": "Medium; ops teams.",
+      "ai_defensibility_rationale": "Medium; auto-validation."
     }
   },
   {
@@ -6838,6 +7270,14 @@
       },
       "ai_survival_score": 0.51,
       "ai_force_multiplier_thesis": "AI adoption will be critical to scale operational efficiency, but differentiation requires moving beyond standard models."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Emergency coordination is niche public safety.",
+      "competition_rationale": "Medium; legacy systems.",
+      "contract_size_rationale": "Medium; agency contracts.",
+      "stickiness_rationale": "High; safety critical.",
+      "sales_difficulty_rationale": "High; multi-agency sales.",
+      "ai_defensibility_rationale": "Low; coordination software."
     }
   },
   {
@@ -6991,6 +7431,14 @@
       },
       "ai_survival_score": 0.22,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Worker safety wearables is an industrial scale market.",
+      "competition_rationale": "Medium; safety gear.",
+      "contract_size_rationale": "Medium; hardware fleet.",
+      "stickiness_rationale": "Medium; safety standard.",
+      "sales_difficulty_rationale": "Medium; safety budget.",
+      "ai_defensibility_rationale": "Low; detection hardware."
     }
   },
   {
@@ -7098,6 +7546,14 @@
       },
       "ai_survival_score": 0.34,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Visual inspection analysis is scalable SaaS.",
+      "competition_rationale": "High; AI vision market.",
+      "contract_size_rationale": "Medium; SaaS.",
+      "stickiness_rationale": "Medium; data history.",
+      "sales_difficulty_rationale": "Medium; utility ops.",
+      "ai_defensibility_rationale": "Medium; vision models."
     }
   },
   {
@@ -7228,6 +7684,14 @@
       },
       "ai_survival_score": 0.31,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Energy trading/IT-OT is high value.",
+      "competition_rationale": "High; ETRM incumbents.",
+      "contract_size_rationale": "High; enterprise software.",
+      "stickiness_rationale": "High; trading core.",
+      "sales_difficulty_rationale": "High; complex integration.",
+      "ai_defensibility_rationale": "Medium; trading algos."
     }
   },
   {
@@ -7385,6 +7849,14 @@
       },
       "ai_survival_score": 0.31,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Grid analytics/GIS cleaning is niche but vital.",
+      "competition_rationale": "Medium; data quality tools.",
+      "contract_size_rationale": "Medium; SaaS.",
+      "stickiness_rationale": "Medium; project based often.",
+      "sales_difficulty_rationale": "Medium; utility data teams.",
+      "ai_defensibility_rationale": "Medium; data cleaning AI."
     }
   },
   {
@@ -7520,6 +7992,14 @@
       },
       "ai_survival_score": 0.23,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Field workforce training is horizontal.",
+      "competition_rationale": "High; LMS market.",
+      "contract_size_rationale": "Medium; SaaS per user.",
+      "stickiness_rationale": "Medium; training content.",
+      "sales_difficulty_rationale": "Medium; HR/Ops sales.",
+      "ai_defensibility_rationale": "Low; simulation content."
     }
   },
   {
@@ -7657,6 +8137,14 @@
       },
       "ai_survival_score": 0.24,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Real-time grid control is high value.",
+      "competition_rationale": "High; SCADA vendors.",
+      "contract_size_rationale": "High; control software.",
+      "stickiness_rationale": "High; critical ops.",
+      "sales_difficulty_rationale": "High; safety critical.",
+      "ai_defensibility_rationale": "Medium; control logic."
     }
   },
   {
@@ -7806,6 +8294,14 @@
       },
       "ai_survival_score": 0.34,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Grid cybersecurity is a growing market.",
+      "competition_rationale": "Medium; specialized OT security.",
+      "contract_size_rationale": "High; enterprise security.",
+      "stickiness_rationale": "High; security infra.",
+      "sales_difficulty_rationale": "High; CISO sales.",
+      "ai_defensibility_rationale": "High; zero trust tech."
     }
   },
   {
@@ -7917,6 +8413,14 @@
       },
       "ai_survival_score": 0.32,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Substation monitoring is a retrofit market.",
+      "competition_rationale": "High; thermal monitoring.",
+      "contract_size_rationale": "Medium; hardware/software.",
+      "stickiness_rationale": "Medium; hardware install.",
+      "sales_difficulty_rationale": "High; utility hardware.",
+      "ai_defensibility_rationale": "Medium; anomaly detection."
     }
   },
   {
@@ -8055,6 +8559,14 @@
       },
       "ai_survival_score": 0.23,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Distribution management is core utility software.",
+      "competition_rationale": "High; ADMS vendors.",
+      "contract_size_rationale": "High; enterprise license.",
+      "stickiness_rationale": "High; core ops.",
+      "sales_difficulty_rationale": "High; rip and replace.",
+      "ai_defensibility_rationale": "Low; workflow software."
     }
   },
   {
@@ -8206,6 +8718,14 @@
       },
       "ai_survival_score": 0.25,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Long duration storage is a massive market.",
+      "competition_rationale": "High; battery tech.",
+      "contract_size_rationale": "Huge; infrastructure.",
+      "stickiness_rationale": "High; physical plant.",
+      "sales_difficulty_rationale": "High; capital projects.",
+      "ai_defensibility_rationale": "Low; chemistry/hardware."
     }
   },
   {
@@ -8316,6 +8836,14 @@
       },
       "ai_survival_score": 0.87,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Transformer manufacturing is in massive shortage.",
+      "competition_rationale": "High; incumbents.",
+      "contract_size_rationale": "High; bulk orders.",
+      "stickiness_rationale": "Low; commodity.",
+      "sales_difficulty_rationale": "Medium; supply constrained.",
+      "ai_defensibility_rationale": "None; manufacturing."
     }
   },
   {
@@ -8454,6 +8982,14 @@
       },
       "ai_survival_score": 0.32,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Predictive maintenance is scalable.",
+      "competition_rationale": "Medium; monitoring tech.",
+      "contract_size_rationale": "Medium; SaaS + sensors.",
+      "stickiness_rationale": "High; data history.",
+      "sales_difficulty_rationale": "Medium; utility ops.",
+      "ai_defensibility_rationale": "High; magnetic sensing AI."
     }
   },
   {
@@ -8584,6 +9120,14 @@
       },
       "ai_survival_score": 0.23,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Pole inspection is niche maintenance.",
+      "competition_rationale": "Medium; manual test.",
+      "contract_size_rationale": "Low; device sales.",
+      "stickiness_rationale": "Low; tool sales.",
+      "sales_difficulty_rationale": "Medium; field crews.",
+      "ai_defensibility_rationale": "Low; acoustic analysis."
     }
   },
   {
@@ -8734,6 +9278,14 @@
       },
       "ai_survival_score": 0.86,
       "ai_force_multiplier_thesis": "Deep physical integration and proprietary data loops create a defensive moat against pure-software AI automation."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Power electronics for distribution is niche.",
+      "competition_rationale": "Medium; hardware.",
+      "contract_size_rationale": "Medium; hardware.",
+      "stickiness_rationale": "Low; hardware.",
+      "sales_difficulty_rationale": "High; utility adoption.",
+      "ai_defensibility_rationale": "Low; control logic."
     }
   },
   {
@@ -8908,6 +9460,14 @@
       },
       "ai_survival_score": 0.35,
       "ai_force_multiplier_thesis": "Vulnerable to commoditization as generative AI lowers the barrier for software-only competitors."
+    },
+    "metric_rationales": {
+      "market_scale_rationale": "Utility workflow automation is horizontal.",
+      "competition_rationale": "High; ERP/BPM.",
+      "contract_size_rationale": "Medium; SaaS.",
+      "stickiness_rationale": "High; workflow lock-in.",
+      "sales_difficulty_rationale": "Medium; IT sales.",
+      "ai_defensibility_rationale": "Low; process automation."
     }
   }
 ]
