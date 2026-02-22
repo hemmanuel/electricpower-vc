@@ -761,7 +761,8 @@
                                             <div class="bg-indigo-600 h-2 rounded-full" :style="`width: ${(selectedCompany.strategic_analysis.ai_survival_score || 0) * 100}%`"></div>
                                         </div>
                                         <div x-show="info === 'survival'" class="mb-4 text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug" x-transition>
-                                            <strong>AI Defensibility:</strong> The probability this business model survives in a world of commoditized AI. High scores (>70%) indicate physical moats, regulatory barriers, or complex hardware that AI cannot easily replicate.
+                                            <strong class="block mb-1">AI Defensibility Thesis:</strong>
+                                            <span x-text="selectedCompany.metric_rationales?.ai_defensibility_rationale || 'Probability of surviving AI commoditization.'"></span>
                                         </div>
                                         
                                         <div class="grid grid-cols-2 gap-3 mb-4 mt-3">
@@ -776,10 +777,12 @@
                                         </div>
 
                                         <div x-show="info === 'market'" class="mb-3 text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug" x-transition>
-                                            <strong>Market Scale:</strong> Estimates the venture potential. 10 = Platform/Category Creator (IPO potential); 1 = Niche Feature (Lifestyle business).
+                                            <strong class="block mb-1">Market Scale Thesis:</strong>
+                                            <span x-text="selectedCompany.metric_rationales?.market_scale_rationale || 'Estimates the venture potential. 10 = Platform/Category Creator; 1 = Niche Feature.'"></span>
                                         </div>
                                         <div x-show="info === 'noise'" class="mb-3 text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug" x-transition>
-                                            <strong>Competition:</strong> The level of saturation in this specific vertical. Low = Blue Ocean/First Mover; High = Red Ocean/Commoditized.
+                                            <strong class="block mb-1">Competitive Landscape:</strong>
+                                            <span x-text="selectedCompany.metric_rationales?.competition_rationale || 'The level of saturation in this specific vertical.'"></span>
                                         </div>
 
                                         <div class="space-y-2 pt-3 border-t border-indigo-200">
@@ -788,7 +791,8 @@
                                                 <span class="text-[10px] font-bold text-indigo-800" x-text="selectedCompany.strategic_analysis.unit_economics_inference.acv_proxy"></span>
                                             </div>
                                             <div x-show="info === 'acv'" class="text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug mb-1" x-transition>
-                                                <strong>Contract Size (ACV):</strong> Estimated Annual Contract Value. High (> $100k) suggests enterprise/utility sales; Low suggests volume-based SMB or prosumer models.
+                                                <strong class="block mb-1">ACV Rationale:</strong>
+                                                <span x-text="selectedCompany.metric_rationales?.contract_size_rationale || 'Estimated Annual Contract Value.'"></span>
                                             </div>
 
                                             <div class="flex justify-between items-center">
@@ -796,7 +800,8 @@
                                                 <span class="text-[10px] font-bold text-indigo-800" x-text="selectedCompany.strategic_analysis.unit_economics_inference.retention_quality"></span>
                                             </div>
                                             <div x-show="info === 'retention'" class="text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug mb-1" x-transition>
-                                                <strong>Stickiness:</strong> Estimated customer retention. High stickiness implies deep technical integration or long-term utility contracts that are hard to rip out.
+                                                <strong class="block mb-1">Retention Thesis:</strong>
+                                                <span x-text="selectedCompany.metric_rationales?.stickiness_rationale || 'Estimated customer retention quality.'"></span>
                                             </div>
 
                                             <div class="flex justify-between items-center">
@@ -804,7 +809,8 @@
                                                 <span class="text-[10px] font-bold text-indigo-800" x-text="selectedCompany.strategic_analysis.unit_economics_inference.distribution_friction"></span>
                                             </div>
                                             <div x-show="info === 'friction'" class="text-[10px] text-indigo-700 bg-indigo-100 p-2 rounded leading-snug" x-transition>
-                                                <strong>Sales Difficulty:</strong> The friction of distribution. High friction means long, complex sales cycles (e.g. 18+ months selling to regulated utilities).
+                                                <strong class="block mb-1">Distribution Friction:</strong>
+                                                <span x-text="selectedCompany.metric_rationales?.sales_difficulty_rationale || 'The friction of distribution and sales cycles.'"></span>
                                             </div>
                                         </div>
                                     </div>
