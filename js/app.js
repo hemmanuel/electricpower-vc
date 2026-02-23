@@ -63,6 +63,7 @@ document.addEventListener('alpine:init', () => {
                         hc: d.headcount_estimate, stat: d.corporate_status, $r: d.total_raised,
                         rnd: d.latest_round, inv: d.key_investors, cust: d.key_customers,
                         tech: d.tech_stack, biz: d.business_model, m: d.moat_description, tax: c.raw.taxonomy,
+                        strat: c.strategic_analysis, metrics: c.metric_rationales,
                         found: (c.founders || []).map(f => ({
                             n: f.name,
                             r: f.role,
@@ -82,7 +83,7 @@ document.addEventListener('alpine:init', () => {
                 const systemInstruction = `
                 System: You are an expert Venture Analyst, helping a VC firm begin to explore the electric power-related startup space. 
                 I am providing a JSON dataset of companies who were exhibitors at 2026 Distribibutech conference and earned a high Venture score in our ai-assisted analysis..
-                Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy, found=Founders (n=Name, r=Role, b=Bio, fmf=Founder-Market Fit, ht=Hometown, edu=Education, prev=Previous Companies, tags=Tags, li=LinkedIn, tw=Twitter, tech=Is Technical).
+                Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy, strat=Strategic Analysis (Market Depth, AI Survival Score, etc.), metrics=Rigorous Metric Rationales (Detailed thesis on Market Scale, Competition, Stickiness, etc.), found=Founders (n=Name, r=Role, b=Bio, fmf=Founder-Market Fit, ht=Hometown, edu=Education, prev=Previous Companies, tags=Tags, li=LinkedIn, tw=Twitter, tech=Is Technical).
                 
                 CRITICAL RULES:
                 1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
