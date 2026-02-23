@@ -21,7 +21,7 @@ document.addEventListener('alpine:init', () => {
         chatProfileOpen: false, // New state for sidebar profile view
         mdParser: window.markdownit(),
         categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
-                filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'score', aiFocus: false, showFavoritesOnly: false },
+                filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'ai_survival', aiFocus: false, showFavoritesOnly: false },
                 founderFilter: { tag: '', alumni: '' },
         selectedFounder: null,
         founderModalOpen: false,
@@ -284,6 +284,7 @@ document.addEventListener('alpine:init', () => {
             res = res.sort((a, b) => {
                 let valA, valB;
                 if (sortKey === 'score') { valA = a.score; valB = b.score; }
+                else if (sortKey === 'ai_survival') { valA = a.strategic_analysis?.ai_survival_score || 0; valB = b.strategic_analysis?.ai_survival_score || 0; }
                 else if (sortKey === 'raised') { valA = a.sort_raised; valB = b.sort_raised; }
                 else if (sortKey === 'headcount') { valA = a.sort_headcount; valB = b.sort_headcount; }
                 else if (sortKey === 'stage') { valA = a.sort_stage; valB = b.sort_stage; }
