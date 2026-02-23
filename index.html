@@ -35,6 +35,11 @@
                 </div>
 
                 <div class="bg-gray-100 p-1 rounded-lg flex items-center gap-1 hidden md:flex">
+                    <button @click="view = 'overview'; chatProfileOpen = false;" 
+                            class="px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5"
+                            :class="view === 'overview' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'">
+                        <span>📊</span> Overview
+                    </button>
                     <button @click="view = 'list'; chatProfileOpen = false;" 
                             class="px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5"
                             :class="(view === 'list' || view === 'map') ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'">
@@ -62,6 +67,10 @@
 
     <!-- Mobile Bottom Navigation -->
     <div class="md:hidden fixed bottom-0 w-full h-14 bg-white border-t border-gray-200 flex justify-around items-center z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
+        <button @click="view = 'overview'; chatProfileOpen = false;" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="view === 'overview' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
+            <span class="text-xl leading-none">📊</span>
+            <span class="text-[10px] font-medium leading-none">Overview</span>
+        </button>
         <button @click="view = 'list'; chatProfileOpen = false;" class="flex flex-col items-center justify-center gap-0.5 h-full w-full" :class="(view === 'list' || view === 'map') ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'">
             <span class="text-xl leading-none">🏢</span>
             <span class="text-[10px] font-medium leading-none">Companies</span>
@@ -109,6 +118,88 @@
         </div>
 
         <div x-show="!isLoading" class="h-full w-full">
+
+            <!-- OVERVIEW VIEW -->
+            <div x-show="view === 'overview'" x-cloak class="h-full flex flex-col overflow-hidden pb-16 bg-gray-50">
+                <div class="flex-shrink-0 px-6 py-5 bg-white border-b border-gray-100 z-20">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900">Market Overview</h2>
+                            <p class="text-sm text-gray-500 mt-1">Strategic landscape of the Electric Power & Utilities sector from a VC perspective.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                        <template x-for="category in categories" :key="category.name">
+                            <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col h-full">
+                                <div class="p-5 border-b border-gray-100 bg-gray-50/50">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-lg font-bold text-gray-900 leading-tight" x-text="category.name"></h3>
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded-full" x-text="category.count + ' Co.'"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 leading-relaxed" x-text="category.description || 'Loading analysis...'"></p>
+                                </div>
+                                
+                                <div class="p-5 space-y-5 flex-1">
+                                    <!-- Scores -->
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-indigo-50 rounded-lg p-3 text-center border border-indigo-100">
+                                            <div class="text-[10px] font-bold text-indigo-400 uppercase tracking-wide mb-1">AI Defensibility</div>
+                                            <div class="text-2xl font-bold" :class="{'text-emerald-600': (category.avg_ai_score || 0) >= 0.7, 'text-amber-600': (category.avg_ai_score || 0) >= 0.5 && (category.avg_ai_score || 0) < 0.7, 'text-red-600': (category.avg_ai_score || 0) < 0.5}" x-text="(category.avg_ai_score || 0).toFixed(2)"></div>
+                                        </div>
+                                        <div class="bg-blue-50 rounded-lg p-3 text-center border border-blue-100">
+                                            <div class="text-[10px] font-bold text-blue-400 uppercase tracking-wide mb-1">Market Depth</div>
+                                            <div class="text-2xl font-bold text-blue-700" x-text="(category.avg_market_score || 0).toFixed(1)"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Analysis -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
+                                                <span>🤖</span> AI Survivability Analysis
+                                            </div>
+                                            <p class="text-xs text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100" x-text="category.ai_survivability_analysis || 'Analysis pending...'"></p>
+                                        </div>
+
+                                        <div>
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
+                                                <span>🔄</span> Pivotability & Market Size
+                                            </div>
+                                            <p class="text-xs text-gray-700 leading-relaxed" x-text="category.market_pivotability || 'Analysis pending...'"></p>
+                                        </div>
+
+                                        <div>
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
+                                                <span>💡</span> VC Thesis & Risks
+                                            </div>
+                                            <p class="text-xs text-gray-700 leading-relaxed" x-text="category.vc_thesis || 'Analysis pending...'"></p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hot Trends -->
+                                    <div x-show="category.hot_trends && category.hot_trends.length > 0">
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Trending Themes</div>
+                                        <div class="flex flex-wrap gap-1.5">
+                                            <template x-for="trend in category.hot_trends">
+                                                <span class="inline-block bg-orange-50 text-orange-700 border border-orange-100 px-2 py-1 rounded text-[10px] font-semibold" x-text="trend"></span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-gray-50 border-t border-gray-100 mt-auto">
+                                    <button @click="filters.sector = category.name; view = 'list'" class="w-full py-2 text-xs font-bold text-blue-600 bg-white border border-blue-200 hover:bg-blue-50 hover:border-blue-300 rounded-lg transition-all shadow-sm">
+                                        View Companies
+                                    </button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
             
             <div x-show="view === 'chat'" x-cloak class="h-full flex w-full">
                 

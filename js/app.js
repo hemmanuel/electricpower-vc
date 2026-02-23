@@ -2,6 +2,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('ventureApp', () => ({
         allCompanies: [],
         investors: [],
+        categories: [],
         isLoading: true,
         error: null,
         view: 'list',
@@ -37,6 +38,7 @@ document.addEventListener('alpine:init', () => {
             }
             this.loadData(); 
             this.loadInvestors();
+            this.loadCategories();
         },
 
         loadData() {
@@ -51,6 +53,12 @@ document.addEventListener('alpine:init', () => {
             fetch('investors_enriched.json').then(r => r.json()).then(d => {
                 this.investors = d;
             }).catch(e => { console.error("Could not load investors", e); });
+        },
+
+        loadCategories() {
+            fetch('categories_enriched.json').then(r => r.json()).then(d => {
+                this.categories = d;
+            }).catch(e => { console.error("Could not load categories", e); });
         },
 
         openInvestorModal(investor) {
