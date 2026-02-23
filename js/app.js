@@ -2,7 +2,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('ventureApp', () => ({
         allCompanies: [],
         investors: [],
-        categories: [],
+        enrichedCategoriesData: [],
         isLoading: true,
         error: null,
         view: 'list',
@@ -57,7 +57,7 @@ document.addEventListener('alpine:init', () => {
 
         loadCategories() {
             fetch('categories_enriched.json').then(r => r.json()).then(d => {
-                this.categories = d;
+                this.enrichedCategoriesData = d;
             }).catch(e => { console.error("Could not load categories", e); });
         },
 
@@ -316,7 +316,17 @@ document.addEventListener('alpine:init', () => {
         },
 
         // --- ROBUST FOUNDER LOGIC END ---
-        get categories() { return this.categoriesList.map(cat => ({ name: cat, count: (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length })); },
+        get categories() { 
+            return this.categoriesList.map(cat => {
+                const enriched = this.enrichedCategoriesData.find(c => c.name === cat) || {};
+                const count = (this.viewMode === 'all' ? this.allCompanies : this.allCompanies.filter(c => c.score >= 0.6)).filter(c => c.l1 === cat).length;
+                return { 
+                    name: cat, 
+                    count: count,
+                    ...enriched // Merge enriched data
+                };
+            }); 
+        },
         get filteredCompanies() {
             let res = this.viewMode === 'all' ? [...this.allCompanies] : this.allCompanies.filter(c => c.score >= 0.6);
             if (this.searchQuery.trim()) {
