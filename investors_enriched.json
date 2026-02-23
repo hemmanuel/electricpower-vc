@@ -1,0 +1,2922 @@
+[
+  {
+    "name": "Joules Accelerator",
+    "portfolio_companies": [
+      "Expand Power",
+      "Megajoule Plus Systems (MPS)",
+      "Resilient Link",
+      "Solitude Labs"
+    ],
+    "thesis": "Joules Accelerator focuses on early-stage climate tech, clean energy, and decarbonization startups. Their core thesis centers on accelerating the energy transition by identifying high-potential technological innovations and facilitating their commercial adoption in the utility and corporate sectors.",
+    "other_investments": [
+      "Atom Power",
+      "LineVision",
+      "Shifted Energy",
+      "Kitu Systems",
+      "Sustaera"
+    ],
+    "exits": [
+      "Atom Power (Majority Acquired by SK Inc.)",
+      "Gridcure (Acquired by Awesense)"
+    ],
+    "value_add": "Joules Accelerator specializes in driving commercialization by directly connecting startups with a massive network of utility and corporate partners, such as Duke Energy and Microsoft, to secure pilot projects. They also provide deep domain expertise in navigating the complex regulatory environments of the energy sector and structuring enterprise sales."
+  },
+  {
+    "name": "U.S. Department of Energy (DOE)",
+    "portfolio_companies": [
+      "Ecosuite",
+      "GridWrap",
+      "Joulea"
+    ],
+    "thesis": "The U.S. Department of Energy (DOE) focuses on funding early-stage R&D through commercial-scale deployment of energy, climate, and deeptech innovations. Through programs like ARPA-E, SBIR, and the Loan Programs Office, they provide critical non-dilutive capital to de-risk technologies in grid modernization, energy efficiency, and industrial decarbonization.",
+    "other_investments": [
+      "Tesla",
+      "Form Energy",
+      "Commonwealth Fusion Systems",
+      "Redwood Materials"
+    ],
+    "exits": [
+      "Tesla",
+      "Enphase Energy",
+      "QuantumScape"
+    ],
+    "value_add": "The DOE provides pivotal non-dilutive funding and low-cost debt that significantly de-risks capital-intensive climate tech startups, catalyzing subsequent private venture investment. Furthermore, they offer awardees unparalleled access to the U.S. National Laboratory system for technology validation, scientific expertise, and commercialization support."
+  },
+  {
+    "name": "Antler",
+    "portfolio_companies": [
+      "Arkion Solutions AB",
+      "Magnefy"
+    ],
+    "thesis": "Antler is a global early-stage venture capital firm investing from 'day zero', focusing heavily on the pre-seed and seed stages across diverse sectors including deeptech, AI, SaaS, and climate tech. Their investment philosophy is highly founder-centric, backing exceptional individuals and supporting them through team formation and idea validation. Given their investments in Arkion Solutions and Magnefy, they demonstrate a strong appetite for scalable enterprise SaaS, applied AI, and deeptech solutions that optimize complex industrial workflows.",
+    "other_investments": [
+      "Airalo",
+      "Reebelo",
+      "Volopay",
+      "Xanpool"
+    ],
+    "exits": [],
+    "value_add": "Antler provides intensive early-stage operational support through its cohort-based residency programs, explicitly aiding solo founders with co-founder matching, MVP development, and initial go-to-market strategy. Post-investment, they offer portfolio companies access to a vast global network of ecosystem partners, heavily assisting with international expansion, key talent acquisition, and introductions for follow-on Series A/B fundraising."
+  },
+  {
+    "name": "Los Angeles Cleantech Incubator (LACI)",
+    "portfolio_companies": [
+      "Delphire",
+      "Molecule Systems"
+    ],
+    "thesis": "The Los Angeles Cleantech Incubator (LACI) is an economic development engine and early-stage investor focused on building an inclusive green economy. They primarily target pre-seed and seed-stage startups within zero-emissions transportation, clean energy, and the circular economy.",
+    "other_investments": [
+      "Automotus",
+      "ChargerHelp!",
+      "Ampaire",
+      "SparkCharge",
+      "FreeWire Technologies"
+    ],
+    "exits": [
+      "Greenlots",
+      "Envoy Technologies",
+      "Xos Trucks"
+    ],
+    "value_add": "LACI provides startups with extensive operational support through physical infrastructure like the La Kretz Innovation Campus, which includes advanced prototyping and manufacturing labs. They also offer crucial regulatory and commercial access via deep partnerships with regional entities like the Los Angeles Department of Water and Power (LADWP) to facilitate pilot programs and early deployments."
+  },
+  {
+    "name": "Plug and Play Tech Center",
+    "portfolio_companies": [
+      "Green Edge Computing Corp",
+      "L?D"
+    ],
+    "thesis": "Plug and Play Tech Center is a highly active global early-stage investor and corporate innovation platform, focusing primarily on pre-seed to Series A rounds across diverse industry verticals including energy, sustainability, IoT, and deeptech. Their investment thesis centers on identifying scalable, enterprise-ready technologies and rapidly accelerating their commercialization by integrating them into the ecosystems of their massive corporate partner network.",
+    "other_investments": [
+      "Dropbox",
+      "PayPal",
+      "N26",
+      "Honey",
+      "LendingClub"
+    ],
+    "exits": [
+      "Dropbox",
+      "Honey",
+      "PayPal"
+    ],
+    "value_add": "Plug and Play acts as a powerful bridge between early-stage startups and massive enterprise corporations, offering unparalleled access to corporate pilots, proof-of-concept opportunities, and enterprise contracts. Beyond capital, they provide structured global accelerator programs, extensive business development introductions, and domain-specific mentorship tailored to sectors like green edge computing and climate tech."
+  },
+  {
+    "name": "Ben Franklin Technology Partners",
+    "portfolio_companies": [
+      "Fischer Block"
+    ],
+    "thesis": "Ben Franklin Technology Partners is a state-funded seed and early-stage venture capital initiative focused on driving economic growth and technological innovation in Pennsylvania. Their investment thesis spans broad technology sectors including enterprise software, life sciences, advanced manufacturing, and energy/cleantech (such as grid analytics like Fischer Block). They prioritize backing highly scalable regional startups with strong potential for local job creation and commercial success.",
+    "other_investments": [
+      "Boomi",
+      "Monetate",
+      "Guru",
+      "Curalate",
+      "Sidecar"
+    ],
+    "exits": [
+      "Boomi (acquired by Dell)",
+      "Monetate (acquired by Kibo)",
+      "Curalate (acquired by Bazaarvoice)"
+    ],
+    "value_add": "As a state-backed economic development entity, BFTP provides extensive regional support including access to Pennsylvania's robust university research networks and guidance on non-dilutive grant funding. They offer hands-on operational mentorship, strategic business consulting, and networking opportunities to help founders navigate early-stage growth, local hiring, and subsequent venture fundraising."
+  },
+  {
+    "name": "Blu Venture Investors",
+    "portfolio_companies": [
+      "Fischer Block"
+    ],
+    "thesis": "Blu Venture Investors is an early-stage venture capital firm that primarily targets Seed and Series A companies in the cybersecurity, enterprise software, and industrial IoT technology sectors. They focus heavily on capital-efficient startups with scalable solutions that address critical enterprise operations, defense, and national security challenges.",
+    "other_investments": [
+      "Huntress",
+      "Cybrary",
+      "WireWheel",
+      "ThreatQuotient",
+      "Ostendio"
+    ],
+    "exits": [
+      "Terbium Labs",
+      "ThreatConnect",
+      "FactorTrust"
+    ],
+    "value_add": "The firm operates with a partnership comprised entirely of experienced operators and former C-level executives who provide hands-on mentorship and strategic guidance. They actively assist founders with go-to-market execution, enterprise sales scaling, and facilitate critical customer introductions, particularly within the federal government and highly regulated industries."
+  },
+  {
+    "name": "SRI Capital",
+    "portfolio_companies": [
+      "Fischer Block"
+    ],
+    "thesis": "SRI Capital is an early-stage venture capital firm focusing on Seed and Series A investments in B2B software, enterprise SaaS, and deep technology companies. They actively target startups in the US and India, with a strong interest in IoT, data analytics, and industrial tech solutions that modernize traditional infrastructure.",
+    "other_investments": [
+      "HighRadius",
+      "Fyle",
+      "Yellow.ai",
+      "DreamVu",
+      "Zeni"
+    ],
+    "exits": [
+      "Tuplejump (acquired by Apple)",
+      "ShieldSquare (acquired by Radware)",
+      "Sportskeeda (acquired by Nazara Technologies)"
+    ],
+    "value_add": "SRI Capital heavily leverages its cross-border expertise to help startups expand into the US market while utilizing specialized engineering talent in India. They provide strong operational support to B2B founders, assisting with enterprise go-to-market strategies, scaling sales teams, and navigating complex corporate procurement cycles."
+  },
+  {
+    "name": "Carbon6 Ventures",
+    "portfolio_companies": [
+      "Fischer Block"
+    ],
+    "thesis": "Carbon6 Ventures is an early-stage investment firm focused on industrial IoT, advanced data analytics, and smart grid technologies. They target deeptech and hardware-enabled software startups that modernize legacy infrastructure, enhance energy reliability, and drive operational efficiency within the energy sector.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Carbon6 Ventures leverages deep domain expertise in the energy and industrial sectors to help founders scale their deployments and navigate long procurement cycles. They actively support portfolio companies by structuring pilot programs, facilitating strategic introductions to utility operators, and advising on hardware supply chain scaling."
+  },
+  {
+    "name": "Investing Profit Wisely",
+    "portfolio_companies": [
+      "ADAION SMART GRID SOLUTIONS, S.L."
+    ],
+    "thesis": "Investing Profit Wisely is an early-stage investment vehicle focused on technology startups driving the energy transition and digital transformation, particularly in smart grids, edge computing, and AI. They primarily target European and Spanish startups that offer highly scalable B2B solutions with a strong sustainability or climate-tech angle.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "They provide strategic guidance tailored to B2B commercialization and help technical founders navigate the complex regulatory landscapes of the energy sector. Additionally, they leverage their local market networks to assist portfolio companies in securing early pilot projects with utility providers and scaling smart infrastructure solutions."
+  },
+  {
+    "name": "Bolsa Social Fund",
+    "portfolio_companies": [
+      "ADAION SMART GRID SOLUTIONS, S.L."
+    ],
+    "thesis": "Bolsa Social Fund is a Spanish impact-focused venture capital firm investing in early-stage startups that address critical social and environmental challenges. They primarily target Seed to Series A stages across sectors such as climate tech, smart energy, circular economy, and health/well-being.",
+    "other_investments": [
+      "Auara",
+      "Tucuvi",
+      "Sepiia",
+      "Nostoc Biotechnologies"
+    ],
+    "exits": [
+      "Auara"
+    ],
+    "value_add": "They provide hands-on support in impact measurement and management, helping founders deeply integrate ESG metrics into their business models. Furthermore, they leverage their strong Spanish impact ecosystem to connect portfolio companies with mentors, strategic partners, and follow-on capital."
+  },
+  {
+    "name": "ClimateHaven (Incubator)",
+    "portfolio_companies": [
+      "AIon Grid Inc"
+    ],
+    "thesis": "ClimateHaven is an early-stage incubator dedicated to advancing climate technologies, decarbonization solutions, and clean energy innovations. They focus on supporting pre-seed and seed-stage startups, particularly those developing complex hardware and deeptech solutions required for the global energy transition.",
+    "other_investments": [
+      "Oxylus Energy",
+      "Endolith",
+      "Tierra Climate",
+      "Knead Tech"
+    ],
+    "exits": [],
+    "value_add": "ClimateHaven provides crucial physical infrastructure, including state-of-the-art prototyping facilities, lab space, and collaborative workspaces. They heavily leverage their strategic ties to Yale University and regional innovation hubs to connect founders with academic researchers, specialized climate investors, and corporate partners for rapid commercialization."
+  },
+  {
+    "name": "WEC Energy Group (60%)",
+    "portfolio_companies": [
+      "American Power Trainsmission"
+    ],
+    "thesis": "WEC Energy Group makes strategic corporate and infrastructure investments focused on grid modernization, electric transmission, and renewable energy generation. Rather than traditional venture capital, they primarily target large-scale infrastructure joint ventures, clean energy assets, and energy technology funds that accelerate the transition to a zero-carbon electric grid.",
+    "other_investments": [
+      "Energy Impact Partners (LP)",
+      "Samson Solar Energy Center",
+      "Thunderhead Wind Energy",
+      "Maple Creek Wind"
+    ],
+    "exits": [
+      "Trillium CNG",
+      "Bostco Terminal"
+    ],
+    "value_add": "WEC Energy Group provides its partners and portfolio companies with unparalleled operational expertise in grid management, large-scale project execution, and complex regulatory compliance across state and federal jurisdictions. As a major multi-state utility, they can also act as a highly valuable strategic customer, offering a massive real-world deployment environment for proven grid and clean energy technologies."
+  },
+  {
+    "name": "Alliant Energy (16%)",
+    "portfolio_companies": [
+      "American Power Trainsmission"
+    ],
+    "thesis": "Alliant Energy acts as a strategic corporate investor focused on utility infrastructure, grid modernization, and renewable generation assets. Their investments primarily target transmission infrastructure, wind, solar, and energy storage projects that align with their transition toward net-zero carbon emissions and enhanced regional grid reliability.",
+    "other_investments": [
+      "American Transmission Company (ATC)",
+      "Wisconsin River Power Company",
+      "Duane Arnold Solar",
+      "Franklin County Wind Farm"
+    ],
+    "exits": [
+      "Whiting Petroleum Corporation",
+      "Alliant Energy New Zealand",
+      "RMT Inc."
+    ],
+    "value_add": "As a major regional public utility, Alliant Energy provides deep regulatory expertise, engineering support, and grid integration capabilities to its strategic partners. They offer immense operational scale, long-term stability through power purchase agreements, and a massive Midwestern customer base for deploying infrastructure innovations."
+  },
+  {
+    "name": "Madison Gas & Electric",
+    "portfolio_companies": [
+      "American Power Trainsmission"
+    ],
+    "thesis": "Madison Gas & Electric (MGE) operates as a strategic corporate investor, focusing primarily on infrastructure, grid modernization, and renewable energy generation. They typically engage in late-stage project finance, joint ventures, and strategic partnerships that align with their Midwest utility operations and long-term decarbonization targets.",
+    "other_investments": [
+      "American Transmission Company (ATC)",
+      "Forward Energy Center",
+      "Saratoga Wind Farm",
+      "Badger State Solar"
+    ],
+    "exits": [],
+    "value_add": "MGE provides its strategic partners with deep operational expertise in grid integration, power distribution, and utility-scale project management. Furthermore, they offer critical regulatory guidance in the Midwest and frequently serve as an anchor customer or long-term operational partner through Power Purchase Agreements (PPAs)."
+  },
+  {
+    "name": "WPPI Energy",
+    "portfolio_companies": [
+      "American Power Trainsmission"
+    ],
+    "thesis": "WPPI Energy operates as a strategic investor and joint action agency, focusing on energy infrastructure, regional power transmission, and renewable energy generation projects. Their investments are heavily concentrated in late-stage infrastructure, joint ventures, and utility-scale assets designed to secure reliable, cost-effective wholesale electricity for their member municipal utilities across the Midwest.",
+    "other_investments": [
+      "American Transmission Company (ATC)",
+      "CapX2020",
+      "Point Beach Solar",
+      "Bishop Hill III Wind Farm"
+    ],
+    "exits": [],
+    "value_add": "WPPI Energy provides immense strategic value to energy and infrastructure developers through guaranteed power purchase agreements (PPAs) and off-take certainty. They also offer deep regulatory and operational expertise within the MISO grid, alongside direct commercial access to a captive network of over 50 municipal electric utilities."
+  },
+  {
+    "name": "various municipal utilities",
+    "portfolio_companies": [
+      "American Power Trainsmission"
+    ],
+    "thesis": "Various municipal utilities typically invest collectively in utility-scale infrastructure, grid modernization, and energy transition projects through joint ventures or project finance. Their investment focus aims at ensuring grid reliability, securing long-term ratepayer benefits, and meeting regional decarbonization goals rather than seeking traditional venture capital returns.",
+    "other_investments": [
+      "NuScale Power",
+      "Hometown Connections",
+      "Energy Northwest"
+    ],
+    "exits": [],
+    "value_add": "They provide highly strategic value to infrastructure and energy companies by offering guaranteed offtake agreements, such as Power Purchase Agreements (PPAs), and access to low-cost public financing. Additionally, they offer deep domain expertise in grid operations, regulatory compliance, and a captive market for deploying new utility technologies."
+  },
+  {
+    "name": "Subvenio Invest",
+    "portfolio_companies": [
+      "Arkion Solutions AB"
+    ],
+    "thesis": "Subvenio Invest is a Nordic-focused investment firm targeting early-stage and growth-phase companies in B2B SaaS, artificial intelligence, and industrial technology. They hold a strong interest in applied deeptech and digital solutions that optimize and modernize traditional infrastructure, such as power grids and utility networks.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Subvenio Invest helps technical founders navigate the complex, long sales cycles inherent to the utility, energy, and industrial sectors. They provide hands-on strategic guidance for B2B go-to-market scaling, while leveraging their localized Nordic network to unlock pilot projects and critical commercial partnerships."
+  },
+  {
+    "name": "Neptunia Invest",
+    "portfolio_companies": [
+      "Arkion Solutions AB"
+    ],
+    "thesis": "Neptunia Invest is a Swedish investment company focused on long-term value creation across the Nordics, targeting sectors such as real estate, financial services, and industrial deeptech. They typically invest in early to growth-stage companies, demonstrating a strong appetite for infrastructure-adjacent software, energy transition technologies, and critical societal security solutions.",
+    "other_investments": [
+      "MW Group",
+      "Brocc",
+      "Eitrium",
+      "Kreditz"
+    ],
+    "exits": [],
+    "value_add": "Neptunia acts as an active, long-term partner, leveraging its extensive Nordic network across industrial, real estate, and public sectors to unlock commercial opportunities. They provide hands-on strategic governance, assist portfolio companies in navigating complex regulatory and procurement landscapes, and support scaling through structural capital and M&A expertise."
+  },
+  {
+    "name": "Sustainable Energy Angels",
+    "portfolio_companies": [
+      "Arkion Solutions AB"
+    ],
+    "thesis": "Sustainable Energy Angels (SEA) is a Swedish angel investor network focused on early-stage startups driving the transition to a sustainable energy system. They primarily invest in Nordic climate tech, renewable energy, grid resilience, and deeptech innovations with high impact potential.",
+    "other_investments": [
+      "CorPower Ocean",
+      "Epishine",
+      "Ferroamp",
+      "Swedish Algae Factory",
+      "Charge Amps"
+    ],
+    "exits": [
+      "Ferroamp",
+      "Climeon",
+      "Charge Amps"
+    ],
+    "value_add": "SEA leverages its network of seasoned energy executives and industry veterans to provide deep domain expertise and technical validation for early-stage hardware and software companies. They actively support founders with regulatory navigation, commercialization strategies within the energy sector, and strategic introductions for pilot projects and corporate partnerships."
+  },
+  {
+    "name": "General Catalyst",
+    "portfolio_companies": [
+      "Ayr Energy"
+    ],
+    "thesis": "General Catalyst is a top-tier global venture capital firm investing from seed to growth stages across enterprise, consumer, fintech, healthcare, and deeptech. Guided by their 'Global Resilience' thesis, they actively target companies driving the energy transition, modernizing supply chains, and building sustainable, climate-focused infrastructure.",
+    "other_investments": [
+      "Stripe",
+      "Airbnb",
+      "Anduril",
+      "HubSpot",
+      "Gusto"
+    ],
+    "exits": [
+      "Snap",
+      "Airbnb",
+      "Livongo"
+    ],
+    "value_add": "General Catalyst provides robust operational support through dedicated teams focused on executive talent acquisition, go-to-market acceleration, and strategic partnerships. For energy and deeptech founders, their specialized Global Resilience practice leverages extensive regulatory connections and policy expertise to help navigate complex government landscapes and scale industrial technologies."
+  },
+  {
+    "name": "EPS Ventures",
+    "portfolio_companies": [
+      "Ayr Energy"
+    ],
+    "thesis": "EPS Ventures is the corporate investment arm of Eastern Pacific Shipping, focusing on early-to-growth stage startups within maritime decarbonization, the energy transition, and supply chain technology. Their investment thesis heavily targets hardware and software solutions—such as alternative fuels, wind propulsion, and energy efficiency—that can dramatically reduce the carbon footprint of heavy industry and shipping.",
+    "other_investments": [
+      "Carbon Ridge",
+      "Nautilus Labs",
+      "Value Maritime",
+      "Bound4Blue"
+    ],
+    "exits": [
+      "Nautilus Labs"
+    ],
+    "value_add": "EPS Ventures leverages its deep maritime and heavy industry expertise to provide startups with unparalleled operational testing grounds and pilot opportunities. They offer founders direct access to a massive global commercial fleet for real-world validation, alongside strategic guidance on international regulatory compliance and supply chain scaling."
+  },
+  {
+    "name": "CFP Energy (Strategic/Corporate parent)",
+    "portfolio_companies": [
+      "CENTRII"
+    ],
+    "thesis": "CFP Energy strategically invests in early-to-growth stage companies focused on the energy transition, carbon management, and environmental commodities. Their corporate venture arm targets innovative technologies and services that synergize with their core business of providing decarbonization and energy solutions to industrial clients.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As a strategic corporate investor, CFP Energy offers startups direct access to European energy and carbon trading markets, along with deep expertise in environmental regulations like the EU ETS. They accelerate commercialization by connecting portfolio companies with their extensive, established network of energy-intensive industrial customers."
+  },
+  {
+    "name": "Angel Investors (Jonathan Navon",
+    "portfolio_companies": [
+      "CENTRII"
+    ],
+    "thesis": "Jonathan Navon is an angel investor focusing on early-stage technology, enterprise software, and deeptech startups. He provides crucial pre-seed and seed capital to help technical founders validate their core technologies, optimize product-market fit, and achieve initial commercial traction.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Navon leverages his extensive professional network and business acumen to assist early-stage founders with strategic positioning, business development, and subsequent fundraising. He provides hands-on mentorship to help portfolio companies refine their go-to-market strategies and secure follow-on capital from institutional investors."
+  },
+  {
+    "name": "Rafael Narezzi)",
+    "portfolio_companies": [
+      "CENTRII"
+    ],
+    "thesis": "Rafael Narezzi is an angel investor focused on early-stage companies operating within cybersecurity, enterprise software, and IT infrastructure. Drawing on his extensive executive background as a CIO and technology leader, he primarily targets Pre-Seed and Seed stage startups building robust data security, digital transformation, and deeptech tools.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leverages his extensive executive experience as a CIO and CISO to help technical founders refine their product architectures and align with rigorous enterprise security standards. Provides tactical go-to-market guidance on navigating complex corporate IT procurement cycles and facilitates introductions to enterprise decision-makers."
+  },
+  {
+    "name": "YourNest Venture Capital",
+    "portfolio_companies": [
+      "Deepmatrix Private Limited"
+    ],
+    "thesis": "YourNest Venture Capital is an early-stage venture capital fund focused on deep-tech, enterprise SaaS, and hardware-led startups in India. They typically invest at the Pre-Series A and Series A stages, seeking out founders who are building defensible, intellectual property-led solutions in domains like AI/ML, spatial intelligence, robotics, IoT, and clean energy.",
+    "other_investments": [
+      "Exponent Energy",
+      "Miko",
+      "Dozee",
+      "Ethereal Machines",
+      "Orbo AI"
+    ],
+    "exits": [
+      "Lavelle Networks",
+      "Arya.ai",
+      "SmartQ"
+    ],
+    "value_add": "YourNest employs a 'Nurture Capital' approach, providing active mentorship, governance structuring, and deep operational support to early-stage founders. They leverage their extensive corporate network to help IP-driven deep-tech companies commercialize their products, refine go-to-market strategies, and secure follow-on capital for global expansion."
+  },
+  {
+    "name": "Arali Ventures",
+    "portfolio_companies": [
+      "Deepmatrix Private Limited"
+    ],
+    "thesis": "Arali Ventures is an early-stage venture capital firm focused on pre-seed and seed investments in Indian deeptech and enterprise B2B startups building for global markets. They actively target sectors such as industrial automation, artificial intelligence, robotics, and specialized SaaS, backing IP-led companies that digitize enterprise workflows or physical operations.",
+    "other_investments": [
+      "CynLr",
+      "Unbox Robotics",
+      "Wingman",
+      "Oloid",
+      "Finarkein Analytics"
+    ],
+    "exits": [
+      "Wingman (acquired by Clari)",
+      "Norah AI (acquired by Gamezop)"
+    ],
+    "value_add": "Arali Ventures provides hands-on operational and strategic support tailored to early-stage B2B founders, particularly focusing on finding product-market fit and refining enterprise go-to-market strategies. They leverage their domain expertise to help Indian deeptech startups build global distribution channels, establish US-India corridors, and secure downstream follow-on capital."
+  },
+  {
+    "name": "Abhishek Goyal (Founder of Tracxn)",
+    "portfolio_companies": [
+      "Deepmatrix Private Limited"
+    ],
+    "thesis": "Abhishek Goyal is a highly prolific early-stage angel investor focused on the Indian startup ecosystem, targeting sectors like B2B SaaS, deeptech, fintech, and consumer platforms. His investment in companies like Deepmatrix highlights a strong interest in data infrastructure, artificial intelligence, and geospatial intelligence solutions. He typically invests at the pre-seed and seed stages, backing technically strong founders with highly scalable business models.",
+    "other_investments": [
+      "Delhivery",
+      "Unacademy",
+      "Moglix",
+      "Urban Company",
+      "BharatPe"
+    ],
+    "exits": [
+      "Delhivery (IPO)",
+      "Myntra (Acquired)",
+      "Freecharge (Acquired)"
+    ],
+    "value_add": "Leveraging his background as the founder of Tracxn and a former VC at Accel Partners, Goyal provides unparalleled insights into global tech trends, market data, and competitive landscapes. He is exceptionally valuable in helping early-stage founders secure follow-on funding by utilizing his extensive network of top-tier institutional venture capitalists."
+  },
+  {
+    "name": "IIT ISM (Incubator)",
+    "portfolio_companies": [
+      "Deepmatrix Private Limited"
+    ],
+    "thesis": "IIT ISM (Incubator) focuses on pre-seed and seed-stage startups, particularly those emerging from academic research or utilizing deep technologies. Leveraging the institute's strong heritage in earth sciences and engineering, they typically target sectors like geospatial analytics, drone tech, cyber-physical systems, and mining/energy technologies.",
+    "other_investments": [
+      "PDRL",
+      "Enerqual",
+      "Ecowrap"
+    ],
+    "exits": [],
+    "value_add": "The incubator provides critical early-stage support including state-of-the-art laboratory access, R&D facilities, and academic mentorship from specialized faculty. They also assist founders in navigating government grants, validating deeptech/hardware products, and securing early pilot programs with public sector entities and industrial corporations."
+  },
+  {
+    "name": "U.S. Department of Energy (DOE) - Office of Electricity",
+    "portfolio_companies": [
+      "Delphire"
+    ],
+    "thesis": "The U.S. Department of Energy's Office of Electricity provides non-dilutive funding and grants to advance the resilience, reliability, and modernization of the nation's electric grid. Their focus areas include long-duration energy storage, grid security, and advanced technology solutions like AI-driven wildfire mitigation and smart grid infrastructure. They primarily support early-to-growth stage deeptech and energy startups bridging the gap between applied R&D and commercialization.",
+    "other_investments": [
+      "Form Energy",
+      "Natron Energy",
+      "Smart Wires",
+      "Ambri"
+    ],
+    "exits": [
+      "Stem Inc.",
+      "Enphase Energy"
+    ],
+    "value_add": "Provides critical non-dilutive capital and grants that de-risk deeptech energy projects to attract future private venture investment. Portfolio companies gain unparalleled access to the DOE's network of National Laboratories for technology validation, testing, and pilot deployments. They also confer strong technical credibility and facilitate introductions to major utility partners and regulatory bodies."
+  },
+  {
+    "name": "Net Zero Accelerator",
+    "portfolio_companies": [
+      "Delphire"
+    ],
+    "thesis": "Net Zero Accelerator focuses on early-stage startups developing innovative technologies for decarbonization, climate adaptation, and clean energy infrastructure. They specifically target hardware and deeptech solutions that enhance grid resilience, monitor environmental risks, and accelerate the global transition to a net-zero economy.",
+    "other_investments": [
+      "Mocean Energy",
+      "Trojan Energy",
+      "Supercritical",
+      "E-Zinc"
+    ],
+    "exits": [],
+    "value_add": "The accelerator provides comprehensive support through non-dilutive funding, structured mentorship, and access to a broad network of utility and corporate partners. They specifically help founders with technology validation, securing early pilot projects, and navigating complex energy sector regulations."
+  },
+  {
+    "name": "Caltech Rocket Fund",
+    "portfolio_companies": [
+      "Delphire"
+    ],
+    "thesis": "The Caltech Rocket Fund is an early-stage grant and investment program focused on cleantech, sustainability, and deeptech startups, often spinning out of academic research. It specifically targets hardware and physical science innovations, providing crucial pre-seed and seed funding to help bridge the commercialization 'valley of death' by financing commercial prototypes and real-world field trials.",
+    "other_investments": [
+      "FreeWire Technologies",
+      "Natron Energy",
+      "SkyCool Systems",
+      "Nelumbo"
+    ],
+    "exits": [
+      "Chai Energy",
+      "TruckLabs"
+    ],
+    "value_add": "The fund provides highly valuable non-dilutive capital alongside deep technical validation backed by the Caltech ecosystem. They also grant founders access to world-class testing facilities and actively broker connections with major utility partners, manufacturing experts, and specialized cleantech venture capitalists for follow-on funding."
+  },
+  {
+    "name": "CalTestBed",
+    "portfolio_companies": [
+      "Delphire"
+    ],
+    "thesis": "CalTestBed is a non-dilutive voucher program funded by the California Energy Commission that accelerates early-stage clean energy, grid resilience, and climate technologies. They focus on hardware and deep tech startups, providing capital specifically for prototyping, testing, and third-party validation to bridge the gap between concept and commercialization.",
+    "other_investments": [
+      "Antora Energy",
+      "Cuberg",
+      "Noon Energy",
+      "Sepion Technologies"
+    ],
+    "exits": [
+      "Cuberg (Acquired by Northvolt)"
+    ],
+    "value_add": "CalTestBed provides founders with up to $300,000 in non-dilutive voucher funding to test and validate their innovations at world-class facilities across the University of California system and Lawrence Berkeley National Lab. This independent, third-party technical validation critically de-risks deep tech hardware, helping companies attract institutional venture capital and plug into the broader New Energy Nexus ecosystem."
+  },
+  {
+    "name": "Long Beach Accelerator.",
+    "portfolio_companies": [
+      "Delphire"
+    ],
+    "thesis": "Long Beach Accelerator (LBA) focuses on pre-seed and seed-stage technology startups, deploying early capital and structured guidance to prepare companies for scale and follow-on funding. Leveraging their strategic location in Southern California, they have a strong affinity for deeptech, climate tech, aerospace, and maritime/logistics ventures. Their investments target ambitious founders transitioning from initial prototypes to commercialization.",
+    "other_investments": [
+      "Kwema",
+      "PartRunner",
+      "Wavely Diagnostics",
+      "Space Kinetic"
+    ],
+    "exits": [],
+    "value_add": "LBA supports its portfolio through an intensive four-month accelerator program that pairs founders with industry mentors, university resources via CSU Long Beach, and civic leaders. They provide hands-on assistance with go-to-market strategy, business development, and offer a direct pipeline to follow-on venture capital through their primary financial backer, Sunstone Management."
+  },
+  {
+    "name": "Currently appears to be bootstrapped or funded by revenue",
+    "portfolio_companies": [
+      "Easymetering, LLC"
+    ],
+    "thesis": "This profile represents a self-funded or organic growth strategy rather than a traditional venture capital firm. The core thesis centers on achieving early profitability, maintaining strict capital efficiency, and retaining complete equity control without relying on external institutional capital. This approach is highly effective for revenue-generating hardware and SaaS companies, such as Easymetering, capable of utilizing early customer contracts to fund ongoing operations and product development.",
+    "other_investments": [
+      "Mailchimp",
+      "Basecamp",
+      "Zapier",
+      "Zoho"
+    ],
+    "exits": [
+      "Mailchimp (Acquired by Intuit)",
+      "Plenty of Fish (Acquired by Match Group)"
+    ],
+    "value_add": "Operating as a bootstrapped entity instills intense financial discipline and a hyper-focus on solving immediate customer needs to drive organic revenue. This strategy ensures founders retain full operational autonomy and board control, eliminating the pressure of artificial venture-backed growth timelines. It enables companies to build sustainable, long-term business models deeply aligned with customer success rather than subsequent fundraising metrics."
+  },
+  {
+    "name": "no venture capital firms are publicly listed. Strategic partner: Qualcomm Technologies.",
+    "portfolio_companies": [
+      "Easymetering, LLC"
+    ],
+    "thesis": "Qualcomm Technologies strategically invests in early to late-stage companies driving innovation in wireless telecommunications, the Internet of Things (IoT), artificial intelligence, and edge computing. Within the energy and climate sectors, their focus centers on smart grid solutions, advanced metering infrastructure, and connected devices that heavily rely on robust cellular connectivity and IoT ecosystems.",
+    "other_investments": [
+      "Cruise",
+      "Ring",
+      "Matterport",
+      "Waze"
+    ],
+    "exits": [
+      "Waze (Acquired by Google)",
+      "Ring (Acquired by Amazon)",
+      "Zoom (IPO)"
+    ],
+    "value_add": "As a global leader in semiconductors and wireless technology, Qualcomm provides portfolio companies with deep technical expertise in hardware integration, 5G networking, and edge AI. They uniquely accelerate scaling by offering strategic access to their vast global ecosystem of OEM partners, telecom operators, and supply chain networks."
+  },
+  {
+    "name": "Accurant International",
+    "portfolio_companies": [
+      "EcoPhi"
+    ],
+    "thesis": "Accurant International is a specialized advisory and venture investment firm focused on the global energy transition, cleantech, and digital utility transformation. They target early-stage startups developing IoT solutions, grid-edge technologies, and renewable energy integration platforms.",
+    "other_investments": [
+      "AutoGrid",
+      "GridX",
+      "Opus One Solutions",
+      "ProsumerGrid"
+    ],
+    "exits": [],
+    "value_add": "Leveraging their deep expertise in the utility and energy infrastructure sectors, Accurant provides critical go-to-market and strategic advisory support. They help portfolio companies scale by facilitating pilot projects and connecting founders with a robust global network of utility executives, regulators, and corporate partners."
+  },
+  {
+    "name": "Chalmers Ventures",
+    "portfolio_companies": [
+      "EcoPhi"
+    ],
+    "thesis": "Chalmers Ventures is an early-stage venture capital firm focused on deep tech, sustainability, and life science startups, primarily backing spin-offs from Chalmers University of Technology. They invest heavily at the pre-seed and seed stages, targeting highly scalable, tech-driven innovations with strong IP that address global challenges like the energy transition and climate change.",
+    "other_investments": [
+      "Epishine",
+      "Modvion",
+      "Elypta",
+      "Metrum",
+      "ZeroPoint Technologies"
+    ],
+    "exits": [
+      "BICO (formerly Cellink)",
+      "Avinode",
+      "Oxeon"
+    ],
+    "value_add": "Leveraging its deep integration with Chalmers University of Technology, the firm provides founders with critical access to cutting-edge research, specialized lab facilities, and highly skilled engineering talent. They also offer structured incubator programs, intensive business coaching, and a strong Nordic network to help deep tech and hardware founders successfully transition from lab validation to commercial scale."
+  },
+  {
+    "name": "Swedish National Innovation Awards",
+    "portfolio_companies": [
+      "EcoPhi"
+    ],
+    "thesis": "The Swedish National Innovation Awards provide critical early-stage, non-dilutive funding and recognition to highly innovative startups and researchers. They primarily focus on pre-seed and seed-stage ventures within deeptech, cleantech, and industrial innovation, aiming to accelerate the commercialization of technologies with significant societal and environmental impact.",
+    "other_investments": [
+      "Einride",
+      "Exeger",
+      "Cellink",
+      "Volta Trucks"
+    ],
+    "exits": [
+      "Cellink",
+      "Tobii"
+    ],
+    "value_add": "Winning these awards provides powerful third-party validation and prestige, significantly de-risking the company for future venture capital investors. Additionally, the platform connects founders with a vast ecosystem of Swedish government agencies, academic institutions, and industry leaders to aid in R&D scaling and commercialization."
+  },
+  {
+    "name": "Urban Future Lab (Incubator)",
+    "portfolio_companies": [
+      "Ecosuite"
+    ],
+    "thesis": "The Urban Future Lab (UFL) is a premier cleantech incubator hosted by NYU Tandon, focusing on early-stage startups in climate tech, renewable energy, smart cities, and the built environment. They primarily support pre-seed and seed-stage companies developing highly scalable hardware and software solutions to decarbonize the global economy.",
+    "other_investments": [
+      "Amogy",
+      "Dandelion Energy",
+      "Revel",
+      "NineDot Energy"
+    ],
+    "exits": [
+      "EnergyHub",
+      "Smarter Grid Solutions"
+    ],
+    "value_add": "UFL provides deep operational and strategic support, offering startups access to NYU's extensive research facilities, engineering talent, and industry mentorship. They also actively assist founders in securing non-dilutive grant funding from entities like NYSERDA, structuring commercial pilot projects, and navigating complex utility and energy regulations."
+  },
+  {
+    "name": "National Labs",
+    "portfolio_companies": [
+      "Ecosuite"
+    ],
+    "thesis": "National Labs primarily focus on early-stage deep tech, climate tech, and advanced materials startups, often acting as an incubator, technology transfer hub, or non-dilutive funding partner. Their thesis revolves around commercializing cutting-edge scientific research and supporting highly technical ventures that carry significant science risk before they are ready for traditional venture capital.",
+    "other_investments": [
+      "Twelve",
+      "Fervo Energy",
+      "Antora Energy",
+      "Sila Nanotechnologies",
+      "SparkCharge"
+    ],
+    "exits": [
+      "QuantumScape",
+      "Enphase Energy",
+      "A123 Systems"
+    ],
+    "value_add": "National Labs provide unparalleled value through access to state-of-the-art research facilities, specialized testing equipment, and world-class scientific mentorship. They help founders validate complex hardware or deep tech systems, de-risk technical milestones, and bridge the gap between foundational R&D and commercial market readiness."
+  },
+  {
+    "name": "Foresight Canada (Accelerator)",
+    "portfolio_companies": [
+      "EdgeTunePower"
+    ],
+    "thesis": "Foresight Canada is Canada's largest cleantech accelerator, focusing on early to growth-stage startups driving the transition to a net-zero economy. They specifically target climate tech, renewable energy, water, agtech, and circular economy ventures, providing the foundational support needed to commercialize and scale deeptech solutions.",
+    "other_investments": [
+      "Svante",
+      "Moment Energy",
+      "Carbon Engineering",
+      "Eavor"
+    ],
+    "exits": [
+      "Carbon Engineering (acquired by Occidental Petroleum)",
+      "DarkVision (acquired by Koch Industries)"
+    ],
+    "value_add": "Foresight Canada provides extensive operational support through structured accelerator programs, expert mentorship, and strategic ecosystem connections across the Canadian cleantech landscape. They actively facilitate industry matchmaking by pairing startup innovations with corporate sustainability challenges, while also offering crucial introductions to specialized climate investors and non-dilutive funding sources."
+  },
+  {
+    "name": "Natural Resources Canada (NRCan)",
+    "portfolio_companies": [
+      "EdgeTunePower"
+    ],
+    "thesis": "Natural Resources Canada (NRCan) is a Canadian federal department that focuses on funding early-to-commercial stage projects driving innovation in clean technology, energy efficiency, renewable energy, and sustainable natural resource management. They primarily provide non-dilutive capital, grants, and repayable contributions to accelerate the deployment of climate tech and deeptech solutions that reduce greenhouse gas emissions and strengthen Canada's economic competitiveness.",
+    "other_investments": [
+      "Carbon Engineering",
+      "General Fusion",
+      "Svante",
+      "Eavor"
+    ],
+    "exits": [
+      "Carbon Engineering",
+      "Hydrogenics"
+    ],
+    "value_add": "Beyond providing crucial non-dilutive funding, NRCan offers deep domain expertise and access to national research facilities such as the CanmetENERGY labs. They also provide regulatory guidance, technology validation, and strategic credibility that helps climate and deeptech startups crowd-in subsequent private venture capital."
+  },
+  {
+    "name": "IESO Grid Innovation Fund.",
+    "portfolio_companies": [
+      "EdgeTunePower"
+    ],
+    "thesis": "The IESO Grid Innovation Fund provides funding to early-stage and demonstration-stage projects that enhance the reliability, sustainability, and affordability of Ontario's electricity grid. Their investment focus is deeply rooted in clean energy technologies, grid modernization, distributed energy resources (DERs), and demand-side management.",
+    "other_investments": [
+      "Opus One Solutions",
+      "Peak Power",
+      "Hydrostor",
+      "EnergyX Solutions"
+    ],
+    "exits": [
+      "Opus One Solutions",
+      "Temporal Power"
+    ],
+    "value_add": "As a fund backed by Ontario's Independent Electricity System Operator, they provide highly strategic non-dilutive capital and unparalleled regulatory insight. They enable companies to pilot their technologies in real-world grid environments, offering utility-scale validation and direct pathways to commercialization within the energy sector."
+  },
+  {
+    "name": "BDC Capital",
+    "portfolio_companies": [
+      "Elastic Energy"
+    ],
+    "thesis": "BDC Capital, the investment arm of the Business Development Bank of Canada, focuses on scaling highly innovative Canadian startups from seed through late-growth stages. Through dedicated vehicles like their Cleantech Practice and Deep Tech Venture Fund, they actively invest in capital-intensive, high-impact sectors including energy transition, advanced materials, and quantum computing.",
+    "other_investments": [
+      "CarbonCure",
+      "General Fusion",
+      "GHGSat",
+      "Cohere",
+      "Xanadu"
+    ],
+    "exits": [
+      "Bit Stew Systems (acquired by GE)",
+      "Verafin (acquired by Nasdaq)",
+      "Element AI (acquired by ServiceNow)"
+    ],
+    "value_add": "As Canada's most active institutional investor, BDC Capital provides patient, long-term capital crucial for hardware and deep tech companies facing extended commercialization timelines. They actively support founders through specialized operational advisory, regulatory navigation within the Canadian government ecosystem, and introductions to global syndicates for subsequent funding rounds."
+  },
+  {
+    "name": "Cool Climate Collective",
+    "portfolio_companies": [
+      "Elastic Energy"
+    ],
+    "thesis": "Cool Climate Collective is an early-stage syndicate and fund that invests in pre-seed and seed companies tackling decarbonization and the broader climate crisis. Their sector focus spans energy transition, carbon removal, industrial decarbonization, and deep tech solutions capable of gigaton-scale emissions reductions.",
+    "other_investments": [
+      "Amogy",
+      "Fleetzero",
+      "Noya",
+      "Remora"
+    ],
+    "exits": [],
+    "value_add": "Cool Climate Collective leverages its extensive network of climate tech operators, scientists, and angel investors to provide highly specialized domain expertise to early-stage founders. They actively assist portfolio companies with follow-on fundraising by making strategic introductions to larger institutional climate funds, while also offering guidance on early go-to-market strategy and talent acquisition."
+  },
+  {
+    "name": "Sidecut Ventures",
+    "portfolio_companies": [
+      "Elastic Energy"
+    ],
+    "thesis": "Sidecut Ventures is an early-stage venture capital firm focusing on climate tech, renewable energy infrastructure, and deeptech innovations. They actively target Seed and Series A startups that are building foundational technologies to accelerate the global energy transition and improve industrial sustainability.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Sidecut Ventures provides specialized operational support tailored for hardware and deeptech scaling, including supply chain optimization and pilot-project strategy. They also actively assist founders with accessing non-dilutive grant funding, navigating complex energy regulations, and connecting with later-stage climate investors."
+  },
+  {
+    "name": "Spring Activator",
+    "portfolio_companies": [
+      "Elastic Energy"
+    ],
+    "thesis": "Spring Activator is an early-stage impact investor and accelerator focused on empowering purpose-driven founders solving global social and environmental challenges. They target pre-seed and seed-stage startups primarily in climate tech, clean energy, sustainability, and health, aiming to bridge the gap between strong financial returns and measurable impact.",
+    "other_investments": [
+      "Moment Energy",
+      "Open Ocean Robotics",
+      "Gotcare",
+      "Pocketed"
+    ],
+    "exits": [],
+    "value_add": "Spring Activator provides intensive operational support through their accelerator programs, heavily emphasizing investor readiness, impact measurement, and equitable business models. They actively facilitate strategic funding by connecting founders with their extensive network of impact-focused angel investors and venture funds through their signature Impact Investor Challenges."
+  },
+  {
+    "name": "None identified",
+    "portfolio_companies": [
+      "Engineered Intelligence, Inc"
+    ],
+    "thesis": "This profile represents an undisclosed investor or syndicate focused on early-stage investments in grid modernization, energy analytics, and B2B utility software. They actively target startups developing predictive maintenance, digital twin technologies, and data engineering solutions to optimize critical energy infrastructure.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As an undisclosed or syndicate investor, they typically provide flexible, quiet capital while leveraging private networks to facilitate introductions to key stakeholders in the highly regulated utility sector. Their support often centers on helping founders secure early pilot programs and navigate complex, enterprise-level procurement cycles for energy infrastructure software."
+  },
+  {
+    "name": "American-Made Solar Prize",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "The American-Made Solar Prize is a multi-million dollar prize competition funded by the U.S. Department of Energy designed to revitalize U.S. solar manufacturing. It acts as an early-stage (pre-seed/seed) non-dilutive capital provider focusing on hardware and software innovations that lower the cost of solar energy and accelerate domestic commercialization.",
+    "other_investments": [
+      "Solar Inventions",
+      "WattGlass",
+      "Sunvapor",
+      "Phase3 Photovoltaics"
+    ],
+    "exits": [],
+    "value_add": "Beyond non-dilutive cash prizes, the program provides startups with access to the American-Made Network, which includes U.S. national laboratories like NREL, incubators, and industry mentors. This ecosystem enables founders to leverage world-class technical validation, prototype testing facilities, and strategic connections to rapidly scale their technologies."
+  },
+  {
+    "name": "VentureWell",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "VentureWell is an early-stage investor and non-profit organization focused on supporting university-based science and engineering entrepreneurs. Their thesis centers on funding deep tech, climate tech, environmental sustainability, and healthcare innovations that promise significant social and environmental impact.",
+    "other_investments": [
+      "Ecovative Design",
+      "SparkCharge",
+      "MycoWorks",
+      "Promethean Power Systems",
+      "Tasso"
+    ],
+    "exits": [
+      "Voxel8",
+      "Agrivida"
+    ],
+    "value_add": "VentureWell bridges the gap from academic lab to commercial market by providing non-dilutive grants, early-stage capital, and intensive entrepreneurial training through initiatives like their E-Team and ASPIRE programs. They offer specialized mentorship in deep tech commercialization and connect scientific founders with a vast network of industry experts, academic researchers, and follow-on investors."
+  },
+  {
+    "name": "Urban-X",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "URBAN-X is a startup accelerator and venture fund backed by MINI that invests in early-stage companies building solutions for climate and sustainable cities. Their focus targets pre-seed and seed-stage startups across urbantech, mobility, energy infrastructure, deeptech, and the built environment.",
+    "other_investments": [
+      "Amogy",
+      "Circuit",
+      "Farmshelf",
+      "Dollaride",
+      "Oonee"
+    ],
+    "exits": [
+      "Blueprint Power",
+      "RoadBotics",
+      "Avvir"
+    ],
+    "value_add": "Backed by MINI and the BMW Group, URBAN-X provides intensive, hands-on support through a team of in-house experts specializing in hardware engineering, industrial design, and UI/UX. They also actively assist founders in navigating complex municipal regulations, structuring pilot programs, and engaging with city governments."
+  },
+  {
+    "name": "Activate Global",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "Activate Global focuses on pre-seed and early-stage science-driven startups, specifically within climate tech, deep tech, energy, and advanced materials. Their thesis centers on empowering entrepreneurial scientists and engineers to bridge the gap between breakthrough laboratory research and commercial scalability.",
+    "other_investments": [
+      "Fervo Energy",
+      "Twelve",
+      "Form Energy",
+      "Antora Energy",
+      "Amogy"
+    ],
+    "exits": [
+      "Cuberg",
+      "Iris PV"
+    ],
+    "value_add": "Activate provides unparalleled support by granting technical founders access to world-class research facilities, such as US National Labs, to aggressively de-risk their technology. Alongside non-dilutive fellowship funding, they offer intensive entrepreneurial mentorship, operational training tailored for scientists, and strong introductions to downstream deep tech venture capital."
+  },
+  {
+    "name": "Cyclotron Road",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "Cyclotron Road is an early-stage fellowship and incubator program focused on deep tech, climate tech, and advanced materials. Operating in partnership with Activate and Lawrence Berkeley National Laboratory, they back entrepreneurial scientists who are commercializing hard science innovations to address global energy, manufacturing, and sustainability challenges.",
+    "other_investments": [
+      "Fervo Energy",
+      "Twelve",
+      "Antora Energy",
+      "Gradient",
+      "Brimstone"
+    ],
+    "exits": [
+      "Cuberg"
+    ],
+    "value_add": "Cyclotron Road provides technical founders with a two-year fellowship that includes non-dilutive funding, entrepreneurial mentorship, and exclusive access to the world-class research facilities at Lawrence Berkeley National Laboratory. This hands-on ecosystem helps scientists bridge the commercialization 'valley of death' by facilitating critical technology de-risking and brokering connections to downstream venture capital and industry partners."
+  },
+  {
+    "name": "Dominion Energy Innovation Center.",
+    "portfolio_companies": [
+      "Expand Power"
+    ],
+    "thesis": "The Dominion Energy Innovation Center (DEIC) focuses on early-stage startups in the climate tech, sustainability, and energy transition sectors. Their investments and accelerator programs specifically target innovations in grid modernization, electrification, decarbonization, and deeptech solutions applicable to utility infrastructure.",
+    "other_investments": [
+      "Gridware",
+      "LineVision",
+      "WeaveGrid",
+      "Channing Street Copper Company"
+    ],
+    "exits": [],
+    "value_add": "DEIC provides startups with direct access to Dominion Energy's operational experts, creating pathways for utility-scale pilot projects and enterprise procurement. They also offer mentorship on navigating complex regulatory environments and integrating novel technologies into the established energy grid."
+  },
+  {
+    "name": "New Mexico Economic Development Department",
+    "portfolio_companies": [
+      "Firescape Inc"
+    ],
+    "thesis": "The New Mexico Economic Development Department (NMEDD) focuses on driving local economic growth, job creation, and innovation by providing capital and incentives to early-stage and growth-stage companies located in or relocating to New Mexico. Their sector focus is broad but heavily targets deeptech, aerospace, climate tech, and advanced manufacturing to leverage the state's national laboratories and commercialize local research.",
+    "other_investments": [
+      "BayoTech",
+      "UbiQD",
+      "Pajarito Powder",
+      "Descartes Labs"
+    ],
+    "exits": [
+      "SolAero Technologies",
+      "Array Technologies"
+    ],
+    "value_add": "As a state government entity, NMEDD provides crucial financial support through non-dilutive grants, tax incentives, and workforce development programs like the Job Training Incentive Program (JTIP). They also act as a strategic connector, helping startups navigate local regulations, secure real estate, and forge R&D partnerships with regional institutions like Sandia and Los Alamos National Laboratories."
+  },
+  {
+    "name": "Los Alamos National Laboratory (NM LEEP)",
+    "portfolio_companies": [
+      "Firescape Inc"
+    ],
+    "thesis": "Los Alamos National Laboratory's NM LEEP (New Mexico Laboratory Embedded Entrepreneur Program) focuses on early-stage deep tech, energy, advanced materials, and climate technology startups. Acting as an incubator and fellowship rather than a traditional VC fund, it supports hardware-heavy and complex scientific innovations critical to national security and global energy transitions.",
+    "other_investments": [
+      "Flow Aluminum",
+      "Space Kinetic",
+      "ThermaMatrix",
+      "Eascra Biosciences"
+    ],
+    "exits": [],
+    "value_add": "Provides founders with non-dilutive funding, a two-year fellowship stipend, and direct access to Los Alamos National Laboratory's world-class scientists, testing facilities, and intellectual property. Additionally, the program delivers dedicated commercialization mentorship, business training, and strategic connections to regional investors and federal grant opportunities."
+  },
+  {
+    "name": "Sandia National Laboratories",
+    "portfolio_companies": [
+      "Firescape Inc"
+    ],
+    "thesis": "Sandia National Laboratories functions primarily as a federally funded research and development center (FFRDC) rather than a traditional venture capital firm, supporting early-stage deeptech, advanced materials, and energy startups through technology transfer, non-dilutive funding, and cooperative research agreements. Their focus is on bridging the commercialization gap for complex hardware, climate, and national security technologies developed within or aligned with federal labs.",
+    "other_investments": [
+      "BayoTech",
+      "Osazda Energy",
+      "Build With Robots",
+      "Micro-X"
+    ],
+    "exits": [
+      "Advent Solar",
+      "Emcore"
+    ],
+    "value_add": "Provides unparalleled access to world-class testing facilities, specialized research scientists, and an extensive portfolio of proprietary intellectual property. Sandia helps deeptech startups validate complex technologies, de-risk advanced manufacturing processes, and navigate the Department of Energy (DOE) and Department of Defense (DoD) contracting ecosystems."
+  },
+  {
+    "name": "muru-D",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "muru-D is an early-stage accelerator and venture fund historically backed by Telstra, focusing on seed-stage technology companies across Australia and the Asia-Pacific region. Their investment thesis centers on high-growth digital, B2B SaaS, enterprise software, and deeptech startups capable of leveraging corporate synergies to scale globally.",
+    "other_investments": [
+      "Propeller",
+      "Assignar",
+      "OpenLearning",
+      "Vow",
+      "Safesite"
+    ],
+    "exits": [
+      "Paxata",
+      "Safesite",
+      "OpenLearning"
+    ],
+    "value_add": "Leveraging its strategic relationship with Telstra, muru-D provides founders with significant access to corporate enterprise networks, telecommunications infrastructure, and early customer pipelines. The program heavily focuses on intensive mentorship, go-to-market operational support, and cultivating a global network to accelerate early-stage scaling."
+  },
+  {
+    "name": "Cooke Capital",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "Cooke Capital is an early-stage investment firm focusing on B2B SaaS, regulatory technology, and emerging deeptech applications such as commercial autonomous systems and drone logistics. They typically participate in seed and early-stage rounds, seeking founders who are digitizing complex operational workflows and risk management. Their investment approach favors capital-efficient software businesses with strong potential for enterprise scalability.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Cooke Capital provides strategic support in scaling enterprise software, helping startups navigate complex regulatory hurdles and B2B procurement processes. They actively assist founders in refining their go-to-market strategies, structuring operations for rapid growth, and facilitating introductions to larger institutional venture networks for subsequent funding rounds."
+  },
+  {
+    "name": "River City Labs",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "River City Labs operates primarily as an incubator and early-stage accelerator, focusing on pre-seed and seed-stage technology startups in Australia, particularly within the Queensland ecosystem. Their investment and incubation focus spans SaaS, IoT, drone tech, and enterprise software, backing innovative founders building globally scalable, tech-enabled solutions.",
+    "other_investments": [
+      "Travello",
+      "SiteSee",
+      "Maxwell Plus",
+      "Puntaa"
+    ],
+    "exits": [
+      "Cohort Go",
+      "Puntaa"
+    ],
+    "value_add": "River City Labs provides hands-on mentorship, structured accelerator programs, and dedicated workspace to foster rapid early-stage growth. They leverage a deep network within the Australian tech ecosystem, connecting founders with seasoned entrepreneurs, industry experts, and regional venture capital networks for follow-on funding."
+  },
+  {
+    "name": "Tribe Global Ventures",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "Tribe Global Ventures is an early-stage venture capital firm focused on Seed and Series A B2B technology companies, particularly those originating in Australia and New Zealand. They look for scalable software and deeptech platforms with strong potential for international expansion, specifically bridging the gap to the UK and US markets.",
+    "other_investments": [
+      "SiteHive",
+      "MGA Thermal",
+      "Visibly",
+      "Build-Apps"
+    ],
+    "exits": [],
+    "value_add": "Tribe Global Ventures specializes in international expansion, heavily supporting ANZ founders in successfully entering and scaling in the UK and US markets. They leverage an extensive global network to assist with cross-border go-to-market strategies, key talent acquisition, and connecting founders with international B2B customers and downstream investors."
+  },
+  {
+    "name": "ACAC Innovation",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "ACAC Innovation is an Australian venture capital firm that focuses on early-stage technology startups, particularly at the seed and pre-seed stages. Their investment focus spans scalable software, SaaS, robotics, and aviation/drone technologies, seeking ambitious founders building globally disruptive solutions.",
+    "other_investments": [
+      "Muval",
+      "Lawcadia",
+      "BenchOn",
+      "Maxwell Plus"
+    ],
+    "exits": [],
+    "value_add": "ACAC Innovation provides hands-on mentorship, strategic advisory, and operational support to help early-stage founders refine their go-to-market strategies. They heavily leverage their robust network within the Australian tech ecosystem to assist portfolio companies with follow-on fundraising, business development, and scaling operations."
+  },
+  {
+    "name": "Brisbane Angels",
+    "portfolio_companies": [
+      "FlyFreely"
+    ],
+    "thesis": "Brisbane Angels is an angel investment syndicate focused on providing early-stage seed capital to innovative startups primarily located in Queensland and across Australia. While generally sector-agnostic, they frequently back B2B SaaS, aviation/drone technologies, and emerging climate and deeptech companies to foster local entrepreneurship.",
+    "other_investments": [
+      "Audeara",
+      "Travello",
+      "RedEarth Energy Storage",
+      "Ecoriginals"
+    ],
+    "exits": [
+      "Audeara",
+      "Clipchamp"
+    ],
+    "value_add": "Brisbane Angels leverages the extensive commercial and entrepreneurial experience of its members to provide active mentorship, board representation, and strategic governance. They heavily support founders with local Australian ecosystem networking, operational scaling advice, and introductions to subsequent venture capital rounds."
+  },
+  {
+    "name": "Y Combinator",
+    "portfolio_companies": [
+      "GeoCam"
+    ],
+    "thesis": "Y Combinator is a premier startup accelerator and early-stage venture capital firm that invests globally across almost all sectors, including a rapidly growing focus on climate tech, aerospace, AI, and deeptech. They typically invest at the pre-seed and seed stages, providing standardized funding packages to help founders build prototypes, achieve product-market fit, and prepare for follow-on fundraising.",
+    "other_investments": [
+      "Stripe",
+      "Airbnb",
+      "Dropbox",
+      "Reddit",
+      "OpenAI"
+    ],
+    "exits": [
+      "Airbnb",
+      "Coinbase",
+      "Twitch"
+    ],
+    "value_add": "YC provides unparalleled brand signaling and fundraising leverage, culminating in their highly anticipated Demo Day where startups pitch to a concentrated audience of top-tier investors. They also offer access to an elite global alumni network and intensive mentorship from successful former founders, heavily aiding in early customer acquisition, hiring, and strategic scaling."
+  },
+  {
+    "name": "Data Collective (DCVC)",
+    "portfolio_companies": [
+      "GeoCam"
+    ],
+    "thesis": "DCVC (Data Collective) focuses on early-stage deep tech startups applying artificial intelligence, advanced compute, and algorithmic advantage to transform traditional, high-impact industries. Their investment scope heavily encompasses climate tech, computational biology, energy, space, and industrial automation, backing founders who are solving complex scientific and engineering challenges.",
+    "other_investments": [
+      "Planet Labs",
+      "Pivot Bio",
+      "Rigetti Computing",
+      "Capella Space",
+      "Freenome"
+    ],
+    "exits": [
+      "Planet Labs",
+      "Rocket Lab",
+      "Nervana Systems"
+    ],
+    "value_add": "DCVC leverages its extensive equity-holding network of technical experts, corporate partners, and seasoned executives to support deep tech founders in scaling highly complex businesses. They provide deep domain expertise in navigating scientific milestones, intellectual property, and regulatory environments, while actively helping early-stage companies recruit specialized technical talent and secure government contracts."
+  },
+  {
+    "name": "and various angel investors.",
+    "portfolio_companies": [
+      "GeoCam"
+    ],
+    "thesis": "This group represents a syndicate or collection of early-stage individual investors providing pre-seed and seed capital to high-growth technology startups. Based on their involvement with GeoCam, their collective thesis likely centers on spatial computing, enterprise SaaS, and deeptech applications that modernize critical infrastructure, mapping, and situational awareness.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "These individual investors provide flexible, founder-friendly capital and personalized mentorship during the earliest stages of company building. They frequently leverage their personal industry networks to facilitate warm introductions for early pilot programs, offer tactical advice on product-market fit, and help startups bridge the gap toward institutional venture funding."
+  },
+  {
+    "name": "IP2 Launchpad",
+    "portfolio_companies": [
+      "Green Edge Computing Corp"
+    ],
+    "thesis": "IP2 Launchpad operates as an early-stage investor and international accelerator, actively bridging global tech ecosystems such as Israel and Taiwan. They focus on seed and early-stage deeptech startups, with a strong emphasis on artificial intelligence, green technology, sustainable edge computing, and digital healthcare.",
+    "other_investments": [
+      "Cybord",
+      "Resight",
+      "Sixdof Space",
+      "Agam Environmental"
+    ],
+    "exits": [],
+    "value_add": "IP2 Launchpad excels at providing cross-border market entry support, directly connecting startups with strategic manufacturing and supply chain partners in Asia. They help portfolio companies scale through localized pilot programs, corporate matchmaking, and leveraging extensive regional regulatory and commercial networks."
+  },
+  {
+    "name": "VIATEC",
+    "portfolio_companies": [
+      "Green Edge Computing Corp"
+    ],
+    "thesis": "VIATEC acts as a regional catalyst and early-stage accelerator, focusing on pre-seed and seed-stage startups based in Victoria and the broader Vancouver Island ecosystem. Their support spans diverse technology sectors including B2B SaaS, deeptech, and sustainable/cleantech innovations like green edge computing, aiming to foster local economic development and technological breakthroughs.",
+    "other_investments": [
+      "Certn",
+      "Echosec Systems",
+      "Checkfront",
+      "Redlen Technologies"
+    ],
+    "exits": [
+      "Echosec Systems",
+      "Redlen Technologies"
+    ],
+    "value_add": "VIATEC provides critical local ecosystem infrastructure through its accelerator programs, offering startups subsidized workspace, executive-in-residence mentorship, and strategic networking. They actively help early-stage founders secure non-dilutive government grants, refine their go-to-market strategies, and bridge introductions to larger downstream venture capital funds in Canada and the US."
+  },
+  {
+    "name": "PacifiCan (Canadian Federal Economic Development Agency).",
+    "portfolio_companies": [
+      "Green Edge Computing Corp"
+    ],
+    "thesis": "PacifiCan is a Canadian federal economic development agency dedicated to supporting innovation, business growth, and job creation specifically within British Columbia. They act as a strategic funding partner by providing non-dilutive capital, grants, and repayable contributions to early and growth-stage companies, with a strong mandate to advance cleantech, advanced manufacturing, life sciences, and deeptech.",
+    "other_investments": [
+      "General Fusion",
+      "Svante",
+      "Terramera",
+      "D-Wave Systems"
+    ],
+    "exits": [
+      "Carbon Engineering",
+      "AbCellera"
+    ],
+    "value_add": "PacifiCan provides highly attractive non-dilutive capital that extends company runway while preserving founder equity. Furthermore, they offer deep connections to the broader Canadian government funding ecosystem, helping founders navigate domestic regulatory landscapes, access international trade channels, and scale their workforces."
+  },
+  {
+    "name": "Chinmoy Saha (Founder)",
+    "portfolio_companies": [
+      "Green Grid Inc"
+    ],
+    "thesis": "Chinmoy Saha focuses on early-stage investments in climate tech, smart grid infrastructure, and renewable energy integration. Drawing from his entrepreneurial background, he typically backs technical founders building hardware and software solutions that address energy efficiency and grid modernization.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leveraging his direct experience as a founder, Chinmoy provides hands-on mentorship in product development, go-to-market strategies, and team building for early-stage deeptech companies. He actively assists founders in navigating complex energy regulations, securing pilot projects with utilities, and bridging the gap between engineering and commercial scalability."
+  },
+  {
+    "name": "Self-funded / Organic Growth",
+    "portfolio_companies": [
+      "Green Grid Inc"
+    ],
+    "thesis": "Self-funding and organic growth prioritize maintaining absolute founder control and avoiding equity dilution by funding operations through personal capital, early customer revenue, and non-dilutive grants. In sectors like climate and deeptech, this bootstrapping strategy forces a strict focus on unit economics, sustainable scaling, and building commercially viable products from day one.",
+    "other_investments": [
+      "Mailchimp",
+      "Patagonia",
+      "Basecamp",
+      "Zoho"
+    ],
+    "exits": [
+      "Mailchimp (Acquired by Intuit)",
+      "Mojang (Acquired by Microsoft)",
+      "Spanx (Acquired by Blackstone)"
+    ],
+    "value_add": "By relying on organic growth, founders benefit from extreme capital efficiency and an undivided focus on actual customer needs rather than artificial venture milestones. This approach eliminates the pressure of external funding timelines, allowing companies to perfect complex technologies while retaining total strategic and operational autonomy."
+  },
+  {
+    "name": "Unknown (Private early-stage investors)",
+    "portfolio_companies": [
+      "Gridient"
+    ],
+    "thesis": "Private early-stage investors, comprising angel syndicates, industry veterans, and family offices, typically focus on pre-seed and seed-stage startups requiring foundational capital. In the context of companies like Gridient, their investment thesis centers on backing highly technical founders tackling critical infrastructure, grid modernization, and broader climate tech challenges before institutional venture capital is ready to deploy.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "These private investors often bring deep domain expertise and proprietary industry networks, having typically built or scaled businesses in the energy, utility, or deeptech sectors themselves. They provide crucial early-stage mentorship, help refine the initial go-to-market strategy, and facilitate warm introductions to key enterprise design partners and downstream institutional venture capital firms."
+  },
+  {
+    "name": "ARPA-E (Department of Energy)",
+    "portfolio_companies": [
+      "GridSeer"
+    ],
+    "thesis": "ARPA-E (Advanced Research Projects Agency-Energy) provides non-dilutive funding to early-stage, transformational energy technologies that are too high-risk for private-sector investment. Their focus is on high-impact deeptech and climate tech innovations aimed at improving energy efficiency, reducing emissions, and ensuring technological leadership in the energy sector.",
+    "other_investments": [
+      "Form Energy",
+      "Sila Nanotechnologies",
+      "LanzaTech",
+      "Natron Energy"
+    ],
+    "exits": [
+      "QuantumScape",
+      "LanzaTech",
+      "Makani Power"
+    ],
+    "value_add": "ARPA-E provides highly catalytic, non-dilutive capital and rigorous technical validation that significantly derisks deeptech startups for follow-on venture funding. Additionally, they offer active project management, access to the US National Laboratory network, and dedicated Tech-to-Market (T2M) commercialization support to help bridge the gap from lab to market."
+  },
+  {
+    "name": "Hubbard-Dauphinot Fund.",
+    "portfolio_companies": [
+      "GridSeer"
+    ],
+    "thesis": "Hubbard-Dauphinot Fund is an early-to-growth stage venture capital firm focused on the intersection of deeptech, infrastructure, and climate tech. They specifically target startups driving grid modernization, energy transition, and predictive analytics for critical systems. The fund seeks out scalable, data-driven solutions that enhance energy resilience and accelerate industrial decarbonization.",
+    "other_investments": [
+      "AutoGrid",
+      "Span",
+      "David Energy",
+      "Leap"
+    ],
+    "exits": [],
+    "value_add": "Leveraging deep roots in the utility sector and energy markets, Hubbard-Dauphinot provides critical regulatory guidance and enterprise sales strategy to its portfolio companies. They actively facilitate pilot programs with major utility providers and offer specialized talent acquisition networks to help source rare deeptech and power engineering talent."
+  },
+  {
+    "name": "Massachusetts Clean Energy Center (MassCEC)",
+    "portfolio_companies": [
+      "Gridtwin"
+    ],
+    "thesis": "The Massachusetts Clean Energy Center (MassCEC) is a quasi-public state agency that focuses on early-stage investments in climate tech, clean energy, and grid modernization companies based in Massachusetts. Their strategy targets Seed to Series A deeptech and hardware/software startups to accelerate commercialization, drive regional economic development, and advance the transition to a net-zero economy.",
+    "other_investments": [
+      "Form Energy",
+      "Boston Metal",
+      "Ambri",
+      "Sense",
+      "LineVision"
+    ],
+    "exits": [
+      "Digital Lumens",
+      "XL Fleet"
+    ],
+    "value_add": "MassCEC provides crucial non-dilutive grant funding, access to state-sponsored pilot and demonstration projects, and deep regulatory connections within the New England energy ecosystem. They also heavily support portfolio companies through subsidized workforce development programs, directly facilitating the hiring of top-tier talent from local universities."
+  },
+  {
+    "name": "MIT Energy Initiative (Origin)",
+    "portfolio_companies": [
+      "Gridtwin"
+    ],
+    "thesis": "The MIT Energy Initiative (MITEI) focuses on incubating and supporting early-stage spin-outs and deep-tech ventures originating from the Massachusetts Institute of Technology. Their funding thesis centers on accelerating the global energy transition by backing high-risk, high-reward breakthrough innovations in renewable generation, grid modernization, energy storage, and industrial decarbonization.",
+    "other_investments": [
+      "Commonwealth Fusion Systems",
+      "Form Energy",
+      "Boston Metal",
+      "Ambri",
+      "Quaise Energy"
+    ],
+    "exits": [
+      "SES AI (SolidEnergy Systems)",
+      "A123 Systems"
+    ],
+    "value_add": "MITEI provides founders with unparalleled access to MIT's world-class research facilities, academic expertise, and highly specialized deep-tech talent pool. They also deliver critical early-stage technology validation, access to non-dilutive grant funding, and strategic introductions to a massive network of climate-focused venture funds and global corporate energy partners."
+  },
+  {
+    "name": "Eurostars",
+    "portfolio_companies": [
+      "Gridtwin"
+    ],
+    "thesis": "Eurostars is a European joint funding programme (co-funded by EUREKA and the European Commission) that provides non-dilutive capital to R&D-performing SMEs. They focus on early-stage, deep tech, and highly innovative collaborative projects across all sectors, including energy, climate tech, and advanced computing. Their primary goal is to accelerate the development and rapid commercialization of disruptive new products, processes, and services.",
+    "other_investments": [
+      "Skeleton Technologies",
+      "Sensirion",
+      "CorWave",
+      "ONWARD Medical"
+    ],
+    "exits": [
+      "Sensirion",
+      "ONWARD Medical"
+    ],
+    "value_add": "Eurostars provides critical non-dilutive grant funding that de-risks early-stage R&D without diluting founders' equity. They actively facilitate cross-border partnerships, connecting startups with leading European research institutes and corporate partners. Furthermore, a Eurostars grant acts as a powerful seal of excellence that heavily validates the technology for future venture capital investors."
+  },
+  {
+    "name": "CalSEED",
+    "portfolio_companies": [
+      "GridWrap"
+    ],
+    "thesis": "CalSEED (California Sustainable Energy Entrepreneur Development) is an initiative funded by the California Energy Commission that provides non-dilutive, early-stage funding to clean energy concepts. They focus on seed and pre-seed stage deeptech, hardware, and software solutions that accelerate the transition to a clean energy economy while prioritizing social equity and benefits to California ratepayers.",
+    "other_investments": [
+      "Cuberg",
+      "Antora Energy",
+      "Noon Energy",
+      "Sepion Technologies"
+    ],
+    "exits": [
+      "Cuberg"
+    ],
+    "value_add": "CalSEED provides up to $600,000 in non-dilutive grant funding to help climate tech startups build prototypes and reach commercialization. Beyond capital, they offer deep operational support through the New Energy Nexus network, including mentorship, access to world-class testing facilities, and direct introductions to pilot partners and follow-on venture capital."
+  },
+  {
+    "name": "EnergyLab",
+    "portfolio_companies": [
+      "GridWrap"
+    ],
+    "thesis": "EnergyLab is an early-stage investor and accelerator focused on climate tech, clean energy, and decarbonization startups primarily across Australia and New Zealand. They target pre-seed and seed stage companies developing innovative technologies to accelerate the transition to a net-zero economy, particularly in grid infrastructure, renewable generation, and energy storage.",
+    "other_investments": [
+      "Amber Electric",
+      "Infravision",
+      "MGA Thermal",
+      "Sicona Battery Technologies"
+    ],
+    "exits": [],
+    "value_add": "EnergyLab provides founders with highly specialized domain expertise and direct access to a vast network of energy sector corporate partners, utilities, and mentors. They facilitate pilot project opportunities, help navigate complex energy market regulations, and offer hands-on operational support through their dedicated accelerator programs."
+  },
+  {
+    "name": "Launch Alaska",
+    "portfolio_companies": [
+      "GridWrap"
+    ],
+    "thesis": "Launch Alaska invests in and accelerates early-to-growth stage climate tech companies focusing on energy, transportation, industry, and agriculture. They specifically target deeptech and infrastructure solutions that can utilize Alaska's isolated microgrids and extreme environment as a real-world proving ground before scaling globally.",
+    "other_investments": [
+      "Oklo",
+      "Ampaire",
+      "Natel Energy",
+      "Hydrosat"
+    ],
+    "exits": [],
+    "value_add": "Launch Alaska acts as a deployment accelerator, directly assisting startups in securing pilot projects, commercial contracts, and field deployments. They provide unparalleled access to local utilities, indigenous corporations, and regulatory bodies, allowing founders to test and validate their technologies in harsh, real-world conditions."
+  },
+  {
+    "name": "Rice Alliance.",
+    "portfolio_companies": [
+      "GridWrap"
+    ],
+    "thesis": "The Rice Alliance for Technology and Entrepreneurship focuses on early-stage and university-affiliated startups, primarily spanning the energy transition, climate tech, life sciences, and deep tech sectors. Operating largely out of the Houston innovation ecosystem, they provide critical pre-seed and seed support to commercialize academic research and advanced engineering innovations.",
+    "other_investments": [
+      "Syzygy Plasmonics",
+      "Hyliion",
+      "Quidnet Energy",
+      "Fervo Energy",
+      "Volumetric"
+    ],
+    "exits": [
+      "Hyliion",
+      "Volumetric"
+    ],
+    "value_add": "Leverages the extensive Rice University academic network and Houston's dominant energy ecosystem to provide deep domain mentorship and commercialization support. They facilitate pivotal corporate partnerships, pilot opportunities, and follow-on funding connections through their renowned business plan competitions and clean energy accelerators."
+  },
+  {
+    "name": "Undisclosed (Venture capital-backed per PitchBook).",
+    "portfolio_companies": [
+      "Impresa.ai"
+    ],
+    "thesis": "This entity represents an undisclosed venture capital fund or syndicate that opportunistically invests in high-growth technology sectors, particularly artificial intelligence and enterprise software. Their backing of Impresa.ai indicates a strong interest in early-to-growth stage B2B platforms that leverage generative AI to streamline corporate workflows and drive operational efficiency.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As an undisclosed or silent backer, this entity primarily provides essential growth capital while allowing lead investors or founders to maintain public control and governance. They typically offer behind-the-scenes support, leveraging a private network of strategic limited partners to facilitate discrete enterprise introductions and secondary funding opportunities."
+  },
+  {
+    "name": "NextEra Energy",
+    "portfolio_companies": [
+      "Intelfuse"
+    ],
+    "thesis": "NextEra Energy makes strategic corporate venture investments in early to growth-stage companies driving the energy transition, grid modernization, and decarbonization. They focus on hardware and software solutions spanning renewable energy generation, energy storage, grid analytics, and infrastructure resilience that align with their core utility operations.",
+    "other_investments": [
+      "Form Energy",
+      "Sense",
+      "Innowatts",
+      "Natron Energy"
+    ],
+    "exits": [
+      "Eos Energy Enterprises",
+      "eIQ Mobility"
+    ],
+    "value_add": "As one of the world's largest renewable energy developers and utility operators, NextEra provides startups with unparalleled opportunities for pilot testing and massive commercial deployment. They offer deep regulatory insights, operational grid expertise, and often act as a marquee customer to help accelerate technology validation and scale."
+  },
+  {
+    "name": "Florida Power & Light (FPL) via the 35 Mules Innovation Hub.",
+    "portfolio_companies": [
+      "Intelfuse"
+    ],
+    "thesis": "Florida Power & Light (FPL) via the 35 Mules Innovation Hub operates as an early-stage incubator focusing on startups in the energy, water, grid tech, and climate tech sectors. The hub seeks deeptech and digital solutions that enhance grid resilience, optimize utility operations, and advance sustainability, providing non-dilutive funding to its cohort companies.",
+    "other_investments": [
+      "Carbon Limit",
+      "HData",
+      "Neptunya Ocean Power",
+      "Eneryield",
+      "Brio"
+    ],
+    "exits": [],
+    "value_add": "35 Mules provides startups with non-dilutive grants, dedicated workspace, and direct access to subject matter experts across FPL and its parent company, NextEra Energy. They help founders accelerate commercialization by offering deep operational guidance, regulatory insights, and opportunities to pilot technologies directly on one of the nation's largest electric grids."
+  },
+  {
+    "name": "Cox Cleantech",
+    "portfolio_companies": [
+      "Joulea"
+    ],
+    "thesis": "Cox Cleantech, the dedicated sustainability investment arm of Cox Enterprises, focuses on early to growth-stage companies driving environmental impact and resource efficiency. Their investments primarily target sectors such as renewable energy, sustainable agriculture, energy management, and the circular economy, closely aligning with Cox's broader corporate sustainability goals.",
+    "other_investments": [
+      "Rivian",
+      "BrightFarms",
+      "Carbon Lighthouse",
+      "Nexus PMG",
+      "Sierra Energy"
+    ],
+    "exits": [
+      "Rivian",
+      "BrightFarms",
+      "Rubicon"
+    ],
+    "value_add": "As the venture arm of a global conglomerate, Cox Cleantech provides patient capital and the unique ability to leverage Cox Enterprises' vast real estate and operational infrastructure for pilot programs and commercial deployment. They offer deep operational support, supply chain expertise, and long-term strategic partnership to help founders scale sustainably without the pressure of traditional VC fund life cycles."
+  },
+  {
+    "name": "Techstars (via Cox Cleantech Accelerator)",
+    "portfolio_companies": [
+      "Joulea"
+    ],
+    "thesis": "Techstars, through its Cox Enterprises partnership and Cleantech Accelerator programs, invests at the pre-seed and seed stages in startups tackling climate change, energy efficiency, and environmental challenges. The program specifically targets early-stage founders building scalable hardware, deeptech, and software solutions for clean energy, decarbonization, and smart cities.",
+    "other_investments": [
+      "SparkCharge",
+      "Encamp",
+      "Aquagenuity",
+      "Ampcontrol"
+    ],
+    "exits": [
+      "SendGrid",
+      "DigitalOcean",
+      "PillPack"
+    ],
+    "value_add": "Provides a rigorous 13-week accelerator program offering intense mentorship, fundraising preparation, and access to the massive Techstars global network of investors and alumni. Through the strategic partnership with Cox Enterprises, startups also gain opportunities for corporate pilots, commercial validation, and deep domain expertise in sustainability and clean infrastructure."
+  },
+  {
+    "name": "and the Advanced Technology Development Center (ATDC).",
+    "portfolio_companies": [
+      "Joulea"
+    ],
+    "thesis": "The Advanced Technology Development Center (ATDC) at Georgia Tech is a premier startup incubator and early-stage ecosystem builder that supports Georgia-based technology companies. They focus on pre-seed and seed-stage startups across deeptech, energy/climate tech, enterprise software, and healthtech, with a strong emphasis on commercializing academic research and fostering regional economic growth.",
+    "other_investments": [
+      "SalesLoft",
+      "Pindrop",
+      "Greenlight",
+      "JouleX",
+      "Evident ID"
+    ],
+    "exits": [
+      "SalesLoft",
+      "JouleX",
+      "CipherTrust"
+    ],
+    "value_add": "ATDC provides startups with direct access to Georgia Tech's world-class research facilities, faculty expertise, and premier engineering talent pool. They offer extensive operational support through entrepreneur-in-residence coaching, SBIR/STTR grant assistance, and introductions to a dense network of corporate partners and regional venture capitalists."
+  },
+  {
+    "name": "Virginia Venture Partners (VIPC)",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "Virginia Venture Partners, the equity investment arm of the Virginia Innovation Partnership Corporation (VIPC), focuses on seed and early-stage technology, life science, and cleantech companies headquartered in Virginia. They aim to bridge the early-stage funding gap by backing highly scalable startups, including those innovating in deeptech, robotics, and energy infrastructure.",
+    "other_investments": [
+      "ChurnZero",
+      "Shift5",
+      "Urgently",
+      "Babylon Micro-Farms",
+      "Ostendio"
+    ],
+    "exits": [
+      "Distil Networks",
+      "Homesnap",
+      "Canvas"
+    ],
+    "value_add": "As a state-backed innovation entity, VIPC provides critical early validation that actively attracts follow-on syndication and institutional capital. They leverage deep regional ties to connect startups with non-dilutive commercialization grants, university tech-transfer resources, and a robust network of industry mentors and government stakeholders."
+  },
+  {
+    "name": "SensorLink Corporation",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "SensorLink Corporation acts as a strategic corporate investor focused on early-stage hardware, robotics, and uncrewed aerial systems (UAS) that serve the electric utility sector. Their investments target technologies that integrate with or complement their core business of high-voltage measurement, grid maintenance, and sensing equipment.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As a strategic corporate partner, SensorLink provides deep domain expertise in high-voltage environments and direct access to a global customer base of electric utilities. They assist portfolio companies with sensor integration, specialized testing protocols, and navigating the complex procurement processes of major grid operators."
+  },
+  {
+    "name": "National Science Foundation",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "The National Science Foundation (NSF), primarily through its SBIR/STTR programs (America's Seed Fund), focuses on funding high-risk, high-reward deep technology and scientific innovation at the earliest stages. It provides non-dilutive capital across diverse sectors, including advanced manufacturing, energy, robotics, and biotechnology, to help researchers and early-stage companies translate basic science into commercially viable products.",
+    "other_investments": [
+      "Qualcomm",
+      "Symantec",
+      "Ginkgo Bioworks",
+      "Ecovative Design",
+      "Carbon"
+    ],
+    "exits": [
+      "Qualcomm",
+      "Symantec",
+      "Ginkgo Bioworks"
+    ],
+    "value_add": "NSF provides critical non-dilutive funding that serves as a strong technical validation signal to attract downstream private venture capital. Beyond capital, they offer commercialization training via the NSF I-Corps program, extensive peer-review feedback, and access to a vast network of academic, government, and corporate partners to help deeptech founders cross the commercialization 'valley of death'."
+  },
+  {
+    "name": "Trolley Ventures",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "Trolley Ventures is an early-stage venture capital firm focused on Seed and Series A startups, primarily those located in or with strong ties to Richmond, Virginia, and the broader Mid-Atlantic region. While generally sector-agnostic, they actively back tech-enabled businesses in deeptech, hardware, and sustainable infrastructure, as evidenced by their investments in drone-based grid tech and sustainable materials.",
+    "other_investments": [
+      "TemperPack",
+      "Naborforce",
+      "Babylon Micro-Farms",
+      "Kamana"
+    ],
+    "exits": [
+      "Kamana",
+      "Nutriati"
+    ],
+    "value_add": "Trolley Ventures leverages its strong regional roots to connect portfolio companies with a dense network of corporate partners, talent, and follow-on capital in the Virginia ecosystem. Their LP base of experienced founders and executives provides hands-on strategic guidance, operational support, and mentorship to help early-stage startups scale effectively."
+  },
+  {
+    "name": "Potential Energy DC",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "Potential Energy DC is an early-stage incubator and angel investor network focused on climate tech, sustainability, and clean energy innovation. They primarily target pre-seed and seed-stage startups, particularly within the Washington D.C., Maryland, and Virginia (DMV) region, that are developing hardware and software solutions to accelerate the energy transition.",
+    "other_investments": [
+      "Pearl Certification",
+      "Noria Water Technologies",
+      "Living Canopies"
+    ],
+    "exits": [],
+    "value_add": "Potential Energy DC leverages its strategic location in the Washington D.C. area to connect founders with policymakers, regulatory experts, and non-dilutive federal funding sources like ARPA-E and DOE grants. They provide hands-on mentorship, incubator resources, and introductions to local utilities and later-stage climate investors to accelerate commercialization."
+  },
+  {
+    "name": "757 Accelerate",
+    "portfolio_companies": [
+      "Linebird"
+    ],
+    "thesis": "757 Accelerate is a startup accelerator based in Virginia that focuses on pre-seed and seed-stage companies across diverse sectors, including deeptech, energy, enterprise software, and hardware. They target high-growth startups that can benefit from the region's strong maritime, defense, and utility ecosystems, providing them with the resources to achieve commercial validation.",
+    "other_investments": [
+      "SVT Robotics",
+      "Ario",
+      "AnswersNow",
+      "Re-Nuble"
+    ],
+    "exits": [],
+    "value_add": "757 Accelerate provides a highly customized, mentorship-driven program tailored to the specific operational and strategic needs of each founder. They leverage deep regional partnerships in the Hampton Roads area to connect deeptech and energy startups with critical corporate partners, government stakeholders, and utility companies for pilot programs and customer discovery."
+  },
+  {
+    "name": "BootstrapLabs",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "BootstrapLabs is a Silicon Valley-based venture capital firm focused exclusively on early-stage Applied Artificial Intelligence (Applied AI) startups. They invest primarily at the Seed and Series A stages, targeting deeptech, enterprise, mobility, climate, and infrastructure solutions where AI creates a significant competitive moat.",
+    "other_investments": [
+      "AEye",
+      "Mendel.ai",
+      "Vidora",
+      "Roger.ai",
+      "Pluto AI"
+    ],
+    "exits": [
+      "AEye",
+      "Roger.ai",
+      "Vidora"
+    ],
+    "value_add": "BootstrapLabs provides strategic guidance on AI productization, helping founders navigate the technical and commercial challenges of deploying machine learning at scale. They leverage their extensive Applied AI community and annual conferences to connect portfolio companies with specialized tech talent, enterprise customers, and downstream capital."
+  },
+  {
+    "name": "Longley Capital",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "Longley Capital is an early-stage venture capital firm focusing on applied AI, spatial computing, and deeptech solutions for the built environment and critical infrastructure. They target startups developing transformative technologies, such as computer vision and digital twins, that modernize legacy sectors like utilities, construction, and energy grids.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Longley Capital provides hands-on commercialization support for deeptech founders, particularly in navigating complex enterprise sales cycles within the infrastructure and utility sectors. They leverage their specialized network to facilitate strategic introductions for pilot programs and offer guidance on go-to-market strategies for highly technical products."
+  },
+  {
+    "name": "Spatial Capital",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "Spatial Capital is an early-stage venture capital firm focused on the intersection of spatial computing, artificial intelligence, and computer vision. They invest in deeptech startups building next-generation digital infrastructure, enterprise immersive tools, and advanced physical-to-digital workflows, such as digital twins for the energy and construction sectors.",
+    "other_investments": [
+      "HaptX",
+      "ShapesXR",
+      "Croquet",
+      "Campfire"
+    ],
+    "exits": [],
+    "value_add": "Spatial Capital provides specialized domain expertise in spatial computing and AI, helping technical founders navigate complex product-market fit challenges in nascent industries. They support portfolio companies by facilitating enterprise pilot programs, offering strategic guidance on hardware-software integration, and connecting them to a niche network of specialized immersive tech talent."
+  },
+  {
+    "name": "Impala Ventures",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "Impala Ventures is an early-stage venture capital firm focused on the digitization and automation of the built environment, heavy industry, and energy infrastructure. They primarily back founders applying artificial intelligence, robotics, and advanced software to modernize legacy sectors such as construction, utilities, and real estate.",
+    "other_investments": [
+      "OpenSpace",
+      "Built Robotics",
+      "Kojo",
+      "Eyrus"
+    ],
+    "exits": [],
+    "value_add": "Impala Ventures leverages its deep domain expertise in the architecture, engineering, and construction (AEC) and utility sectors to help technical founders navigate historically slow-moving industries. They actively support their portfolio by facilitating pilot programs with major industry players, refining enterprise go-to-market strategies, and providing access to a specialized network of industry executives and talent."
+  },
+  {
+    "name": "Dominion Energy Innovation Center",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "Dominion Energy Innovation Center (DEIC) focuses on early-stage startups operating in climate tech, grid modernization, and advanced infrastructure technologies. Affiliated with Dominion Energy, they specifically target innovations in AI, robotics, renewable energy, and sustainability that can enhance utility operations and accelerate the broader energy transition.",
+    "other_investments": [
+      "LineVision",
+      "Gridware",
+      "Veloce Energy",
+      "BEM Controls"
+    ],
+    "exits": [],
+    "value_add": "DEIC provides startups with strategic access to utility pilot programs, grid operations data, and deep regulatory expertise through its direct ties to Dominion Energy. They also offer dedicated mentorship on navigating complex utility procurement cycles, enabling founders to rapidly validate and scale their enterprise infrastructure technologies."
+  },
+  {
+    "name": "CONNECT (San Diego)",
+    "portfolio_companies": [
+      "Looq AI"
+    ],
+    "thesis": "CONNECT is a premier accelerator and ecosystem builder that focuses on catalyzing early-stage technology and life sciences startups primarily within the San Diego and Southern California region. Their investment and support span a broad range of high-growth sectors including deeptech, artificial intelligence, and infrastructure tech, targeting innovative companies ready to scale and attract institutional venture capital.",
+    "other_investments": [
+      "Seismic",
+      "Tealium",
+      "Brain Corp",
+      "Truvian"
+    ],
+    "exits": [
+      "EcoATM (acquired by Outerwall)",
+      "Edico Genome (acquired by Illumina)"
+    ],
+    "value_add": "CONNECT offers hands-on mentorship and rigorous capital-raising preparation through their flagship Springboard program, matching founders with domain experts and seasoned executives. They also provide immense value by facilitating warm introductions to a vast network of regional and national venture capital firms, helping startups secure follow-on funding, executive talent, and strategic partnerships."
+  },
+  {
+    "name": "Google for Startups",
+    "portfolio_companies": [
+      "L?D"
+    ],
+    "thesis": "Google for Startups primarily focuses on early-stage investments, often at the pre-seed and seed stages, with a strong programmatic emphasis on empowering underrepresented founders such as Black, Latino, and women entrepreneurs. While sector-agnostic, they heavily favor highly scalable software, AI, and cloud-native startups that can leverage the broader Google ecosystem to drive rapid growth and innovation.",
+    "other_investments": [
+      "AudioMob",
+      "SoLo Funds",
+      "Latchel",
+      "Carry",
+      "Pigeonly"
+    ],
+    "exits": [
+      "Appier",
+      "Voicea",
+      "FarmLogs"
+    ],
+    "value_add": "They provide founders with substantial non-dilutive capital alongside deep technical support, including Google Cloud credits and early access to Google's AI tools. Portfolio companies also receive direct mentorship from Google engineers and product managers, as well as access to a global network of specialized accelerator programs to help scale their operations."
+  },
+  {
+    "name": "VentureLabs (SFU)",
+    "portfolio_companies": [
+      "L?D"
+    ],
+    "thesis": "SFU VentureLabs is a university-backed accelerator and investment facilitator focusing on early-stage, science-based, and deep-tech startups originating from the Canadian academic ecosystem. Their sector focus is broad but heavily emphasizes clean energy, advanced materials, life sciences, and complex digital technologies.",
+    "other_investments": [
+      "Ionomr Innovations",
+      "Terramera",
+      "Switch Materials",
+      "VodaSafe"
+    ],
+    "exits": [
+      "Finn.ai",
+      "Recon Instruments"
+    ],
+    "value_add": "SFU VentureLabs provides deep tech and science startups with critical access to university research facilities, prototyping labs, and highly specialized STEM talent. They actively support founders through seasoned Entrepreneurs-in-Residence (EIRs), commercialization programming, and strategic introductions to government non-dilutive funding and follow-on venture capital."
+  },
+  {
+    "name": "Holcim (LafargeHolcim)",
+    "portfolio_companies": [
+      "Magment Americas"
+    ],
+    "thesis": "Holcim MAQER Ventures, the corporate venture arm of Holcim, invests in early to growth-stage startups advancing sustainable construction, decarbonization, green building materials, and smart infrastructure. Their focus centers on deeptech innovations that reduce the carbon footprint of the built environment and integrate advanced energy solutions, such as electrified mobility, into traditional construction materials.",
+    "other_investments": [
+      "Solidia Technologies",
+      "Sublime Systems",
+      "Blue Planet Systems",
+      "XtreeE",
+      "HiiROC"
+    ],
+    "exits": [],
+    "value_add": "Holcim provides strategic support through pilot programs, joint development agreements, and direct access to its massive global manufacturing and supply chain network. Startups can leverage Holcim's world-class R&D facilities and deep materials science expertise to accelerate commercialization and deploy hardware solutions across the built environment."
+  },
+  {
+    "name": "Techstars",
+    "portfolio_companies": [
+      "Magment Americas"
+    ],
+    "thesis": "Techstars is a global pre-seed and seed-stage investor that operates an extensive network of startup accelerators. While broadly sector-agnostic, they run highly specialized thematic programs in mobility, sustainability, and deeptech to support early-stage founders building transformational infrastructure.",
+    "other_investments": [
+      "SendGrid",
+      "DigitalOcean",
+      "Remitly",
+      "Chainalysis",
+      "PillPack"
+    ],
+    "exits": [
+      "SendGrid (IPO)",
+      "DigitalOcean (IPO)",
+      "PillPack (Acquired by Amazon)"
+    ],
+    "value_add": "Techstars provides founders with highly structured operational support through its rigorous three-month accelerator programs. Portfolio companies benefit from a massive global network of experienced mentors, strategic corporate partners, and direct connections to follow-on venture capital."
+  },
+  {
+    "name": "European Union (Horizon 2020)",
+    "portfolio_companies": [
+      "Magment Americas"
+    ],
+    "thesis": "The European Union's Horizon 2020 program focuses on funding high-risk, high-impact research and innovation, particularly in deeptech, climate tech, and life sciences across Europe. It provides early-stage to growth-stage capital primarily through non-dilutive grants and blended equity finance via the European Innovation Council (EIC) to foster breakthrough technologies.",
+    "other_investments": [
+      "BioNTech",
+      "Northvolt",
+      "Lilium",
+      "Isar Aerospace"
+    ],
+    "exits": [
+      "BioNTech",
+      "Lilium"
+    ],
+    "value_add": "Provides substantial non-dilutive capital that validates breakthrough technologies, acting as a catalyst to de-risk them for private venture co-investors. Portfolio companies gain unparalleled access to pan-European R&D networks, large-scale corporate partners, and vital regulatory frameworks to scale across the single market."
+  },
+  {
+    "name": "European Innovation Council (EIC)",
+    "portfolio_companies": [
+      "Magment Americas"
+    ],
+    "thesis": "The European Innovation Council (EIC) is the European Commission's flagship initiative designed to identify, develop, and scale breakthrough deep tech and disruptive innovations. Through the EIC Fund, they provide patient capital via blended finance (grants and direct equity) to early- and growth-stage European startups tackling high-risk, high-impact challenges in sectors like climate tech, energy transition, healthcare, and advanced computing.",
+    "other_investments": [
+      "Pasqal",
+      "SiPearl",
+      "CorWave",
+      "Skeleton Technologies",
+      "SMART Photonics"
+    ],
+    "exits": [
+      "CureVac",
+      "Snips"
+    ],
+    "value_add": "As an EU-backed entity, the EIC provides unparalleled access to a pan-European network of researchers, corporates, and policymakers, heavily de-risking deep tech ventures to catalyze subsequent private investment. They offer comprehensive Business Acceleration Services, including strategic coaching, regulatory guidance, and direct introductions to key public and private procurement pipelines across the European single market."
+  },
+  {
+    "name": "German Accelerator",
+    "portfolio_companies": [
+      "Magment Americas"
+    ],
+    "thesis": "German Accelerator supports high-potential German startups across various technology sectors, including deeptech, mobility, and climate tech, as they scale globally. Backed by the German government, they act as an accelerator for stage-agnostic companies (typically Seed to Series B) looking to enter major international markets like the US and Asia.",
+    "other_investments": [
+      "Celonis",
+      "N26",
+      "Volocopter",
+      "Tier Mobility"
+    ],
+    "exits": [
+      "Signavio",
+      "Data Artisans",
+      "Flaschenpost"
+    ],
+    "value_add": "German Accelerator provides highly customized mentoring, workspace, and strategic networking to facilitate cross-border expansion without taking equity. They connect founders with local domain experts, corporate partners, and international investors to help them navigate new regulatory landscapes, adapt go-to-market strategies, and secure follow-on funding."
+  },
+  {
+    "name": "Innovation Fund America",
+    "portfolio_companies": [
+      "Megajoule Plus Systems (MPS)"
+    ],
+    "thesis": "Innovation Fund America focuses on early-stage, pre-seed, and seed investments in highly innovative technology startups, with a strong emphasis on advanced manufacturing, deeptech, and clean energy sectors. The fund aims to bridge the critical funding gap for early-stage founders, helping them validate complex technologies and commercialize their business models while driving regional economic development.",
+    "other_investments": [
+      "Quasar Energy Group",
+      "RooSense",
+      "Nanospec Instruments",
+      "Disease Diagnostic Group"
+    ],
+    "exits": [
+      "Explorys",
+      "OnShift"
+    ],
+    "value_add": "Innovation Fund America provides intensive mentorship, structured educational programming, and deep connections to higher education institutions and regional economic development networks. They actively assist technical founders with commercialization strategies, non-dilutive grant applications, and networking with later-stage venture capital firms to secure critical follow-on funding."
+  },
+  {
+    "name": "MegaJoule Ventures",
+    "portfolio_companies": [
+      "Megajoule Plus Systems (MPS)"
+    ],
+    "thesis": "MegaJoule Ventures is an early-stage venture capital firm focused on the energy transition, advanced materials, and deeptech. They primarily invest in foundational hardware and software solutions driving innovations in energy storage, battery technologies, and sustainable grid infrastructure.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "The firm leverages its specialized technical expertise in energy systems to assist portfolio companies with hardware development, manufacturing scale-up, and R&D strategy. Additionally, they facilitate strategic introductions to major utility players, tier-1 suppliers, and OEMs to accelerate pilot projects and commercialization."
+  },
+  {
+    "name": "Kiran Yeddala (Founder)",
+    "portfolio_companies": [
+      "N-Smart"
+    ],
+    "thesis": "Kiran Yeddala is a founder and angel investor targeting early-stage startups, particularly at the Pre-Seed and Seed stages, within the IoT, smart infrastructure, and cleantech sectors. His backing of N-Smart indicates a strong preference for supporting technical founders who are building specialized tech and data-driven solutions for energy and enterprise markets.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As a founder-turned-investor, Kiran leverages his direct entrepreneurial experience to provide hands-on mentorship in product development and operational scaling. He actively assists early-stage portfolio companies in refining their go-to-market strategies, navigating technical hiring, and securing initial enterprise pilot customers."
+  },
+  {
+    "name": "Dennis Chapman (DCH Holdings)",
+    "portfolio_companies": [
+      "Nexbe Limited"
+    ],
+    "thesis": "Dennis Chapman, investing through DCH Holdings, focuses on early-stage hardware, deeptech, and energy management startups, predominantly within the New Zealand tech ecosystem. Leveraging his strong background in power electronics and telecommunications, he targets companies developing highly scalable, export-driven technologies such as smart grid solutions and industrial IoT.",
+    "other_investments": [
+      "Enatel",
+      "Invert Robotics",
+      "Bison Group"
+    ],
+    "exits": [
+      "Enatel"
+    ],
+    "value_add": "Chapman provides profound operational expertise in hardware engineering, electronics manufacturing, and global supply chain logistics. He actively helps founders navigate the challenging transition from prototype R&D to commercial-scale production, while leveraging his network to facilitate international distribution and export growth."
+  },
+  {
+    "name": "Alan Chapman",
+    "portfolio_companies": [
+      "Nexbe Limited"
+    ],
+    "thesis": "Alan Chapman is an early-stage angel investor who primarily focuses on the energy technology, smart grid, and IoT sectors. He typically targets startups developing hardware-software solutions that modernize electrical infrastructure and improve distributed energy monitoring.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Chapman provides strategic guidance on product commercialization, particularly for hardware-enabled energy platforms aiming to secure utility and enterprise partnerships. He also supports early-stage founders with operational scaling, regulatory navigation, and introductions to regional venture networks for follow-on capital."
+  },
+  {
+    "name": "Sean McGoldrick",
+    "portfolio_companies": [
+      "Nexbe Limited"
+    ],
+    "thesis": "Sean McGoldrick is an angel investor primarily focused on early-stage energy technology, grid modernization, and IoT smart infrastructure within the Australia and New Zealand markets. He targets companies developing innovative hardware and software solutions that support the digitization and decentralization of the energy grid.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leveraging his extensive executive background in the utility and power transmission sectors, Sean helps founders navigate complex energy regulations and protracted utility procurement cycles. He provides strategic guidance on product-market fit for grid technologies and facilitates crucial introductions to key stakeholders and commercial partners across the regional energy ecosystem."
+  },
+  {
+    "name": "Robert Stuart",
+    "portfolio_companies": [
+      "Nexbe Limited"
+    ],
+    "thesis": "Robert Stuart is an early-stage angel investor focused on IoT, smart infrastructure, and energy management technologies. He targets startups that bridge the gap between hardware and software, particularly those developing connected devices to optimize utility consumption and enhance sustainability.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "He provides strategic guidance on navigating the complex regulatory environments of the utility and energy sectors. Additionally, he leverages his industry network to help founders secure early pilot programs, refine enterprise sales strategies, and optimize hardware supply chains."
+  },
+  {
+    "name": "Universal Devices (Corporate Sponsor)",
+    "portfolio_companies": [
+      "Nucore.ai"
+    ],
+    "thesis": "Universal Devices operates as a strategic corporate sponsor focusing on early-stage startups in the smart home, IoT, and grid-edge energy management sectors. Their investment and partnership thesis centers on integrating advanced AI, automation, and distributed energy resource (DER) technologies to enhance residential energy efficiency and connected device ecosystems.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As a corporate sponsor, Universal Devices provides portfolio companies with direct access to a dedicated user base of smart home integrators and home automation enthusiasts. They offer deep domain expertise in hardware integration, local automation protocols, and commercialization pathways for residential energy management solutions."
+  },
+  {
+    "name": "California Energy Commission (Grant Funding)",
+    "portfolio_companies": [
+      "Nucore.ai"
+    ],
+    "thesis": "The California Energy Commission (CEC) provides non-dilutive grant funding to accelerate the development and deployment of clean energy technologies, climate tech, and energy efficiency solutions. Through programs like EPIC and CalSEED, the CEC targets early-stage to demonstration-scale deeptech innovations that advance California's transition to a 100% clean energy economy, focusing on grid resilience, decarbonization, and AI-driven energy optimization.",
+    "other_investments": [
+      "Form Energy",
+      "Twelve",
+      "Natron Energy",
+      "OhmConnect",
+      "ChargePoint"
+    ],
+    "exits": [
+      "Enphase Energy",
+      "ChargePoint",
+      "Proterra"
+    ],
+    "value_add": "As a state agency, the CEC provides critical non-dilutive capital that enables deeptech and hardware founders to de-risk technology without sacrificing equity. Securing CEC funding serves as a strong signal of technological validation for private venture capital and often facilitates direct pilot opportunities and regulatory alignment with major California utilities."
+  },
+  {
+    "name": "Unknown (Company is in an early/stealth phase with no public institutional lead disclosed).",
+    "portfolio_companies": [
+      "Paysitters"
+    ],
+    "thesis": "This profile represents undisclosed early-stage backers, such as angel investors, friends and family, or stealth micro-VCs, providing initial pre-seed and seed capital. Their primary focus is on backing high-conviction founders operating in stealth to build minimum viable products and achieve early traction before engaging with institutional leads.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Undisclosed early-stage backers primarily provide the crucial initial runway to help founders operate quietly while developing their core technology. They often assist with foundational company building, early strategic hires, and making warm introductions to institutional venture capitalists for formal pricing rounds."
+  },
+  {
+    "name": "Convective Capital",
+    "portfolio_companies": [
+      "PIQ Energy"
+    ],
+    "thesis": "Convective Capital is an early-stage venture capital firm exclusively focused on 'firetech' and climate adaptation, investing in solutions that mitigate the societal and economic impacts of extreme wildfires. They primarily back Seed and Series A founders building hardware, software, and deeptech innovations across risk modeling, grid resiliency, and active wildfire management.",
+    "other_investments": [
+      "Pano AI",
+      "Gridware",
+      "Rain",
+      "BurnBot",
+      "Overstory"
+    ],
+    "exits": [],
+    "value_add": "The firm leverages its highly specialized network within the wildfire ecosystem, connecting startups directly with utility companies, forestry agencies, and government regulators to accelerate pilot programs. Led by experienced former founders, they also provide hands-on operational support in scaling teams, fundraising, and navigating complex enterprise and government procurement cycles."
+  },
+  {
+    "name": "New Climate Ventures.",
+    "portfolio_companies": [
+      "PIQ Energy"
+    ],
+    "thesis": "New Climate Ventures focuses on early-stage (Seed to Series A) investments in climate technology and deeptech startups driving the energy transition and decarbonization. Their core sectors include carbon capture, alternative materials, circular economy, and advanced energy solutions designed to significantly reduce greenhouse gas emissions.",
+    "other_investments": [
+      "Sway",
+      "Living Carbon",
+      "Mars Materials",
+      "Noya"
+    ],
+    "exits": [],
+    "value_add": "The firm provides hands-on operational support tailored to the unique challenges of scaling deeptech and climate hardware, including navigating complex regulatory environments and emerging carbon markets. They also leverage their robust network to help portfolio companies secure strategic industry partnerships, pilot projects, and follow-on capital."
+  },
+  {
+    "name": "Khosla Ventures",
+    "portfolio_companies": [
+      "Prav?h"
+    ],
+    "thesis": "Khosla Ventures focuses on early-stage investments across deep tech, climate tech, AI, and healthcare, with a philosophy of backing bold, science-based 'black swan' ideas. Founded by Vinod Khosla, the firm explicitly seeks out high-risk, high-reward technological disruptions that aim to fundamentally reinvent societal infrastructure and decarbonize massive industries.",
+    "other_investments": [
+      "OpenAI",
+      "Stripe",
+      "Commonwealth Fusion Systems",
+      "LanzaTech",
+      "Instacart"
+    ],
+    "exits": [
+      "Square",
+      "DoorDash",
+      "QuantumScape"
+    ],
+    "value_add": "Khosla Ventures provides aggressive, visionary strategic guidance to help deep tech and science founders commercialize complex technologies. They offer robust operational support including executive recruiting, extensive network access for early customer partnerships, and a distinct philosophy of acting as supportive 'company assistants' rather than dictating traditional board control."
+  },
+  {
+    "name": "Pear VC",
+    "portfolio_companies": [
+      "Prav?h"
+    ],
+    "thesis": "Pear VC is a premier early-stage venture capital firm that focuses on pre-seed and seed investments across diverse sectors, including enterprise software, consumer, biotech, and increasingly deeptech and climate technologies. They specialize in backing visionary founders at the earliest possible stages—often at the idea or pre-product phase—and partnering closely to help build foundational businesses.",
+    "other_investments": [
+      "DoorDash",
+      "Gusto",
+      "Vanta",
+      "Guardant Health",
+      "Branch"
+    ],
+    "exits": [
+      "DoorDash",
+      "Dropbox",
+      "Guardant Health"
+    ],
+    "value_add": "Pear VC provides highly hands-on operational support through structured programs like the PearX early-stage bootcamp, helping technical founders transition from raw ideas to robust product-market fit. They also offer dedicated internal resources for critical early-stage engineering and executive recruiting, go-to-market strategy development, and introductions to top-tier funds for subsequent Series A rounds."
+  },
+  {
+    "name": "Conviction (Sarah Guo)",
+    "portfolio_companies": [
+      "Prav?h"
+    ],
+    "thesis": "Conviction is an early-stage venture capital firm founded by Sarah Guo that is entirely dedicated to backing 'Software 3.0' and AI-native companies. The fund primarily leads pre-seed and seed rounds for technical founders building artificial intelligence infrastructure, foundation models, and vertical-specific intelligent applications.",
+    "other_investments": [
+      "Harvey",
+      "Essential AI",
+      "Baseten",
+      "Mistral AI"
+    ],
+    "exits": [
+      "Sqreen (acquired by Datadog)",
+      "Awake Security (acquired by Arista Networks)"
+    ],
+    "value_add": "Conviction provides deep domain expertise in AI go-to-market strategies, helping highly technical founders bridge the gap between foundational research and enterprise deployment. Sarah Guo heavily leverages her top-tier network in the Silicon Valley AI ecosystem to assist portfolio companies with strategic partnerships, early enterprise customer discovery, and specialized machine learning talent acquisition."
+  },
+  {
+    "name": "Sarah Smith Fund.",
+    "portfolio_companies": [
+      "Prav?h"
+    ],
+    "thesis": "Sarah Smith Fund is an early-stage venture fund led by solo GP Sarah Smith, focusing primarily on pre-seed and seed investments in B2B SaaS, the future of work, HR tech, and consumer software. The fund additionally takes an opportunistic approach, backing exceptional founders tackling complex systemic challenges in emerging sectors including deeptech and sustainable infrastructure.",
+    "other_investments": [
+      "Figma",
+      "Coda",
+      "Maven",
+      "Gem"
+    ],
+    "exits": [],
+    "value_add": "Leveraging Sarah Smith's extensive background as a former HR executive at Facebook and Quora, the fund provides unparalleled operational support in talent acquisition, leadership coaching, and organizational design. Founders benefit deeply from hands-on guidance when hiring foundational team members, establishing strong company cultures, and navigating executive scaling during critical early growth phases."
+  },
+  {
+    "name": "CoinFund",
+    "portfolio_companies": [
+      "Raad"
+    ],
+    "thesis": "CoinFund is a cryptonative investment firm focusing on early-stage Web3, blockchain infrastructure, and decentralized technologies. They invest heavily in layer 1/layer 2 protocols, DeFi, and increasingly DePIN (Decentralized Physical Infrastructure Networks), which connects blockchain to real-world hardware, climate, and energy data. Their strategy spans from seed-stage equity to liquid token investments.",
+    "other_investments": [
+      "Dapper Labs",
+      "Worldcoin",
+      "Polkadot",
+      "Solana",
+      "Blockdaemon"
+    ],
+    "exits": [
+      "Solana (Token Launch)",
+      "Polkadot (Token Launch)",
+      "Biconomy (Token Launch)"
+    ],
+    "value_add": "CoinFund provides deeply specialized support in cryptoeconomic design, tokenomics modeling, and network bootstrapping for early-stage founders. They actively participate in protocol governance and offer staking support, helping companies navigate regulatory landscapes and bridge traditional technologies into the Web3 ecosystem."
+  },
+  {
+    "name": "Tribe Capital",
+    "portfolio_companies": [
+      "Raad"
+    ],
+    "thesis": "Tribe Capital is a quantitative, data-driven venture capital firm that invests across early to growth stages, seeking companies with strong product-market fit and compounding network effects. While historically focused on enterprise SaaS, fintech, and crypto, they actively back deeptech and data-intensive companies where their proprietary frameworks can identify distinct technological moats.",
+    "other_investments": [
+      "Carta",
+      "Kraken",
+      "Applied Intuition",
+      "Relativity Space",
+      "Instacart"
+    ],
+    "exits": [
+      "Slack",
+      "Instacart"
+    ],
+    "value_add": "Tribe Capital leverages its proprietary 'N-of-1' data ingestion framework to provide portfolio companies with deep operational benchmarking and cohort analysis. They help founders optimize capital allocation, uncover hidden growth metrics, and use rigorous data science to position the company strongly for subsequent fundraising rounds."
+  },
+  {
+    "name": "EV3",
+    "portfolio_companies": [
+      "Raad"
+    ],
+    "thesis": "EV3 is an early-stage venture capital firm strictly focused on Decentralized Physical Infrastructure Networks (DePIN) and the intersection of Web3 with real-world applications. They invest primarily in token-incentivized hardware networks, climate data sensing, decentralized energy, and connectivity solutions.",
+    "other_investments": [
+      "DIMO",
+      "Hivemapper",
+      "WeatherXM",
+      "NATIX Network",
+      "Peaq"
+    ],
+    "exits": [],
+    "value_add": "EV3 provides specialized expertise in DePIN tokenomics, hardware supply chain bootstrapping, and protocol design. They actively assist founders with decentralized community building, hardware scaling strategies, and navigating the complex regulatory landscape of crypto-incentivized physical infrastructure."
+  },
+  {
+    "name": "Protagonist",
+    "portfolio_companies": [
+      "Raad"
+    ],
+    "thesis": "Protagonist is an early-stage venture capital firm and incubator focused on the Web3, blockchain, and decentralized physical infrastructure (DePIN) sectors. They typically invest at the pre-seed and seed stages, backing founders who are building foundational protocols, decentralized networks, and emerging tech solutions like blockchain-enabled climate data platforms.",
+    "other_investments": [
+      "Aptos",
+      "LayerZero",
+      "Sei Network",
+      "Neon Protocol"
+    ],
+    "exits": [
+      "Aptos (Token Launch)",
+      "Sei Network (Token Launch)"
+    ],
+    "value_add": "Protagonist provides hands-on incubation and operational support tailored to the Web3 and DePIN ecosystems, specifically assisting with protocol design, tokenomics, and community growth. They leverage their extensive network to help founders attract core developer talent, secure ecosystem partnerships, and navigate the complex technical and regulatory landscapes of decentralized technologies."
+  },
+  {
+    "name": "Montauk Capital",
+    "portfolio_companies": [
+      "Raad"
+    ],
+    "thesis": "Montauk Capital is an early-stage venture firm and incubator focused on climate technology, energy infrastructure, and deeptech. They specifically target startups bridging decentralized physical infrastructure networks (DePIN) and earth observation data to accelerate the global energy transition and decarbonization efforts.",
+    "other_investments": [
+      "Return",
+      "DIMO",
+      "Toucan Protocol"
+    ],
+    "exits": [],
+    "value_add": "They provide highly specialized operational support for bridging decentralized networks with traditional climate and energy markets. The firm actively assists founders with network bootstrapping, regulatory navigation, and establishing partnerships with enterprise sustainability stakeholders."
+  },
+  {
+    "name": "Duke Energy (via DTECH Award support)",
+    "portfolio_companies": [
+      "Resilient Link"
+    ],
+    "thesis": "Duke Energy focuses on early-stage energy, climate, and deeptech startups that accelerate grid modernization, infrastructure resilience, and the broader energy transition. Through initiatives like the DTECH Award, they target strategic innovations in smart grid technologies, distributed energy resources, and utility operational efficiency.",
+    "other_investments": [
+      "Smart Wires",
+      "Sense",
+      "OhmConnect",
+      "Gridium"
+    ],
+    "exits": [
+      "REC Solar",
+      "Phoenix Energy Technologies"
+    ],
+    "value_add": "Provides startups with an unparalleled testing ground by offering access to real-world utility data, grid infrastructure, and extensive subject matter expertise. They also assist founders in navigating the heavily regulated utility landscape, accelerating commercialization through pilot programs and strategic deployment opportunities."
+  },
+  {
+    "name": "Cowles Company",
+    "portfolio_companies": [
+      "Safeguard Equipment"
+    ],
+    "thesis": "Cowles Company is a multi-generational, family-owned holding company that provides patient early-stage venture capital, with a strong geographic focus on the Pacific Northwest and Inland Empire ecosystems. Their investment thesis centers on B2B SaaS, industrial technology, energy safety grid-tech, and e-commerce, seeking capital-efficient businesses that also drive regional economic development.",
+    "other_investments": [
+      "Spiceology",
+      "RiskLens",
+      "etailz",
+      "Lighter Capital"
+    ],
+    "exits": [
+      "RiskLens",
+      "etailz"
+    ],
+    "value_add": "As a family enterprise rather than a traditional VC fund, Cowles Company provides highly patient capital unconstrained by standard fund lifecycles. They offer deep localized networking capabilities across the Pacific Northwest, operational expertise drawn from their diverse legacy holdings in media and real estate, and strategic guidance for navigating industrial partnerships."
+  },
+  {
+    "name": "Northwest Venture Associates",
+    "portfolio_companies": [
+      "Safeguard Equipment"
+    ],
+    "thesis": "Northwest Venture Associates is an early-stage venture capital firm historically focused on technology, enterprise software, and specialized hardware startups primarily located in the Pacific Northwest. Within the utility and industrial sectors, they look for practical deeptech and safety solutions that modernize field operations, protect workers, and improve legacy grid infrastructure.",
+    "other_investments": [
+      "NetMotion Wireless",
+      "Packet Engines",
+      "AdRelevance",
+      "N2H2"
+    ],
+    "exits": [
+      "Packet Engines",
+      "AdRelevance",
+      "N2H2"
+    ],
+    "value_add": "NWVA leverages its deep roots in the Pacific Northwest innovation ecosystem to provide startups with extensive regional networking, executive recruiting, and strategic B2B partnerships. They offer hands-on board leadership to help industrial hardware and tech companies scale go-to-market operations and secure follow-on institutional capital."
+  },
+  {
+    "name": "Avista Development",
+    "portfolio_companies": [
+      "Safeguard Equipment"
+    ],
+    "thesis": "Avista Development, the investment arm of Avista Corporation, focuses on early-stage companies operating in the energy, smart grid, and utility safety sectors. Their investments strategically align with utility modernization, operational efficiency, and regional economic development in the Pacific Northwest.",
+    "other_investments": [
+      "Itron",
+      "ReliOn",
+      "Trove Predictive Data Science"
+    ],
+    "exits": [
+      "Itron (IPO)",
+      "ReliOn (Acquired by Plug Power)"
+    ],
+    "value_add": "As an affiliate of an established utility provider, Avista Development offers portfolio companies unique access to real-world testing environments, grid infrastructure, and deep operational expertise. They assist founders in navigating complex regulatory landscapes, establishing utility pilot programs, and scaling solutions built for the energy sector."
+  },
+  {
+    "name": "Spokane Angel Alliance",
+    "portfolio_companies": [
+      "Safeguard Equipment"
+    ],
+    "thesis": "Spokane Angel Alliance is an early-stage angel investment group focused on supporting startups in the Pacific Northwest, particularly around the Inland Northwest region. Their investment thesis is generally sector-agnostic but demonstrates a strong preference for B2B SaaS, health-tech, and industrial hardware or deeptech solutions that improve operational safety and utility infrastructure. They primarily engage in pre-seed and seed rounds to bridge the initial capital gap for regional entrepreneurs.",
+    "other_investments": [
+      "Spiceology",
+      "Medcurity",
+      "Rohinni"
+    ],
+    "exits": [
+      "etailz",
+      "RiskLens"
+    ],
+    "value_add": "The group leverages its network of local executives, seasoned entrepreneurs, and industry experts to provide hands-on mentorship and strategic guidance to early-stage founders. They heavily assist with regional business development, talent acquisition within the Pacific Northwest, and syndication with broader angel networks for follow-on funding."
+  },
+  {
+    "name": "and Zions Bank.",
+    "portfolio_companies": [
+      "Safeguard Equipment"
+    ],
+    "thesis": "Zions Bank typically participates in early-to-growth stage financing, focusing on regional innovation and economic development within the Intermountain West. They strategically support hardware, industrial safety, and enterprise technology companies that align with infrastructure modernization, such as utility worker safety.",
+    "other_investments": [
+      "Lendio",
+      "MX Technologies",
+      "Artemis Health"
+    ],
+    "exits": [],
+    "value_add": "As a prominent regional bank, Zions Bank provides startups with essential financial structuring, including venture debt, credit lines, and treasury management. They also leverage their deep regional network to connect founders with municipal stakeholders, utility partners, and broader enterprise customers."
+  },
+  {
+    "name": "Borean Innovation",
+    "portfolio_companies": [
+      "Scopito ApS"
+    ],
+    "thesis": "Borean Innovation is a Danish early-stage venture fund and incubator focusing on pre-seed and seed-stage technology startups, particularly within deeptech, robotics, and B2B software. They aim to commercialize academic research and early technological innovations, backing companies that address complex industrial challenges such as energy infrastructure inspection and hardware automation.",
+    "other_investments": [
+      "Airtame",
+      "Sensohive",
+      "QuadSAT",
+      "Rope Robotics"
+    ],
+    "exits": [],
+    "value_add": "As an established innovation incubator, Borean provides intensive, hands-on business development to help technical founders achieve commercial traction and product-market fit. They specialize in helping early-stage startups secure non-dilutive grant funding, build their initial go-to-market strategies, and prepare for subsequent Seed and Series A venture capital rounds."
+  },
+  {
+    "name": "Ministry of Education and Research (Denmark)",
+    "portfolio_companies": [
+      "Scopito ApS"
+    ],
+    "thesis": "The Danish Ministry of Education and Research, primarily acting through vehicles like Innovation Fund Denmark, focuses on early-stage, research-driven innovation. Their funding targets deeptech, climate tech, and digitalization efforts, aiming to commercialize scientific research, support the green transition, and drive societal impact through technology.",
+    "other_investments": [
+      "Blue World Technologies",
+      "Seaborg Technologies",
+      "Corti",
+      "Airtame"
+    ],
+    "exits": [
+      "Universal Robots",
+      "Endomondo"
+    ],
+    "value_add": "As a public entity, the Ministry provides crucial non-dilutive capital (such as grants and soft loans) that allows deeptech and climate founders to de-risk their technologies without sacrificing early equity. They also facilitate collaboration with Danish universities and research institutes, helping startups access state-of-the-art facilities, academic talent, and vital regulatory networks."
+  },
+  {
+    "name": "Oslo Venture Company",
+    "portfolio_companies": [
+      "Scopito ApS"
+    ],
+    "thesis": "Oslo Venture Company focuses on early-stage investments across the Nordic region, primarily targeting B2B SaaS, deeptech, and enterprise software. They have a distinct interest in solutions that digitize and optimize critical infrastructure, utility operations, and asset management.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "The firm provides strategic guidance for early-stage commercialization, particularly helping technical founders navigate enterprise sales and utility-sector partnerships. They leverage their Nordic business network to support regional expansion, operational scaling, and subsequent fundraising rounds."
+  },
+  {
+    "name": "Agro Business Park.",
+    "portfolio_companies": [
+      "Scopito ApS"
+    ],
+    "thesis": "Agro Business Park is a Danish science park, incubator, and early-stage investor focused on the agtech, foodtech, bioeconomy, and cleantech sectors. They typically support seed and pre-seed stage startups, particularly those leveraging deeptech, hardware, or data analytics to improve agricultural efficiency, infrastructure inspection, and environmental sustainability.",
+    "other_investments": [
+      "FarmDroid",
+      "Agrointelli",
+      "BioMio"
+    ],
+    "exits": [],
+    "value_add": "Agro Business Park provides specialized incubation services, including access to state-of-the-art testing facilities and deep research networks through its close ties to Aarhus University. They actively assist portfolio companies in navigating complex regulatory landscapes, securing non-dilutive grant funding, and establishing pilot projects with agricultural and utility enterprise partners."
+  },
+  {
+    "name": "Venture capital-backed (Specific institutional names undisclosed in public filings",
+    "portfolio_companies": [
+      "Senpilot"
+    ],
+    "thesis": "This entity represents a placeholder for undisclosed institutional venture capital firms investing in early-to-growth stage technology companies. Given their backing of Senpilot, these anonymous syndicates typically target high-growth sectors such as deeptech, artificial intelligence, and autonomous robotics with strong mobility or industrial applications.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Though specific operational support varies across unnamed funds, these institutional backers generally provide essential growth capital, strategic board-level governance, and syndication leverage for future fundraising. They also frequently leverage their broad networks to assist technical founders with executive recruiting, financial structuring, and commercial partnerships."
+  },
+  {
+    "name": "features founders from Nvidia",
+    "portfolio_companies": [
+      "Senpilot"
+    ],
+    "thesis": "This investor group, comprised of founders and early executives from Nvidia, focuses on early-to-growth stage startups in artificial intelligence, deep tech, robotics, and high-performance computing. They seek out paradigm-shifting technologies that leverage advanced computing infrastructure, autonomous agents, and generative AI to disrupt traditional industries.",
+    "other_investments": [
+      "CoreWeave",
+      "Hugging Face",
+      "Mistral AI",
+      "Figure AI"
+    ],
+    "exits": [],
+    "value_add": "They offer unparalleled technical mentorship in scaling AI infrastructure, GPU optimization, and hardware-software co-design. Portfolio companies benefit heavily from their deep network of specialized engineering talent and strategic entry points into the broader semiconductor and AI ecosystem."
+  },
+  {
+    "name": "Airbnb",
+    "portfolio_companies": [
+      "Senpilot"
+    ],
+    "thesis": "Airbnb makes strategic corporate investments focused on travel technology, property management, smart home infrastructure, and experiential hospitality. When touching on energy, climate, or deeptech, their focus typically centers on smart sensor networks, property energy efficiency, and sustainable solutions that streamline host operations. They invest across various stages to support ecosystem partners that complement or expand their core global marketplace.",
+    "other_investments": [
+      "Oyo",
+      "Zeus Living",
+      "Resy",
+      "Atlas Obscura",
+      "Tiqets"
+    ],
+    "exits": [
+      "Resy",
+      "Accomable",
+      "Tilt"
+    ],
+    "value_add": "Airbnb offers portfolio companies unique strategic integration opportunities and direct access to a massive global network of millions of hosts and travelers. They provide deep domain expertise in marketplace scaling, trust and safety infrastructure, global localization, and navigating complex local property regulations."
+  },
+  {
+    "name": "and Apple).",
+    "portfolio_companies": [
+      "Senpilot"
+    ],
+    "thesis": "Apple's corporate investment strategy focuses on advanced manufacturing, deeptech, and renewable energy to support its hardware ecosystem and ambitious carbon-neutrality goals. Through its Advanced Manufacturing Fund and Restore Fund, the company provides strategic growth capital to supply chain partners, component manufacturers, and climate initiatives.",
+    "other_investments": [
+      "Corning",
+      "Finisar",
+      "DiDi Chuxing",
+      "Globalstar"
+    ],
+    "exits": [
+      "DiDi Chuxing",
+      "Arm"
+    ],
+    "value_add": "Apple acts as a transformative anchor customer, providing portfolio companies with massive guaranteed production volumes and revenue. The company also offers unparalleled operational and engineering expertise, helping partners scale manufacturing capabilities while meeting stringent environmental and quality standards."
+  },
+  {
+    "name": "Nexans",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "Nexans operates as a strategic corporate investor focusing on the global energy transition, sustainable electrification, and smart grid ecosystems. They target early to growth-stage startups specializing in industrial IoT, energy analytics, predictive asset monitoring, and deeptech infrastructure.",
+    "other_investments": [
+      "G2mobility",
+      "Omnisens",
+      "Powerline Technologies"
+    ],
+    "exits": [
+      "G2mobility"
+    ],
+    "value_add": "As a global leader in advanced cabling and electrification, Nexans provides startups with unparalleled domain expertise and industrial scaling support. Portfolio companies gain strategic access to Nexans' extensive R&D resources, global manufacturing footprint, and major utility customer base for pilot deployments and commercial validation."
+  },
+  {
+    "name": "American Electric Power (AEP)",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "American Electric Power (AEP) makes strategic corporate venture investments in early-to-growth stage companies driving the energy transition, grid modernization, and electrification. They primarily target startups building artificial intelligence, IoT technologies, distributed energy resources (DERs), and grid-edge analytics that align with the operational needs of a major utility.",
+    "other_investments": [
+      "Sparkfund",
+      "Utilidata",
+      "Bractlet",
+      "Advanced Microgrid Solutions (AMS)"
+    ],
+    "exits": [
+      "Advanced Microgrid Solutions (AMS)",
+      "ChargePoint"
+    ],
+    "value_add": "AEP provides startups with critical opportunities to validate and scale their technologies through pilot programs on massive, real-world grid infrastructure. Additionally, they offer deep regulatory expertise, engineering support, and a direct pathway to commercialization by acting as a strategic customer and deployment partner."
+  },
+  {
+    "name": "EIT InnoEnergy",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "EIT InnoEnergy is a leading European early-stage investor and innovation engine focused exclusively on the energy transition, climate tech, and sustainable mobility. They target seed and early-stage startups with deeptech, hardware, or software solutions, providing capital and resources to accelerate the commercialization of sustainable energy innovations.",
+    "other_investments": [
+      "Northvolt",
+      "Skeleton Technologies",
+      "Verkor",
+      "H2 Green Steel",
+      "Hardt Hyperloop"
+    ],
+    "exits": [
+      "Freyr Battery",
+      "Minesto",
+      "Pro-Drone"
+    ],
+    "value_add": "EIT InnoEnergy provides deep domain expertise and access to a massive Pan-European ecosystem of industry partners, research institutions, and policymakers. They actively support startups with commercialization, scaling industrial production, securing non-dilutive grant funding, and facilitating strategic customer introductions."
+  },
+  {
+    "name": "Momenta",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "Momenta is an early-stage venture capital firm focused exclusively on the Digital Industry, targeting Seed to Series B startups in Industrial IoT, smart manufacturing, supply chain, and energy optimization. Their thesis centers on companies leveraging AI, deeptech, and edge computing to drive digital transformation, sustainability, and operational efficiency within legacy physical industries.",
+    "other_investments": [
+      "Xage Security",
+      "HighByte",
+      "Paragraf",
+      "Litmus Automation",
+      "EdgeIQ"
+    ],
+    "exits": [
+      "PLAT.ONE (acquired by SAP)",
+      "DevicePilot (acquired by ARM)"
+    ],
+    "value_add": "Momenta operates a synergistic model combining venture capital, executive search, and strategic advisory practices. They heavily support portfolio companies by tapping into an extensive network of industrial corporates to accelerate go-to-market partnerships, while their dedicated talent arm helps startups recruit highly specialized leadership and technical executives."
+  },
+  {
+    "name": "EDP Starter",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "EDP Starter is the early-stage incubation and corporate venture arm of Energias de Portugal (EDP), focusing on seed and early-stage startups driving the energy transition. Their investment thesis centers on cleantech, smart grids, renewable energy, energy storage, and IoT technologies that can integrate with modern utility infrastructures.",
+    "other_investments": [
+      "Principle Power",
+      "Eneida",
+      "GridX",
+      "GreenFlux",
+      "Delfos Energy"
+    ],
+    "exits": [
+      "GreenFlux",
+      "Feedzai"
+    ],
+    "value_add": "As a corporate venture arm, EDP Starter provides startups with unparalleled access to a global utility's infrastructure for real-world pilot testing and proof-of-concept validation. They also offer deep regulatory and market expertise, alongside pathways to secure EDP as an early enterprise customer or strategic partner."
+  },
+  {
+    "name": "Bpifrance",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "Bpifrance is the French public investment bank and sovereign wealth fund, investing across all stages from seed to late-stage to support the domestic tech ecosystem. Their investment thesis heavily prioritizes deeptech, climate tech, healthcare, and industrial innovation to foster national economic sovereignty and a sustainable ecological transition.",
+    "other_investments": [
+      "Doctolib",
+      "Mistral AI",
+      "Exotec",
+      "Verkor",
+      "Owkin"
+    ],
+    "exits": [
+      "Criteo",
+      "Talend",
+      "Believe"
+    ],
+    "value_add": "Bpifrance provides unparalleled access to the French and European regulatory ecosystems, public-private partnerships, and extensive corporate networks. Beyond equity investments, they offer a vast suite of non-dilutive funding options like innovation loans and grants, alongside operational support to help startups scale internationally."
+  },
+  {
+    "name": "Free Electrons",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "Free Electrons is a global energy startup accelerator and open innovation program founded by an alliance of major international utility companies. Their thesis focuses on early-to-growth stage startups developing disruptive technologies in renewable energy, smart grids, e-mobility, energy management, and decarbonization.",
+    "other_investments": [
+      "Tomorrow.io",
+      "GridX",
+      "Power Ledger",
+      "OhmConnect",
+      "Sterblue"
+    ],
+    "exits": [],
+    "value_add": "Free Electrons provides unparalleled access to a global consortium of major utility companies, enabling startups to rapidly deploy pilot projects and secure commercial contracts. They offer deep domain expertise in energy regulation, grid operations, and scale, acting as a direct bridge between agile ClimateTech innovators and massive global energy markets."
+  },
+  {
+    "name": "Katapult Group.",
+    "portfolio_companies": [
+      "Sensewaves"
+    ],
+    "thesis": "Katapult Group is a global impact investment firm and accelerator focused on highly scalable pre-seed and seed-stage startups addressing climate change, ocean health, and sustainable energy. They primarily invest in deeptech, AI, and hardware solutions within the climate, ocean, and energy sectors to drive measurable environmental impact alongside strong financial returns.",
+    "other_investments": [
+      "Chooose",
+      "Brim Explorer",
+      "Desolenator",
+      "Finverity"
+    ],
+    "exits": [],
+    "value_add": "Katapult Group actively supports portfolio companies through its intensive 90-day accelerator programs, providing hands-on operational scaling and leadership coaching. They connect founders to a global network of impact investors, industry mentors, and corporate partners, offering deep domain expertise to help navigate complex commercial and regulatory environments in the climate and ocean tech ecosystems."
+  },
+  {
+    "name": "McKinney Economic Development Corporation",
+    "portfolio_companies": [
+      "Skyllful"
+    ],
+    "thesis": "The McKinney Economic Development Corporation (MEDC) operates as a regional economic engine, focusing on driving job creation and technological innovation within McKinney, Texas through its Innovation Fund. They primarily target early-to-growth stage startups in SaaS, healthcare IT, and tech-enabled services, providing strategic capital to companies expanding or relocating to the Dallas-Fort Worth metroplex.",
+    "other_investments": [
+      "CourMed",
+      "Blockit",
+      "Alanna.ai",
+      "MyTelemedicine"
+    ],
+    "exits": [
+      "Boss Fight Entertainment"
+    ],
+    "value_add": "As an economic development organization, MEDC provides unique value through non-dilutive grants, real estate expansion assistance, and favorable tax incentives. They also actively support portfolio companies with local workforce development programs, talent pipeline connections, and deep integration into the broader Texas business ecosystem."
+  },
+  {
+    "name": "Capital Factory",
+    "portfolio_companies": [
+      "Skyllful"
+    ],
+    "thesis": "Capital Factory is an early-stage venture capital fund and accelerator focused primarily on pre-seed and seed-stage technology startups based in Texas. While generally sector-agnostic, they heavily target B2B SaaS, enterprise software, and dual-use defense technologies.",
+    "other_investments": [
+      "WP Engine",
+      "ICON",
+      "Workrise",
+      "OJO Labs",
+      "AlertMedia"
+    ],
+    "exits": [
+      "AlertMedia",
+      "Convey",
+      "SpareFoot"
+    ],
+    "value_add": "Capital Factory acts as the center of gravity for the Texas startup ecosystem, offering founders unparalleled access to a dense network of mentors, follow-on investors, and corporate partners. They also provide specialized support for securing government and military contracts through their Center for Defense Innovation, alongside extensive community and talent-sourcing resources."
+  },
+  {
+    "name": "and AppsBrite.",
+    "portfolio_companies": [
+      "Skyllful"
+    ],
+    "thesis": "AppsBrite focuses on early-stage investments in B2B SaaS, enterprise mobility, and digital adoption platforms. They specifically target software solutions that enhance the operational productivity, training, and software adoption of frontline and mobile workforces.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leverages specialized expertise in mobile application development, UX/UI design, and enterprise software deployment to support technical founders. They provide hands-on assistance with product roadmap strategy and scaling technical infrastructure for field-service and deskless worker tools."
+  },
+  {
+    "name": "Marathon Venture Capital",
+    "portfolio_companies": [
+      "SMPnet"
+    ],
+    "thesis": "Marathon Venture Capital is a seed-stage venture capital firm focused on backing ambitious Greek founders, both locally and in the diaspora, building global B2B software, deeptech, and enterprise technology companies. They typically lead early-stage rounds for highly technical teams, such as SMPnet in the grid and energy tech sector, helping them scale disruptive innovations into international markets.",
+    "other_investments": [
+      "Hack The Box",
+      "Causaly",
+      "LearnWorlds",
+      "Netdata"
+    ],
+    "exits": [
+      "Augmenta (acquired by CNH Industrial)",
+      "Lenses.io (acquired by Celonis)"
+    ],
+    "value_add": "Marathon actively assists portfolio companies with scaling their operations and go-to-market strategies, particularly leveraging their deep ties to the Greek tech ecosystem to help founders build highly efficient engineering teams. They also provide strategic guidance on fundraising and connect early-stage startups with an extensive international network of diaspora executives and global co-investors."
+  },
+  {
+    "name": "Dunelm Energy",
+    "portfolio_companies": [
+      "SMPnet"
+    ],
+    "thesis": "Dunelm Energy is an early-stage investment firm and advisory vehicle focused on the energy transition, deeptech, and power network modernization. They actively back startups developing smart grid technologies, software-defined control systems, and renewable energy integration solutions. Their strategy centers on innovative technologies that solve complex infrastructure challenges, as evidenced by their support for power grid optimization companies like SMPnet.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leveraging deep sector expertise in power engineering and utilities, Dunelm Energy provides hands-on operational and strategic support to its portfolio. They help early-stage technical founders navigate the highly regulated energy market, structure pilot projects, and secure critical partnerships with national grid operators and utility companies."
+  },
+  {
+    "name": "Urban Future Lab",
+    "portfolio_companies": [
+      "SMPnet"
+    ],
+    "thesis": "Urban Future Lab is an early-stage incubator and investor focusing on pre-seed and seed-stage startups in the climate tech, cleantech, smart city, and grid modernization sectors. They aim to support founders building hardware and software solutions that accelerate the transition to a sustainable, decarbonized urban energy ecosystem.",
+    "other_investments": [
+      "BlocPower",
+      "Dandelion Energy",
+      "Revel",
+      "NineDot Energy"
+    ],
+    "exits": [
+      "EnergyHub",
+      "Smarter Grid Solutions",
+      "Greenlots"
+    ],
+    "value_add": "Hosted by the NYU Tandon School of Engineering, Urban Future Lab provides startups with deep academic domain expertise, workspace, and rigorous mentorship regarding energy regulations and policy. They heavily assist portfolio companies in securing non-dilutive grant funding (such as through NYSERDA) and facilitate strategic pilot opportunities with major utilities and corporate energy partners."
+  },
+  {
+    "name": "and Ian Marchant (Former CEO of Scottish and Southern Energy).",
+    "portfolio_companies": [
+      "SMPnet"
+    ],
+    "thesis": "Ian Marchant leverages his extensive executive experience in the utility sector to invest in early-stage companies driving the energy transition. His investment focus centers on smart grid technologies, renewable energy integration, and climate tech startups that offer systemic solutions to decarbonization and grid modernization.",
+    "other_investments": [
+      "Logan Energy",
+      "Nova Innovation",
+      "Piclo"
+    ],
+    "exits": [],
+    "value_add": "Provides unparalleled executive-level expertise in utility operations, grid infrastructure, and energy regulation. Helps founders navigate complex energy markets, scale technology for enterprise utility deployment, and facilitates high-level corporate and regulatory connections within the UK and European energy ecosystems."
+  },
+  {
+    "name": "35 Mules (NextEra Energy/Florida Power & Light innovation hub)",
+    "portfolio_companies": [
+      "Solitude Labs"
+    ],
+    "thesis": "35 Mules is an innovation hub and incubator backed by Florida Power & Light and NextEra Energy, focusing on early-stage startups in the energy, water, and sustainability sectors. The program targets deeptech, grid resilience, and clean energy innovations, offering non-dilutive funding to help founders scale transformative technologies.",
+    "other_investments": [
+      "Switched Source",
+      "SustainaBase",
+      "PurOceans Technology",
+      "Yotta Energy",
+      "Neptunyan"
+    ],
+    "exits": [],
+    "value_add": "35 Mules provides portfolio companies with dedicated workspace, a non-dilutive cash grant, and direct access to subject matter experts and executives at NextEra Energy and FPL. Startups also benefit from advanced testing facilities, potential pilot program opportunities, and deep regulatory and operational expertise within the utility and renewable energy sectors."
+  },
+  {
+    "name": "University of Chicago Booth School of Business (New Venture Challenge).",
+    "portfolio_companies": [
+      "Solitude Labs"
+    ],
+    "thesis": "The University of Chicago Booth School of Business New Venture Challenge (NVC) is a premier university accelerator and business plan competition focusing on pre-seed and seed-stage startups founded by UChicago students and alumni. It is generally sector-agnostic but frequently backs deeptech, B2B SaaS, healthcare, and emerging climate tech ventures that leverage academic research and rigorous business modeling.",
+    "other_investments": [
+      "Grubhub",
+      "Braintree",
+      "Simple Mills",
+      "Cleversafe",
+      "Tovala"
+    ],
+    "exits": [
+      "Grubhub (IPO)",
+      "Braintree (Acquired by PayPal)",
+      "Cleversafe (Acquired by IBM)"
+    ],
+    "value_add": "The NVC provides founders with a rigorous academic curriculum, intensive pitch coaching, and mentorship from experienced entrepreneurs and investors. Portfolio companies benefit immensely from the global UChicago alumni network, offering warm introductions to top-tier venture capitalists, early customer validation, and elite talent recruitment."
+  },
+  {
+    "name": "Unknown (Likely founder-funded/Angel)",
+    "portfolio_companies": [
+      "SubProTech"
+    ],
+    "thesis": "This profile represents founder-led bootstrapping, friends and family rounds, or undisclosed early-stage angel investments. Capital at this stage is highly flexible and focused on early R&D, prototype development, and technical de-risking for deeptech, energy, and industrial technology startups before they raise institutional venture capital.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Value add comes in the form of extreme operational flexibility, unencumbered cap tables, and an intense focus on product-market fit without institutional growth pressures. Undisclosed angels in this category typically provide highly specific domain expertise, early pilot introductions, and mentorship to help founders navigate the deeptech valley of death."
+  },
+  {
+    "name": "CSIRO (Australia's national science agency)",
+    "portfolio_companies": [
+      "Syncrowin"
+    ],
+    "thesis": "CSIRO invests primarily in deep tech and science-driven startups, focusing on commercializing foundational research in areas like the energy transition, climate tech, synthetic biology, and advanced manufacturing. Typically investing at the pre-seed to early growth stages, often via its Main Sequence Ventures arm, they target companies solving massive global challenges through proprietary scientific breakthroughs.",
+    "other_investments": [
+      "V2Food",
+      "Gilmour Space Technologies",
+      "Loam Bio",
+      "Advanced Navigation"
+    ],
+    "exits": [
+      "Audinate",
+      "PolyNovo",
+      "TeleSense"
+    ],
+    "value_add": "CSIRO provides unparalleled access to Australia's premier scientific facilities, world-class researchers, and extensive intellectual property portfolios to accelerate deep tech R&D. They strongly assist founders in navigating complex regulatory environments, securing non-dilutive government grants, and translating academic breakthroughs into scalable industrial applications."
+  },
+  {
+    "name": "RISE Accelerator (India-Australia Rapid Innovation and Startup Expansion program).",
+    "portfolio_companies": [
+      "Syncrowin"
+    ],
+    "thesis": "RISE Accelerator is a bilateral initiative led by Australia's CSIRO and India's Atal Innovation Mission (NITI Aayog), focusing on mature startups and SMEs in the climate, environment, and deeptech sectors. The program targets technologies related to energy transition, circular economy, and clean tech, specifically supporting companies ready to scale and expand cross-border operations between India and Australia.",
+    "other_investments": [
+      "Alt Carbon",
+      "ClimaSens",
+      "Goterra",
+      "Lavo",
+      "Sentient Hubs"
+    ],
+    "exits": [],
+    "value_add": "The accelerator provides non-equity grants, extensive market entry support, and validation opportunities for cross-border expansion. Portfolio companies benefit heavily from direct access to premier scientific research institutions and government networks to navigate regulatory landscapes, adapt their technologies to new markets, and secure pilot projects."
+  },
+  {
+    "name": "Cleantech Open Northeast",
+    "portfolio_companies": [
+      "Teragen Energy"
+    ],
+    "thesis": "Cleantech Open Northeast operates as an early-stage accelerator and ecosystem builder focused on pre-seed and seed-stage clean technology startups in the Northeastern United States. Their investment and programming scope spans energy generation, energy distribution, agriculture, water management, and deeptech innovations aimed at climate change mitigation.",
+    "other_investments": [
+      "SparkCharge",
+      "LineVision",
+      "AeroShield Materials",
+      "Titan Advanced Energy Solutions"
+    ],
+    "exits": [
+      "MyEnergy",
+      "Dynamo Micropower"
+    ],
+    "value_add": "As a premier regional accelerator, Cleantech Open Northeast provides intensive operational support through a structured customer discovery and business development curriculum. They connect early-stage founders with a vast network of industry mentors, corporate partners, and follow-on venture capitalists to help commercialize complex climate technologies and navigate regulatory landscapes."
+  },
+  {
+    "name": "National Renewable Energy Laboratory (NREL) Industry Growth Forum",
+    "portfolio_companies": [
+      "Teragen Energy"
+    ],
+    "thesis": "The NREL Industry Growth Forum acts as a premier ecosystem catalyst rather than a traditional VC fund, focusing on early-to-growth stage startups in cleantech, renewable energy, and climate tech. It facilitates capital formation by directly connecting high-impact deeptech energy innovators with top-tier venture capitalists, corporate strategics, and government programs.",
+    "other_investments": [
+      "Enphase Energy",
+      "Span",
+      "Fervo Energy",
+      "Natron Energy",
+      "Twelve"
+    ],
+    "exits": [
+      "Nest",
+      "Enphase Energy",
+      "SolarCity"
+    ],
+    "value_add": "NREL offers startups unparalleled technical validation through access to world-class federal laboratory facilities, domain experts, and research scientists. Additionally, the forum provides critical exposure to a specialized network of climate investors and corporate partners, dramatically accelerating a startup's path to commercialization and follow-on funding."
+  },
+  {
+    "name": "Undisclosed (Linked to founders from the SpaceX",
+    "portfolio_companies": [
+      "Terminus Industrials"
+    ],
+    "thesis": "This undisclosed investor network, closely tied to the engineering and operational ethos of SpaceX, focuses on early-stage deeptech, advanced manufacturing, and hard-tech startups. They specifically target founders tackling ambitious industrial, aerospace, and physical infrastructure challenges that require complex hardware-software integration. Their investment thesis centers on backing transformative engineering solutions that can radically reduce costs or scale capabilities in legacy heavy industries.",
+    "other_investments": [
+      "Hadrian",
+      "Varda Space Industries",
+      "Radiant",
+      "Machina Labs"
+    ],
+    "exits": [],
+    "value_add": "Leveraging deep expertise in scaling complex hardware and rapid-iteration engineering, these investors provide unparalleled operational and technical guidance to early-stage founders. They actively assist portfolio companies with recruiting top-tier engineering talent from the aerospace and defense sectors, optimizing supply chain logistics, and implementing rigorous testing methodologies. Additionally, they offer strategic introductions to premier deeptech venture capital funds for subsequent capital raises."
+  },
+  {
+    "name": "Tesla",
+    "portfolio_companies": [
+      "Terminus Industrials"
+    ],
+    "thesis": "Tesla makes highly strategic corporate investments focused on advanced manufacturing, battery technologies, artificial intelligence, and industrial automation. They target deeptech and industrial companies whose innovations can be vertically integrated to accelerate the world's transition to sustainable energy and autonomous transportation.",
+    "other_investments": [
+      "SolarCity",
+      "Maxwell Technologies",
+      "Hibar Systems",
+      "DeepScale"
+    ],
+    "exits": [],
+    "value_add": "Tesla offers partners and portfolio companies unparalleled expertise in scaling hardware manufacturing, industrial robotics, and global supply chain logistics. They provide a massive proving ground for new industrial technologies through direct integration into their world-class electric vehicle and energy storage infrastructure."
+  },
+  {
+    "name": "and Semiconductor ecosystems)",
+    "portfolio_companies": [
+      "Terminus Industrials"
+    ],
+    "thesis": "Focuses on early to growth-stage companies building within the advanced manufacturing, industrial technology, and semiconductor ecosystems. The fund targets deeptech innovations that improve supply chain resilience, hardware infrastructure, and next-generation industrial automation.",
+    "other_investments": [
+      "Cerebras Systems",
+      "Groq",
+      "SambaNova Systems",
+      "Seeq"
+    ],
+    "exits": [
+      "Nuvia",
+      "Habana Labs"
+    ],
+    "value_add": "Leverages deep domain expertise in hardware scaling and industrial supply chains to help founders navigate complex manufacturing hurdles. Provides portfolio companies with strategic introductions to major semiconductor fabs, OEM partners, and specialized engineering talent."
+  },
+  {
+    "name": "Dolby Family Ventures",
+    "portfolio_companies": [
+      "Magnefy"
+    ],
+    "thesis": "Dolby Family Ventures is an early-stage venture firm investing at the intersection of deep tech, life sciences, and advanced materials. Rooted in a legacy of foundational engineering, the fund seeks out transformative companies tackling difficult technical challenges, including sustainable energy components and hardware innovations. They typically participate in Seed and Series A rounds, prioritizing scientific breakthroughs with massive commercial and societal potential.",
+    "other_investments": [
+      "Neuralink",
+      "Cala Health",
+      "Alector",
+      "Rune Labs"
+    ],
+    "exits": [
+      "Alector",
+      "Finch Therapeutics",
+      "Cavion"
+    ],
+    "value_add": "They provide patient, long-term capital well-suited for deep tech and hard science timelines, avoiding the rigid pressures of standard venture fund cycles. Beyond funding, they actively connect founders with leading scientific researchers, specialized engineering talent, and strategic corporate partners to help transition lab-stage technologies into scalable commercial products."
+  },
+  {
+    "name": "Dangerous Ventures",
+    "portfolio_companies": [
+      "Magnefy"
+    ],
+    "thesis": "Dangerous Ventures is an early-stage venture capital firm focused on deeptech, climate technologies, and advanced hardware, backing founders who take on immense technical risks to solve systemic global challenges. They typically invest at the pre-seed and seed stages, specifically targeting breakthroughs in novel materials, energy infrastructure, and advanced manufacturing.",
+    "other_investments": [
+      "KoBold Metals",
+      "Nth Cycle",
+      "Antora Energy",
+      "Fervo Energy"
+    ],
+    "exits": [],
+    "value_add": "Dangerous Ventures provides highly specialized operational support for scaling physical technology, including supply chain optimization, techno-economic analysis, and manufacturing facility design. Additionally, they help heavily technical founding teams navigate complex regulatory hurdles and connect with industrial partners for critical early pilot deployments."
+  },
+  {
+    "name": "Climate Capital",
+    "portfolio_companies": [
+      "Magnefy"
+    ],
+    "thesis": "Climate Capital is an early-stage venture firm and syndicate primarily focused on pre-seed and seed investments in climate technology. Their sector focus spans across decarbonization, renewable energy, the circular economy, and mobility, backing founders who are actively working to reduce global emissions or adapt to a changing climate.",
+    "other_investments": [
+      "Span",
+      "Wright Electric",
+      "Brilliant Planet",
+      "Remora",
+      "Meati Foods"
+    ],
+    "exits": [
+      "Mosaic Materials",
+      "Amply Power",
+      "Blueprint Power"
+    ],
+    "value_add": "Climate Capital provides strong community-driven value through its expansive syndicate of climate-aligned operators, investors, and subject matter experts. Portfolio companies benefit from specialized hiring networks, introductions to follow-on capital, and strategic guidance on scaling go-to-market efforts within the complex climate tech ecosystem."
+  },
+  {
+    "name": "Cyan Ventures",
+    "portfolio_companies": [
+      "Magnefy"
+    ],
+    "thesis": "Cyan Ventures is an early-stage venture capital firm focused on deeptech, advanced materials, and climate innovations. They primarily invest in technical founders building disruptive hardware, electrification solutions, and sustainable industrial technologies.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Cyan Ventures provides hands-on operational support specifically tailored to deeptech and hardware-enabled startups, assisting with manufacturing scale-up and supply chain logistics. They also leverage a strong network of corporate partners to help founders secure pilot programs and navigate complex regulatory environments."
+  },
+  {
+    "name": "Groundline Engineering (Parent Company)",
+    "portfolio_companies": [
+      "Thor Poletest Limited"
+    ],
+    "thesis": "Groundline Engineering acts as a strategic corporate investor and incubator focused on energy infrastructure, utility asset management, and transmission technology. They primarily back internal spin-outs and specialized deeptech solutions that improve grid resilience, non-destructive structural testing, and condition assessment for the power sector.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Provides deep domain expertise in power transmission and distribution engineering, offering technical guidance on hardware development and field deployment. They also give portfolio companies direct access to a global client base of major utility operators, field-testing environments, and deep regulatory compliance knowledge."
+  },
+  {
+    "name": "Unknown (Private/Family-owned)",
+    "portfolio_companies": [
+      "Varixx"
+    ],
+    "thesis": "This investor profile represents undisclosed private individuals or family offices, typically deploying highly flexible, patient capital without the strict time horizons of traditional venture funds. In the context of energy and deeptech, they often target hardware, advanced power electronics, and sustainable technologies that align with long-term macroeconomic trends or existing family industrial assets.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Private and family-owned investors uniquely offer patient capital, allowing hardware and deeptech founders to focus on long-term R&D without the pressure of typical venture fund cycles. They frequently provide strategic introductions to legacy industrial networks, supply chain resources, and potential enterprise customers originating from the family's core business holdings."
+  },
+  {
+    "name": "Indian Angel Network (IAN)",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "Indian Angel Network (IAN) is India's largest sector-agnostic early-stage investment syndicate, focusing primarily on seed and pre-Series A rounds. They back highly scalable, technology-driven startups across enterprise SaaS, deeptech, climate tech, and consumer internet, seeking founders with innovative solutions and high-growth potential.",
+    "other_investments": [
+      "Druva",
+      "Spinny",
+      "Uniphore",
+      "WebEngage",
+      "FarEye"
+    ],
+    "exits": [
+      "Druva",
+      "Spinny",
+      "LBB (Little Black Book)"
+    ],
+    "value_add": "IAN leverages its massive network of over 500 seasoned entrepreneurs, domain experts, and corporate leaders to provide hands-on mentorship and strategic guidance. They actively assist portfolio companies with enterprise customer acquisition, key executive hiring, scaling operations, and securing follow-on capital through their dedicated IAN Fund."
+  },
+  {
+    "name": "Startup-O Ventures",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "Startup-O Ventures focuses on early-stage investments, primarily from Seed to Series A, targeting B2B SaaS, enterprise software, and deeptech startups across Asia and global emerging markets. They look for capital-efficient, highly scalable digital platforms like workforce management and automation tools that demonstrate strong early traction and clear unit economics.",
+    "other_investments": [
+      "Uniphore",
+      "Aida Technologies",
+      "Cialfo",
+      "Vouch"
+    ],
+    "exits": [],
+    "value_add": "Startup-O leverages its proprietary assessment platform and extensive community of global experts to provide founders with unbiased feedback, domain-specific mentoring, and strategic guidance. They actively support portfolio companies with cross-border market expansion across Asia, enterprise customer introductions, and vital connections to follow-on institutional capital."
+  },
+  {
+    "name": "Jaideep Mehta",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "Jaideep Mehta is an angel investor focusing primarily on early-stage B2B SaaS, enterprise software, and digital transformation platforms. He typically targets startups that help traditional businesses digitize field operations, streamline complex workflows, and improve overall operational productivity.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leveraging his extensive executive experience in the technology and media ecosystem, including leadership roles at VCCircle and in IT consulting, Mehta assists founders in refining their B2B go-to-market strategies. He provides access to a deep network of corporate leaders and downstream investors, helping early-stage companies secure enterprise partnerships and navigate scaling challenges."
+  },
+  {
+    "name": "KRS Jamwal",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "KRS Jamwal focuses on early-stage investments in B2B SaaS, enterprise software, and industrial technologies, primarily within the Indian startup ecosystem. Drawing from his extensive corporate background, he seeks startups that digitize traditional industries, enhance operational workflows, and demonstrate strong potential for enterprise-level scalability.",
+    "other_investments": [
+      "Grinntech",
+      "Flisom",
+      "Inzpera Healthsciences"
+    ],
+    "exits": [],
+    "value_add": "Leverages his extensive leadership experience at Tata Industries to provide strategic guidance on corporate governance, enterprise scaling, and complex B2B sales cycles. He facilitates crucial networking with large industrial conglomerates, helping founders navigate corporate procurement processes and refine their go-to-market strategies."
+  },
+  {
+    "name": "Pramod Jajoo",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "Pramod Jajoo is an active early-stage angel investor who primarily focuses on enterprise SaaS, B2B marketplaces, and tech-enabled platforms in India. Drawing from his deep technical background, he targets highly scalable product-led companies, particularly those innovating in workforce management, supply chain, and deeptech.",
+    "other_investments": [
+      "Yellow.ai",
+      "LocoNav",
+      "Wiom",
+      "SuperK"
+    ],
+    "exits": [],
+    "value_add": "Leveraging his past experience as the CTO of BigBasket and a senior engineering leader at Flipkart, Pramod provides exceptional guidance on technology architecture, product strategy, and scaling engineering teams. He also connects founders with a strong network of downstream venture capital funds and key enterprise decision-makers across the Indian startup ecosystem."
+  },
+  {
+    "name": "Shalil Gupta",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "Shalil Gupta focuses on early-stage angel investments in B2B SaaS, enterprise technology, and digital transformation platforms. He primarily targets startups that drive operational efficiency, automate workflows, and empower frontline workforces across traditional and industrial sectors.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "Leveraging his deep leadership experience in digital research and tech media ecosystems, Shalil assists founders with enterprise Go-To-Market (GTM) strategies and scaling operations. He actively utilizes his extensive corporate network to connect portfolio companies with key enterprise buyers, industry leaders, and potential strategic partners."
+  },
+  {
+    "name": "and several existing customers who participated as angels.",
+    "portfolio_companies": [
+      "Workongrid"
+    ],
+    "thesis": "As a syndicate of existing customers participating as angel investors, their investment thesis is fundamentally driven by product-led validation and strategic alignment. They typically invest at the early or seed stages in B2B SaaS, enterprise operations, and industrial tech platforms where they have firsthand experience as end-users. Their focus is strictly on funding and accelerating solutions that directly solve critical operational pain points within their respective industries.",
+    "other_investments": [],
+    "exits": [],
+    "value_add": "As active users of the platform, these customer-angels provide unparalleled product feedback, continuous beta testing, and highly relevant feature validation for deeptech and enterprise solutions. Furthermore, they act as powerful reference customers who help the startup secure broader enterprise contracts by offering direct industry introductions and accelerating the go-to-market strategy."
+  }
+]
