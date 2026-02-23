@@ -1,12 +1,16 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('ventureApp', () => ({
         allCompanies: [],
+        investors: [],
         isLoading: true,
         error: null,
         view: 'list',
         selectedCategory: null,
         modalOpen: false,
         selectedCompany: null,
+        selectedInvestor: null,
+        investorModalOpen: false,
+        investorSearch: '',
         mobileFiltersOpen: false,
         viewMode: 'vc', 
         favorites: Alpine.$persist([]).as('venture-favorites'),
@@ -32,6 +36,7 @@ document.addEventListener('alpine:init', () => {
                 this.favorites = [];
             }
             this.loadData(); 
+            this.loadInvestors();
         },
 
         loadData() {
@@ -40,6 +45,43 @@ document.addEventListener('alpine:init', () => {
                 this.allCompanies = this.processData(d);
                 this.isLoading = false;
             }).catch(e => { this.error = e.message; this.isLoading = false; });
+        },
+
+        loadInvestors() {
+            fetch('investors_enriched.json').then(r => r.json()).then(d => {
+                this.investors = d;
+            }).catch(e => { console.error("Could not load investors", e); });
+        },
+
+        openInvestorModal(investor) {
+            this.selectedInvestor = investor;
+            this.investorModalOpen = true;
+            document.body.style.overflow = 'hidden';
+        },
+
+        closeInvestorModal() {
+            this.investorModalOpen = false;
+            this.selectedInvestor = null;
+            document.body.style.overflow = '';
+        },
+
+        openCompanyFromInvestor(companyName) {
+            this.closeInvestorModal();
+            this.view = 'list';
+            setTimeout(() => {
+                const company = this.allCompanies.find(c => c.name === companyName);
+                if (company) this.openModal(company);
+            }, 100);
+        },
+
+        get filteredInvestors() {
+            if (!this.investorSearch) return this.investors;
+            const q = this.investorSearch.toLowerCase();
+            return this.investors.filter(i => 
+                i.name.toLowerCase().includes(q) || 
+                (i.thesis || '').toLowerCase().includes(q) ||
+                (i.portfolio_companies || []).some(c => c.toLowerCase().includes(q))
+            );
         },
 
         async sendMessage() {
@@ -85,6 +127,10 @@ document.addEventListener('alpine:init', () => {
                 I am providing a JSON dataset of companies who were exhibitors at 2026 Distribibutech conference and earned a high Venture score in our ai-assisted analysis..
                 Keys: n=Name, s=Venture Score, h=HQ, st=Stage, d=Description, m=Moat, rat=VC Rationale, ana=Analogy, mac=Macro Trend, hc=Headcount, stat=Status, $r=Total Raised, rnd=Latest Round, inv=Investors, cust=Customers, tech=Tech Stack, biz=Business Model, tax=Taxonomy, strat=Strategic Analysis (Market Depth, AI Survival Score, etc.), metrics=Rigorous Metric Rationales (Detailed thesis on Market Scale, Competition, Stickiness, etc.), found=Founders (n=Name, r=Role, b=Bio, fmf=Founder-Market Fit, ht=Hometown, edu=Education, prev=Previous Companies, tags=Tags, li=LinkedIn, tw=Twitter, tech=Is Technical).
                 
+                I am also providing a JSON dataset of Investors who have invested in these companies.
+                INVESTOR DATASET:
+                ${JSON.stringify(this.investors.map(i => ({n: i.name, t: i.thesis, p: i.portfolio_companies, o: i.other_investments, e: i.exits, v: i.value_add})))}
+
                 CRITICAL RULES:
                 1. Be thorough. Thoroughly review every attribute for each company, their investors, their customers, their moat, tech stack, business model, their industry (taxonomy), and ultimately the macro picture, to comprehensively answer the user's questions.
                 2. When asked about companies, frame the question through the perspective of a venture capital firm that looks for early-stage, (seed and series A), middle-America,interior USA, ai-focused, defendable moat, incredibly scalable companies. Show all options including coastal US and international companies, but prioritize displaying opportunities in the interior US when you see them.
