@@ -205,9 +205,21 @@
                                         <div class="text-xs text-gray-600 leading-relaxed line-clamp-2" x-text="company.desc"></div>
                                         
                                         <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
-                                            <div class="flex flex-col">
-                                                <span class="text-[9px] font-bold text-gray-400 uppercase">Score</span>
-                                                <span class="text-lg font-bold text-gray-900 leading-none" x-text="company.score.toFixed(2)"></span>
+                                            <div class="flex gap-4">
+                                                <div class="flex flex-col cursor-pointer group" @click.stop="filters.sortBy = 'score'; sortDesc = (filters.sortBy === 'score' ? !sortDesc : true)">
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="text-[9px] font-bold text-gray-400 uppercase group-hover:text-blue-600 transition-colors">Venture</span>
+                                                        <span class="text-[9px] text-gray-300" :class="filters.sortBy === 'score' ? 'text-blue-600 font-bold' : ''" x-text="filters.sortBy === 'score' && !sortDesc ? '↑' : '↓'"></span>
+                                                    </div>
+                                                    <span class="text-lg font-bold text-gray-900 leading-none" x-text="company.score.toFixed(2)"></span>
+                                                </div>
+                                                <div class="flex flex-col cursor-pointer group" @click.stop="filters.sortBy = 'ai_survival'; sortDesc = (filters.sortBy === 'ai_survival' ? !sortDesc : true)">
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="text-[9px] font-bold text-gray-400 uppercase group-hover:text-blue-600 transition-colors">AI Surv.</span>
+                                                        <span class="text-[9px] text-gray-300" :class="filters.sortBy === 'ai_survival' ? 'text-blue-600 font-bold' : ''" x-text="filters.sortBy === 'ai_survival' && !sortDesc ? '↑' : '↓'"></span>
+                                                    </div>
+                                                    <span class="text-lg font-bold text-gray-900 leading-none" :class="{'text-emerald-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.7, 'text-amber-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.5 && (company.strategic_analysis?.ai_survival_score || 0) < 0.7, 'text-red-600': (company.strategic_analysis?.ai_survival_score || 0) < 0.5}" x-text="(company.strategic_analysis?.ai_survival_score || 0).toFixed(2)"></span>
+                                                </div>
                                             </div>
                                             <div class="flex flex-col items-end">
                                                 <span class="text-[9px] font-bold text-gray-400 uppercase">Stage</span>
