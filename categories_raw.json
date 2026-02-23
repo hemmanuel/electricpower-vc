@@ -1,0 +1,144 @@
+[
+  {
+    "name": "Professional Services & Engineering",
+    "count": 2,
+    "companies": [
+      "Accurant International",
+      "NW Signal Maintenance, LLC"
+    ],
+    "avg_ai_score": 0.615,
+    "avg_market_score": 5.5
+  },
+  {
+    "name": "Grid Operations & Software (SaaS)",
+    "count": 26,
+    "companies": [
+      "Fischer Block",
+      "Synerty",
+      "ADAION SMART GRID SOLUTIONS, S.L.",
+      "Arkion Solutions AB",
+      "CENTRII",
+      "DATA",
+      "Deepmatrix Private Limited",
+      "EcoMetricx",
+      "Engineered Intelligence, Inc",
+      "Firescape Inc",
+      "GeoCam",
+      "Green Grid Inc",
+      "GridSeer",
+      "Gridtwin",
+      "Impresa.ai",
+      "Intelfuse",
+      "Looq AI",
+      "Prav?h",
+      "Resilient Link",
+      "Scopito ApS",
+      "Sensewaves",
+      "SMPnet",
+      "Solitude Labs",
+      "Syncrowin",
+      "Magnefy",
+      "Workongrid"
+    ],
+    "avg_ai_score": 0.4661538461538462,
+    "avg_market_score": 6.230769230769231
+  },
+  {
+    "name": "Grid Infrastructure (Hardware)",
+    "count": 11,
+    "companies": [
+      "Kodion Energy",
+      "Ayr Energy",
+      "Delphire",
+      "EcoPhi",
+      "Expand Power",
+      "GridWrap",
+      "Magment Americas",
+      "Pacific Volt",
+      "SubProTech",
+      "Terminus Industrials",
+      "Varixx"
+    ],
+    "avg_ai_score": 0.9009090909090908,
+    "avg_market_score": 5.454545454545454
+  },
+  {
+    "name": "Field Operations & Services",
+    "count": 8,
+    "companies": [
+      "PraXel Line Services",
+      "AsseTrac",
+      "FlyFreely",
+      "Linebird",
+      "Raad",
+      "Safeguard Equipment",
+      "Skyllful",
+      "Thor Poletest Limited"
+    ],
+    "avg_ai_score": 0.73125,
+    "avg_market_score": 5
+  },
+  {
+    "name": "Distributed Energy (DERs) & Edge",
+    "count": 14,
+    "companies": [
+      "AIon Grid Inc",
+      "Easymetering, LLC",
+      "Ecosuite",
+      "EdgeTunePower",
+      "Elastic Energy",
+      "Green Edge Computing Corp",
+      "Gridient",
+      "Joulea",
+      "L?D",
+      "Molecule Systems",
+      "N-Smart",
+      "Nexbe Limited",
+      "Nucore.ai",
+      "PIQ Energy"
+    ],
+    "avg_ai_score": 0.6778571428571427,
+    "avg_market_score": 7.571428571428571
+  },
+  {
+    "name": "Generation & Storage",
+    "count": 3,
+    "companies": [
+      "American Power Trainsmission",
+      "Megajoule Plus Systems (MPS)",
+      "Teragen Energy"
+    ],
+    "avg_ai_score": 0.9366666666666665,
+    "avg_market_score": 7
+  },
+  {
+    "name": "Other",
+    "count": 2,
+    "companies": [
+      "Digitalizing the Grid HUB",
+      "Innovative and Emerging Tech HUB"
+    ],
+    "avg_ai_score": 0.4,
+    "avg_market_score": 8
+  },
+  {
+    "name": "Enterprise & Corporate Systems",
+    "count": 3,
+    "companies": [
+      "Ensight Plus, LLC",
+      "Kootanla",
+      "Paysitters"
+    ],
+    "avg_ai_score": 0.21666666666666667,
+    "avg_market_score": 5
+  },
+  {
+    "name": "Energy Markets & Trading",
+    "count": 1,
+    "companies": [
+      "Senpilot"
+    ],
+    "avg_ai_score": 0.35,
+    "avg_market_score": 6
+  }
+]
