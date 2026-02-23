@@ -7,6 +7,7 @@ document.addEventListener('alpine:init', () => {
         error: null,
         view: 'list',
         selectedCategory: null,
+        categoryModalOpen: false,
         modalOpen: false,
         selectedCompany: null,
         selectedInvestor: null,
@@ -59,6 +60,24 @@ document.addEventListener('alpine:init', () => {
             fetch('categories_enriched.json').then(r => r.json()).then(d => {
                 this.enrichedCategoriesData = d;
             }).catch(e => { console.error("Could not load categories", e); });
+        },
+
+        openCategoryModal(category) {
+            this.selectedCategory = category;
+            this.categoryModalOpen = true;
+            document.body.style.overflow = 'hidden';
+        },
+
+        closeCategoryModal() {
+            this.categoryModalOpen = false;
+            this.selectedCategory = null;
+            document.body.style.overflow = '';
+        },
+
+        viewCategoryCompanies(categoryName) {
+            this.closeCategoryModal();
+            this.filters.sector = categoryName;
+            this.view = 'list';
         },
 
         openInvestorModal(investor) {

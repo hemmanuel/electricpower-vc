@@ -133,67 +133,27 @@
                 <div class="flex-1 overflow-y-auto p-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                         <template x-for="category in categories" :key="category.name">
-                            <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col h-full">
-                                <div class="p-5 border-b border-gray-100 bg-gray-50/50">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h3 class="text-lg font-bold text-gray-900 leading-tight" x-text="category.name"></h3>
-                                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded-full" x-text="category.count + ' Co.'"></span>
-                                    </div>
-                                    <p class="text-xs text-gray-600 leading-relaxed" x-text="category.description || 'Loading analysis...'"></p>
-                                </div>
-                                
-                                <div class="p-5 space-y-5 flex-1">
-                                    <!-- Scores -->
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div class="bg-indigo-50 rounded-lg p-3 text-center border border-indigo-100">
-                                            <div class="text-[10px] font-bold text-indigo-400 uppercase tracking-wide mb-1">AI Defensibility</div>
-                                            <div class="text-2xl font-bold" :class="{'text-emerald-600': (category.avg_ai_score || 0) >= 0.7, 'text-amber-600': (category.avg_ai_score || 0) >= 0.5 && (category.avg_ai_score || 0) < 0.7, 'text-red-600': (category.avg_ai_score || 0) < 0.5}" x-text="(category.avg_ai_score || 0).toFixed(2)"></div>
+                            <div @click="openCategoryModal(category)" class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col cursor-pointer group h-full">
+                                <div class="p-5 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-start mb-4">
+                                            <h3 class="text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors" x-text="category.name"></h3>
+                                            <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full border border-blue-100" x-text="category.count + ' Co.'"></span>
                                         </div>
-                                        <div class="bg-blue-50 rounded-lg p-3 text-center border border-blue-100">
-                                            <div class="text-[10px] font-bold text-blue-400 uppercase tracking-wide mb-1">Market Depth</div>
-                                            <div class="text-2xl font-bold text-blue-700" x-text="(category.avg_market_score || 0).toFixed(1)"></div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Analysis -->
-                                    <div class="space-y-4">
-                                        <div>
-                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
-                                                <span>🤖</span> AI Survivability Analysis
+                                        
+                                        <div class="mt-4">
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">AI Defensibility</div>
+                                            <div class="flex items-end gap-2">
+                                                <div class="text-3xl font-bold" :class="{'text-emerald-600': (category.avg_ai_score || 0) >= 0.7, 'text-amber-600': (category.avg_ai_score || 0) >= 0.5 && (category.avg_ai_score || 0) < 0.7, 'text-red-600': (category.avg_ai_score || 0) < 0.5}" x-text="(category.avg_ai_score || 0).toFixed(2)"></div>
+                                                <div class="text-xs font-medium text-gray-400 mb-1.5">/ 1.00</div>
                                             </div>
-                                            <p class="text-xs text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100" x-text="category.ai_survivability_analysis || 'Analysis pending...'"></p>
-                                        </div>
-
-                                        <div>
-                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
-                                                <span>🔄</span> Pivotability & Market Size
-                                            </div>
-                                            <p class="text-xs text-gray-700 leading-relaxed" x-text="category.market_pivotability || 'Analysis pending...'"></p>
-                                        </div>
-
-                                        <div>
-                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
-                                                <span>💡</span> VC Thesis & Risks
-                                            </div>
-                                            <p class="text-xs text-gray-700 leading-relaxed" x-text="category.vc_thesis || 'Analysis pending...'"></p>
                                         </div>
                                     </div>
 
-                                    <!-- Hot Trends -->
-                                    <div x-show="category.hot_trends && category.hot_trends.length > 0">
-                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Trending Themes</div>
-                                        <div class="flex flex-wrap gap-1.5">
-                                            <template x-for="trend in category.hot_trends">
-                                                <span class="inline-block bg-orange-50 text-orange-700 border border-orange-100 px-2 py-1 rounded text-[10px] font-semibold" x-text="trend"></span>
-                                            </template>
-                                        </div>
+                                    <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                        <span class="text-xs font-semibold text-gray-500 group-hover:text-blue-600 transition-colors">View Analysis</span>
+                                        <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                                     </div>
-                                </div>
-                                
-                                <div class="p-4 bg-gray-50 border-t border-gray-100 mt-auto">
-                                    <button @click="filters.sector = category.name; view = 'list'" class="w-full py-2 text-xs font-bold text-blue-600 bg-white border border-blue-200 hover:bg-blue-50 hover:border-blue-300 rounded-lg transition-all shadow-sm">
-                                        View Companies
-                                    </button>
                                 </div>
                             </div>
                         </template>
@@ -1144,8 +1104,93 @@
         </div>
     </div>
 
-    <!-- Investor Modal -->
-    <div x-show="investorModalOpen" class="fixed inset-0 z-[60] overflow-y-auto" role="dialog" aria-modal="true" x-cloak>
+    <!-- Category Modal -->
+    <div x-show="categoryModalOpen" class="fixed inset-0 z-[60] overflow-y-auto" role="dialog" aria-modal="true" x-cloak>
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity backdrop-blur-sm" @click="closeCategoryModal()"></div>
+        <div class="flex min-h-full items-end justify-center sm:items-center p-0 sm:p-4 text-center">
+            <div class="relative transform overflow-hidden bg-white text-left shadow-2xl transition-all sm:rounded-2xl w-full sm:max-w-3xl max-h-[85vh] flex flex-col">
+                <template x-if="selectedCategory">
+                    <div class="flex flex-col h-full max-h-[85vh]">
+                        <!-- Header -->
+                        <div class="relative bg-gradient-to-br from-blue-50 to-white border-b border-gray-100 p-6 flex-shrink-0">
+                            <button @click="closeCategoryModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 bg-white/50 hover:bg-white rounded-full transition-all focus:outline-none">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                            </button>
+                            
+                            <div class="pr-8">
+                                <h3 class="text-2xl font-bold text-gray-900 leading-tight mb-2" x-text="selectedCategory.name"></h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" x-text="selectedCategory.description"></p>
+                            </div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="overflow-y-auto p-6 space-y-8 bg-white flex-1">
+                            
+                            <!-- Scores -->
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-indigo-50 rounded-xl p-4 text-center border border-indigo-100">
+                                    <div class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-1">AI Defensibility</div>
+                                    <div class="text-4xl font-bold" :class="{'text-emerald-600': (selectedCategory.avg_ai_score || 0) >= 0.7, 'text-amber-600': (selectedCategory.avg_ai_score || 0) >= 0.5 && (selectedCategory.avg_ai_score || 0) < 0.7, 'text-red-600': (selectedCategory.avg_ai_score || 0) < 0.5}" x-text="(selectedCategory.avg_ai_score || 0).toFixed(2)"></div>
+                                    <div class="text-[10px] font-bold text-indigo-300 uppercase tracking-wide mt-1">Score (0-1)</div>
+                                </div>
+                                <div class="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
+                                    <div class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-1">Market Depth</div>
+                                    <div class="text-4xl font-bold text-blue-700" x-text="(selectedCategory.avg_market_score || 0).toFixed(1)"></div>
+                                    <div class="text-[10px] font-bold text-blue-300 uppercase tracking-wide mt-1">Score (1-10)</div>
+                                </div>
+                            </div>
+
+                            <!-- Analysis Sections -->
+                            <div class="space-y-6">
+                                <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="text-xl">🤖</span>
+                                        <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide">AI Survivability Analysis</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-700 leading-relaxed" x-text="selectedCategory.ai_survivability_analysis || 'Analysis pending...'"></p>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="text-xl">🔄</span>
+                                        <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wide">Pivotability & Market Size</h4>
+                                    </div>
+                                    <p class="text-sm text-gray-700 leading-relaxed" x-text="selectedCategory.market_pivotability || 'Analysis pending...'"></p>
+                                </div>
+
+                                <div class="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="text-xl">💡</span>
+                                        <h4 class="text-sm font-bold text-blue-900 uppercase tracking-wide">VC Thesis & Risks</h4>
+                                    </div>
+                                    <p class="text-sm text-blue-800 leading-relaxed" x-text="selectedCategory.vc_thesis || 'Analysis pending...'"></p>
+                                </div>
+                            </div>
+
+                            <!-- Hot Trends -->
+                            <div x-show="selectedCategory.hot_trends && selectedCategory.hot_trends.length > 0">
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Trending Themes</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="trend in selectedCategory.hot_trends">
+                                        <span class="px-3 py-1.5 bg-orange-50 text-orange-700 border border-orange-100 rounded-full text-xs font-bold shadow-sm" x-text="trend"></span>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex justify-between items-center gap-4">
+                            <button @click="closeCategoryModal()" class="px-5 py-2.5 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-bold rounded-xl shadow-sm transition-all">Close</button>
+                            <button @click="viewCategoryCompanies(selectedCategory.name)" class="flex-1 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                                <span>View All <span x-text="selectedCategory.count"></span> Companies</span>
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
         <div class="fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity backdrop-blur-sm" @click="closeInvestorModal()"></div>
         <div class="flex min-h-full items-end justify-center sm:items-center p-0 sm:p-4 text-center">
             <div class="relative transform overflow-hidden bg-white text-left shadow-2xl transition-all sm:rounded-2xl w-full sm:max-w-2xl max-h-[85vh] flex flex-col">
