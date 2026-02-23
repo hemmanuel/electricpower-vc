@@ -279,7 +279,7 @@
                                         
                                         <div class="mb-2">
                                             <div class="text-[9px] font-bold text-indigo-500 uppercase mb-0.5">AI Survivability Thesis</div>
-                                            <div class="text-xs text-indigo-800 leading-snug" x-text="selectedCompany.strategic_analysis.ai_force_multiplier_thesis"></div>
+                                            <div class="text-xs text-indigo-800 leading-snug whitespace-pre-wrap" x-text="selectedCompany.strategic_analysis.ai_force_multiplier_thesis"></div>
                                         </div>
 
                                         <div class="grid grid-cols-3 gap-1 mt-2 pt-2 border-t border-indigo-200">
@@ -605,12 +605,29 @@
                                         </template>
 
                                     </div>
-                                    <div class="hidden lg:flex flex-col items-end justify-start min-w-[80px] pl-4 border-l border-gray-100">
+                                    <div class="hidden lg:flex flex-col items-end justify-start min-w-[160px] pl-4 border-l border-gray-100">
                                          <button @click.stop="toggleFav(company.name)" class="p-2 -mr-2 -mt-2 rounded-full hover:bg-gray-100 transition-colors focus:outline-none mb-2" :class="isFav(company.name) ? 'text-red-500' : 'text-gray-300 hover:text-red-400'"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :fill="isFav(company.name) ? 'currentColor' : 'none'" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></button>
-                                        <div class="text-3xl font-bold text-gray-900 tracking-tight" x-text="company.score.toFixed(2)"></div>
-                                        <div class="text-[9px] font-bold text-gray-400 uppercase tracking-wide mt-1 text-right">Venture<br>Score</div>
+                                        <div class="flex items-end gap-5">
+                                            <div class="flex flex-col items-end opacity-90 hover:opacity-100 transition-opacity cursor-help" title="AI Survivability Score">
+                                                <div class="text-2xl font-bold tracking-tight" :class="{'text-emerald-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.7, 'text-amber-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.5 && (company.strategic_analysis?.ai_survival_score || 0) < 0.7, 'text-red-600': (company.strategic_analysis?.ai_survival_score || 0) < 0.5}" x-text="(company.strategic_analysis?.ai_survival_score || 0).toFixed(2)"></div>
+                                                <div class="text-[9px] font-bold text-gray-400 uppercase tracking-wide mt-1 text-right">AI<br>Surv</div>
+                                            </div>
+                                            <div class="flex flex-col items-end">
+                                                <div class="text-3xl font-bold text-gray-900 tracking-tight" x-text="company.score.toFixed(2)"></div>
+                                                <div class="text-[9px] font-bold text-gray-400 uppercase tracking-wide mt-1 text-right">Venture<br>Score</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="lg:hidden flex items-center justify-between border-t border-gray-100 pt-3 mt-1"><div class="text-xs font-bold text-gray-400 uppercase">Venture Score</div><div class="text-xl font-bold text-gray-900" x-text="company.score.toFixed(2)"></div></div>
+                                    <div class="lg:hidden flex items-center justify-between border-t border-gray-100 pt-3 mt-1">
+                                        <div class="flex flex-col">
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase">AI Surv</div>
+                                            <div class="text-lg font-bold" :class="{'text-emerald-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.7, 'text-amber-600': (company.strategic_analysis?.ai_survival_score || 0) >= 0.5 && (company.strategic_analysis?.ai_survival_score || 0) < 0.7, 'text-red-600': (company.strategic_analysis?.ai_survival_score || 0) < 0.5}" x-text="(company.strategic_analysis?.ai_survival_score || 0).toFixed(2)"></div>
+                                        </div>
+                                        <div class="flex flex-col items-end">
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase">Venture Score</div>
+                                            <div class="text-xl font-bold text-gray-900" x-text="company.score.toFixed(2)"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </template>
@@ -733,7 +750,7 @@
                                         <div class="mb-6 space-y-4">
                                             <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4">
                                                 <div class="text-[10px] font-bold text-indigo-500 uppercase mb-1">AI Survivability Thesis</div>
-                                                <div class="text-sm text-indigo-900 leading-relaxed" x-text="selectedCompany.strategic_analysis.ai_force_multiplier_thesis"></div>
+                                                <div class="text-sm text-indigo-900 leading-relaxed whitespace-pre-wrap" x-text="selectedCompany.strategic_analysis.ai_force_multiplier_thesis"></div>
                                             </div>
                                         </div>
                                     </template>
