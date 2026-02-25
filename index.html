@@ -15,6 +15,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        [x-cloak] { display: none !important; }
+        /* Markdown Table Styles */
+        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: 0.85em; }
+        .prose th, .prose td { border: 1px solid #e5e7eb; padding: 0.5em; text-align: left; }
+        .prose th { background-color: #f9fafb; font-weight: 600; }
+        .prose tr:nth-child(even) { background-color: #f9fafb; }
+    </style>
 </head>
 <body x-data="ventureApp" class="antialiased bg-white h-[100dvh] flex flex-col overflow-hidden">
 

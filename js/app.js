@@ -25,7 +25,12 @@ document.addEventListener('alpine:init', () => {
         sortDesc: true, 
         sidebarOpen: true, 
         chatProfileOpen: false, // New state for sidebar profile view
-        mdParser: window.markdownit(),
+        mdParser: window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true 
+        }),
         categoriesList: ["Grid Infrastructure (Hardware)","Grid Operations & Software (SaaS)","Enterprise & Corporate Systems","Field Operations & Services","Distributed Energy (DERs) & Edge","Generation & Storage","Professional Services & Engineering","Energy Markets & Trading","Other"],
                 filters: { sector: '', subCat: '', stage: '', status: '', sortBy: 'ai_survival', aiFocus: false, showFavoritesOnly: false },
                 founderFilter: { tag: '', alumni: '' },
@@ -163,7 +168,8 @@ document.addEventListener('alpine:init', () => {
                 2. When asked about companies, frame the question through the perspective of a venture capital firm that looks for early-stage, (seed and series A), middle-America,interior USA, ai-focused, defendable moat, incredibly scalable companies. Show all options including coastal US and international companies, but prioritize displaying opportunities in the interior US when you see them.
                 3. Make the tone professional and not "edgy", do not sound robotic. Connect dots if you identify them. Do not skimp out on context. Your job is to help the user uncover real, deep, asymmetric insights.
                 4. If you don't know the answer to something, be honest. Do not estimate or hallucinate. If you must estimate, be clear that the value you're providing is an estimate.
-                5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise..
+                5. Prioritize companies with higher Venture Scores (s) unless instructed otherwise.
+                6. FORMATTING: Use Markdown. When creating tables, YOU MUST include the header separator row (e.g. |---|---|) immediately after the header row for it to render correctly. Do not indent tables.
 
                 OPERATING INSTRUCTION
                 Everything that was written up until now was background knowledge for you to keep in mind as you answer the question. Below this block will be the dataset, then the user will ask their question. Treat their question as the beginning of the prompt. Do not address anything that was said up until now. Do not address "middle-america", "asymmetric upside" or any of the instruction provided above. Those are internal instructions. The real prompt comes after this.
