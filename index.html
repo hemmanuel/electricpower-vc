@@ -150,7 +150,7 @@
                                         </div>
                                         
                                         <div class="mt-4">
-                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">AI Defensibility</div>
+                                            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">AI Surv</div>
                                             <div class="flex items-end gap-2">
                                                 <div class="text-3xl font-bold" :class="{'text-emerald-600': (category.avg_ai_score || 0) >= 0.7, 'text-amber-600': (category.avg_ai_score || 0) >= 0.5 && (category.avg_ai_score || 0) < 0.7, 'text-red-600': (category.avg_ai_score || 0) < 0.5}" x-text="(category.avg_ai_score || 0).toFixed(2)"></div>
                                                 <div class="text-xs font-medium text-gray-400 mb-1.5">/ 1.00</div>
